@@ -2,11 +2,14 @@
 			 //funciones del js API (prototype del componnente)	 
 			 inputProto.onClear = function(){
 				 this.value = "";
+				 this.style.position = "static";
+				 this.placeholder = "New Text";
 			 }
 
 			 inputProto.setPos = function(x,y){
-			 	this.style.x = x;
-			 	this.style.y = y;
+			 	this.style.top = x + "px";
+				this.style.left = y + "px";
+			 	this.style.position =  "relative";
 			 }
 
 			 inputProto.setDimensions = function(width,height){
@@ -36,10 +39,12 @@
     				 }
 			 }
 						
+			 
+
 			 var EgComponent = document.registerElement('eg-input', 
 				 {prototype: inputProto, extends:'input'}
 				 );
-
+			 
 			 var egcomp = new EgComponent();
 			 //function de componente ya creado en el DOM
 			 function test(){
@@ -60,7 +65,7 @@
 			 }
 
 			 function test4(){
-			 	egcomp.setPos(20,250);
+			 	egcomp.setPos(30,580);
 			 }
 			 //metiendo el componente al html desde el dom
 			 document.body.appendChild(egcomp);
