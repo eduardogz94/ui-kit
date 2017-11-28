@@ -1,5 +1,5 @@
     		 var inputProto = Object.create(HTMLInputElement.prototype);   						
-			//funciones del js API (prototype del componnente)	 
+			 //funciones del js API (prototype del componnente)	 
 			 inputProto.onClear = function(){
 				 this.value = "";
 			 }
@@ -36,7 +36,7 @@
 				 );
 
 			 var egcomp = new EgComponent();
-			//function de componente ya creado en el DOM
+			 //function de componente ya creado en el DOM
 			 function prueba(){
    				 egcomp.onClear();
    				 egcomp.setDimensions(250,15);
@@ -53,5 +53,5 @@
 			 function prueba3(){
 				 egcomp.lowerCaps();
 			 }
-			//metiendo el componente al html desde el dom
+			 //metiendo el componente al html desde el dom
 			 document.body.appendChild(egcomp);
