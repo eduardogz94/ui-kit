@@ -4,6 +4,11 @@
 				 this.value = "";
 			 }
 
+			 inputProto.setPos = function(x,y){
+			 	this.style.x = x;
+			 	this.style.y = y;
+			 }
+
 			 inputProto.setDimensions = function(width,height){
 				 this.style.width = width + "px";
 				 this.style.height = height + "px";
@@ -37,21 +42,25 @@
 
 			 var egcomp = new EgComponent();
 			 //function de componente ya creado en el DOM
-			 function prueba(){
+			 function test(){
    				 egcomp.onClear();
    				 egcomp.setDimensions(250,15);
 			 }
 
-			 function prueba1(){
+			 function test1(){
 				 egcomp.setDimensions(350,15);
 			 }
 
-			 function prueba2(){
+			 function test2(){
 				 egcomp.caps();
 			 }
 
-			 function prueba3(){
+			 function test3(){
 				 egcomp.lowerCaps();
+			 }
+
+			 function test4(){
+			 	egcomp.setPos(20,250);
 			 }
 			 //metiendo el componente al html desde el dom
 			 document.body.appendChild(egcomp);
