@@ -40,18 +40,19 @@
  }
 				 
  var EgComponent = document.registerElement('eg-input', 
-	 {prototype: inputProto, extends:'input'}
-	 );
+	 {prototype: inputProto, extends:'input'} );
 
  var egcomp = new EgComponent();
+ egcomp.placeholder = "Input de eduardo";
+
  //function de componente ya creado en el DOM
  function test(){
 	 egcomp.onClear();
-	 egcomp.setDimensions(250,15);
+	 egcomp.setDimensions(200,15);
  }
 
  function test1(){
-	 egcomp.setDimensions(350,15);
+	 egcomp.setDimensions(261,15);
  }
 
  function test2(){
@@ -63,7 +64,7 @@
  }
 
  function test4(){
- 	 egcomp.setPos(30,580);
+ 	 egcomp.setPos(3,580);
  }
  //metiendo el componente al html desde el dom
  document.body.appendChild(egcomp);
