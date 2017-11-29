@@ -18,9 +18,7 @@
  }
 
  inputProto.caps = function(input){
-	 input = this.value;
-	 var regEx = /[A-Z]/;
-	 var match = regEx.test(input);
+	 var match = /[A-Z]/.test(this.value);
 		 if(match){
 		     alert("Valid")}
 		 else{
@@ -28,10 +26,8 @@
 		 }
  }
 			
- inputProto.lowerCaps = function(input){
- 	 input = this.value;
-	 var regEx =/[^A-Z]/;
-	 var match = regEx.test(input);
+ inputProto.lowerCaps = function(){
+	 var match = /[^A-Z]/.test(this.value);
 		 if (match){
 			 alert("Valid")
 		 }else{
@@ -39,8 +35,10 @@
 		 }
  }
 				 
- var EgComponent = document.registerElement('eg-input', 
-	 {prototype: inputProto, extends:'input'} );
+ var EgComponent = document.registerElement('eg-input', {
+	 	prototype: inputProto, 
+	 	extends:'input'}
+ );
 
  var egcomp = new EgComponent();
 
