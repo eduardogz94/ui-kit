@@ -3,7 +3,7 @@
  inputProto.onClear = function(){
 	 this.value = "";
 	 this.style.position = "static";
-	 this.placeholder = "New Text";
+	 this.placeholder = "Cleared";
  }
 
  inputProto.setPos = function(x,y){
@@ -43,6 +43,7 @@
 	 {prototype: inputProto, extends:'input'} );
 
  var egcomp = new EgComponent();
+
  egcomp.placeholder = "Input de eduardo";
 
  //function de componente ya creado en el DOM

@@ -61,7 +61,7 @@
 var egcomp = new EgComponent();
 
 /* Set the 'placeholder' property. */
-egcomp.placeholder = "Hola";
+egcomp.placeholder = "Input de eduardo";
 
 /* Set the 'pattern' property. */
 egcomp.pattern = /[a-z]/;
