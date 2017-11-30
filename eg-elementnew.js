@@ -44,6 +44,7 @@
         alert(/[^0-9]/.test(this.value) ? "Valid" : "Not valid");
       }
     },
+
     /* The function that returns if the value of a component instance is uppercase. */
     caps: {
       value: function(input) {
@@ -69,7 +70,6 @@
 )(); // Function 
 
 /* ---------- Instantiating an EgComponent ---------- */
-
 /* Create a new instance of EgComponent. */
 var egcomp = new EgComponent();
 

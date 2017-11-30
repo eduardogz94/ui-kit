@@ -47,7 +47,7 @@
  }	
 
  inputProto.lowerCaps = function(){
-	 var match = /[^A-Z]/.test(this.value);
+	 var match = /[a-z]/.test(this.value);
 		 if (match){
 			 alert("Valid")
 		 }else{
