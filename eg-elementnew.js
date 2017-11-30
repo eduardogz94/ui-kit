@@ -31,6 +31,19 @@
       }
     },
 
+    /* The function that return if the value of a component instance is integer. */
+    integer:{
+      value: function(input){
+        alert(/[0-9]/.test(this.value) ? "Valid" : "Not Valid");
+      }
+    },
+
+    /* The function that returns if the value of a component instance is float. */
+    floatTest:{
+      value: function(input){
+        alert(/[^0-9]/.test(this.value) ? "Valid" : "Not valid");
+      }
+    },
     /* The function that returns if the value of a component instance is uppercase. */
     caps: {
       value: function(input) {
@@ -91,4 +104,12 @@ console.log(egcomp);
 
  function test4(){
    egcomp.setPos(3,580);
+ }
+
+ function test5(){
+   egcomp.integer();
+ }
+
+ function test6(){
+   egcomp.floatTest();
  }

@@ -25,7 +25,27 @@
 			 alert("Not valid")
 		 }
  }
-			
+
+ inputProto.integer = function(input){
+ 	 var match = /[0-9]/.test(this.value);
+ 		 if(match){
+ 		 	 alert("Valid")
+ 		 }
+ 		 else{
+ 		 	 alert("Not Valid")
+ 		 }
+  }
+
+ inputProto.floatTest = function(input){
+ 	 var match = /[^0-9]/.test(this.value);
+ 		 if(match){
+ 		 	 alert("Valid")
+ 		 }
+ 		 else{
+ 		 	 alert("Not Valid")
+ 		 }
+ }	
+
  inputProto.lowerCaps = function(){
 	 var match = /[^A-Z]/.test(this.value);
 		 if (match){
@@ -64,6 +84,14 @@
 
  function test4(){
  	 egcomp.setPos(3,580);
+ }
+
+ function test5(){
+ 	 egcomp.integer();
+ }
+
+ function test6(){
+   egcomp.floatTest();
  }
  //metiendo el componente al html desde el dom
  document.body.appendChild(egcomp);
