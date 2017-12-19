@@ -63,7 +63,6 @@
  var egcomp = new EgComponent();
 
  egcomp.placeholder = "Input de eduardo";
-
  //function de componente ya creado en el DOM
  function test(){
 	 egcomp.onClear();
@@ -92,6 +91,6 @@
 
  function test6(){
    egcomp.floatTest();
- }
+ }	
  //metiendo el componente al html desde el dom
  document.body.appendChild(egcomp);
