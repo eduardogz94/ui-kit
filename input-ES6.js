@@ -58,10 +58,11 @@
         alert(/[a-z]/.test(this.value) ? "Valid" : "Not Valid");
       }
     },
+    
   }); // DefineProperties
 
   /* Register the EgComponent in the browser. */
-  window.EgComponent = document.registerElement("eg-input", {
+  window.EgComponent = document.registerElement("eg-input-es6", {
     prototype: inputProto,
     extends: "input"
   });
@@ -74,42 +75,50 @@
 var egcomp = new EgComponent();
 
 /* Set the 'placeholder' property. */
-egcomp.placeholder = "Input de eduardo";
+egcomp.placeholder = "Input de eduardo ES6";
 
 /* Set the 'pattern' property. */
 egcomp.pattern = /[a-z]/;
+
+/* Set initial position. */
+egcomp.style = 'margin-left:35%; margin-top:5%';
 
 /* Insert the component into the body of the document. */
 document.body.appendChild(egcomp);
 
 /* Log the component to the console. */
-console.log(egcomp);
 
- function test(){
+console.log('-----------------------')
+console.log('es6')
+console.log(egcomp)
+console.log('-----------------------')
+
+
+test  = () => {
    egcomp.onClear();
    egcomp.setDimensions(200,15);
  }
 
- function test1(){
+test1 = () => {
    egcomp.setDimensions(261,15);
  }
 
- function test2(){
+test2 = () => {
    egcomp.caps();
  }
 
- function test3(){
+test3 = () => {
    egcomp.lowerCaps();
  }
 
- function test4(){
+test4 = () => {
    egcomp.setPos(3,580);
  }
 
- function test5(){
+test5 = () => {
    egcomp.integer();
  }
 
- function test6(){
+test6 = () => {
    egcomp.floatTest();
  }
