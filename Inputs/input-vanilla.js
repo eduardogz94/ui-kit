@@ -65,11 +65,6 @@ var egcomp = new EgComponent();
 egcomp.placeholder = "Input de eduardo vanilla";
 egcomp.style = 'margin-left:35%; margin-top:5%';
 
-console.log('-----------------------')
-console.log('vanilla')
-console.log(egcomp)
-console.log('-----------------------')
-
 /* Funciones de los botones para ejecutar el input */
 test  = () => {
    egcomp.onClear();
