@@ -13,10 +13,14 @@ addScript = (url) => {
 
 initApp = () => {
     addScript("utilities/loader").then(response => {
-        console.log("<---- Siva-Framework Started ----->")
+        console.log("<---- Testings Started ----->")
     }).catch(err => {
         console.log(err)
     })
+}
+
+ScriptJS = () => {
+	alert('validated')
 }
 
 initApp();

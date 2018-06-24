@@ -1,12 +1,11 @@
 class EgButton extends HTMLElement {
 	constructor() {
 	    super();
-	    this.method = this.method;
 	    console.log('<- New Button ->')
 	}
 
 	connectedCallback() {
-	    this.innerHTML = ` <button id=${this.id}-button onClick=${this.method}()>${this.innerText}</button>`;
+	    this.innerHTML = ` <button>${this.innerText}</button>`;
 	    this.setButton();
 
 	    ccc.registerComponent(this, {
@@ -15,18 +14,38 @@ class EgButton extends HTMLElement {
 	    });
 	}
 
-	getButton(param) {
-		console.log(`Changing Button Attribute => ${param}`)
+	getButton() {
 	    return this.querySelector('button');
 	}
 
-	setButton() {
-	    this.id == '' ? this.getButton("id").id = 'no-id' : console.log('Has Id')
-	    
-	    this.innerText == ' ' ? this.getButton("innerText").innerText = 'Button' : console.log('Has Text')
+	setButton() {	
 
+	    this.id == '' 
+	    ? this.getButton().id = 'no-id' 
+	    : this.getButton().id = `${this.id}-button`
+	    
+	    this.innerText == ' ' 
+	    ? this.getButton().innerText = 'Button' 
+	    : this.getButton().innerText = this.innerText
+
+	    if (this.onclick == null) {
+
+	    	this.method == undefined 
+	    	?  this.getButton().setAttribute('onClick', this.getAttribute('method'))   
+	    	:  this.getButton().setAttribute('onClick', this.method)    
+	    }
+
+	    console.log(this)
 	    console.log('<- End of button ->')
 	    console.log('')
+	}
+
+	callFromJs(){
+		console.log('finish calling from js')
+	}
+
+	callFromHtml(){
+		console.log("finished calling from html")
 	}
 }
 
