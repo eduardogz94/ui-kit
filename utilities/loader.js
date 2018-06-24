@@ -22,11 +22,11 @@ addScript("Components/eg-input").then(response => {
 
 addScript("Components/eg-button").then(response => {
 
-	// const Validate = new EgButton();
-	// Validate.id = 'JS';
-	// Validate.innerText = 'Validate Outsider JS';
-	// Validate.method = 'ScriptJS()'
-	// document.body.appendChild(Validate);
+	const Validate = new EgButton();
+	Validate.id = 'JS';
+	Validate.innerText = 'Validate Outsider JS';
+	Validate.method = 'ScriptJS()'
+	document.body.appendChild(Validate);
 
 	// const Test = new EgButton();
 	// Test.callFromJs()
@@ -40,38 +40,38 @@ addScript("Components/eg-button").then(response => {
 	console.log(err)
 })
 
-addScript("Components/eg-form").then(response => {
+// addScript("Components/eg-form").then(response => {
 
-	const Form = new EgForm()
-	Form.id = "Log"
-	Form.method = "Loging(event)"
+// 	const Form = new EgForm()
+// 	Form.id = "Log"
+// 	Form.method = "Loging(event)"
 
-	document.body.appendChild(Form);
+// 	document.body.appendChild(Form);
 
-	Loging = event => {
-		event.preventDefault()
+// 	Loging = event => {
+// 		event.preventDefault()
 		
-		const values = Form.getInputValues();
-		let username = values[0];
-		let password = values [1];
+// 		const values = Form.getInputValues();
+// 		let username = values[0];
+// 		let password = values [1];
 
-		const options = {
-		    username: username,
-		    password: password,
-		    objName: `${bobjects}SessionObject`,
-		    metName: 'Validate',
-		    params: arr,
-		    typeParams: typeParams
-		}
+// 		const options = {
+// 		    username: username,
+// 		    password: password,
+// 		    objName: `${bobjects}SessionObject`,
+// 		    metName: 'Validate',
+// 		    params: arr,
+// 		    typeParams: typeParams
+// 		}
 
-		fetching(options, 'POST', './Siva', response => {
-		    console.log(response)
-		})
-	}
+// 		fetching(options, 'POST', './Siva', response => {
+// 		    console.log(response)
+// 		})
+// 	}
 
-}).catch(err => {
-	console.log(err)
-})
+// }).catch(err => {
+// 	console.log(err)
+// })
 
 
 
