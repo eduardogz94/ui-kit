@@ -1,4 +1,4 @@
-addScript("Components/eg-input").then(response => {
+ccc.addScript("Components/eg-input").then(response => {
 
     // const username = new EgInput();
     // username.id = "user";
@@ -20,7 +20,7 @@ addScript("Components/eg-input").then(response => {
     console.log(err)
 })
 
-addScript("Components/eg-button").then(response => {
+ccc.addScript("Components/eg-button").then(response => {
 
 	const Validate = new EgButton();
 	Validate.id = 'JS';
@@ -73,5 +73,5 @@ addScript("Components/eg-button").then(response => {
 // 	console.log(err)
 // })
 
-
+ccc.handleRequests()
 

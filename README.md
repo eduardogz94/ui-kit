@@ -24,7 +24,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Documentation and ussage
 
-## HTML CALLS OF OUR COMPONENTS
+## HTML Calls of our components-
 
 ```
 <eg-button></eg-button>
@@ -38,7 +38,8 @@ To acess directly to eg-button functions you must go with onClick such as:
 And this wont make our children to have any visible attributes, as you can see.
 
 
-otherwhise, you can pass functions of different scripts (not the eg-comp functions) from parent to child with "method", we will call the ScriptJS() function in the index.js script
+otherwhise, you can pass functions of different scripts (not the eg-comp functions) 
+from parent to child with "method", we will call the ScriptJS() function in the index.js script
 
 	<eg-button method="ScriptJS()"></eg-button>
 
@@ -54,25 +55,25 @@ Adding id.
 	
 	<eg-button id="Test"></eg-button>
 
-This, will return this:
+This, will return:
 
 	<eg-button id="Test">
 		<button id=Test-button></button>
 	</eg-button>
 
-If no id, component will be created as id="no-id"	
+	If no id, component will be created as id="no-id"	
 
 Adding innerText.
 	
 	<eg-button>Name</eg-button>
 
-This, will return this:
+This, will return:
 
 	<eg-button>
 		<button>Test</button>
 	</eg-button>
 
-If no innerText, component will be created with the name of "Button"	
+	If no innerText, component will be created with the name of "Button"	
 
 
 Input works as usual as the HTMLInputelement
@@ -83,7 +84,7 @@ Adding id.
 
 	<eg-input id="Test"></eg-input>	
 
-	This, will return this:
+	This, will return:
 
 	<eg-input id="Test">
 		<input id="Test-input"></input>
@@ -94,7 +95,7 @@ It works with placeholder too.
 <eg-form></eg-form>
 ```
 
-## Javascript CALLS OF OUR COMPONENTS
+## Javascript Calls of our components.
 
 ```
 
