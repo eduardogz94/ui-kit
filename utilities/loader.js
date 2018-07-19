@@ -1,44 +1,44 @@
-ccc.addScript("Components/eg-input").then(response => {
+// ccc.addScript("Components/eg-input").then(response => {
 
-    // const username = new EgInput();
-    // username.id = "user";
-    // username.innerText = 'Username';
-    // username.placeholder = "Placing from JS"
+//     const username = new EgInput();
+//     username.id = "user";
+//     username.innerText = 'Username';
+//     username.placeholder = "Placing from JS"
 
-    // const password = new EgInput();
-    // password.id = "password";
-    // password.innerText = 'Password';
-    // password.placeholder = "Password JS"
+//     const password = new EgInput();
+//     password.id = "password";
+//     password.innerText = 'Password';
+//     password.placeholder = "Password JS"
 
-    // document.body.appendChild(username);
-    // document.body.appendChild(password);
+//     document.body.appendChild(username);
+//     document.body.appendChild(password);
 
-    // console.log('Added Input Components')
-    // console.log(ccc.getComponents())
+//     console.log('Added Input Components')
+//     console.log(ccc.getComponents())
 
-}).catch(err => {
-    console.log(err)
-})
+// }).catch(err => {
+//     console.log(err)
+// })
 
-ccc.addScript("Components/eg-button").then(response => {
+// ccc.addScript("Components/eg-button").then(response => {
 
-	const Validate = new EgButton();
-	Validate.id = 'JS';
-	Validate.innerText = 'Validate Outsider JS';
-	Validate.method = 'ScriptJS()'
-	document.body.appendChild(Validate);
+// 	const Validate = new EgButton();
+// 	Validate.id = 'JS';
+// 	Validate.innerText = 'Validate Outsider JS';
+// 	Validate.method = 'ScriptJS()'
+// 	document.body.appendChild(Validate);
 
-	// const Test = new EgButton();
-	// Test.callFromJs()
+// 	// const Test = new EgButton();
+// 	// Test.callFromJs()
 
-	// document.body.appendChild(Test);
+// 	// document.body.appendChild(Test);
 	
-	// console.log('Added Buttons Components')
-	// console.log(ccc.getComponents())
+// 	// console.log('Added Buttons Components')
+// 	// console.log(ccc.getComponents())
 
-}).catch(err => {
-	console.log(err)
-})
+// }).catch(err => {
+// 	console.log(err)
+// })
 
 // addScript("Components/eg-form").then(response => {
 
@@ -73,5 +73,11 @@ ccc.addScript("Components/eg-button").then(response => {
 // 	console.log(err)
 // })
 
-ccc.handleRequests()
+ccc.addScript("Components/Grid/eg-col").then(response => {
+    const Col = new Col()
+    Col.col = '1'
 
+    document.body.appendChild(Col)
+}).catch(err => {
+    console.log(err)
+})
