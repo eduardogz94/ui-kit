@@ -73,11 +73,24 @@
 // 	console.log(err)
 // })
 
-ccc.addScript("Components/Grid/eg-col").then(response => {
-    const Col = new Col()
-    Col.col = '1'
 
-    document.body.appendChild(Col)
+ccc.addScript("Components/Grid/eg-col").then(response => {
+    // const Col = new EgCol()
+    // Col.col = 'col-8'
+
+    // document.body.appendChild(Col)
+}).catch(err => {
+    console.log(err)
+})
+
+ccc.addScript("Components/Grid/eg-grid").then(response => {
+    
+}).catch(err => {
+    console.log(err)
+})
+
+ccc.addScript("Components/Grid/eg-row").then(response => {
+
 }).catch(err => {
     console.log(err)
 })

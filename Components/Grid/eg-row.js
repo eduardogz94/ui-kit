@@ -5,23 +5,11 @@ class EgRow extends HTMLElement {
     }
 
     connectedCallback() {
-        this.innerHTML = ` <div>${this.innerText}</div>`;
-
+        this.setAttribute('class', 'row')
         ccc.registerComponent(this, {
             id: this.id,
             secret: 'Row Parent'
         });
-    }
-
-    getGrid() {
-        return this.querySelector('div');
-    }
-
-    setGrid() {
-
-        console.log(this)
-        console.log('<- End of Row ->')
-        console.log('')
     }
 }
 

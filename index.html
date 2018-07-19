@@ -4,10 +4,31 @@
     <title>Web Component</title>
     <script src="core/CCC.js"></script>
     <script src="index.js"></script>
+    <link href="assets/css/layout.css" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-    </body>
+    <eg-grid>
+      <eg-row>
+
+        <eg-col col='col-4'>
+          <h1 class='offset-8'>1 of 4</h1>
+        </eg-col>
+        
+        <eg-col col='col-5'>
+          <h1>2 of 4</h1>
+        </eg-col>
+        
+        <eg-col col='col-3'>
+          <h1>3 of 4</h1>
+        </eg-col>
+        
+      </eg-row>
+        <eg-col col='col-12'>
+          <h1>4 of 4</h1>
+        </eg-col>
+    </eg-grid>
+  </body>
 
 
 </html>

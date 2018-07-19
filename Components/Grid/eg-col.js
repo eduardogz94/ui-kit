@@ -4,30 +4,27 @@ class EgCol extends HTMLElement {
         console.log('<- New Col ->')
     }
 
-    connectedCallback() {
-        this.innerHTML = ` <div>${this.innerText}</div>`;
-
+    connectedCallback() {   
+        this.setAttribute('class', this.getAttribute('col'))
         ccc.registerComponent(this, {
             id: this.id,
             secret: 'Col Parent'
         });
     }
     
-    getCol() {
-        return this.hasAttribute('col');
+    setCol() {
+        //This is HTML call
+        if (this.col == undefined) {
+
+            this.getAttribute('col') == null 
+                ? this.getCol().col = '' 
+                : this.setAttribute('class', this.getAttribute('col'))
+        } else {
+            this.getCol().col = this.col;
+        }
     }
 
-    setCol() {
-        const cols = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-        
-        cols.forEach(response => {
-            
-        })
-        
-        console.log(this)
-        console.log('<- End of Col ->')
-        console.log('')
-    }
+    
 }
 
 customElements.define("eg-col", EgCol);

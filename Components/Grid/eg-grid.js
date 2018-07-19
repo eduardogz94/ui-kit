@@ -5,24 +5,21 @@ class EgGrid extends HTMLElement {
     }
 
     connectedCallback() {
-        this.innerHTML = ` <div>${this.innerText}</div>`;
-      
+        this.setAttribute('class', 'container')
         ccc.registerComponent(this, {
             id: this.id,
             secret: 'Grid Parent'
         });
     }
 
-    getGrid() {
-        return this.querySelector('div');
+    getCol() {
+        return this.querySelector('eg-col');
     }
 
-    setGrid() {
-
-        console.log(this)
-        console.log('<- End of grid ->')
-        console.log('')
+    getRow() {
+        return this.querySelector('eg-row');
     }
+
 }
 
 customElements.define("eg-grid", EgGrid);
