@@ -1,7 +1,6 @@
 class EgRow extends HTMLElement {
     constructor() {
         super();
-        // console.log('<- New Row ->')
     }
 
     connectedCallback() {
@@ -11,6 +10,30 @@ class EgRow extends HTMLElement {
             secret: 'Row Parent'
         });
     }
+
+    getObjects(obj) {
+        return this.querySelectorAll(`${obj}`);
+    }
+
+    addSingleObject(element) {
+        const object = document.createElement(`${element}`)
+        this.appendChild(object)
+    }
+    
+    addMultipleObjects(...elements) {
+        elements.forEach(element => {
+            this.appendChild(element)
+        });
+    }
+    
+    createMultipleObjects(element, quantity) {
+        for (let i = 0; i < quantity; i++) {
+            const object = document.createElement(`${element}`)
+            object.id = i
+            this.appendChild(object)
+        }
+    }
+
 }
 
 customElements.define("eg-row", EgRow);

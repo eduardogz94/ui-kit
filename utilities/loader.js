@@ -1,35 +1,26 @@
 const logger = log4javascript.getDefaultLogger();
-const file = new log4javascript.FileAppender()
-logger.addAppender(('logs/main.log'), 'main')
-logger.trace('testing logger from loader.js')
-logger.debug('testing logger from loader.js')
-logger.info('testing logger from loader.js')
-logger.warn('testing logger from loader.js')
-logger.error('testing logger from loader.js')
-logger.fatal('testing logger from loader.js')
 
-ccc.addScript("Components/eg-input").then(response => {
+// logger.trace('testing logger from loader.js')
+// logger.debug('testing logger from loader.js')
+// logger.info('testing logger from loader.js')
+// logger.warn('testing logger from loader.js')
+// logger.error('testing logger from loader.js')
+// logger.fatal('testing logger from loader.js')
 
-    // const username = new EgInput();
-    // username.id = "user";
-    // username.innerText = 'Username';
-    // username.placeholder = "Placing from JS"
+// const username = new EgInput();
+// username.id = "user";
+// username.innerText = 'Username';
+// username.placeholder = "Placing from JS"
 
-    // const password = new EgInput();
-    // password.id = "password";
-    // password.innerText = 'Password';
-    // password.placeholder = "Password JS"
+// const password = new EgInput();
+// password.id = "password";
+// password.innerText = 'Password';
+// password.placeholder = "Password JS"
 
-    // document.body.appendChild(username);
-    // document.body.appendChild(password);
+// document.body.appendChild(username);
+// document.body.appendChild(password);
 
-    // console.log('Added Input Components')
-
-}).catch(err => {
-    logger.log(err)
-})
-
-// ccc.addScript("Components/eg-button").then(response => {
+// console.log('Added Input Components')
 
 // 	const Validate = new EgButton();
 // 	Validate.id = 'JS';
@@ -37,18 +28,12 @@ ccc.addScript("Components/eg-input").then(response => {
 // 	Validate.method = 'ScriptJS()'
 // 	document.body.appendChild(Validate);
 
-// 	// const Test = new EgButton();
-// 	// Test.callFromJs()
+// const Test = new EgButton();
+// Test.callFromJs()
 
-// 	// document.body.appendChild(Test);
-	
-// 	// logger.log('Added Buttons Components')
+// document.body.appendChild(Test);
 
-// }).catch(err => {
-// 	logger.error(err)
-// })
-
-// addScript("Components/eg-form").then(response => {
+// logger.log('Added Buttons Components')
 
 // 	const Form = new EgForm()
 // 	Form.id = "Log"
@@ -77,39 +62,31 @@ ccc.addScript("Components/eg-input").then(response => {
 // 		})
 // 	}
 
-// }).catch(err => {
-// 	logger.error(err)
-// })
+const grid = new EgGrid()
+
+const row = new EgRow()
+
+const col = new EgCol()
+col.col = 'col-3'
+const input = new EgInput()
+
+const col1 = new EgCol()
+col1.col = 'col-6'
+const input1 = new EgInput()
+
+const col2 = new EgCol()
+col2.col = 'col-3'
+const input2 = new EgInput()
 
 
+col.appendChild(input)
+col1.appendChild(input1)
+col2.appendChild(input2)
 
+row.addMultipleObjects(col,col1,col2)
 
-ccc.addScript("Components/Grid/eg-grid").then(response => {
-    
-    ccc.addScript("Components/Grid/eg-row").then(response => {
+grid.appendChild(row)
+document.body.appendChild(grid)
+      
         
-        ccc.addScript("Components/Grid/eg-col").then(response => {
-            const grid = new EgGrid()
-            const row = new EgRow()
-            const col = new EgCol()
-            col.col = 'col-3'
-
-            const input = new EgInput()
-
-            
-            col.appendChild(input)
-            row.appendChild(col)
-            grid.appendChild(row)
-            document.body.appendChild(grid)
-
-        }).catch(err => {
-            logger.error(err)
-        })
-
-    }).catch(err => {
-        logger.error(err)
-    })
-    
-}).catch(err => {
-    logger.error(err)
-})
+  

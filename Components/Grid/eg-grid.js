@@ -1,7 +1,6 @@
 class EgGrid extends HTMLElement {
     constructor() {
         super();
-        // console.log('<- New Grid ->')
     }
 
     connectedCallback() {
@@ -12,12 +11,27 @@ class EgGrid extends HTMLElement {
         });
     }
 
-    getCol() {
-        return this.querySelector('eg-col');
+    getObjects(obj) {
+        return this.querySelectorAll(`${obj}`);
     }
 
-    getRow() {
-        return this.querySelector('eg-row');
+    addSingleObject(element) {
+        const object = document.createElement(`${element}`)
+        this.appendChild(object)
+    }
+
+    addMultipleObjects(...elements) {
+        elements.forEach(element => {
+            this.appendChild(element)
+        });
+    }
+    
+    createMultipleObjects(element, quantity) {
+        for (let i = 0; i < quantity; i++) {
+            const object = document.createElement(`${element}`)
+            object.id = i
+            this.appendChild(object)
+        }
     }
 
 }

@@ -1,12 +1,10 @@
 class EgForm extends HTMLElement {
     constructor() {
         super();
-        // console.log("<- New Form->")
     }
 
     connectedCallback() {
         this.setButton()
-
         ccc.registerComponent(this, {
             id: this.id,
             secret: 'Form Parent'
@@ -16,31 +14,53 @@ class EgForm extends HTMLElement {
     getButton() {
         return this.querySelector('button');
     }
-
-    setButton() {
-
-        if (this.onclick == null) {
-
-            this.method == undefined ?
-                this.getButton().setAttribute('onClick', this.getAttribute('method')) :
-                this.getButton().setAttribute('onClick', this.method)
-        }
-
-    }
-
-    getInput() {
+    
+    getInputs() {
         return this.querySelectorAll('input');
     }
 
     getInputValues() {
         let data = []
 
-        this.getInput().forEach(response => {
+        this.getInputs().forEach(response => {
             data.push(response.value)
         })
-
         return data
     }
+
+    getObjects(obj) {
+        return this.querySelectorAll(`${obj}`);
+    }
+
+    setButton() {
+
+        if (this.onclick == null) {
+            this.method == undefined ?
+                this.getButton().setAttribute('onClick', this.getAttribute('method')) :
+                this.getButton().setAttribute('onClick', this.method)
+        }
+    }
+
+
+    addSingleObject(element) {
+        const object = document.createElement(`${element}`)
+        this.appendChild(object)
+    }
+
+    addMultipleObjects(...elements) {
+        elements.forEach(element => {
+            this.appendChild(element)
+        });
+    }
+
+    createMultipleObjects(element, quantity) {
+        for (let i = 0; i < quantity; i++) {
+            const object = document.createElement(`${element}`)
+            object.id = i
+            this.appendChild(object)
+        }
+    }
+
 }
 
 customElements.define("eg-form", EgForm);

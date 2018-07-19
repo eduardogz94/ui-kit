@@ -19,6 +19,14 @@ class CCC {
         })
     }
     
+    chargeScript(url) {
+        this.addScript(`${url}`).then((result) => {
+            console.log(`${url} loaded`)
+        }).catch((err) => {
+            console.error(err)
+        });
+    }
+
     getComponents() {
         console.info(this.components)
         return this.components;
