@@ -1,23 +1,11 @@
 class EgForm extends HTMLElement {
     constructor() {
         super();
-        console.log("<- New Form->")
+        // console.log("<- New Form->")
     }
 
     connectedCallback() {
-        this.innerHTML =
-
-        `<form id=${this.id}-form>	
-    		<eg-input id=${this.id}-user placeholder="Enter User">Username</eg-input>
-    		<eg-input id=${this.id}-pass placeholder="Enter Pass">Password</eg-input>
-    	    <eg-button id=${this.id}-method></eg-button>
-        </form>`;
-
         this.setButton()
-
-        console.log(this)
-        console.log('<- End of Form ->')
-        console.log('')
 
         ccc.registerComponent(this, {
             id: this.id,

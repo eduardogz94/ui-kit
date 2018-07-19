@@ -1,7 +1,7 @@
 class EgRow extends HTMLElement {
     constructor() {
         super();
-        console.log('<- New Row ->')
+        // console.log('<- New Row ->')
     }
 
     connectedCallback() {

@@ -1,11 +1,11 @@
 class EgCol extends HTMLElement {
     constructor() {
         super();
-        console.log('<- New Col ->')
+        // console.log('<- New Col ->')
     }
 
     connectedCallback() {   
-        this.setAttribute('class', this.getAttribute('col'))
+        this.setCol()
         ccc.registerComponent(this, {
             id: this.id,
             secret: 'Col Parent'
@@ -14,17 +14,11 @@ class EgCol extends HTMLElement {
     
     setCol() {
         //This is HTML call
-        if (this.col == undefined) {
-
-            this.getAttribute('col') == null 
-                ? this.getCol().col = '' 
-                : this.setAttribute('class', this.getAttribute('col'))
-        } else {
-            this.getCol().col = this.col;
-        }
+        this.getAttribute('col') 
+            ?  this.setAttribute('class', this.getAttribute('col'))
+            :  this.setAttribute('class',this.col);
     }
 
-    
 }
 
 customElements.define("eg-col", EgCol);

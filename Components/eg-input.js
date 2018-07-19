@@ -1,7 +1,7 @@
 class EgInput extends HTMLElement {
     constructor() {
         super();
-        console.log('<- New Input ->')
+        // console.log('<- New Input ->')
     }
 
     connectedCallback() {
@@ -32,10 +32,6 @@ class EgInput extends HTMLElement {
         } else {
             this.getInput().placeholder = this.placeholder;
         }
-
-        console.log(this)
-        console.log('<- End of input ->')
-        console.log('')
     }
 
     onClear() {

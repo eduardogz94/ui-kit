@@ -1,24 +1,33 @@
-// ccc.addScript("Components/eg-input").then(response => {
+const logger = log4javascript.getDefaultLogger();
+const file = new log4javascript.FileAppender()
+logger.addAppender(('logs/main.log'), 'main')
+logger.trace('testing logger from loader.js')
+logger.debug('testing logger from loader.js')
+logger.info('testing logger from loader.js')
+logger.warn('testing logger from loader.js')
+logger.error('testing logger from loader.js')
+logger.fatal('testing logger from loader.js')
 
-//     const username = new EgInput();
-//     username.id = "user";
-//     username.innerText = 'Username';
-//     username.placeholder = "Placing from JS"
+ccc.addScript("Components/eg-input").then(response => {
 
-//     const password = new EgInput();
-//     password.id = "password";
-//     password.innerText = 'Password';
-//     password.placeholder = "Password JS"
+    // const username = new EgInput();
+    // username.id = "user";
+    // username.innerText = 'Username';
+    // username.placeholder = "Placing from JS"
 
-//     document.body.appendChild(username);
-//     document.body.appendChild(password);
+    // const password = new EgInput();
+    // password.id = "password";
+    // password.innerText = 'Password';
+    // password.placeholder = "Password JS"
 
-//     console.log('Added Input Components')
-//     console.log(ccc.getComponents())
+    // document.body.appendChild(username);
+    // document.body.appendChild(password);
 
-// }).catch(err => {
-//     console.log(err)
-// })
+    // console.log('Added Input Components')
+
+}).catch(err => {
+    logger.log(err)
+})
 
 // ccc.addScript("Components/eg-button").then(response => {
 
@@ -33,11 +42,10 @@
 
 // 	// document.body.appendChild(Test);
 	
-// 	// console.log('Added Buttons Components')
-// 	// console.log(ccc.getComponents())
+// 	// logger.log('Added Buttons Components')
 
 // }).catch(err => {
-// 	console.log(err)
+// 	logger.error(err)
 // })
 
 // addScript("Components/eg-form").then(response => {
@@ -65,32 +73,43 @@
 // 		}
 
 // 		fetching(options, 'POST', './Siva', response => {
-// 		    console.log(response)
+// 		    logger.log(response)
 // 		})
 // 	}
 
 // }).catch(err => {
-// 	console.log(err)
+// 	logger.error(err)
 // })
 
 
-ccc.addScript("Components/Grid/eg-col").then(response => {
-    // const Col = new EgCol()
-    // Col.col = 'col-8'
 
-    // document.body.appendChild(Col)
-}).catch(err => {
-    console.log(err)
-})
 
 ccc.addScript("Components/Grid/eg-grid").then(response => {
     
-}).catch(err => {
-    console.log(err)
-})
+    ccc.addScript("Components/Grid/eg-row").then(response => {
+        
+        ccc.addScript("Components/Grid/eg-col").then(response => {
+            const grid = new EgGrid()
+            const row = new EgRow()
+            const col = new EgCol()
+            col.col = 'col-3'
 
-ccc.addScript("Components/Grid/eg-row").then(response => {
+            const input = new EgInput()
 
+            
+            col.appendChild(input)
+            row.appendChild(col)
+            grid.appendChild(row)
+            document.body.appendChild(grid)
+
+        }).catch(err => {
+            logger.error(err)
+        })
+
+    }).catch(err => {
+        logger.error(err)
+    })
+    
 }).catch(err => {
-    console.log(err)
+    logger.error(err)
 })

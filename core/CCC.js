@@ -2,7 +2,7 @@ class CCC {
     constructor() {
         this.components = [];
     }
-
+    
     registerComponent(component, configs) {
         this.components.push({
             component: component,
@@ -13,13 +13,14 @@ class CCC {
 
     initApp() {
         this.addScript("utilities/loader").then(response => {
-            console.log("<---- Testings Started ----->")
+            console.log("<---- app loaded and started ----->")
         }).catch(err => {
-            console.log(err)
+            console.error(err)
         })
     }
     
     getComponents() {
+        console.info(this.components)
         return this.components;
     }
 
@@ -36,10 +37,19 @@ class CCC {
 
     handleRequests(){
       this.addScript("utilities/fetch").then(response => {
-          console.log("fetch component loaded")
+          console.log("<---- fetch loaded and started ----->")
       }).catch(err => {
-          console.log(err)
+          console.error(err)
       })
+    }
+
+    startLogging() {
+        this.addScript('utilities/log4javascript').then(response => {
+            console.log("<---- logger loaded and started ----->")
+            this.initApp()
+        }).catch(err => {
+            console.debug(err)
+        })
     }
 
 }

@@ -1,7 +1,7 @@
 class EgGrid extends HTMLElement {
     constructor() {
         super();
-        console.log('<- New Grid ->')
+        // console.log('<- New Grid ->')
     }
 
     connectedCallback() {

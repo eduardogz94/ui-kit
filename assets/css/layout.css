@@ -70,7 +70,7 @@
 
 .col-12 {
     background-color: green;
-    width: 97.8%;
+    width: 100%;
 }
 
 .col-1,
@@ -86,9 +86,13 @@
 .col-11,
 .col-12{
     position: relative;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 1px;
+    padding-left: 1px;
     float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: black
 }
 
 .offset-1 {

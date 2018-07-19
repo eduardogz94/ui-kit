@@ -1,7 +1,5 @@
 const ccc = new CCC();
 
-ScriptJS = () => {
-	alert('validated')
-}
+ccc.startLogging()
 
-ccc.initApp();
+ccc.getComponents()
