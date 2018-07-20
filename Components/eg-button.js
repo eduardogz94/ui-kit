@@ -4,7 +4,7 @@ class EgButton extends HTMLElement {
 	}
 
 	connectedCallback() {
-	    this.innerHTML = ` <button>${this.innerText}</button>`;
+	    this.innerHTML = `<button>${this.innerText}</button>`;
 		this.setButton();
 		this.defaultProperties();
 		this.objectProperties(this.env);
@@ -19,7 +19,6 @@ class EgButton extends HTMLElement {
 		this.getButton().style.display = 'inline-block';
 		this.getButton().style.padding = '6px 12px';
 		this.getButton().style.marginBottom = '0';
-		this.getButton().style.lineHeight = '1.42857143';
 		this.getButton().style.whiteSpace = 'nowrap';
 		this.getButton().style.verticalAlign = 'middle';
 		this.getButton().style.msTouchAction = 'manipulation';
@@ -96,19 +95,52 @@ class EgButton extends HTMLElement {
 			this.env = this.getAttribute('env')
 		}
 
-		this.id == '' 
-			? this.getButton().id = 'no-id' 
-			: this.getButton().id = `${this.id}-button`
-		
-		this.innerText == '' 
-			? this.getButton().innerText = 'Button' 
-			: this.getButton().innerText = this.innerText
-
-		if (this.onclick == null) {
-			this.method == undefined 
-				?  this.getButton().setAttribute('onClick', this.getAttribute('method'))   
-				:  this.getButton().setAttribute('onClick', this.method)    
+		if (this.id) {
+			this.getButton().setAttribute('id', this.id)
 		}
+
+		if (this.getAttribute('id')) {
+			this.getButton().setAttribute('id', `${this.getAttribute('id')}-button`)
+		}
+
+		if (this.col) {
+			this.getButton().setAttribute('class', this.col)
+		}
+
+		if (this.getAttribute('col')) {
+			this.getButton().setAttribute('class', this.getAttribute('col'))
+		}
+
+		if (this.offset) {
+			this.getButton().setAttribute('class', this.offset)
+		}
+
+		if (this.getAttribute('offset')) {
+			this.getButton().setAttribute('class', this.getAttribute('offset'))
+		}
+
+		if (this.col && this.offset) {
+			this.getButton().setAttribute('class', `${this.col} ${this.offset}`)
+		}
+
+		if (this.getAttribute('col') && this.getAttribute('offset')) {
+			this.getButton().setAttribute('class', `${this.getAttribute('col')} ${this.getAttribute('offset')}`)
+		}
+		
+		if (this.innerText) {
+			this.getButton().innerText = this.innerText
+		} else {
+			this.getButton().innerText = 'Button'
+		}
+
+		if (this.method) {
+			this.getButton().setAttribute('onClick', this.method)
+		}
+
+		if (this.getAttribute('method')) {
+			this.getButton().setAttribute('onClick', this.getAttribute('method'))
+		}
+
 	}
 	
 	getButton() {

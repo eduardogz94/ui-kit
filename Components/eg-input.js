@@ -4,10 +4,11 @@ class EgInput extends HTMLElement {
     }
 
     connectedCallback() {
-        this.innerHTML = `<input id=${this.id}/>`
+        this.innerHTML = `<input/>`
         this.setInput();
         this.defaultProperties()
         this.objectProperties(this.env)
+        
         ccc.registerComponent(this, {
             id: this.id,
             secret: 'Input Parent'
@@ -16,8 +17,7 @@ class EgInput extends HTMLElement {
 
     defaultProperties() {
         this.getInput().style.display = 'inline-block';
-        this.getInput().style.width = '97.5%';
-        this.getInput().style.lineHeight = '1.42857143';
+        this.getInput().style.width = '95%';
         this.getInput().style.heigth = '25px';
         this.getInput().style.padding = '0px 12px';
         this.getInput().style.marginBottom = '5px';
@@ -92,22 +92,50 @@ class EgInput extends HTMLElement {
     }
 
     setInput() {
-
-        this.id == '' 
-            ? this.getInput().id = 'no-id' 
-            : this.getInput().id = `${this.id}-input`
-
         if(this.getAttribute('env')) {
             this.env = this.getAttribute('env')
         }
 
-        if (this.placeholder == undefined) {
-            this.getAttribute('placeholder') == null 
-                ? this.getInput().placeholder = '' 
-                : this.getInput().placeholder = this.getAttribute('placeholder');
-        } else {
+        if (this.id) {
+            this.getInput().setAttribute('id', this.id)
+        }
+
+        if (this.getAttribute('id')) {
+            this.getInput().setAttribute('id', `${this.getAttribute('id')}-input`)
+        }
+
+        if (this.col) {
+            this.getInput().setAttribute('class', this.col)
+        }
+
+        if (this.getAttribute('col')) {
+            this.getInput().setAttribute('class', this.getAttribute('col'))
+        }
+
+        if (this.offset) {
+            this.getInput().setAttribute('class', this.offset)
+        }
+
+        if (this.getAttribute('offset')) {
+            this.getInput().setAttribute('class', this.getAttribute('offset'))
+        }
+
+        if (this.col && this.offset) {
+            this.getInput().setAttribute('class', `${this.col} ${this.offset}`)
+        }
+
+        if (this.getAttribute('col') && this.getAttribute('offset')) {
+            this.getInput().setAttribute('class', `${this.getAttribute('col')} ${this.getAttribute('offset')}`)
+        }
+
+        if (this.placeholder) {
             this.getInput().placeholder = this.placeholder;
         }
+
+        if (this.getAttribute('placeholder')) {
+            this.getInput().placeholder = this.getAttribute('placeholder');
+        }
+
     }
 
     onClear() {

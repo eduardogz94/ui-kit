@@ -1,12 +1,14 @@
 class EgForm extends HTMLElement {
     constructor() {
         super();
+        this.id = this.id
     }
 
     connectedCallback() {
-        this.setButton()
+        this.setForm()
         this.defaultProperties()
         this.objectProperties(this.env)
+        
         ccc.registerComponent(this, {
             id: this.id,
             secret: 'Form Parent'
@@ -16,14 +18,12 @@ class EgForm extends HTMLElement {
     defaultProperties() {
         this.style.display = 'inline-block';
         this.style.width = '99.2%';
-        this.style.lineHeight = '1.42857143';
         this.style.padding = '0px 4px'
         this.style.marginTop = '4px'
         this.style.webkitTransition = 'all 2s';
     }
 
     objectProperties(env) {
-        console.log(env)
         switch (env) {
             case 'jungle':
                 this.setFont('arial', '14px', 'white');
@@ -82,7 +82,7 @@ class EgForm extends HTMLElement {
         this.style.background = color;
         img = 'none' 
             ? console.log('no image for the background') 
-            : this.getInput().style.backgroundImage = 'url(' + this.pathImg + img + ')'
+            : this.style.backgroundImage = 'url(' + this.pathImg + img + ')'
     }
 
     getButton() {
@@ -106,16 +106,38 @@ class EgForm extends HTMLElement {
         return this.querySelectorAll(`${obj}`);
     }
 
-    setButton() {
+    setForm() {
         if (this.getAttribute('env')) {
             this.env = this.getAttribute('env')
         }
 
-        // if (this.onclick == null) {
-        //     this.method == undefined ?
-        //         this.getButton().setAttribute('onClick', this.getAttribute('method')) :
-        //         this.getButton().setAttribute('onClick', this.method)
-        // }
+        if (this.getAttribute('id')) {
+            this.id = this.getAttribute('id')
+        }
+
+        if (this.col) {
+            this.setAttribute('class', this.col)
+        }
+
+        if (this.getAttribute('col')) {
+            this.setAttribute('class', this.getAttribute('col'))
+        }
+
+        if (this.offset) {
+            this.setAttribute('class', this.offset)
+        }
+
+        if (this.getAttribute('offset')) {
+            this.setAttribute('class', this.getAttribute('offset'))
+        }
+
+        if (this.col && this.offset) {
+            this.setAttribute('class', `${this.col} ${this.offset}`)
+        }
+
+        if (this.getAttribute('col') && this.getAttribute('offset')) {
+            this.setAttribute('class', `${this.getAttribute('col')} ${this.getAttribute('offset')}`)
+        }
     }
 
     addSingleObject(element) {

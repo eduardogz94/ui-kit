@@ -1,6 +1,5 @@
 * {
     padding: 0;
-    margin: 0;
     color: inherit;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -28,64 +27,64 @@ body {
 }
 
 .col-1 {
-    background-color: aqua;
-    width: 8.333%;
+    /* background-color: aqua; */
+    width: 8.333% !important;
 }
 
 .col-2 {
-    background-color: red;
-    width: 16.667%;
+    /* background-color: red; */
+    width: 16.667% !important;
 }
 
 .col-3 {
-    background-color: blue;
-    width: 25%;
+    /* background-color: blue; */
+    width: 25% !important;
 }
 
 .col-4 {
-    background-color: violet;
-    width: 33.333%;
+    /* background-color: violet; */
+    width: 33.333% !important;
 }
 
 .col-5 {
-    background-color: black;
+    /* background-color: black; */
     color: white;
-    width: 41.667%;
+    width: 41.667% !important;
 }
 
 .col-6 {
-    background-color: gray;
-    width: 50%;
+    /* background-color: gray; */
+    width: 50% !important;
 }
 
 .col-7 {
-    background-color: yellow;
-    width: 58.333%;
+    /* background-color: yellow; */
+    width: 58.333% !important;
 }
 
 .col-8 {
-    background-color: sienna;
-    width: 66.667%;
+    /* background-color: sienna; */
+    width: 66.667% !important;
 }
 
 .col-9 {
-    background-color: sandybrown;
-    width: 75%;
+    /* background-color: sandybrown; */
+    width: 75% !important;
 }
 
 .col-10 {
-    background-color: purple;
-    width: 83.333%;
+    /* background-color: purple; */
+    width: 83.333% !important;
 }
 
 .col-11 {
-    background-color: aqua;
-    width: 91.667%;
+    /* background-color: aqua; */
+    width: 91.667% !important;
 }
 
 .col-12 {
-    background-color: green;
-    width: 100%;
+    /* background-color: green; */
+    width: 100% !important;
 }
 
 .col-1, .col-2, .col-3,
@@ -93,8 +92,8 @@ body {
 .col-7, .col-8, .col-9,
 .col-10, .col-11, .col-12{
     position: relative;
-    padding-right: 1px;
-    padding-left: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -102,49 +101,49 @@ body {
 }
 
 .offset-1 {
-    margin-left: 8.333%;
+    margin-left: 8.333% !important;
 }
 
 .offset-2 {
-    margin-left: 16.667%;
+    margin-left: 16.667% !important;
 }
 
 .offset-3 {
-    margin-left: 25%;
+    margin-left: 25% !important;
 }
 
 .offset-4 {
-    margin-left: 33.333%;
+    margin-left: 33.333% !important;
 }
 
 .offset-5 {
-    margin-left: 41.667%;
+    margin-left: 41.667% !important;
 }
 
 .offset-6 {
-    margin-left: 50%;
+    margin-left: 50% !important;
 }
 
 .offset-7 {
-    margin-left: 58.333%;
+    margin-left: 58.333% !important;
 }
 
 .offset-8 {
-    margin-left: 66.667%;
+    margin-left: 66.667% !important;
 }
 
 .offset-9 {
-    margin-left: 75%;
+    margin-left: 75% !important;
 }
 
 .offset-10 {
-    margin-left: 83.333%;
+    margin-left: 83.333% !important;
 }
 
 .offset-11 {
-    margin-left: 91.667%;
+    margin-left: 91.667% !important;
 }
 
 .offset-12 {
-    margin-left: 100%;
+    margin-left: 100% !important;
 }
