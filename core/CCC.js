@@ -43,7 +43,7 @@ class CCC {
         });
     }
 
-    handleRequests(){
+    sendRequest(){
       this.addScript("utilities/fetch").then(response => {
           console.log("<---- fetch loaded and started ----->")
       }).catch(err => {
@@ -51,7 +51,7 @@ class CCC {
       })
     }
 
-    startLogging() {
+    startLogger() {
         this.addScript('utilities/log4javascript').then(response => {
             console.log("<---- logger loaded and started ----->")
             this.initApp()
