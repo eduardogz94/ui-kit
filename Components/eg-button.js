@@ -62,7 +62,7 @@ class EgButton extends HTMLElement {
 				this.getButton().setAttribute(props[index], keys[index])
 			}
 		} else {
-			console.log('both arrays must be same lenght')
+			console.error('both arrays must be same lenght')
 		}
 	}
 		
@@ -86,7 +86,7 @@ class EgButton extends HTMLElement {
 	setBackground(color, img) {
 		this.getButton().style.background = color;
 		img = 'none' 
-		? console.log('no image for the background')
+		? console.warn('no image for the background')
 		: this.getButton().style.backgroundImage = 'url(' + this.pathImg + img + ')'
 	}
 
@@ -148,11 +148,11 @@ class EgButton extends HTMLElement {
 	}
 
 	callFromJs(){
-		console.log('finish calling from js')
+		console.info('finish calling from js')
 	}
 
 	callFromHtml(){
-		console.log("finished calling from html")
+		console.info("finished calling from html")
 	}
 	
 }

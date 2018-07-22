@@ -59,18 +59,18 @@ class EgInput extends HTMLElement {
                 this.getInput().setAttribute(props[index], keys[index])
             }
         } else {
-            console.log('both arrays must be same lenght')
+            console.error('both arrays must be same lenght')
         }
     }
 
-    setBorder(color, val, radius) {
+    setBorder(color, value, radius) {
         this.getInput().style.borderColor = color;
-        this.getInput().style.border = val;
+        this.getInput().style.border = value;
         this.getInput().style.borderRadius = radius;
     }
 
-    setFont(val, size, color) {
-        this.getInput().style.fontFamily = val;
+    setFont(value, size, color) {
+        this.getInput().style.fontFamily = value;
         this.getInput().style.fontSize = size;
         this.getInput().style.color = color;
     }
@@ -83,12 +83,16 @@ class EgInput extends HTMLElement {
     setBackground(color, img) {
         this.getInput().style.background = color;
         img = 'none' 
-            ? console.log('no image for the background') 
+            ? console.warn('no image for the background') 
             : this.getInput().style.backgroundImage = 'url(' + this.pathImg + img + ')'
     }
 
     getInput() {
         return this.querySelector('input');
+    }
+
+    getValueType() {
+        return typeof this.getInput().value;
     }
 
     setInput() {
@@ -140,7 +144,6 @@ class EgInput extends HTMLElement {
 
     onClear() {
         this.getInput().value = "";
-        this.getInput().style.position = "static";
         this.getInput().placeholder = "Cleared";
     }
 
@@ -156,19 +159,19 @@ class EgInput extends HTMLElement {
     }
 
     caps() {
-        alert(/[A-Z]/.test(this.getInput().value) ? "Valid" : "Not Valid");
+        alert(/[A-Z]/.test(this.getInput().value) ? true : false);
     }
 
     integer() {
-        alert(/[^0-9]/.test(this.getInput().value) ? "Valid" : "Not valid");
+        alert(/[^0-9]/.test(this.getInput().value) ? true : false);
     }
 
     floatTest() {
-        alert(/[0-9]/.test(this.getInput().value) ? "Valid" : "Not Valid");
+        alert(/[0-9]/.test(this.getInput().value) ? true : false);
     }
 
     lowerCaps() {
-        alert(/[a-z]/.test(this.getInput().value) ? "Valid" : "Not Valid");
+        alert(/[a-z]/.test(this.getInput().value) ? true : false);
     }
 
     validateValue() {

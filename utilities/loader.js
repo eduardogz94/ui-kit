@@ -1,66 +1,63 @@
-// const logger = log4javascript.getDefaultLogger();
+const logger = log4javascript.getDefaultLogger();
 
-// logger.trace('testing logger from loader.js')
-// logger.debug('testing logger from loader.js')
-// logger.info('testing logger from loader.js')
-// logger.warn('testing logger from loader.js')
-// logger.error('testing logger from loader.js')
-// logger.fatal('testing logger from loader.js')
+/* </--------- START THEMES ---------/> */ 
 
-// const SkyButton = new EgButton();
-// SkyButton.innerText = 'SkyButton'
-// SkyButton.env = 'sky'
+const SkyButton = new EgButton();
+SkyButton.innerText = 'SkyButton'
+SkyButton.env = 'sky'
 
-// const SkyInput = new EgInput();
-// SkyInput.env = 'sky'
-// SkyInput.placeholder = "Sky Input JS"
+const SkyInput = new EgInput();
+SkyInput.env = 'sky'
+SkyInput.placeholder = "Sky Input JS"
 
-// const SkyForm = new EgForm();
-// SkyForm.env = 'sky'
+const SkyForm = new EgForm();
+SkyForm.env = 'sky'
+SkyForm.addMultipleObjects(SkyInput, SkyButton)
+document.body.appendChild(SkyForm)
 
-// SkyForm.addMultipleObjects(SkyInput, SkyButton)
-// document.body.appendChild(SkyForm)
+const DarkButton = new EgButton();
+DarkButton.innerText = 'DarkButton'
+DarkButton.env = 'dark'
 
-// const DarkButton = new EgButton();
-// DarkButton.innerText = 'DarkButton'
-// DarkButton.env = 'dark'
+const DarkInput = new EgInput();
+DarkInput.env = 'dark'
+DarkInput.placeholder = "Dark Input JS"
 
-// const DarkInput = new EgInput();
-// DarkInput.env = 'dark'
-// DarkInput.placeholder = "Dark Input JS"
+const DarkForm = new EgForm()
+DarkForm.env = 'dark'
+DarkForm.addMultipleObjects(DarkInput,DarkButton)
+document.body.appendChild(DarkForm)
 
-// const DarkForm = new EgForm()
-// DarkForm.env = 'dark'
+const JungleButton = new EgButton();
+JungleButton.innerText = 'JungleButton'
+JungleButton.env = 'jungle'
 
-// DarkForm.addMultipleObjects(DarkInput,DarkButton)
-// document.body.appendChild(DarkForm)
+const JungleInput = new EgInput();
+JungleInput.env = 'jungle'
+JungleInput.placeholder = "Jungle Input JS"
 
-// const Form = new EgForm()
-// Form.id = "Log"
-// Form.method = "Loging(event)"
+const JungleForm = new EgForm()
+JungleForm.env = 'jungle'
+JungleForm.addMultipleObjects(JungleInput, JungleButton)
+document.body.appendChild(JungleForm)
 
-// document.body.appendChild(Form);
+const DefaultButton = new EgButton();
+DefaultButton.innerText = 'DefaultButton'
+DefaultButton.env = 'default'
 
-// Loging = event => {
-// event.preventDefault()
+const DefaultInput = new EgInput();
+DefaultInput.env = 'default'
+DefaultInput.placeholder = "Default Input JS"
+const DefaultForm = new EgForm()
+DefaultForm.env = 'default'
 
-// const values = Form.getInputValues();
-// let username = values[0];
-// let password = values [1];
+DefaultForm.addMultipleObjects(DefaultInput, DefaultButton)
+document.body.appendChild(DefaultForm)
 
-// const options = {
-//     username: username,
-//     password: password,
-//     objName: `${bobjects}SessionObject`,
-//     metName: 'Validate',
-//     params: arr,
-//     typeParams: typeParams
-// }
 
-// fetching(options, 'POST', './Siva', response => {
-// logger.log(response)
-// })
-// }
+/* </-------------- END THEMES --------------/> */
+
+/* </-------------- START GRID-ROW-COL ----------------/> */
 
 const grid = new EgGrid()
 const row = new EgRow()
@@ -69,19 +66,21 @@ const col = new EgCol()
 col.col = 'col-12'
 
 const username = new EgInput()
-username.offset = 'offset-6'
+username.col = 'col-6'
+username.offset = 'offset-3'
 username.placeholder = 'Input1 from js'
 
 const password = new EgInput()
-password.col = 'col-3'
+password.col = 'col-6'
 password.id = 'password'
+password.offset = 'offset-3'
 password.placeholder = 'Input2 from js'
 
 const login = new EgButton()
 login.innerText = 'Login'
 login.col = 'col-6'
-login.offset = 'offset-4'
-login.method = ''
+login.offset = 'offset-3'
+login.method = 'Loging(event)'
 
 const LoginForm = new EgForm()
 LoginForm.addMultipleObjects(username,password,login)
@@ -92,6 +91,43 @@ row.addMultipleObjects(col)
 grid.appendChild(row)
 document.body.appendChild(grid)
 
+/* </----------------- END GRID-ROW-COL --------------------/> */
+
+/* </----------------- START FUNCTIONS FOR TESTING --------------------/> */
+const bobjects = 'siva.bobjects.'
+
+Loging = event => {
+    event.preventDefault()
+    let params = []
+    let typeParams = []
+
+    LoginForm.getInputValues().forEach(values => {
+        if (values.filled === true) {
+            params.push(values.value)
+            typeParams.push(values.type)
+            let size = LoginForm.getInputs()
+
+            if (size.length === params.length) {
+                const options = {
+                    objName: `${bobjects}SessionObject`,
+                    metName: 'Validate',
+                    params: params,
+                    typeParams: typeParams
+                }
+                console.info(options)    
+            } else {
+                console.error('inputs missing yet')
+            }
+
+        } else {
+            console.error('all inputs are not filled')
+        }
+    });
+}
+
+/* </----------------- END FUNCTIONS FOR TESTING --------------------/> */
+
+/* </--------------- START TESTING COLS ONLY -----------------/> */
 
 // const col1 = new EgCol()
 // col1.col = 'col-6'
@@ -121,6 +157,4 @@ document.body.appendChild(grid)
 // col3.appendChild(input3)
 // col4.appendChild(input4)
 
-      
-        
-  
+/* </--------------- END TESTING COLS ONLY -----------------/> */

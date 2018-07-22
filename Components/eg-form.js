@@ -57,7 +57,7 @@ class EgForm extends HTMLElement {
                 this.setAttribute(props[index], keys[index])
             }
         } else {
-            console.log('both arrays must be same lenght')
+            console.error('both arrays must be same lenght')
         }
     }
 
@@ -81,7 +81,7 @@ class EgForm extends HTMLElement {
     setBackground(color, img) {
         this.style.background = color;
         img = 'none' 
-            ? console.log('no image for the background') 
+            ? console.warn('no image for the background') 
             : this.style.backgroundImage = 'url(' + this.pathImg + img + ')'
     }
 
@@ -97,7 +97,24 @@ class EgForm extends HTMLElement {
         let data = []
 
         this.getInputs().forEach(response => {
-            data.push(response.value)
+            let id = '';
+            response.id || response.id == undefined
+                ? id = response.id 
+                : id = 'no id input';
+
+            (response.value !== "") 
+                ? data.push({
+                    value: response.value,
+                    type: typeof response.value,
+                    id: id,
+                    filled: true
+                })
+                : data.push({
+                    value: response.value,
+                    type: typeof response.value,
+                    id: id,
+                    filled: false
+                })
         })
         return data
     }
