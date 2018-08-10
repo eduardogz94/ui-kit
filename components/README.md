@@ -98,7 +98,7 @@ getButtons(){}
 getInputs() {}
 ```
 
-> Return all the objects inside our form component.
+> Receive a string and return all the desired objects inside our form component.
 ```
 getObjects(obj) {}
 ```

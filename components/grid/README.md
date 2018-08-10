@@ -1,58 +1,29 @@
-# Siva-components
+## Global Methods for Grid, Row, Col.
 
-## Documentation and ussage
-
-### Siva-col
+> Receive a string and return all the desired objects inside our component.
 ```
-Contiene las propiedades predeterminadas de estilo del elemento button dentro del componente
+getObjects(obj) {}
+```
+> Appends a single object (element) to our component.
+```
+addSingleObject(element) {}
+```
+> Appends N numbers of objects (elements) to our component. 
+```
+addMultipleObjects(...elements) {}
+```
+
+> Create via string and int values pair elements to append our component.
+```
+createMultipleObjects(element,quantity){}   
+```
+
+### eg-col
+> Set default properties of the element inside our component.
+```
 defaultProperties() {}
-
-Metodo para agregar atributos al componente
+```
+> Setters of the div inside our component.
+```
 setCol(){}
-
-Retorna todos los elementos dentro del componente 
-getObjects(obj) {}
-
-Añade solo un elemento dentro del componente
-addSingleObject(element) {}
-
-/// tengo duda 
-addMultipleObjects(...elements) {}
-
-Agrega multiples elementos pasando como para metro un string del elemento que se quiere y un valor de la cantidad de elemento que se desea crear 
-createMultipleObjects(element,quantity){}
-
-
-```
-
-### Siva-grid
-```
-Retorna todos los elementos dentro del componente 
-getObjects(obj) {}
-
-Añade solo un elemento dentro del componente
-addSingleObject(element) {}
-
-Añade cualquier cantidad de objetos que se envie como parametro de este metodo
-addMultipleObjects(...elements) {}
-
-Agrega multiples elementos pasando como para metro un string del elemento que se quiere y un valor de la cantidad de elementos que se desea crear 
-createMultipleObjects(element,quantity){}
-
-```
-
-### Siva-row
-```
-Retorna todos los elementos dentro del componente 
-getObjects(obj) {}
-
-Añade solo un elemento dentro del componente
-addSingleObject(element) {}
-
-Añade cualquier cantidad de objetos que se envie como parametro de este metodo
-addMultipleObjects(...elements) {}
-
-Agrega multiples elementos pasando como para metro un string del elemento que se quiere y un valor de la cantidad de elementos que se desea crear 
-createMultipleObjects(element,quantity){}
-
 ```
