@@ -4,21 +4,22 @@ class EgButton extends HTMLElement {
 	}
 
 	connectedCallback() {
-	    this.innerHTML = `<button>${this.innerText}</button>`;
+		this.innerHTML = `<button>${this.innerText}</button>`;
 		this.setButton();
 		this.defaultProperties();
-		this.objectProperties(this.env);
+		this.environment(this.env);
 
-	    ccc.registerComponent(this, {
-	        id: this.id,
-	        secret: 'Button Parent'
-	    });
+		ccc.registerComponent(this, {
+			id: this.id,
+			secret: 'Button Parent'
+		});
 	}
 
-	defaultProperties(){
+	defaultProperties() {
 		this.getButton().style.display = 'inline-block';
 		this.getButton().style.padding = '6px 12px';
-		this.getButton().style.marginBottom = '0';
+		this.getButton().style.marginBottom = '10px';
+		this.getButton().style.marginTop = '8px';
 		this.getButton().style.whiteSpace = 'nowrap';
 		this.getButton().style.verticalAlign = 'middle';
 		this.getButton().style.msTouchAction = 'manipulation';
@@ -27,46 +28,46 @@ class EgButton extends HTMLElement {
 		this.getButton().style.webkitTransition = 'all 2s';
 		this.getButton().style.outline = 'none'
 	}
-	
-	objectProperties(env) {
+
+	environment(env) {
 		switch (env) {
 			case 'jungle':
 				this.setFont('arial', '14px', 'green');
 				this.setBorder('green', '1px solid transparent', '8px');
 				this.setBackground('white', 'none')
-			break;
+				break;
 
 			case 'sky':
 				this.setFont('arial', '14px', '#337ab7');
 				this.setBorder('black', '1px solid transparent', '8px');
 				this.setBackground('white', 'none')
-			break;
+				break;
 
 			case 'dark':
 				this.setFont('arial', '14px', 'white');
 				this.setBorder('white', '1px solid transparent', '4px');
 				this.setBackground('#9E1F1E', 'none')
-			break;
+				break;
 
 			default:
 				this.setFont('arial', '14px', 'white');
 				this.setBorder('#D4AF37', '1px solid transparent', '8px');
 				this.setBackground('purple', 'none')
-			break;
+				break;
 		}
 	}
-		
-	setObjectProperties(props,keys) {
+
+	setObjectProperties(props, keys) {
 		if (props.lenght === keys.lenght) {
-			for(let index in props) {
+			for (let index in props) {
 				this.getButton().setAttribute(props[index], keys[index])
 			}
 		} else {
 			console.error('both arrays must be same lenght')
 		}
 	}
-		
-	setBorder(color,val, radius) {
+
+	setBorder(color, val, radius) {
 		this.getButton().style.borderColor = color;
 		this.getButton().style.border = val;
 		this.getButton().style.borderRadius = radius;
@@ -85,12 +86,12 @@ class EgButton extends HTMLElement {
 
 	setBackground(color, img) {
 		this.getButton().style.background = color;
-		img = 'none' 
-		? console.warn('no image for the background')
-		: this.getButton().style.backgroundImage = 'url(' + this.pathImg + img + ')'
+		img = 'none' ?
+			img = '' :
+			this.getButton().style.backgroundImage = 'url(' + this.pathImg + img + ')'
 	}
 
-	setButton() {	
+	setButton() {
 		if (this.getAttribute('env')) {
 			this.env = this.getAttribute('env')
 		}
@@ -126,7 +127,7 @@ class EgButton extends HTMLElement {
 		if (this.getAttribute('col') && this.getAttribute('offset')) {
 			this.getButton().setAttribute('class', `${this.getAttribute('col')} ${this.getAttribute('offset')}`)
 		}
-		
+
 		if (this.innerText) {
 			this.getButton().innerText = this.innerText
 		} else {
@@ -142,17 +143,9 @@ class EgButton extends HTMLElement {
 		}
 
 	}
-	
+
 	getButton() {
-	    return this.querySelector('button');
-	}
-
-	callFromJs(){
-		console.info('finish calling from js')
-	}
-
-	callFromHtml(){
-		console.info("finished calling from html")
+		return this.querySelector('button');
 	}
 	
 }

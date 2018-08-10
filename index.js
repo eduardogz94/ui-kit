@@ -1,11 +1,11 @@
 const ccc = new CCC();
 
-ccc.chargeScript("Components/Grid/eg-grid")
-ccc.chargeScript("Components/Grid/eg-row")
-ccc.chargeScript("Components/Grid/eg-col")
-ccc.chargeScript("Components/eg-button")
-ccc.chargeScript("Components/eg-input")
-ccc.chargeScript("Components/eg-form")
+ccc.chargeScript("components/grid/eg-grid")
+ccc.chargeScript("components/grid/eg-row")
+ccc.chargeScript("components/grid/eg-col")
+ccc.chargeScript("components/eg-button")
+ccc.chargeScript("components/eg-input")
+ccc.chargeScript("components/eg-form")
 
 ccc.startLogger()
 ccc.getComponents()

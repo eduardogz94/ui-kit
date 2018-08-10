@@ -7,8 +7,8 @@ class EgForm extends HTMLElement {
     connectedCallback() {
         this.setForm()
         this.defaultProperties()
-        this.objectProperties(this.env)
-        
+        this.environment(this.env)
+
         ccc.registerComponent(this, {
             id: this.id,
             secret: 'Form Parent'
@@ -20,34 +20,34 @@ class EgForm extends HTMLElement {
         this.style.width = '99.2%';
         this.style.padding = '0px 4px'
         this.style.marginTop = '4px'
-        this.style.webkitTransition = 'all 2s';
+        this.style.webkitTransition = 'all 1.5s';
     }
 
-    objectProperties(env) {
+    environment(env) {
         switch (env) {
             case 'jungle':
                 this.setFont('arial', '14px', 'white');
-                this.setBorder('white', '1px solid transparent', '0px');
+                this.setBorder('white', '1px solid transparent', '6px');
                 this.setBackground('#38a938', 'none')
-            break;
+                break;
 
             case 'sky':
                 this.setFont('arial', '14px', 'white');
-                this.setBorder('black', '1px solid transparent', '0px');
+                this.setBorder('black', '1px solid transparent', '6px');
                 this.setBackground('#337ab7', 'none')
-            break;
+                break;
 
             case 'dark':
                 this.setFont('arial', '14px', '#D4AF37');
-                this.setBorder('white', '1px solid transparent', '0px');
+                this.setBorder('white', '1px solid transparent', '6px');
                 this.setBackground('black', 'none')
-            break;
+                break;
 
             default:
                 this.setFont('arial', '14px', 'purple');
-                this.setBorder('#D4AF37', '1px solid transparent', '0px');
+                this.setBorder('#D4AF37', '1px solid transparent', '6px');
                 this.setBackground('#D4AF37', 'none')
-            break;
+                break;
         }
     }
 
@@ -80,15 +80,15 @@ class EgForm extends HTMLElement {
 
     setBackground(color, img) {
         this.style.background = color;
-        img = 'none' 
-            ? console.warn('no image for the background') 
-            : this.style.backgroundImage = 'url(' + this.pathImg + img + ')'
+        img = 'none' ?
+            img = '' :
+            this.style.backgroundImage = 'url(' + this.pathImg + img + ')'
     }
 
-    getButton() {
-        return this.querySelector('button');
+    getButtons() {
+        return this.querySelectorAll('button');
     }
-    
+
     getInputs() {
         return this.querySelectorAll('input');
     }
@@ -98,23 +98,23 @@ class EgForm extends HTMLElement {
 
         this.getInputs().forEach(response => {
             let id = '';
-            response.id || response.id == undefined
-                ? id = response.id 
-                : id = 'no id input';
+            response.id || response.id == undefined ?
+                id = response.id :
+                id = 'no id input';
 
-            (response.value !== "") 
-                ? data.push({
+            response.value !== "" ?
+                data.push({
                     value: response.value,
                     type: typeof response.value,
                     id: id,
                     filled: true
-                })
-                : data.push({
+                }) :
+                data.push({
                     value: response.value,
                     type: typeof response.value,
                     id: id,
                     filled: false
-                })
+                });
         })
         return data
     }
@@ -175,7 +175,6 @@ class EgForm extends HTMLElement {
             this.appendChild(object)
         }
     }
-
 }
 
 customElements.define("eg-form", EgForm);

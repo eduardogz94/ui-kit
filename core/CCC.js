@@ -2,7 +2,7 @@ class CCC {
     constructor() {
         this.components = [];
     }
-    
+
     registerComponent(component, configs) {
         this.components.push({
             component: component,
@@ -13,12 +13,12 @@ class CCC {
 
     initApp() {
         this.addScript("utilities/loader").then(response => {
-            console.log("<---- app loaded and started ----->")
+            console.info("<---- app loaded and started ----->")
         }).catch(err => {
             console.error(err)
         })
     }
-    
+
     chargeScript(url) {
         this.addScript(`${url}`).then((result) => {
             console.log(`${url} loaded`)
@@ -43,20 +43,27 @@ class CCC {
         });
     }
 
-    sendRequest(){
-      this.addScript("utilities/fetch").then(response => {
-          console.trace("<---- fetch loaded and started ----->")
-      }).catch(err => {
-          console.error(err)
-      })
+    sendRequest(options) {
+        return new Promise((resolve, reject) => {
+            this.addScript("utilities/fetch").then(response => {
+                console.info("fetch component ready to send request")
+
+                fetching(options, 'POST', './Siva', msg => {
+                    resolve(msg)
+                })
+
+            }).catch(err => {
+                reject(err)
+            })
+        })
     }
 
     startLogger() {
         this.addScript('utilities/log4javascript').then(response => {
-            console.trace("<---- logger loaded and started ----->")
+            console.info("<---- logger loaded and started ----->")
             this.initApp()
         }).catch(err => {
-            console.log(err)
+            console.error(err)
         })
     }
 

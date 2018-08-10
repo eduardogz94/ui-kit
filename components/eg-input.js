@@ -6,9 +6,10 @@ class EgInput extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `<input/>`
         this.setInput();
+
         this.defaultProperties()
-        this.objectProperties(this.env)
-        
+        this.environment(this.env)
+
         ccc.registerComponent(this, {
             id: this.id,
             secret: 'Input Parent'
@@ -25,31 +26,31 @@ class EgInput extends HTMLElement {
         this.getInput().style.outline = 'none'
     }
 
-    objectProperties(env) {
+    environment(env) {
         switch (env) {
             case 'jungle':
                 this.setFont('arial', '14px', 'green');
                 this.setBorder('white', '1px solid transparent', '8px');
                 this.setBackground('white', 'none')
-            break;
+                break;
 
             case 'sky':
                 this.setFont('arial', '14px', '#337ab7');
                 this.setBorder('black', '1px solid transparent', '8px');
                 this.setBackground('white', 'none')
-            break;
+                break;
 
             case 'dark':
                 this.setFont('arial', '14px', '#9E1F1E');
                 this.setBorder('white', '1px solid transparent', '8px');
                 this.setBackground('white', 'none')
-            break;
+                break;
 
             default:
                 this.setFont('arial', '14px', 'purple');
                 this.setBorder('#D4AF37', '1px solid transparent', '8px');
                 this.setBackground('white', 'none')
-            break;
+                break;
         }
     }
 
@@ -82,9 +83,35 @@ class EgInput extends HTMLElement {
 
     setBackground(color, img) {
         this.getInput().style.background = color;
-        img = 'none' 
-            ? console.warn('no image for the background') 
-            : this.getInput().style.backgroundImage = 'url(' + this.pathImg + img + ')'
+        img = 'none' ?
+            img = '' :
+            this.getInput().style.backgroundImage = 'url(' + this.pathImg + img + ')'
+    }
+
+    getInputValue() {
+        let data = []
+
+        let response = this.getInput()
+        let id = '';
+        response.id || response.id == undefined ?
+            id = response.id :
+            id = 'no id input';
+
+        response.value !== "" ?
+            data.push({
+                value: response.value,
+                type: typeof response.value,
+                id: id,
+                filled: true
+            }) :
+            data.push({
+                value: response.value,
+                type: typeof response.value,
+                id: id,
+                filled: false
+            });
+
+        return data
     }
 
     getInput() {
@@ -96,7 +123,7 @@ class EgInput extends HTMLElement {
     }
 
     setInput() {
-        if(this.getAttribute('env')) {
+        if (this.getAttribute('env')) {
             this.env = this.getAttribute('env')
         }
 
@@ -175,7 +202,7 @@ class EgInput extends HTMLElement {
     }
 
     validateValue() {
-        (this.getInput().value == '') ? alert('Input Empty'): alert('Not Empty');
+        (this.getInput().value == '') ? true: false;
     }
 }
 

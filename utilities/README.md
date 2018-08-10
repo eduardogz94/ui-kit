@@ -4,38 +4,23 @@
 
 ### Loader
 
-> Instancia al metodo addScript de CCC
+> Consumes addScripts promise, receiving a string as url of the scripts to add.
 ```
-    el parametro enviado es una cadena con la direccion del archivo que se quiere mostrar
-
-ccc.addScript('Components/renders/login').then(response => {
-    logger.info('added!')
-}).catch(err => {
-    logger.error(err);
-})
-
-ccc.addScript('Components/renders/signup').then(response => {
-    logger.info('added!')
-}).catch(err => {
-    logger.error(err);
-})
-
-ccc.addScript('Components/renders/themes').then(response =>{
-    logger.info('added!')
-}).catch(err => {
-    logger.error(err);
-})
+ccc.addScript('Components/renders/login')
+ccc.addScript('Components/renders/signup')
+ccc.addScript('Components/renders/themes')
 
 ```
 
 ### Fetch
 
-> Es donde se hace la peticion al servidor
+> Component that sends requests to the server
 ```
-    Este metodo tiene como parametros:
-    data, son los datos que se enviaran al servidor
-    method, el metodo en que se va a enviar la data 
-    url, la direccion del Servlet en el servidor
+    Params:
+        data, options to be send to the server
+        method, method to execute from fetch 
+        url, endpoint to be call
+        cb, a callback to manipulate data
     
 fetching = (data, method, url, cb) => {}
 ```
