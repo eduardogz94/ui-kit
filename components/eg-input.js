@@ -118,10 +118,6 @@ class EgInput extends HTMLElement {
         return this.querySelector('input');
     }
 
-    getValueType() {
-        return typeof this.getInput().value;
-    }
-
     setInput() {
         if (this.getAttribute('env')) {
             this.env = this.getAttribute('env')
@@ -171,7 +167,6 @@ class EgInput extends HTMLElement {
 
     onClear() {
         this.getInput().value = "";
-        this.getInput().placeholder = "Cleared";
     }
 
     setPos(x, y) {
