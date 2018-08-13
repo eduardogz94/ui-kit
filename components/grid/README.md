@@ -3,6 +3,9 @@
 > Receive a string and return all the desired objects inside our component.
 ```javascript
 getObjects(obj) {}
+
+const grid = new EgGrid()
+grid.addSingleObject('eg-col')
 ```
 
 > Appends and creates single object (element) to our form component.
@@ -19,7 +22,7 @@ addMultipleObjects(...elements) {}
 const grid = new EgGrid()
 const row = new EgRow()
 const col = new EgCol()
-grid.addMultipleObjects(input,button)
+grid.addMultipleObjects(row,col)
 ```
 
 > Create via string and int values pair elements to append our form component.
