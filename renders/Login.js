@@ -32,12 +32,17 @@ password_confirmation_login.id = 'password_confirmation_login'
 password_confirmation_login.offset = 'offset-3'
 password_confirmation_login.placeholder = 'password_confirmation_login from js'
 
+let options = {
+    name:1,
+    id:1
+}
+
 const button_login = new EgButton()
 button_login.innerText = 'Login'
 button_login.col = 'col-6'
 button_login.env = 'default'
 button_login.offset = 'offset-3'
-button_login.method = 'Authenticate(login_form)'
+button_login.method = `request('GET','http:localhost:3001/charter/all',response => console.log(response), options)`
 
 const login_form = new EgForm()
 login_form.col = 'col-6'
@@ -52,3 +57,21 @@ grid_login.appendChild(row_login)
 document.body.appendChild(grid_login)
 
 /* </----------------- END GRID-ROW-COL-FORM-INPUT-BUTTON --------------------/> */
+
+request = (method, endpoint, cb, params = {}, headers = 'multipart/form-data') => {
+    fetch(endpoint, {
+        method: 'GET',
+        credentials: 'same-origin',
+        headers: {
+            'Content-type': headers
+        }
+    })
+    .then(response => response.json())
+    .then(response => {
+        cb(response);
+    })
+    .catch(err => {
+        console.error(err)
+        console.error(`Error while making the request: ${err.message}`);
+    })
+}

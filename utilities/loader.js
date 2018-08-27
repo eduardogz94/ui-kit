@@ -8,19 +8,19 @@ const logger = log4javascript.getDefaultLogger();
 // logger.fatal('testing logger from loader.js')
 
 ccc.addScript('./renders/Login').then(response => {
-    logger.info('added!')
+    // console.info('added!')
 }).catch(err => {
-    logger.error(err);
+    console.error(err);
 })
 
 ccc.addScript('./renders/Signup').then(response => {
-    logger.info('added!')
+    // console.info('added!')
 }).catch(err => {
-    logger.error(err);
+    console.error(err);
 })
 
 ccc.addScript('./renders/Themes').then(response => {
-    logger.info('added!')
+    // console.info('added!')
 }).catch(err => {
-    logger.error(err);
+    console.error(err);
 })

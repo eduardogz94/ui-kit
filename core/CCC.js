@@ -21,14 +21,14 @@ class CCC {
 
     chargeScript(url) {
         this.addScript(`${url}`).then((result) => {
-            console.log(`${url} loaded`)
+            // console.log(`${url} loaded`)
         }).catch((err) => {
             console.error(err)
         });
     }
 
     getComponents() {
-        console.info(this.components)
+        // console.info(this.components)
         return this.components;
     }
 
@@ -60,7 +60,7 @@ class CCC {
 
     startLogger() {
         this.addScript('utilities/log4javascript').then(response => {
-            console.info("<---- logger loaded and started ----->")
+            // console.info("<---- logger loaded and started ----->")
             this.initApp()
         }).catch(err => {
             console.error(err)

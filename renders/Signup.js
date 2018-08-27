@@ -49,6 +49,6 @@ col_sign.addMultipleObjects(signup_form)
 row_sign.appendChild(col_sign)
 
 grid_sign.appendChild(row_sign)
-document.body.appendChild(grid_sign)
+// document.body.appendChild(grid_sign)
 
 /* </----------------- END GRID-ROW-COL-FORM-INPUT-BUTTON --------------------/> */
