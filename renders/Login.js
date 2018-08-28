@@ -42,7 +42,7 @@ button_login.innerText = 'Login'
 button_login.col = 'col-6'
 button_login.env = 'default'
 button_login.offset = 'offset-3'
-button_login.method = `request('GET','http:localhost:3001/charter/all',response => console.log(response), options)`
+button_login.method = `request('GET','http:localhost:3001/charter/all', 'json', options).then(response => console.log(response))`
 
 const login_form = new EgForm()
 login_form.col = 'col-6'
@@ -58,20 +58,57 @@ document.body.appendChild(grid_login)
 
 /* </----------------- END GRID-ROW-COL-FORM-INPUT-BUTTON --------------------/> */
 
-request = (method, endpoint, cb, params = {}, headers = 'multipart/form-data') => {
-    fetch(endpoint, {
-        method: 'GET',
-        credentials: 'same-origin',
-        headers: {
-            'Content-type': headers
+request = (method, endpoint, headers = 'multipart/form-data', params = {} ) => {
+    return new Promise((res,rej) => {
+        headers == 'json' ? headers = 'application/json' : headers
+        headers == 'formdata' ? headers = 'multipart/form-data' : headers
+
+        let fetchOptions = {
+            method: method,
+            body: JSON.stringify(params),
+            credentials: 'include',
+            headers: {
+                'Content-type': headers
+            }
+        };
+
+        switch (method) {
+            case 'GET':
+                fetch(endpoint,{
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        'Content-type': headers
+                    }
+                })
+                .then(response => response.json())
+                .then(response => res(response))
+                .catch(err => rej(err.message) )
+            break;
+
+            case 'POST':
+
+                fetch(endpoint, fetchOptions)
+                .then(response => response.json())
+                .then(response => res(response) )
+                .catch(err => rej(err.message) )
+            break;
+
+            case 'DELETE':
+
+                fetch(endpoint, fetchOptions)
+                .then(response => response.json())
+                .then(response => res(response) )
+                .catch(err => rej(err.message) )
+            break;
+
+            case 'UPDATE':
+
+                fetch(endpoint, fetchOptions)
+                .then(response => response.json())
+                .then(response => res(response) )
+                .catch(err => rej(err.message) )
+            break;
         }
-    })
-    .then(response => response.json())
-    .then(response => {
-        cb(response);
-    })
-    .catch(err => {
-        console.error(err)
-        console.error(`Error while making the request: ${err.message}`);
     })
 }

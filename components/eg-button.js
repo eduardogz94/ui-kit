@@ -38,7 +38,7 @@ class EgButton extends HTMLElement {
 				break;
 
 			case 'sky':
-				this.setFont('arial', '14px', '#337ab7');
+				// this.setFont('arial', '14px', '#337ab7');
 				this.setBorder('black', '1px solid transparent', '8px');
 				this.setBackground('white', 'none')
 				break;
