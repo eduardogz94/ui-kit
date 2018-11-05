@@ -22,6 +22,10 @@
   font-style: normal;
 }
 
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
 html {
   line-height: 1.15;
   overflow-x: hidden;
@@ -534,3 +538,50 @@ select.form-control:not([size]):not([multiple]) {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 /*end card*/
+
+/* Start Images*/
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-thumbnail {
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  max-width: 100%;
+  height: auto;
+}
+.rounded {
+  border-radius: 0.25rem !important;
+}
+
+.rounded-top {
+  border-top-left-radius: 0.25rem !important;
+  border-top-right-radius: 0.25rem !important;
+}
+
+.rounded-right {
+  border-top-right-radius: 0.25rem !important;
+  border-bottom-right-radius: 0.25rem !important;
+}
+
+.rounded-bottom {
+  border-bottom-right-radius: 0.25rem !important;
+  border-bottom-left-radius: 0.25rem !important;
+}
+
+.rounded-left {
+  border-top-left-radius: 0.25rem !important;
+  border-bottom-left-radius: 0.25rem !important;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.rounded-0 {
+  border-radius: 0 !important;
+}
+/* End Images */

@@ -19,6 +19,7 @@ class EgInput extends HTMLElement {
     this.getAttributeNames().forEach(element => {
       if (element === "id") return null;
       if (element === "placeholder") return null;
+      if (element === "type") return null;
       classname += `${this.getAttribute(`${element}`)} `;
     });
     this.getInput().className = classname;
@@ -61,8 +62,6 @@ class EgInput extends HTMLElement {
   }
 
   getInputValue() {
-    let data = [];
-
     let response = this.getInput();
     let id = "";
 
@@ -70,14 +69,16 @@ class EgInput extends HTMLElement {
       ? (id = response.id)
       : (id = "no id input");
 
+    let data = {};
+
     response.value !== ""
-      ? data.push({
+      ? (data = {
           value: response.value,
           type: typeof response.value,
           id: id,
           filled: true
         })
-      : data.push({
+      : (data = {
           value: response.value,
           type: typeof response.value,
           id: id,
@@ -92,23 +93,32 @@ class EgInput extends HTMLElement {
   }
 
   setInput() {
-    this.getInput().type = "text";
-
-    if (this.id) {
-      this.getInput().setAttribute("id", this.id);
-    }
+    if (this.id) this.setInputAttribute("id", this.id);
 
     if (this.getAttribute("id")) {
-      this.getInput().setAttribute("id", `${this.getAttribute("id")}-input`);
+      this.setInputAttribute("id", `${this.getAttribute("id")}-input`);
     }
 
     if (this.placeholder) {
-      this.getInput().setAttribute("placeholder", this.placeholder);
+      this.setInputAttribute("placeholder", this.placeholder);
     }
 
     if (this.getAttribute("placeholder")) {
-      this.getInput().setAttribute("placeholder", `${this.getAttribute("placeholder")}`);
+      this.setInputAttribute(
+        "placeholder",
+        `${this.getAttribute("placeholder")}`
+      );
     }
+
+    if (this.type) this.setInputAttribute("type", this.type);
+
+    if (this.getAttribute("type")) {
+      this.setInputAttribute("type", `${this.getAttribute("type")}`);
+    }
+  }
+
+  setInputAttribute(key, value) {
+    this.getInput().setAttribute(key, value);
   }
 
   onClear() {
@@ -142,10 +152,6 @@ class EgInput extends HTMLElement {
     alert(/[a-z]/.test(this.getInput().value) ? true : false);
   }
 
-  validateValue() {
-    this.getInput().value == "" ? true : false;
-  }
-
   validationHandler() {
     if (this.getInput().value === "") {
       this.setFormInput("has-danger");
@@ -153,6 +159,39 @@ class EgInput extends HTMLElement {
     } else {
       this.setFormInput("has-success");
       this.setFormControl("form-control-success");
+    }
+  }
+
+  validateValue(length) {
+    let input = this.getInputValue();
+    if (input.value.length <= length - 1) {
+      this.setFormControl("form-control-warning");
+    } else {
+      this.setFormControl("form-control-success");
+    }
+  }
+
+  validateEmail(emailType) {
+    if (this.getInput().getAttribute("type") === "email") {
+      let input = this.getInputValue();
+      if (input.value.search(emailType) === -1) {
+        this.setFormControl("form-control-danger");
+      } else {
+        this.setFormControl("form-control-success");
+      }
+    }
+  }
+
+  validatePassword(length) {
+    if (this.getInput().getAttribute("type") === "password") {
+      let input = this.getInputValue();
+      if (input.value.length === 0) {
+        this.setFormControl("form-control-danger");
+      } else if (input.value.length <= length - 1) {
+        this.setFormControl("form-control-warning");
+      } else {
+        this.setFormControl("form-control-success");
+      }
     }
   }
 
@@ -166,6 +205,8 @@ class EgInput extends HTMLElement {
       if (element === "id") return null;
       if (element === "class") return null;
       if (element === "control") return null;
+      if (element === "placeholder") return null;
+      if (element === "type") return null;
       classname += `${this.getAttribute(`${element}`)} `;
     });
 

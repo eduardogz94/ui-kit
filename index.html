@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Web Component</title>
+  <title>eg UI-KIT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--icons-->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
@@ -16,12 +16,14 @@
 </head>
 
 <body>
-
+  <!-- Typography -->
   <eg-grid>
     <eg-col col="col-12">
-      <h1>Typography</h1>
+
+      <h1 class="text-primary text-center">Typography</h1>
       <eg-row>
         <eg-col col="col-4">
+          <!-- Headings -->
           <h1 class="text-muted">Headings</h1>
           <h1>Default H1</h1>
           <h2>Default H2</h2>
@@ -30,7 +32,7 @@
           <h5>Default H5</h5>
           <h6>Default H6</h6>
         </eg-col>
-
+        <!-- Colors Headings -->
         <eg-col col="col-4">
           <h1 class="text-muted">Colors Heading</h1>
           <h1 class="text-primary">Primary H1</h1>
@@ -40,7 +42,7 @@
           <h5 class="text-warning">Warning H5</h5>
           <h6 class="text-danger">Danger H6</h6>
         </eg-col>
-
+        <!-- Display Headings -->
         <eg-col col="col-4">
           <h1 class="text-muted">Display Heading</h1>
           <h1 class="display-1">Display 1</h1>
@@ -52,23 +54,24 @@
 
       <eg-row>
         <eg-col col="col-12">
+          <!-- Lead -->
           <h1 class="text-muted">Lead</h1>
           <p class="lead">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
           </p>
-
+          <!-- Paragraphs -->
           <h1 class="text-muted">Paragraph</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
             Cum
             sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
           </p>
-
+          <!-- Muted Texts -->
           <h1 class="text-muted mt-4">Muted Text</h1>
           <p class="text-muted">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
           </p>
-
+          <!-- Colored Texts -->
           <h1 class="text-muted mt-4">Colored Text</h1>
           <p class="text-primary">
             <b>Primary Text:</b> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
@@ -92,32 +95,17 @@
           </p>
         </eg-col>
       </eg-row>
-    </eg-col>
-  </eg-grid>
-  <hr>
-  <eg-grid>
-    <eg-col col="col-12">
-      <h1>Cards</h1>
-      <eg-col col="col-3">
-        <eg-card style="card-primary" body="This is a card primary" header="primary" footer="Footer primary"></eg-card>
-      </eg-col>
-      <eg-col col="col-3">
-        <eg-card style="card-success" body="This is a card success" header="success" footer="Footer success"></eg-card>
-      </eg-col>
-      <eg-col col="col-3">
-        <eg-card style="card-danger" body="This is a card danger" header="danger" footer="Footer danger"></eg-card>
-      </eg-col>
-      <eg-col col="col-3">
-        <eg-card style="card-warning" body="This is a card warning" header="warning" footer="Footer warning"></eg-card>
-      </eg-col>
-    </eg-col>
-  </eg-grid>
-  <hr>
 
+    </eg-col>
+
+  </eg-grid>
+  <!-- Buttons -->
   <eg-grid>
-    <eg-col col="col-12">
-      <h1>Buttons</h1>
+    <eg-col bg="bg-alt" col="col-12">
+
+      <h1 class="text-primary text-center">Buttons</h1>
       <eg-row>
+        <!-- Buttons Colors -->
         <eg-col col="col-6">
           <h1 class="text-muted">Buttons Colors</h1>
           <eg-button btn="btn-primary">primary</eg-button>
@@ -127,7 +115,7 @@
           <eg-button btn="btn-info">info</eg-button>
           <eg-button btn="btn-danger">danger</eg-button>
         </eg-col>
-
+        <!-- Outline Buttons -->
         <eg-col col="col-6">
           <h1 class="text-muted">Outline Buttons Colors</h1>
           <eg-button btn="btn-outline-primary">primary</eg-button>
@@ -140,6 +128,7 @@
       </eg-row>
 
       <eg-row>
+        <!-- Buttons Styles -->
         <eg-col col="col-6">
           <h1 class="text-muted">Buttons Styles</h1>
           <eg-button btn="btn-primary"">Default</eg-button>
@@ -149,7 +138,7 @@
           <eg-button btn="btn-circle">C</eg-button>
           <eg-button btn="btn-link">Link</eg-button>
         </eg-col>
-
+        <!-- Buttons Size -->
         <eg-col col="col-6">
           <h1 class="text-muted">Buttons Size</h1>
           <eg-button btn="btn-primary btn-xs">Extra Small</eg-button>
@@ -159,37 +148,66 @@
           <eg-button btn="btn-primary btn-lg">Large</eg-button>
         </eg-col>
       </eg-row>
+
     </eg-col>
-    <hr>
+
+  </eg-grid>
+  <!-- Cards -->
+  <eg-grid>
     <eg-col col="col-12">
-      <h1>Images</h1>
+
+      <h1 class="text-primary text-center">Cards</h1>
       <eg-col col="col-3">
-        <h1 class="text-center text-muted">Rounded</h1>
-        <img src="assets/images/logo.jpeg" class="mx-auto d-block rounded img-fluid" alt="Avatar" />
+        <eg-card style="card-primary" body="This is a card primary" header="primary" footer="Footer primary" />
       </eg-col>
 
       <eg-col col="col-3">
-        <h1 class="text-center text-muted">Circle</h1>
-        <img src="assets/images/logo.jpeg" class="mx-auto d-block rounded-circle img-fluid" alt="Avatar" />
+        <eg-card style="card-success" body="This is a card success" header="success" footer="Footer success" />
       </eg-col>
 
       <eg-col col="col-3">
-        <h1 class="text-center text-muted">Thumbnail</h1>
-        <img src="assets/images/logo.jpeg" class="mx-auto d-block img-thumbnail img-fluid" alt="Avatar" />
+        <eg-card style="card-danger" body="This is a card danger" header="danger" footer="Footer danger" />
       </eg-col>
 
       <eg-col col="col-3">
-        <h1 class="text-center text-muted">Raised</h1>
-        <img src="assets/images/logo.jpeg" class="mx-auto d-block rounded-circle img-raised img-fluid" alt="Avatar" />
+        <eg-card style="card-warning" body="This is a card warning" header="warning" footer="Footer warning" />
       </eg-col>
     </eg-col>
 
   </eg-grid>
-  <hr>
+
+  <!-- Images -->
+  <eg-grid>
+    <eg-col bg="bg-alt" col="col-12">
+      <!-- Rounded -->
+      <h1 class="text-primary text-center">Images</h1>
+      <eg-col col="col-3">
+        <h1 class="text-center text-muted">Rounded</h1>
+        <eg-img src="assets/images/logo.jpeg" style="mx-auto d-block rounded img-fluid" alt="Avatar" />
+      </eg-col>
+      <!-- Circle -->
+      <eg-col col="col-3">
+        <h1 class="text-center text-muted">Circle</h1>
+        <eg-img src="assets/images/logo.jpeg" style="mx-auto d-block rounded-circle img-fluid" alt="Avatar" />
+      </eg-col>
+      <!-- Thumbnail -->
+      <eg-col col="col-3">
+        <h1 class="text-center text-muted">Thumbnail</h1>
+        <eg-img src="assets/images/logo.jpeg" style="mx-auto d-block img-thumbnail img-fluid" alt="Avatar" />
+      </eg-col>
+      <!-- Raised -->
+      <eg-col col="col-3">
+        <h1 class="text-center text-muted">Raised</h1>
+        <eg-img src="assets/images/logo.jpeg" style="mx-auto d-block rounded-circle img-raised img-fluid" alt="Avatar" />
+      </eg-col>
+    </eg-col>
+
+  </eg-grid>
+
   <!--Icons-->
   <eg-grid>
     <eg-col col="col-12">
-      <h1>Icons</h1>
+      <h1 class="text-primary text-center">Icons</h1>
       <eg-row>
         <eg-col col="col-12">
           <p class="lead">
@@ -200,9 +218,10 @@
           </p>
         </eg-col>
       </eg-row>
-
+      <!-- Icons - -->
       <eg-row>
-        <eg-col col="col-12">
+          <!-- Icon Examples -->
+        <eg-col col="col-6">
           <h1 class="text-muted">Icon Examples</h1>
           <div class="icon-sm text-muted">
             <em class="ion-beer mr-4"></em>
@@ -220,8 +239,8 @@
             <em class="fa fa-map-marker mr-4"></em>
           </div>
         </eg-col>
-
-        <eg-col col="col-12">
+        <!-- Icon Sizes -->
+        <eg-col col="col-6">
           <h1 class="text-muted">Icon Sizes</h1>
           <div class="icon-sm text-muted">
             <em class="fa fa-map-marker icon-sm mr-4"></em>
@@ -231,56 +250,99 @@
           </div>
         </eg-col>
       </eg-row>
+
     </eg-col>
   </eg-grid>
-
-  <hr>
+  <!-- Inputs -->
   <eg-grid>
-    <eg-col col="col-12">
-      <h1>Form Inputs</h1>
+    <eg-col bg="bg-alt" col="col-12">
+      <h1 class="text-primary text-center">Form Inputs</h1>
+      <!-- Basic Inputs -->
+      <h1 class="text-muted">Basic Inputs</h1>
+      <eg-row>
+        <eg-col col="col-3">
+          <h5 class="text-muted text-primary">Email Input</h5>
+          <eg-input id="email" type="email" mt="mt-2" col="col-10" control="form-control" placeholder="email input"></eg-input>
+        </eg-col>
+
+        <eg-col col="col-3">
+          <h5 class="text-muted text-primary">Text Input</h5>
+          <eg-input id="text" type="text" mt="mt-2" col="col-10" control="form-control" placeholder="text input"></eg-input>
+        </eg-col>
+
+        <eg-col col="col-3">
+          <h5 class="text-muted text-primary">Password Input</h5>
+          <eg-input id="password" type="password" mt="mt-2" col="col-10" control="form-control" placeholder="Password"></eg-input>
+        </eg-col>
+
+        <eg-col col="col-3">
+          <h5 class="text-muted text-primary">Password Input</h5>
+          <eg-input id="password" type="password" mt="mt-2" col="col-10" control="form-control" placeholder="Password"></eg-input>
+        </eg-col>
+      </eg-row>
+      <!-- Validation Inputs -->
       <h1 class="text-muted">Validation Inputs</h1>
       <eg-row>
         <eg-col col="col-4">
           <h5 class="text-muted text-success">Success Input</h5>
           <eg-input mt="mt-2" col="col-8" control="form-control form-control-success" placeholder="Success"></eg-input>
         </eg-col>
+
         <eg-col col="col-4">
           <h5 class="text-muted text-danger">Danger Input</h5>
           <eg-input mt="mt-2" col="col-8" control="form-control form-control-danger" placeholder="Danger"></eg-input>
         </eg-col>
+
         <eg-col col="col-4">
           <h5 class="text-muted text-warning">Warning Input</h5>
           <eg-input mt="mt-2" col="col-8" control="form-control form-control-warning" placeholder="Warning"></eg-input>
         </eg-col>
+
       </eg-row>
 
       <eg-row mt="mt-4">
         <eg-col col="col-4">
-          <h5 class="text-muted">Live Validation Input</h5>
-          <eg-input id="validation" mt="mt-2" col="col-8" control="form-control" placeholder="Validation Live"></eg-input>
+          <h5 class="text-muted text-primary">Live Length Validation Input</h5>
+          <eg-input type="text" id="validation" mt="mt-2" col="col-8" control="form-control" placeholder="Validation Live"></eg-input>
         </eg-col>
       </eg-row>
-
+      <!-- Size Inputs -->
       <h1 class="text-muted">Size Inputs</h1>
-      <eg-row>
+      <eg-row mb="mb-4">
         <eg-col col="col-4">
-          <h5 class="text-muted">Small Input</h5>
+          <h5 class="text-muted text-primary">Small Input</h5>
           <eg-input mt="mt-2" col="col-8" control="form-control form-control-sm" placeholder="small size input inside col"></eg-input>
         </eg-col>
+
         <eg-col col="col-4">
-          <h5 class="text-muted">Default Input</h5>
+          <h5 class="text-muted text-primary">Default Input</h5>
           <eg-input mt="mt-2" col="col-8" control="form-control" placeholder="Default size input inside col"></eg-input>
         </eg-col>
+
         <eg-col col="col-4">
-          <h5 class="text-muted">Large Input</h5>
+          <h5 class="text-muted text-primary">Large Input</h5>
           <eg-input mt="mt-2" col="col-8" control="form-control form-control-lg" placeholder="Large size input inside col"></eg-input>
         </eg-col>
+
       </eg-row>
     </eg-col>
   </eg-grid>
 </body>
-
-<hr>
+<!-- Alerts -->
+<eg-col col="col-12" section="colored-section">
+  <h1 class="text-primary text-center">Alerts</h1>
+  <eg-row>
+    <eg-col col="col-8" offset="offset-2">
+      <eg-alert alert="alert-primary show fade" text="This is the text of a primary alert" title="This Alert Has A Title"></eg-alert>
+      <eg-alert alert="alert-alt show fade" text="This is the text of a alt alert with a close button" close="alert-dismissible"></eg-alert>
+      <eg-alert alert="alert-success" text="This is the text of a success alert with a close button" close="alert-dismissible"></eg-alert>
+      <eg-alert alert="alert-danger" text="This is the text of a danger alert" title="This Alert Has A Title"></eg-alert>
+      <eg-alert alert="alert-info" text="This is the text of a info alert with a close button" close="alert-dismissible"></eg-alert>
+      <eg-alert alert="alert-warning" text="This is the text of a warning alert" title="This Alert Has A Title"></eg-alert>
+    </eg-col>
+  </eg-row>
+  <br><br>
+</eg-col>
 
 <eg-col col="col-12" section="colored-section" bg="bg-inverse">
   <eg-row>

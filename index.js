@@ -7,7 +7,9 @@ ccc.chargeScript("components/eg-form")
 ccc.chargeScript("components/eg-button")
 ccc.chargeScript("components/eg-input")
 ccc.chargeScript("components/eg-card")
+ccc.chargeScript("components/eg-alert")
+ccc.chargeScript("components/eg-img")
 ccc.chargeScript("utilities/fetch")
 
 ccc.startLogger()
-ccc.getComponents()
+console.log(ccc.getComponents());
