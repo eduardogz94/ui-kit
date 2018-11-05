@@ -1,57 +1,69 @@
-request = (method, endpoint, params = {}, headers = 'json') => {
-    return new Promise((res,rej) => {
-        var body
+class Fetch {
+  constructor() {
+    this.headers = {};
+    this.credentials = "";
+  }
 
-        headers == 'json' 
-            ? (headers = 'application/json', body = JSON.stringify(params)) 
-            : headers
-        
-        headers == 'formdata' 
-            ? (headers = 'multipart/form-data', body = params)
-            : headers
+  fetchData(endpoint, fetchOptions) {
+    return new Promise((resolve, reject) => {
+      console.log(fetchOptions);
+      fetch(endpoint, fetchOptions)
+        .then(response => response.json())
+        .then(response => resolve(response))
+        .catch(err => {
+          console.log(err);
+          reject(err);
+        });
+    });
+  }
 
-        var fetchOptions = {
-            method,
-            body,
-            credentials: 'include',
-            headers: {
-                'Content-type': headers
-            }
-        };
+  withBody(method, body, headers) {
+    let options = { method, headers };
+    if (headers === "application/json") {
+      options["headers"] = { "Content-Type": headers };
+      options["body"] = JSON.stringify(body);
+    } else {
+      options["body"] = body;
+      delete options['headers'];
+    }
+    return options;
+  }
 
-        switch (method) {
-            case 'GET':
-                fetch(endpoint,{
-                    credentials: 'include',
-                })
-                    .then(response => response.json())
-                    .then(response => res(response))
-                    .catch(err => rej(err.message) )
-            break;
+  withoutBody() {
+    return {
+      //   credentials: "include"
+    };
+  }
 
-            case 'POST':
+  get(endpoint, body = {}, headers = this.headers) {
+    return new Promise((resolve, reject) => {
+      this.fetchData(endpoint, this.withoutBody())
+        .then(data => resolve(data))
+        .catch(error => reject(error));
+    });
+  }
 
-                fetch(endpoint, fetchOptions)
-                    .then(response => response.json())
-                    .then(response => res(response) )
-                    .catch(err => rej(err.message) )
-            break;
+  post(endpoint, body = {}, headers = this.headers) {
+    return new Promise((resolve, reject) => {
+      this.fetchData(endpoint, this.withBody("POST", body, headers))
+        .then(data => resolve(data))
+        .catch(error => reject(error));
+    });
+  }
 
-            case 'DELETE':
+  update(endpoint, body = {}, headers = this.headers) {
+    return new Promise((resolve, reject) => {
+      this.fetchData(endpoint, this.withBody("PUT", body, headers))
+        .then(data => resolve(data))
+        .catch(error => reject(error));
+    });
+  }
 
-                fetch(endpoint, fetchOptions)
-                    .then(response => response.json())
-                    .then(response => res(response) )
-                    .catch(err => rej(err.message) )
-            break;
-
-            case 'UPDATE':
-
-                fetch(endpoint, fetchOptions)
-                    .then(response => response.json())
-                    .then(response => res(response) )
-                    .catch(err => rej(err.message) )
-            break;
-        }
-    })
+  delete(endpoint, body = {}, headers = this.headers) {
+    return new Promise((resolve, reject) => {
+      this.fetchData(endpoint, this.withBody("DELETE", body, headers))
+        .then(data => resolve(data))
+        .catch(error => reject(error));
+    });
+  }
 }

@@ -11,28 +11,19 @@ class CCC {
         });
     }
 
-    initApp() {
-        this.addScript("utilities/loader").then(response => {
-            console.info("<---- app loaded and started ----->")
-        }).catch(err => {
-            console.error(err)
-        })
+    async initApp()  {
+        await this.addScript("utilities/loader")
     }
 
-    chargeScript(url) {
-        this.addScript(`${url}`).then((result) => {
-            // console.log(`${url} loaded`)
-        }).catch((err) => {
-            console.error(err)
-        });
+    async chargeScript(url) {
+        await this.addScript(`${url}`)
     }
 
     getComponents() {
-        // console.info(this.components)
         return this.components;
     }
 
-    addScript(url) {
+    async addScript(url) {
         return new Promise((resolve, reject) => {
             let script = document.createElement('script');
             script.async = true;
@@ -43,28 +34,17 @@ class CCC {
         });
     }
 
-    sendRequest(options) {
-        return new Promise((resolve, reject) => {
-            this.addScript("utilities/fetch").then(response => {
-                console.info("fetch component ready to send request")
-
-                fetching(options, 'POST', './Siva', msg => {
-                    resolve(msg)
-                })
-
-            }).catch(err => {
-                reject(err)
-            })
-        })
+    async sendRequest(options) {
+        await this.addScript("utilities/fetch")
+        let http = new Http()    
+        let response = await http.request('POST', './Siva', options)
+        return (response)
     }
 
-    startLogger() {
-        this.addScript('utilities/log4javascript').then(response => {
-            // console.info("<---- logger loaded and started ----->")
-            this.initApp()
-        }).catch(err => {
-            console.error(err)
-        })
+
+    async startLogger() {
+        await this.addScript('utilities/log4javascript')
+        await this.initApp()
     }
 
 }

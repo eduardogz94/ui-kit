@@ -6,8 +6,7 @@ class EgForm extends HTMLElement {
 
     connectedCallback() {
         this.setForm()
-        this.defaultProperties()
-        this.environment(this.env)
+        // this.defaultProperties()
 
         ccc.registerComponent(this, {
             id: this.id,
@@ -21,34 +20,6 @@ class EgForm extends HTMLElement {
         this.style.padding = '0px 4px'
         this.style.marginTop = '4px'
         this.style.webkitTransition = 'all 1.5s';
-    }
-
-    environment(env) {
-        switch (env) {
-            case 'jungle':
-                this.setFont('arial', '14px', 'white');
-                this.setBorder('white', '1px solid transparent', '6px');
-                this.setBackground('#38a938', 'none')
-                break;
-
-            case 'sky':
-                this.setFont('arial', '14px', 'white');
-                this.setBorder('black', '1px solid transparent', '6px');
-                this.setBackground('#337ab7', 'none')
-                break;
-
-            case 'dark':
-                this.setFont('arial', '14px', '#D4AF37');
-                this.setBorder('white', '1px solid transparent', '6px');
-                this.setBackground('black', 'none')
-                break;
-
-            default:
-                this.setFont('arial', '14px', 'purple');
-                this.setBorder('#D4AF37', '1px solid transparent', '6px');
-                this.setBackground('#D4AF37', 'none')
-                break;
-        }
     }
 
     setObjectProperties(props, keys) {
@@ -137,7 +108,7 @@ class EgForm extends HTMLElement {
         }
 
         if (this.getAttribute('col')) {
-            this.setAttribute('class', this.getAttribute('col'))
+            this.setAttribute('class', `${this.getAttribute('col')}`)
         }
 
         if (this.offset) {

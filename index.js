@@ -6,6 +6,8 @@ ccc.chargeScript("components/grid/eg-col")
 ccc.chargeScript("components/eg-form")
 ccc.chargeScript("components/eg-button")
 ccc.chargeScript("components/eg-input")
+ccc.chargeScript("components/eg-card")
+ccc.chargeScript("utilities/fetch")
 
 ccc.startLogger()
 ccc.getComponents()

@@ -1,204 +1,159 @@
 class EgInput extends HTMLElement {
-    constructor() {
-        super();
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.innerHTML = `<input/>`;
+    this.setInput();
+    this.defaultProperties();
+
+    ccc.registerComponent(this, {
+      id: this.id,
+      secret: "Input Parent"
+    });
+  }
+
+  defaultProperties() {
+    let classname = "";
+    this.getAttributeNames().forEach(element => {
+      if (element === "id") return null;
+      classname += `${this.getAttribute(`${element}`)} `;
+    });
+    this.getInput().className = classname;
+    this.className = "form-group";
+  }
+
+  setObjectProperties(props, keys) {
+    if (props.lenght === keys.lenght) {
+      for (let index in props) {
+        this.getInput().setAttribute(props[index], keys[index]);
+      }
+    } else {
+      console.error("both arrays must be same lenght");
     }
+  }
 
-    connectedCallback() {
-        this.innerHTML = `<input/>`
-        this.setInput();
+  setBorder(color, value, radius) {
+    this.getInput().style.borderColor = color;
+    this.getInput().style.border = value;
+    this.getInput().style.borderRadius = radius;
+  }
 
-        this.defaultProperties()
-        this.environment(this.env)
+  setFont(value, size, color) {
+    this.getInput().style.fontFamily = value;
+    this.getInput().style.fontSize = size;
+    this.getInput().style.color = color;
+  }
 
-        ccc.registerComponent(this, {
-            id: this.id,
-            secret: 'Input Parent'
+  setFontStyle(s, w) {
+    this.getInput().style.fontStyle = s;
+    this.getInput().style.fontWeight = w;
+  }
+
+  setBackground(color, img) {
+    this.getInput().style.background = color;
+    img = "none"
+      ? (img = "")
+      : (this.getInput().style.backgroundImage =
+          "url(" + this.pathImg + img + ")");
+  }
+
+  getInputValue() {
+    let data = [];
+
+    let response = this.getInput();
+    let id = "";
+
+    response.id || response.id == undefined
+      ? (id = response.id)
+      : (id = "no id input");
+
+    response.value !== ""
+      ? data.push({
+          value: response.value,
+          type: typeof response.value,
+          id: id,
+          filled: true
+        })
+      : data.push({
+          value: response.value,
+          type: typeof response.value,
+          id: id,
+          filled: false
         });
+
+    return data;
+  }
+
+  getInput() {
+    return this.querySelector("input");
+  }
+
+  setInput() {
+    this.getInput().type = "text";
+
+    if (this.id) {
+      this.getInput().setAttribute("id", this.id);
     }
 
-    defaultProperties() {
-        this.getInput().style.display = 'inline-block';
-        this.getInput().style.width = '95%';
-        this.getInput().style.heigth = '25px';
-        this.getInput().style.padding = '0px 12px';
-        this.getInput().style.marginBottom = '5px';
-        this.getInput().style.marginTop = '5px';
-        this.getInput().style.outline = 'none'
+    if (this.getAttribute("id")) {
+      this.getInput().setAttribute("id", `${this.getAttribute("id")}-input`);
     }
+  }
 
-    environment(env) {
-        switch (env) {
-            case 'jungle':
-                this.setFont('arial', '14px', 'green');
-                this.setBorder('white', '1px solid transparent', '8px');
-                this.setBackground('white', 'none')
-                break;
+  onClear() {
+    this.getInput().value = "";
+  }
 
-            case 'sky':
-                this.setFont('arial', '14px', '#337ab7');
-                this.setBorder('black', '1px solid transparent', '8px');
-                this.setBackground('white', 'none')
-                break;
+  setPos(x, y) {
+    this.getInput().style.top = x + "%";
+    this.getInput().style.left = y + "%";
+    this.getInput().style.position = "relative";
+  }
 
-            case 'dark':
-                this.setFont('arial', '14px', '#9E1F1E');
-                this.setBorder('white', '1px solid transparent', '8px');
-                this.setBackground('white', 'none')
-                break;
+  setDimensions(width, height) {
+    this.getInput().style.width = width + "%";
+    this.getInput().style.height = height + "%";
+  }
 
-            default:
-                this.setFont('arial', '14px', 'purple');
-                this.setBorder('#D4AF37', '1px solid transparent', '8px');
-                this.setBackground('white', 'none')
-                break;
-        }
+  caps() {
+    alert(/[A-Z]/.test(this.getInput().value) ? true : false);
+  }
+
+  integer() {
+    alert(/[^0-9]/.test(this.getInput().value) ? true : false);
+  }
+
+  floatTest() {
+    alert(/[0-9]/.test(this.getInput().value) ? true : false);
+  }
+
+  lowerCaps() {
+    alert(/[a-z]/.test(this.getInput().value) ? true : false);
+  }
+
+  validateValue() {
+    this.getInput().value == "" ? true : false;
+  }
+
+  validationHandler() {
+    let classname = "";
+    this.getAttributeNames().forEach(element => {
+      if (element === "id") return null;
+      if (element === "class") return null;
+      if(element === "control") return null;
+      classname += `${this.getAttribute(`${element}`)} `;
+    });
+
+    if (this.getInput().value === "") {
+      this.className = "form-group has-danger";
+      this.getInput().className = `${classname} form-control form-control-danger`;
+    } else {
+      this.className = "form-group has-success";
+      this.getInput().className = `${classname} form-control form-control-success`;
     }
-
-    setObjectProperties(props, keys) {
-        if (props.lenght === keys.lenght) {
-            for (let index in props) {
-                this.getInput().setAttribute(props[index], keys[index])
-            }
-        } else {
-            console.error('both arrays must be same lenght')
-        }
-    }
-
-    setBorder(color, value, radius) {
-        this.getInput().style.borderColor = color;
-        this.getInput().style.border = value;
-        this.getInput().style.borderRadius = radius;
-    }
-
-    setFont(value, size, color) {
-        this.getInput().style.fontFamily = value;
-        this.getInput().style.fontSize = size;
-        this.getInput().style.color = color;
-    }
-
-    setFontStyle(s, w) {
-        this.getInput().style.fontStyle = s;
-        this.getInput().style.fontWeight = w;
-    }
-
-    setBackground(color, img) {
-        this.getInput().style.background = color;
-        img = 'none' ?
-            img = '' :
-            this.getInput().style.backgroundImage = 'url(' + this.pathImg + img + ')'
-    }
-
-    getInputValue() {
-        let data = []
-
-        let response = this.getInput()
-        let id = '';
-        response.id || response.id == undefined ?
-            id = response.id :
-            id = 'no id input';
-
-        response.value !== "" ?
-            data.push({
-                value: response.value,
-                type: typeof response.value,
-                id: id,
-                filled: true
-            }) :
-            data.push({
-                value: response.value,
-                type: typeof response.value,
-                id: id,
-                filled: false
-            });
-
-        return data
-    }
-
-    getInput() {
-        return this.querySelector('input');
-    }
-
-    setInput() {
-        if (this.getAttribute('env')) {
-            this.env = this.getAttribute('env')
-        }
-
-        if (this.id) {
-            this.getInput().setAttribute('id', this.id)
-        }
-
-        if (this.getAttribute('id')) {
-            this.getInput().setAttribute('id', `${this.getAttribute('id')}-input`)
-        }
-
-        if (this.col) {
-            this.getInput().setAttribute('class', this.col)
-        }
-
-        if (this.getAttribute('col')) {
-            this.getInput().setAttribute('class', this.getAttribute('col'))
-        }
-
-        if (this.offset) {
-            this.getInput().setAttribute('class', this.offset)
-        }
-
-        if (this.getAttribute('offset')) {
-            this.getInput().setAttribute('class', this.getAttribute('offset'))
-        }
-
-        if (this.col && this.offset) {
-            this.getInput().setAttribute('class', `${this.col} ${this.offset}`)
-        }
-
-        if (this.getAttribute('col') && this.getAttribute('offset')) {
-            this.getInput().setAttribute('class', `${this.getAttribute('col')} ${this.getAttribute('offset')}`)
-        }
-
-        if (this.placeholder) {
-            this.getInput().placeholder = this.placeholder;
-        }
-
-        if (this.getAttribute('placeholder')) {
-            this.getInput().placeholder = this.getAttribute('placeholder');
-        }
-
-    }
-
-    onClear() {
-        this.getInput().value = "";
-    }
-
-    setPos(x, y) {
-        this.getInput().style.top = x + "px";
-        this.getInput().style.left = y + "px";
-        this.getInput().style.position = "relative";
-    }
-
-    setDimensions(width, height) {
-        this.getInput().style.width = width + "px";
-        this.getInput().style.height = height + "px";
-    }
-
-    caps() {
-        alert(/[A-Z]/.test(this.getInput().value) ? true : false);
-    }
-
-    integer() {
-        alert(/[^0-9]/.test(this.getInput().value) ? true : false);
-    }
-
-    floatTest() {
-        alert(/[0-9]/.test(this.getInput().value) ? true : false);
-    }
-
-    lowerCaps() {
-        alert(/[a-z]/.test(this.getInput().value) ? true : false);
-    }
-
-    validateValue() {
-        (this.getInput().value == '') ? true: false;
-    }
+  }
 }
 
 customElements.define("eg-input", EgInput);
