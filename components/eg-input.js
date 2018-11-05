@@ -18,6 +18,7 @@ class EgInput extends HTMLElement {
     let classname = "";
     this.getAttributeNames().forEach(element => {
       if (element === "id") return null;
+      if (element === "placeholder") return null;
       classname += `${this.getAttribute(`${element}`)} `;
     });
     this.getInput().className = classname;
@@ -100,6 +101,14 @@ class EgInput extends HTMLElement {
     if (this.getAttribute("id")) {
       this.getInput().setAttribute("id", `${this.getAttribute("id")}-input`);
     }
+
+    if (this.placeholder) {
+      this.getInput().setAttribute("placeholder", this.placeholder);
+    }
+
+    if (this.getAttribute("placeholder")) {
+      this.getInput().setAttribute("placeholder", `${this.getAttribute("placeholder")}`);
+    }
   }
 
   onClear() {
@@ -138,21 +147,29 @@ class EgInput extends HTMLElement {
   }
 
   validationHandler() {
+    if (this.getInput().value === "") {
+      this.setFormInput("has-danger");
+      this.setFormControl("form-control-danger");
+    } else {
+      this.setFormInput("has-success");
+      this.setFormControl("form-control-success");
+    }
+  }
+
+  setFormInput(value) {
+    this.className = `form-group ${value}`;
+  }
+
+  setFormControl(value) {
     let classname = "";
     this.getAttributeNames().forEach(element => {
       if (element === "id") return null;
       if (element === "class") return null;
-      if(element === "control") return null;
+      if (element === "control") return null;
       classname += `${this.getAttribute(`${element}`)} `;
     });
 
-    if (this.getInput().value === "") {
-      this.className = "form-group has-danger";
-      this.getInput().className = `${classname} form-control form-control-danger`;
-    } else {
-      this.className = "form-group has-success";
-      this.getInput().className = `${classname} form-control form-control-success`;
-    }
+    this.getInput().className = `${classname} form-control ${value}`;
   }
 }
 

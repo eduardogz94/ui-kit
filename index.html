@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  
+
   <eg-grid>
     <eg-col col="col-12">
       <h1>Typography</h1>
@@ -96,23 +96,23 @@
   </eg-grid>
   <hr>
   <eg-grid>
-      <eg-col col="col-12">
-        <h1>Cards</h1>
-        <eg-col col="col-3">
-          <eg-card style="card-primary" body="This is a card primary" header="primary" footer="Footer primary"></eg-card>
-        </eg-col>
-        <eg-col col="col-3">
-          <eg-card style="card-success" body="This is a card success" header="success" footer="Footer success" ></eg-card>
-        </eg-col>
-        <eg-col col="col-3">
-          <eg-card style="card-danger" body="This is a card danger" header="danger" footer="Footer danger"></eg-card>
-        </eg-col>
-        <eg-col col="col-3">
-          <eg-card style="card-warning" body="This is a card warning" header="warning" footer="Footer warning"></eg-card>
-        </eg-col>
+    <eg-col col="col-12">
+      <h1>Cards</h1>
+      <eg-col col="col-3">
+        <eg-card style="card-primary" body="This is a card primary" header="primary" footer="Footer primary"></eg-card>
       </eg-col>
-    </eg-grid>
-    <hr>
+      <eg-col col="col-3">
+        <eg-card style="card-success" body="This is a card success" header="success" footer="Footer success"></eg-card>
+      </eg-col>
+      <eg-col col="col-3">
+        <eg-card style="card-danger" body="This is a card danger" header="danger" footer="Footer danger"></eg-card>
+      </eg-col>
+      <eg-col col="col-3">
+        <eg-card style="card-warning" body="This is a card warning" header="warning" footer="Footer warning"></eg-card>
+      </eg-col>
+    </eg-col>
+  </eg-grid>
+  <hr>
 
   <eg-grid>
     <eg-col col="col-12">
@@ -242,15 +242,22 @@
       <eg-row>
         <eg-col col="col-4">
           <h5 class="text-muted text-success">Success Input</h5>
-          <eg-input id="siva1" mt="mt-2" col="col-8" control="form-control form-control-success" placeholder="Success"></eg-input>
+          <eg-input mt="mt-2" col="col-8" control="form-control form-control-success" placeholder="Success"></eg-input>
         </eg-col>
         <eg-col col="col-4">
           <h5 class="text-muted text-danger">Danger Input</h5>
-          <eg-input id="siva2" mt="mt-2" col="col-8" control="form-control form-control-danger" placeholder="Danger"></eg-input>
+          <eg-input mt="mt-2" col="col-8" control="form-control form-control-danger" placeholder="Danger"></eg-input>
         </eg-col>
         <eg-col col="col-4">
           <h5 class="text-muted text-warning">Warning Input</h5>
-          <eg-input id="siva3" mt="mt-2" col="col-8" control="form-control form-control-warning" placeholder="Warning"></eg-input>
+          <eg-input mt="mt-2" col="col-8" control="form-control form-control-warning" placeholder="Warning"></eg-input>
+        </eg-col>
+      </eg-row>
+
+      <eg-row mt="mt-4">
+        <eg-col col="col-4">
+          <h5 class="text-muted">Live Validation Input</h5>
+          <eg-input id="validation" mt="mt-2" col="col-8" control="form-control" placeholder="Validation Live"></eg-input>
         </eg-col>
       </eg-row>
 
@@ -258,15 +265,15 @@
       <eg-row>
         <eg-col col="col-4">
           <h5 class="text-muted">Small Input</h5>
-          <eg-input id="siva4" mt="mt-2" col="col-8" control="form-control form-control-sm" placeholder="small size input inside col"></eg-input>
+          <eg-input mt="mt-2" col="col-8" control="form-control form-control-sm" placeholder="small size input inside col"></eg-input>
         </eg-col>
         <eg-col col="col-4">
           <h5 class="text-muted">Default Input</h5>
-          <eg-input id="siva3" mt="mt-2" col="col-8" control="form-control" placeholder="Default size input inside col"></eg-input>
+          <eg-input mt="mt-2" col="col-8" control="form-control" placeholder="Default size input inside col"></eg-input>
         </eg-col>
         <eg-col col="col-4">
           <h5 class="text-muted">Large Input</h5>
-          <eg-input id="siva6" mt="mt-2" col="col-8" control="form-control form-control-lg" placeholder="Large size input inside col"></eg-input>
+          <eg-input mt="mt-2" col="col-8" control="form-control form-control-lg" placeholder="Large size input inside col"></eg-input>
         </eg-col>
       </eg-row>
     </eg-col>

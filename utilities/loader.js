@@ -19,9 +19,4 @@ ccc.addScript('./renders/Signup').then(response => {
     console.error(err);
 })
 
-ccc.addScript('./renders/Themes').then(response => {
-    // console.info('added!')
-}).catch(err => {
-    console.error(err);
-})
 
