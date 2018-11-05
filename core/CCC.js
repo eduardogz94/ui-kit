@@ -1,50 +1,74 @@
 class CCC {
-    constructor() {
-        this.components = [];
-    }
+  constructor() {
+    this.components = [];
+    this.files = [];
+  }
 
-    registerComponent(component, configs) {
-        this.components.push({
-            component: component,
-            id: configs.id,
-            secret: configs.secret
-        });
-    }
+  registerComponent(component, configs) {
+    this.components.push({
+      component,
+      id: configs.id,
+      secret: configs.secret
+    });
+  }
 
-    async initApp()  {
-        await this.addScript("utilities/loader")
-    }
+  async registerFile(file) {
+    this.files.push({ file });
+  }
 
-    async chargeScript(url) {
-        await this.addScript(`${url}`)
-    }
+  async initApp() {
+    await this.addScript("utilities/loader");
+  }
 
-    getComponents() {
-        return this.components;
-    }
+  async chargeScript(url) {
+    await this.addScript(`${url}`);
+  }
 
-    async addScript(url) {
-        return new Promise((resolve, reject) => {
-            let script = document.createElement('script');
-            script.async = true;
-            script.src = url + '.js';
-            script.onload = resolve;
-            script.onerror = reject;
-            document.head.appendChild(script);
-        });
-    }
+  async chargeLink(url) {
+    await this.addLink(`${url}`);
+    await this.registerFile(url + ".css");
+  }
 
-    async sendRequest(options) {
-        await this.addScript("utilities/fetch")
-        let http = new Http()    
-        let response = await http.request('POST', './Siva', options)
-        return (response)
-    }
+  getComponents() {
+    return this.components;
+  }
 
+  getFiles() {
+    return this.files;
+  }
 
-    async startLogger() {
-        await this.addScript('utilities/log4javascript')
-        await this.initApp()
-    }
+  async addScript(url) {
+    return new Promise((resolve, reject) => {
+      let script = document.createElement("script");
+      script.async = true;
+      script.src = url + ".js";
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
 
+  async addLink(url) {
+    return new Promise((resolve, reject) => {
+      let link = document.createElement("link");
+      link.async = true;
+      link.rel = "stylesheet";
+      link.href = url + ".css";
+      link.onload = resolve;
+      link.onerror = reject;
+      document.head.appendChild(link);
+    });
+  }
+
+  async sendRequest(options) {
+    await this.addScript("utilities/fetch");
+    let http = new Http();
+    let response = await http.request("POST", "./Siva", options);
+    return response;
+  }
+
+  async startLogger() {
+    await this.addScript("utilities/log4javascript");
+    await this.initApp();
+  }
 }

@@ -1,6 +1,16 @@
-# Eg-Components
-
-Sample of customElements components.
+# Eg-Kit
+Bootstrap based UI-KIT, icons, request module, async javascript, bootstrap based css clases and more!
+```
+* bootstrap based layout and classes
+* grid components with flex based on bootstrap-grid
+* javascript components with functions to help developers requirements when starting
+a new web application(buttons, alerts, inputs, forms, etc).
+* front controller who has access to all the components
+* async javascript
+* font-awesome and ionicons as icon
+* fetch class in order to make a request faster and proeficient
+* fetch context (holds last request fetch response for all the components)
+```
 
 ## Getting Started
 
