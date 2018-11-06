@@ -18,7 +18,6 @@ let inputEmail = document.querySelector("#email");
 inputEmail.querySelector("#email-input").onchange = validateEmail;
 
 function validateEmail(event) {
-  console.log(event);
   inputEmail.validateEmail("@gmail.com");
   inputEmail.validateEmail("@hotmail.com");
 }
@@ -30,6 +29,7 @@ let inputPassword = document.querySelector("#password");
 inputPassword.querySelector("#password-input").onchange = validatePassword;
 
 function validatePassword(event) {
+  console.log(event);
   inputPassword.validatePassword(8);
 }
 
@@ -42,3 +42,26 @@ inputText.querySelector("#text-input").onchange = validateValue;
 function validateValue(event) {
   inputText.validateValue(8);
 }
+
+/**
+ * Validating Card Password
+ */
+let inputCardPassword = document.querySelector("#password-card");
+inputCardPassword.querySelector(
+  "#password-card-input"
+).onchange = validateCardPassword;
+
+function validateCardPassword(event) {
+  inputCardPassword.validatePassword(8);
+}
+
+/**
+ * Validating Card Input Text
+ */
+let inputCardUsername = document.querySelector("#username");
+inputCardUsername.querySelector("#username-input").onchange = validateCardValue;
+
+function validateCardValue(event) {
+  inputCardUsername.validateValue(8);
+}
+

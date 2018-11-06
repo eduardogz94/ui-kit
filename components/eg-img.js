@@ -1,11 +1,13 @@
 class EgImage extends HTMLElement {
-  constructor() {
+  constructor(src, alt) {
     super();
+    this.src = src
+    this.alt = alt
   }
 
   connectedCallback() {
     this.innerHTML = `<img></img>`;
-    this.setImage()
+    this.setImage();
     this.defaultProperties();
     ccc.registerComponent(this, {
       id: this.id,
@@ -24,13 +26,13 @@ class EgImage extends HTMLElement {
         return this.setImageSource(this.getAttribute(`${element}`));
       if (element === "alt")
         return this.setImageAlt(this.getAttribute(`${element}`));
-        classname += this.getAttribute(`${element}`);
+      classname += this.getAttribute(`${element}`);
     });
     this.getImage().className = classname;
   }
 
   setImage() {
-    if (this.id) this.setAttribute("id", this.id);
+    if (this.id) this.getImage().setAttribute("id", `${this.id}-image`);
     if (this.type) this.setAttribute("type", this.type);
     if (this.alt) this.setAttribute("alt", this.alt);
     if (this.src) this.setAttribute("src", this.src);

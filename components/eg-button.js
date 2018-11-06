@@ -1,6 +1,7 @@
 class EgButton extends HTMLElement {
-  constructor() {
+  constructor(btn) {
     super();
+    this.btn = btn;
   }
 
   connectedCallback() {
@@ -17,10 +18,15 @@ class EgButton extends HTMLElement {
   defaultProperties() {
     let classname = "";
     this.getAttributeNames().forEach(element => {
-      if (element === "btn")
-        return (classname += `btn ${this.getAttribute(`${element}`)} `);
       if (element === "id") return null;
       if (element === "innertext") return null;
+      if (element === "type") return null;
+
+      if (element === "offset")
+        return this.setAttribute("class", this.getAttribute(`${element}`));
+
+      if (element === "btn")
+        return (classname += `btn ${this.getAttribute(`${element}`)} `);
 
       if (element === "onclick") return null;
       classname += `${this.getAttribute(`${element}`)} `;
@@ -31,7 +37,7 @@ class EgButton extends HTMLElement {
   setObjectProperties(props, keys) {
     if (props.lenght === keys.lenght) {
       for (let index in props) {
-        this.getButton().setAttribute(props[index], keys[index]);
+        this.setAttribute(props[index], keys[index]);
       }
     } else {
       console.error("both arrays must be same lenght");
@@ -64,12 +70,17 @@ class EgButton extends HTMLElement {
   }
 
   setButton() {
-    if (this.id) this.setAttribute("id", this.id);
-    if (this.type) this.setAttribute("type", this.type);
+    if (this.id) this.getButton().setAttribute("id", `${this.id}-button`);
+    if (this.type) this.getButton().setAttribute("type", this.type);
+
+    if (this.getAttribute("type"))
+      this.getButton().setAttribute("type", this.getAttribute("type"));
+
     if (this.innerText) this.setAttribute("innerText", this.innerText);
     if (this.btn) this.setAttribute("btn", this.btn);
     if (this.col) this.setAttribute("col", this.col);
-    if (this.offset) this.setAttribute("offset", this.offset);
+    if (this.offset) this.setAttribute("class", this.offset);
+    if (this.css) this.setAttribute("css", this.css);
   }
 
   getButton() {

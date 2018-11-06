@@ -1,6 +1,8 @@
 class EgCol extends HTMLElement {
-  constructor() {
+  constructor(col, offset) {
     super();
+    this.col = col;
+    this.offset = offset;
   }
 
   connectedCallback() {

@@ -4,7 +4,7 @@ class EgGrid extends HTMLElement {
   }
 
   connectedCallback() {
-    this.setAttribute("class", "container");
+    this.setAttribute("class", "container-fluid");
     this.defaultProperties();
     ccc.registerComponent(this, {
       id: this.id,

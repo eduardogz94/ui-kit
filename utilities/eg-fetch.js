@@ -24,7 +24,7 @@ class Fetch {
       options["body"] = JSON.stringify(body);
     } else {
       options["body"] = body;
-      delete options['headers'];
+      delete options["headers"];
     }
     return options;
   }

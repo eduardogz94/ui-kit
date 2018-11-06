@@ -11,6 +11,7 @@ class EgAlert extends HTMLElement {
             <h6 class="alert-msg"></h6>
             <div class="alert-body"></div>
         </div>`;
+    this.setAlert();
     this.defaultProperties();
     ccc.registerComponent(this, {
       id: this.id,
@@ -25,6 +26,7 @@ class EgAlert extends HTMLElement {
   defaultProperties() {
     let classname = "";
     this.getAttributeNames().forEach(element => {
+      if (element === "id") return null;
       if (element === "text")
         return this.setAlertMessage(this.getAttribute(`${element}`));
       if (element === "title")
@@ -33,7 +35,11 @@ class EgAlert extends HTMLElement {
       classname += `${this.getAttribute(`${element}`)} `;
     });
     this.getAlert().className = classname;
-    this.getAlert().setAttribute("role","alert");
+    this.getAlert().setAttribute("role", "alert");
+  }
+
+  setAlert() {
+    if (this.id) this.getAlert().setAttribute("id", `${this.id}-alert`);
   }
 
   setAlertMessage(text) {
@@ -47,7 +53,7 @@ class EgAlert extends HTMLElement {
   }
 
   setAlertCloseButton() {
-    let main = this.getAlert()
+    let main = this.getAlert();
     let alert = this.getAlert().querySelector(".alert-body");
     let alertButton = document.createElement("button");
     let buttonX = document.createElement("span");
@@ -58,8 +64,8 @@ class EgAlert extends HTMLElement {
 
     buttonX.setAttribute("aria-hidden", "true");
     buttonX.innerHTML = "&times";
-    buttonX.onclick = function () {
-      main.className = "collapse"
+    buttonX.onclick = function() {
+      main.className = "collapse";
     };
 
     alertButton.appendChild(buttonX);

@@ -1,4 +1,4 @@
-const logger = log4javascript.getDefaultLogger();
+// const logger = log4javascript.getDefaultLogger();
 
 // logger.trace('testing logger from loader.js')
 // logger.debug('testing logger from loader.js')
@@ -7,5 +7,5 @@ const logger = log4javascript.getDefaultLogger();
 // logger.error('testing logger from loader.js')
 // logger.fatal('testing logger from loader.js')
 
-ccc.chargeScript("./js/index")
-
+ccc.chargeScript("./helpers/validations");
+// ccc.chargeScript('../renders/Login')

@@ -1,6 +1,8 @@
 class EgInput extends HTMLElement {
-  constructor() {
+  constructor(control, type) {
     super();
+    this.control = control;
+    this.type = type;
   }
 
   connectedCallback() {
@@ -95,10 +97,21 @@ class EgInput extends HTMLElement {
   setInput() {
     if (this.id) this.getInput().setAttribute("id", `${this.id}-input`);
     if (this.type) this.getInput().setAttribute("type", this.type);
+    if (this.getAttribute("type"))
+      this.getInput().setAttribute("type", this.getAttribute("type"));
+    
     if (this.control) this.setAttribute("control", this.control);
     if (this.col) this.setAttribute("col", this.col);
     if (this.offset) this.setAttribute("offset", this.offset);
-    if (this.placeholder) this.getInput().setAttribute("placeholder", this.placeholder);
+    
+    if (this.placeholder)
+      this.getInput().setAttribute("placeholder", this.placeholder);
+    
+      if (this.getAttribute("placeholder"))
+      this.getInput().setAttribute(
+        "placeholder",
+        this.getAttribute("placeholder")
+      );
     if (this.css) this.setAttribute("css", this.css);
   }
 

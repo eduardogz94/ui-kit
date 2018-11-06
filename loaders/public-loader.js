@@ -1,0 +1,1 @@
+ccc.chargeScript("../renders/Login");
