@@ -8,7 +8,7 @@ class EgAlert extends HTMLElement {
     this.innerHTML = `
         <div>
             <h4 class="alert-title"></h4>
-            <div class="alert-msg"></div>
+            <h6 class="alert-msg"></h6>
             <div class="alert-body"></div>
         </div>`;
     this.defaultProperties();

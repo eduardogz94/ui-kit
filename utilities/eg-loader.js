@@ -7,16 +7,5 @@ const logger = log4javascript.getDefaultLogger();
 // logger.error('testing logger from loader.js')
 // logger.fatal('testing logger from loader.js')
 
-ccc.addScript('./renders/Login').then(response => {
-    // console.info('added!')
-}).catch(err => {
-    console.error(err);
-})
-
-ccc.addScript('./renders/Signup').then(response => {
-    // console.info('added!')
-}).catch(err => {
-    console.error(err);
-})
-
+ccc.chargeScript("./js/index")
 

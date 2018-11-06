@@ -15,7 +15,7 @@ class EgCol extends HTMLElement {
   defaultProperties() {
     this.style.display = "inline-block";
     this.style.marginTop = "2.5px";
-    
+
     let classname = "";
     this.getAttributeNames().forEach(element => {
       classname += `${this.getAttribute(`${element}`)} `;
@@ -24,9 +24,10 @@ class EgCol extends HTMLElement {
   }
 
   setCol() {
-    if (this.id) {
-      this.setAttribute("id", this.id);
-    }
+    if (this.id) this.setAttribute("id", this.id);
+    if (this.col) this.setAttribute("col", this.col);
+    if (this.offset) this.setAttribute("offset", this.offset);
+    if (this.bg) this.setAttribute("bg", this.bg);
   }
 
   getObjects(obj) {

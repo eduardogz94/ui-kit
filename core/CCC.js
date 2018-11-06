@@ -17,11 +17,12 @@ class CCC {
   }
 
   async initApp() {
-    await this.addScript("utilities/loader");
+    await this.addScript("utilities/eg-loader");
   }
 
   async chargeScript(url) {
     await this.addScript(`${url}`);
+    await this.registerFile(url + ".js");
   }
 
   async chargeLink(url) {
@@ -61,14 +62,14 @@ class CCC {
   }
 
   async sendRequest(options) {
-    await this.addScript("utilities/fetch");
+    await this.addScript("utilities/eg-fetch");
     let http = new Http();
     let response = await http.request("POST", "./Siva", options);
     return response;
   }
 
   async startLogger() {
-    await this.addScript("utilities/log4javascript");
+    await this.addScript("libs/log4javascript");
     await this.initApp();
   }
 }

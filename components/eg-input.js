@@ -93,28 +93,13 @@ class EgInput extends HTMLElement {
   }
 
   setInput() {
-    if (this.id) this.setInputAttribute("id", this.id);
-
-    if (this.getAttribute("id")) {
-      this.setInputAttribute("id", `${this.getAttribute("id")}-input`);
-    }
-
-    if (this.placeholder) {
-      this.setInputAttribute("placeholder", this.placeholder);
-    }
-
-    if (this.getAttribute("placeholder")) {
-      this.setInputAttribute(
-        "placeholder",
-        `${this.getAttribute("placeholder")}`
-      );
-    }
-
-    if (this.type) this.setInputAttribute("type", this.type);
-
-    if (this.getAttribute("type")) {
-      this.setInputAttribute("type", `${this.getAttribute("type")}`);
-    }
+    if (this.id) this.getInput().setAttribute("id", `${this.id}-input`);
+    if (this.type) this.getInput().setAttribute("type", this.type);
+    if (this.control) this.setAttribute("control", this.control);
+    if (this.col) this.setAttribute("col", this.col);
+    if (this.offset) this.setAttribute("offset", this.offset);
+    if (this.placeholder) this.getInput().setAttribute("placeholder", this.placeholder);
+    if (this.css) this.setAttribute("css", this.css);
   }
 
   setInputAttribute(key, value) {

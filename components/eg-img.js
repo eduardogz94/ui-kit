@@ -5,6 +5,7 @@ class EgImage extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `<img></img>`;
+    this.setImage()
     this.defaultProperties();
     ccc.registerComponent(this, {
       id: this.id,
@@ -26,6 +27,15 @@ class EgImage extends HTMLElement {
         classname += this.getAttribute(`${element}`);
     });
     this.getImage().className = classname;
+  }
+
+  setImage() {
+    if (this.id) this.setAttribute("id", this.id);
+    if (this.type) this.setAttribute("type", this.type);
+    if (this.alt) this.setAttribute("alt", this.alt);
+    if (this.src) this.setAttribute("src", this.src);
+    if (this.col) this.setAttribute("col", this.col);
+    if (this.offset) this.setAttribute("offset", this.offset);
   }
 
   setImageSource(src) {

@@ -18,8 +18,6 @@ ccc.chargeScript("components/eg-card")
 ccc.chargeScript("components/eg-alert")
 ccc.chargeScript("components/eg-img")
 
-ccc.chargeScript("utilities/fetch")
-
 ccc.startLogger()
 console.log(ccc.getComponents());
 console.log(ccc.getFiles())

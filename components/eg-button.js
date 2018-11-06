@@ -19,8 +19,10 @@ class EgButton extends HTMLElement {
     this.getAttributeNames().forEach(element => {
       if (element === "btn")
         return (classname += `btn ${this.getAttribute(`${element}`)} `);
-	  
-		if (element === "onclick") return null;
+      if (element === "id") return null;
+      if (element === "innertext") return null;
+
+      if (element === "onclick") return null;
       classname += `${this.getAttribute(`${element}`)} `;
     });
     this.getButton().className = classname;
@@ -62,31 +64,12 @@ class EgButton extends HTMLElement {
   }
 
   setButton() {
-    if (this.getAttribute("env")) {
-      this.env = this.getAttribute("env");
-    }
-
-    if (this.id) {
-      this.getButton().setAttribute("id", this.id);
-    }
-
-    if (this.getAttribute("id")) {
-      this.getButton().setAttribute("id", `${this.getAttribute("id")}-button`);
-    }
-
-    if (this.innerText) {
-      this.getButton().innerText = this.innerText;
-    } else {
-      this.getButton().innerText = "Button";
-    }
-
-    if (this.method) {
-      this.getButton().setAttribute("onClick", this.method);
-    }
-
-    if (this.getAttribute("method")) {
-      this.getButton().setAttribute("onClick", this.getAttribute("method"));
-    }
+    if (this.id) this.setAttribute("id", this.id);
+    if (this.type) this.setAttribute("type", this.type);
+    if (this.innerText) this.setAttribute("innerText", this.innerText);
+    if (this.btn) this.setAttribute("btn", this.btn);
+    if (this.col) this.setAttribute("col", this.col);
+    if (this.offset) this.setAttribute("offset", this.offset);
   }
 
   getButton() {
