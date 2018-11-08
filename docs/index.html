@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<head>
+  <title>eg UI-KIT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--icons-->
+  <script src="../src/global/CCC.js"></script>
+  <script src="./index.js"></script>
+</head>
+
+<body>
+  <!-- Typography -->
+  <eg-grid>
+    <eg-col col="col-12">
+
+      <h1 class="animated bounceInRight text-primary text-center">Typography</h1>
+      <eg-row>
+        <eg-col col="col-2">
+
+          <!-- Headings -->
+          <h1 class="animated jello text-muted">Headings</h1>
+          <h1>Default H1</h1>
+          <h2>Default H2</h2>
+          <h3>Default H3</h3>
+          <h4>Default H4</h4>
+          <h5>Default H5</h5>
+          <h6>Default H6</h6>
+        </eg-col>
+
+        <!-- Colors Headings -->
+        <eg-col col="col-2">
+          <h1 class="animated jello text-muted">Colors Heading</h1>
+          <h1 class="text-primary">Primary H1</h1>
+          <h2 class="text-primary">Primary H2</h2>
+          <h3 class="text-success">Success H3</h3>
+          <h4 class="text-info">Info H4</h4>
+          <h5 class="text-warning">Warning H5</h5>
+          <h6 class="text-danger">Danger H6</h6>
+        </eg-col>
+
+        <!-- Display Headings -->
+        <eg-col col="col-2">
+          <h1 class="animated jello text-muted">Display Heading</h1>
+          <h1 class="display-1">Display 1</h1>
+          <h2 class="display-2">Display 2</h2>
+          <h3 class="display-3">Display 3</h3>
+          <h4 class="display-4">Display 4</h4>
+        </eg-col>
+
+        <eg-col col="col-4">
+          <!-- Lead -->
+          <h1 class="animated jello text-muted">Lead</h1>
+          <p class="lead">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+          </p>
+
+          <!-- Paragraphs -->
+          <h1 class="animated jello text-muted">Paragraph</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+            Cum
+            sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+          </p>
+
+        </eg-col>
+
+        <!-- Muted Texts -->
+        <eg-col col="col-2">
+          <h1 class="animated jello text-muted mt-4">Muted Text</h1>
+          <p class="text-muted">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+          </p>
+        </eg-col>
+
+        <!-- Colored Texts -->
+        <eg-col col="col-6">
+          <h1 class="animated jello text-muted mt-4">Colored Text</h1>
+          <p class="text-primary">
+            <b>Primary Text:</b> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+            dolor.
+          </p>
+          <p class="text-success">
+            <b>Success Text:</b> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+            dolor.
+          </p>
+          <p class="text-info">
+            <b>Info Text:</b> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+            dolor.
+          </p>
+          <p class="text-warning">
+            <b>Warning Text:</b> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+            dolor.
+          </p>
+          <p class="text-danger">
+            <b>Danger Text:</b> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+            dolor.
+          </p>
+        </eg-col>
+
+        <eg-col col="col-6">
+          <h1 class="animated jello text-muted mt-4">Blockquote</h1>
+          <blockquote class="blockquote blockquote-primary">
+            <p class="mb-0">The public is more familiar with bad design than good design. It is, in effect,
+              conditioned to prefer bad design, because that is what it lives with. The new becomes threatening, the
+              old reassuring.</p>
+          </blockquote>
+        </eg-col>
+      </eg-row>
+    </eg-col>
+  </eg-grid>
+
+  <!-- Buttons -->
+  <eg-grid>
+    <eg-col bg="bg-inverse" col="col-12">
+
+      <h1 class="animated bounceInRight text-primary text-center">Buttons</h1>
+      <eg-row>
+
+        <!-- Buttons Colors -->
+        <eg-col col="col-6">
+          <h1 class="text-muted animated jello">Buttons Colors</h1>
+          <eg-button id="primary" btn="btn-primary">primary</eg-button>
+          <eg-button id="secondary" btn="btn-secondary">secondary</eg-button>
+          <eg-button id="success" btn="btn-success">success</eg-button>
+          <eg-button id="warning" btn="btn-warning">warning</eg-button>
+          <eg-button id="info" btn="btn-info">info</eg-button>
+          <eg-button id="danger" btn="btn-danger">danger</eg-button>
+          <eg-button id="danger" btn="btn-white">white</eg-button>
+        </eg-col>
+
+        <!-- Outline Buttons -->
+        <eg-col col="col-6">
+          <h1 class="text-muted animated jello">Outline Buttons Colors</h1>
+          <eg-button id=primaryOutline btn="btn-outline-primary">primary</eg-button>
+          <eg-button id=secondaryOutline btn="btn-outline-secondary">secondary</eg-button>
+          <eg-button id=successOutline btn="btn-outline-success">success</eg-button>
+          <eg-button id=warningOutline btn="btn-outline-warning">warning</eg-button>
+          <eg-button id=infoOutline btn="btn-outline-info">info</eg-button>
+          <eg-button id=dangerOutline btn="btn-outline-danger">danger</eg-button>
+          <eg-button id=dangerOutline btn="btn-outline-white">white</eg-button>
+        </eg-col>
+      </eg-row>
+
+      <eg-row>
+
+        <!-- Buttons Styles -->
+        <eg-col col="col-6">
+          <h1 class="text-muted animated jello">Buttons Styles</h1>
+          <eg-button id="default" btn="btn-primary">Default</eg-button>
+          <eg-button id="outline" btn="btn-outline-primary"">Outline</eg-button>
+          <eg-button id="round" btn="btn-primary btn-round">Round</eg-button>
+          <eg-button icon="fab fa-facebook" id="icon" btn="btn-primary">with icon</eg-button>
+          <eg-button icon="fab fa-google" id="circle" btn="btn-primary btn-circle"></eg-button>
+          <eg-button id="link" btn="btn-link">Link</eg-button>
+        </eg-col>
+
+        <!-- Buttons Size -->
+        <eg-col col="col-6">
+          <h1 class="text-muted animated jello">Buttons Size</h1>
+          <eg-button id="xs" btn="btn-primary btn-xs">Extra Small</eg-button>
+          <eg-button id="sm" btn="btn-primary btn-sm">Small</eg-button>
+          <eg-button id="standar" btn="btn-primary">Regular</eg-button>
+          <eg-button id="md" btn="btn-primary btn-md">Medium</eg-button>
+          <eg-button id="lg" btn="btn-primary btn-lg">Large</eg-button>
+        </eg-col>
+      </eg-row>
+      <br>
+    </eg-col>
+
+  </eg-grid>
+
+  <!-- Cards -->
+  <eg-grid>
+    <eg-col col="col-12">
+
+      <h1 class="animated bounceInRight text-primary text-center">Cards</h1>
+
+      <eg-col col="col-3">
+        <eg-card id="card-primary" css="card-primary" body="This is a card primary" header="primary" footer="Footer primary" />
+      </eg-col>
+
+      <eg-col col="col-3">
+        <eg-card id="card-secondary" css="card-secondary" body="This is a card secondary" header="secondary" footer="Footer secondary" />
+      </eg-col>
+
+      <eg-col col="col-3">
+        <eg-card id="card-success" css="card-success" body="This is a card success" header="success" footer="Footer success" />
+      </eg-col>
+
+      <eg-col col="col-3">
+        <eg-card id="card-danger" css="card-danger" body="This is a card danger" header="danger" footer="Footer danger" />
+      </eg-col>
+
+      <eg-col col="col-3">
+        <eg-card id="card-warning" css="card-warning" body="This is a card warning" header="warning" footer="Footer warning" />
+      </eg-col>
+
+      <eg-col col="col-3">
+        <eg-card id="card-info" css="card-info" body="This is a card info" header="info" footer="Footer info" />
+      </eg-col>
+
+      <eg-col col="col-3">
+        <eg-card id="card-dark" css="card-dark" body="This is a card dark" header="dark" footer="Footer dark" />
+      </eg-col>
+
+    </eg-col>
+  </eg-grid>
+
+  <!-- Images -->
+  <eg-grid>
+    <eg-col bg="bg-alt" col="col-12">
+
+      <!-- Rounded -->
+      <h1 class="animated bounceInRight text-primary text-center">Images</h1>
+      <eg-col col="col-3">
+        <h1 class="text-center animated jello text-muted">Rounded</h1>
+        <eg-img id="rounded" src="../src/assets/images/logo.jpeg" style="mx-auto d-block rounded img-fluid" alt="Avatar" />
+      </eg-col>
+
+      <!-- Circle -->
+      <eg-col col="col-3">
+        <h1 class="text-center animated jello text-muted">Circle</h1>
+        <eg-img id="circle" src="../src/assets/images/logo.jpeg" style="mx-auto d-block rounded-circle img-fluid" alt="Avatar" />
+      </eg-col>
+
+      <!-- Thumbnail -->
+      <eg-col col="col-3">
+        <h1 class="text-center animated jello text-muted">Thumbnail</h1>
+        <eg-img id="thumbnail" src="../src/assets/images/logo.jpeg" style="mx-auto d-block img-thumbnail img-fluid" alt="Avatar" />
+      </eg-col>
+
+      <!-- Raised -->
+      <eg-col col="col-3">
+        <h1 class="text-center animated jello text-muted">Raised</h1>
+        <eg-img id="raised" src="../src/assets/images/logo.jpeg" style="mx-auto d-block rounded-circle img-raised img-fluid"
+          alt="Avatar" />
+      </eg-col>
+    </eg-col>
+
+  </eg-grid>
+
+  <!--Icons-->
+  <eg-grid>
+    <eg-col col="col-12">
+      <h1 class="animated bounceInRight text-primary text-center">Icons</h1>
+      <eg-row>
+        <eg-col col="col-12">
+          <p class="lead">
+            Siva UI Kit contains fa-icons from
+            <a href="http://ionicons.com/" target="_blank">Ionicons</a> &
+            <a href="http://fontawesome.io" target="_blank">Font Awesome</a>.
+            Please check their documentation for all available icons.
+          </p>
+        </eg-col>
+      </eg-row>
+
+      <!-- Icons - -->
+      <eg-row>
+
+        <!-- Icon Examples -->
+        <eg-col col="col-4">
+          <h1 class="text-muted animated jello">Icon Examples without size</h1>
+          <eg-icon icon="ion-beer" css="mr-4"></eg-icon>
+          <eg-icon icon="ion-wineglass" css="mr-4"></eg-icon>
+          <eg-icon icon="ion-coffee" css="mr-4"></eg-icon>
+          <eg-icon icon="ion-icecream" css="mr-4"></eg-icon>
+          <eg-icon icon="fab fa-apple" css="mr-4"></eg-icon>
+          <eg-icon icon="ion-power" css="mr-4"></eg-icon>
+          <eg-icon icon="fab fa-angular" css="mr-4"></eg-icon>
+          <eg-icon icon="fas fa-anchor" css="mr-4"></eg-icon>
+          <eg-icon icon="fa fa-book" css="mr-4"></eg-icon>
+          <eg-icon icon="fas fa-at" css="mr-4"></eg-icon>
+          <eg-icon icon="fa fa-bars" css="mr-4"></eg-icon>
+          <eg-icon icon="fa fa-percent" css="mr-4"></eg-icon>
+          <eg-icon icon="fa fa-map-marker" css="mr-4"></eg-icon>
+          <eg-icon icon="fab fa-facebook" css="mr-4"></eg-icon>
+          <eg-icon icon="fab fa-google" css="mr-4"></eg-icon>
+          <eg-icon icon="fab fa-twitter" css="mr-4"></eg-icon>
+          <eg-icon icon="fab fa-linkedin" css="mr-4"></eg-icon>
+          <eg-icon icon="fab fa-android" css="mr-4"></eg-icon>
+          <eg-icon icon="fab fa-amilia" css="mr-4"></eg-icon>
+
+          <eg-icon icon="fas fa-calendar" css="mr-4"></eg-icon>
+          <eg-icon icon="fas fa-calendar-check" css="mr-4"></eg-icon>
+          <eg-icon icon="fas fa-calculator" css="mr-4"></eg-icon>
+          <eg-icon icon="fab fa-btc" css="mr-4"></eg-icon>
+          <eg-icon icon="fas fa-bug" css="mr-4"></eg-icon>
+          <eg-icon icon="fas fa-burn" css="mr-4"></eg-icon>
+          <eg-icon icon="fas fa-bus" css="mr-4"></eg-icon>
+
+          <eg-icon icon="fas fa-ad"></eg-icon>
+        </eg-col>
+
+        <!-- Icon Sizes -->
+        <eg-col col="col-4">
+          <h1 class="text-muted animated jello">Icon Sizes</h1>
+          <eg-icon icon="fas fa-bus" css="mr-4"></eg-icon>
+          <eg-icon size="icon-sm" css="mr-4" icon="fab fa-angellist"></eg-icon>
+          <eg-icon size="icon-md" css="mr-4" icon="fas fa-asterisk"></eg-icon>
+          <eg-icon size="icon-lg" css="mr-4" icon="fas fa-ban"></eg-icon>
+          <eg-icon size="icon-xl" css="mr-4" icon="fa fa-map-marker"></eg-icon>
+        </eg-col>
+
+        <!-- Icon Colors -->
+        <eg-col col="col-4">
+          <h1 class="text-muted animated jello">Icon Colors</h1>
+          <eg-icon size="icon-sm" css="mr-4 text-primary" icon="fab fa-bandcamp"></eg-icon>
+          <eg-icon size="icon-sm" css="mr-4 text-secondary" icon="fas fa-balance-scale"></eg-icon>
+          <eg-icon size="icon-sm" css="mr-4 text-success" icon="fas fa-battery-half"></eg-icon>
+          <eg-icon size="icon-sm" css="mr-4 text-danger" icon="fab fa-bitcoin"></eg-icon>
+          <eg-icon size="icon-sm" css="mr-4 text-warning" icon="fas fa-bookmark"></eg-icon>
+          <eg-icon size="icon-sm" css="mr-4 text-info" icon="fas fa-bolt"></eg-icon>
+        </eg-col>
+
+      </eg-row>
+
+    </eg-col>
+  </eg-grid>
+
+  <!-- Inputs -->
+  <eg-grid>
+    <eg-col bg="bg-alt" col="col-12">
+      <h1 class="animated bounceInRight text-primary text-center">Form Inputs</h1>
+
+      <!-- Basic Inputs -->
+      <eg-col col="col-4">
+        <h1 class="text-muted animated jello">Basic Inputs</h1>
+
+        <h5 class="text-muted text-primary">Email Input</h5>
+        <eg-input id="email" type="email" mb="mb-2" col="col-10" control="form-control" placeholder="email input"></eg-input>
+
+        <h5 class="text-muted text-primary">Text Input</h5>
+        <eg-input id="text" type="text" mb="mb-2" col="col-10" control="form-control" placeholder="text input"></eg-input>
+
+        <h5 class="text-muted text-primary">Password Input</h5>
+        <eg-input id="password" type="password" mb="mb-2" col="col-10" control="form-control" placeholder="Password"></eg-input>
+
+      </eg-col>
+
+      <!-- Validation Inputs -->
+      <eg-col col="col-4">
+        <h1 class="text-muted animated jello">Validation Inputs</h1>
+
+        <h5 class="text-muted text-success">Success Input</h5>
+        <eg-input mb="mb-2" col="col-10" control="form-control form-control-success" id="success" placeholder="Success"></eg-input>
+
+        <h5 class="text-muted text-danger">Danger Input</h5>
+        <eg-input mb="mb-2" col="col-10" control="form-control form-control-danger" id="danger" placeholder="Danger"></eg-input>
+
+        <h5 class="text-muted text-warning">Warning Input</h5>
+        <eg-input mb="mb-2" col="col-10" control="form-control form-control-warning" id="warning" placeholder="Warning"></eg-input>
+
+        <h5 class="text-muted text-primary">Live Length Validation Input</h5>
+        <eg-input type="text" id="validation" mb="mb-2" col="col-10" control="form-control" placeholder="Validation Live"></eg-input>
+      </eg-col>
+
+      <!-- Size Inputs -->
+      <eg-col col="col-4">
+        <h1 class="text-muted animated jello">Size Inputs</h1>
+
+        <h5 class="text-muted text-primary">Small Input</h5>
+        <eg-input id="small" mb="mb-2" col="col-10" control="form-control form-control-sm" placeholder="small size input inside col"></eg-input>
+
+        <h5 class="text-muted text-primary">Default Input</h5>
+        <eg-input id="regular" mb="mb-2" col="col-10" control="form-control" placeholder="Default size input inside col"></eg-input>
+
+        <h5 class="text-muted text-primary">Large Input</h5>
+        <eg-input id="large" mb="mb-2" col="col-10" control="form-control form-control-lg" placeholder="Large size input inside col"></eg-input>
+      </eg-col>
+    </eg-col>
+  </eg-grid>
+  <!-- Alerts -->
+  <eg-col col="col-12" section="colored-section">
+    <h1 class="animated bounceInRight text-primary text-center">Alerts</h1>
+    <eg-row>
+      <eg-col col="col-8" offset="offset-2">
+        <eg-alert id="a-primary" alert="alert-primary show fade" text="This is the text of a primary alert" title="This Alert Has A Title"></eg-alert>
+        <eg-alert id="a-alt" alert="alert-alt show fade" text="This is the text of a alt alert with a close button"
+          close="alert-dismissible"></eg-alert>
+        <eg-alert id="a-success" alert="alert-success" text="This is the text of a success alert with a close button"
+          close="alert-dismissible"></eg-alert>
+        <eg-alert id="a-danger" alert="alert-danger" text="This is the text of a danger alert" title="This Alert Has A Title"></eg-alert>
+        <eg-alert id="a-info" alert="alert-info" text="This is the text of a info alert with a close button" close="alert-dismissible"></eg-alert>
+        <eg-alert id="a-warning" alert="alert-warning" text="This is the text of a warning alert" title="This Alert Has A Title"></eg-alert>
+      </eg-col>
+    </eg-row>
+    <br><br>
+  </eg-col>
+  <!-- Animations (to do) -->
+  <!-- Footer Section -->
+  <eg-col col="col-12" section="colored-section" bg="bg-inverse">
+    <eg-row>
+      <eg-col col="col-6">
+        <h3 class="text-center">Siva-UI Kit is available for FREE to download. Click the button below to download the
+          HTML version.</h3>
+        <eg-button id="download" btn="btn-outline-white btn-round" offset="offset-5">Download HTML</eg-button>
+      </eg-col>
+
+      <eg-col offset="offset-2">
+        <h4>Share with your friends</h4>
+        <eg-icon icon="fab fa-facebook" size="icon-md" css="mr-4"></eg-icon>
+        <eg-icon icon="fab fa-linkedin" size="icon-md" css="mr-4"></eg-icon>
+        <eg-icon icon="fab fa-twitter" size="icon-md" css="mr-4"></eg-icon>
+        <eg-icon icon="fab fa-google" size="icon-md" css="mr-4"></eg-icon>
+      </eg-col>
+    </eg-row>
+    <br><br>
+  </eg-col>
+</body>
+
+</html>
