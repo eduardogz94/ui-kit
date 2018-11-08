@@ -1,4 +1,6 @@
-# Eg-Kit
+# egUI-KIT
+
+A javascript frontend framework that helps the users to develop web apps faster than the usual time.
 Bootstrap based UI-KIT, icons, request module, async javascript, bootstrap based css clases and more!
 
 egUI-KIT will make it easier for you to create your own admin interface. Read more on https://stisla.multinity.com/
@@ -36,6 +38,7 @@ Even so, you can still access the documentation of this template at any time.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
 ## Acknowledgments
 
 * Hat tip to anyone who's code was used
