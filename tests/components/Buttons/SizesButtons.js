@@ -10,19 +10,19 @@ const returnButtonSizesCol = () => {
     "Button Sizes"
   );
 
-  /** extra-small Buttons */
+  /** extra-small Button Sample */
   let xsButton = createButton("btn-primary btn-xs", "xsmall", "xsButton");
 
-  /** small Buttons */
+  /** small Button Sample */
   let smButton = createButton("btn-primary btn-sm", "small", "smButton");
 
-  /** regular Buttons */
+  /** regular Button Sample */
   let regularButton = createButton("btn-primary", "regular", "regularButton");
 
-  /** medium Buttons */
+  /** medium Button Sample */
   let mdButton = createButton("btn-primary btn-md", "medium", "mdButton");
 
-  /** large Buttons */
+  /** large Button Sample */
   let lgButton = createButton("btn-primary btn-lg", "large", "lgButton");
 
   let buttonSizesCol = appendsCreateCol(

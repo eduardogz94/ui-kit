@@ -10,30 +10,30 @@ const returnButtonStylesCol = () => {
     "Button Styles"
   );
 
-  /** Default Buttons */
+  /** Default Button Sample */
   let defaultButton = createButton("btn-primary", "Default", "defaultButton");
 
-  /** Outline Buttons */
+  /** Outline Button Sample */
   let outlineButton = createButton(
     "btn-outline-primary",
     "Outline",
     "outlineButton"
   );
 
-  /** Round Buttons */
+  /** Round Button Sample */
   let roundButton = createButton(
     "btn-primary btn-round",
     "Round",
     "roundButton"
   );
 
-  /** Icon Buttons */
+  /** Icon Button Sample */
   let iconButton = createButton("btn-primary btn-round", "Icon", "iconButton");
 
-  /** Circle Buttons */
+  /** Circle Button Sample */
   let circleButton = createButton("btn-circle", "c", "circleButton");
 
-  /** Link Buttons */
+  /** Link Button Sample */
   let linkButton = createButton("btn-link", "Link", "linkButton");
 
   let buttonStylesCol = appendsCreateCol(

@@ -1,0 +1,25 @@
+{
+  "source": {
+    "include": [
+      "tests/views/Buttons/ButtonsView.js",
+      "tests/views/Cards/CardsView.js",
+      "tests/views/Images/ImagesView.js",
+      "tests/views/Inputs/InputsView.js",
+      "tests/components/Buttons/ColorsButtons.js",
+      "tests/components/Buttons/OutlineColorsButtons.js",
+      "tests/components/Buttons/SizesButtons.js",
+      "tests/components/Buttons/StylesButtons.js",
+
+      "tests/components/Cards/DangerCard.js",
+      "tests/components/Cards/DefaultCard.js",
+      "tests/components/Cards/PrimaryCard.js",
+      "tests/components/Cards/SecondaryCard.js",
+      "tests/components/Cards/SuccessCard.js",
+      "tests/components/Cards/InfoCard.js",
+      "tests/components/Cards/LoginCard.js",
+      "tests/components/Cards/WarningCard.js"
+    ],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  }
+}

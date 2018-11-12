@@ -10,56 +10,56 @@ const returnOutlineButtonsCol = () => {
     "Button Outline"
   );
 
-  /** Primary Outline Buttons */
+  /** Primary Outline Button Sample */
   let outlinePrimaryButton = createButton(
     "btn-outline-primary",
     "primary",
     "outlinePrimaryButton"
   );
 
-  /** Secondary Outline Buttons */
+  /** Secondary Outline Button Sample */
   let outlineSecondaryButton = createButton(
     "btn-outline-secondary",
     "secondary",
     "outlineSecondaryButton"
   );
 
-  /** Success Outline Buttons */
+  /** Success Outline Button Sample */
   let outlineSuccessButton = createButton(
     "btn-outline-success",
     "success",
     "outlineSuccessButton"
   );
 
-  /** Danger Outline Buttons */
+  /** Danger Outline Button Sample */
   let outlineDangerButton = createButton(
     "btn-outline-danger",
     "danger",
     "outlineDangerButton"
   );
 
-  /** Info Outline Buttons */
+  /** Info Outline Button Sample */
   let outlineInfoButton = createButton(
     "btn-outline-info",
     "info",
     "outlineInfoButton"
   );
 
-  /** Warning Outline Buttons */
+  /** Warning Outline Button Sample */
   let outlineWarningButton = createButton(
     "btn-outline-warning",
     "warning",
     "outlineWarningButton"
   );
 
-  /** White Outline Buttons */
+  /** White Outline Button Sample */
   let outlineWhiteButton = createButton(
     "btn-outline-white",
     "white",
     "outlineWhiteButton"
   );
 
-  /** Dark Outline Buttons */
+  /** Dark Outline Button Sample */
   let outlineDarkButton = createButton(
     "btn-outline-dark",
     "dark",

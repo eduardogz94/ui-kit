@@ -10,32 +10,32 @@ const returnButtonColorsCol = () => {
     "Button Colors"
   );
 
-  /** Primary Buttons */
+  /** Primary Button Sample */
   let buttonPrimary = createButton("btn-primary", "primary", "buttonPrimary");
 
-  /** Secondary Buttons */
+  /** Secondary Button Sample */
   let buttonSecondary = createButton(
     "btn-secondary",
     "secondary",
     "buttonSecondary"
   );
 
-  /** Success Buttons */
+  /** Success Button Sample */
   let buttonSuccess = createButton("btn-success", "success", "buttonSuccess");
 
-  /** Danger Buttons */
+  /** Danger Button Sample */
   let buttonDanger = createButton("btn-danger", "danger", "buttonDanger");
 
-  /** Info Buttons */
+  /** Info Button Sample */
   let buttonInfo = createButton("btn-info", "info", "buttonInfo");
 
-  /** Warning Buttons */
+  /** Warning Button Sample */
   let buttonWarning = createButton("btn-warning", "warning", "buttonWarning");
 
-  /** Dark Buttons */
+  /** Dark Button Sample */
   let buttonDark = createButton("btn-dark", "dark", "buttonDark");
 
-  /** White Buttons */
+  /** White Button Sample */
   let buttonWhite = createButton("btn-white", "white", "buttonWhite");
 
   /** All buttons appened to a col  */

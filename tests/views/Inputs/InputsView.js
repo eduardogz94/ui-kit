@@ -6,7 +6,6 @@ let inputTitle = returnTextElement(
   "Form Inputs"
 );
 
-/** Basic Inputs */
 let basicInputsTitle = returnTextElement("h2", "text-muted", "Basic Inputs");
 
 let emailTitle = returnTextElement("h5", "text-muted text-primary", "Email");
@@ -29,7 +28,6 @@ let firstInputsCol = appendsCreateCol(
   createPasswordInput()
 );
 
-/** Validations Inputs */
 let validationsInputsTitle = returnTextElement(
   "h2",
   "text-muted",
@@ -59,7 +57,6 @@ let secondInputCol = appendsCreateCol(
   createDangerInput()
 );
 
-/** Size Inputs */
 let SizeInputsTitle = returnTextElement("h2", "text-muted", "Size Inputs");
 
 let xsmallTitle = returnTextElement("h5", "text-muted text-primary", "xsmall");
@@ -82,8 +79,6 @@ let thirdInputCol = appendsCreateCol(
   largeTitle,
   largeInput()
 );
-
-/** End All Type Of Inputs, starts rendering */
 
 let mainInputCol = appendsCreateCol(
   "col-12",

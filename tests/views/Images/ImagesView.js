@@ -11,13 +11,9 @@ let imagesTitle = returnTextElement(
 let imagesMainCol = appendsCreateCol("col-12", imagesTitle);
 imagesMainCol.bg = "bg-alt";
 
-/** Image Rounded*/
 let imageRoundedCol = returnImageRoundedCol();
-/** Image Circle*/
 let imageCircleCol = returnImageCircleCol();
-/** Image Thumbnail*/
 let imageThumbnailCol = returnImageThumbnailCol();
-/** Image Raised*/
 let imageRaisedCol = returnImageRaisedCol();
 
 imagesRow.addMultipleObjects(
