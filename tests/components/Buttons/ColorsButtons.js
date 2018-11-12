@@ -4,9 +4,11 @@
  * A function that returns button colors col samples.
  */
 const returnButtonColorsCol = () => {
-  let colorsTitle = document.createElement("h1");
-  colorsTitle.setAttribute("class", "text-center animated jello text-muted");
-  colorsTitle.innerHTML = "Button Colors";
+  let colorsTitle = returnTextElement(
+    "h1",
+    "text-center animated jello text-muted",
+    "Button Colors"
+  );
 
   /** Primary Buttons */
   let buttonPrimary = createButton("btn-primary", "primary", "buttonPrimary");
@@ -36,6 +38,7 @@ const returnButtonColorsCol = () => {
   /** White Buttons */
   let buttonWhite = createButton("btn-white", "white", "buttonWhite");
 
+  /** All buttons appened to a col  */
   let buttonsColorsCol = appendsCreateCol(
     "col-6",
     colorsTitle,

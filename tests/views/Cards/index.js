@@ -1,14 +1,14 @@
 /* </-------------- START CARDS VIEW ----------------/> */
-const cardGrid = new EgGrid();
+
 const mainCol = new EgCol("col-12");
 const cardRow = new EgRow();
 
-const cardsTitle = document.createElement("h1");
-cardsTitle.setAttribute(
-  "class",
-  "animated bounceInRight text-primary text-center"
+const cardsTitle = returnTextElement(
+  "h1",
+  "animated bounceInRight text-primary text-center",
+  "Cards"
 );
-cardsTitle.innerHTML = "Cards";
+
 mainCol.appendChild(cardsTitle);
 
 /** Primary Card */
@@ -33,29 +33,8 @@ let infoCard = createInfoCard();
 let defaultCard = createDefaultCard();
 
 /** Login Card */
-
-const usernameInputCard = new EgInput("form-control", "text");
-usernameInputCard.id = "username";
-usernameInputCard.col = "col-8";
-usernameInputCard.offset = "offset-2";
-usernameInputCard.placeholder = "Username Input";
-usernameInputCard.css = "mb-2";
-
-const passwordInputCard = new EgInput("form-control", "password");
-passwordInputCard.id = "password-card";
-passwordInputCard.col = "col-8";
-passwordInputCard.offset = "offset-2";
-passwordInputCard.css = "mt-2";
-passwordInputCard.placeholder = "Password Input";
-
-const loginButtonCard = new EgButton("btn-primary");
-loginButtonCard.id = "loginButton";
-loginButtonCard.innerText = "Login Now";
-loginButtonCard.col = "col-8";
-loginButtonCard.css = "mt-2";
-loginButtonCard.offset = "offset-2";
-
 let loginCard = createLoginCard();
+let loginCardBody = returnLoginBody();
 
 cardRow.addMultipleObjects(
   createCol(defaultCard, "col-3"),
@@ -67,24 +46,30 @@ cardRow.addMultipleObjects(
   createCol(infoCard, "col-3"),
   createCol(loginCard, "col-3")
 );
+
 mainCol.appendChild(cardRow);
 
 /**
  * You call this when all the elements are already in a col/row
  */
 
-cardGrid.appendChild(mainCol);
-document.body.appendChild(cardGrid);
+document.body.appendChild(mainCol);
 
 /** APPEND CHILDS AFTER THEY ARE RENDERED */
 
 /** Personal Cards */
 
 loginCard.addMultipleObjectsToBody(
-  usernameInputCard,
-  passwordInputCard,
-  loginButtonCard
+  loginCardBody.usernameInputCard,
+  loginCardBody.passwordInputCard,
+  loginCardBody.loginButtonCard
 );
+
+loginCardBody.loginButtonCard.onclick = function(ev) {
+  validateValue(loginCardBody.usernameInputCard);
+  validateValue(loginCardBody.passwordInputCard);
+};
+
 loginCard.addToCardFooter(
   createCardText(
     "animated jello text-primary",

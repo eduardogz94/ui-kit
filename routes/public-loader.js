@@ -7,4 +7,4 @@
 // logger.error("testing logger from loader.js");
 // logger.fatal("testing logger from loader.js");
 
-ccc.chargeScript("../views/Signup");
+ccc.chargeScript("../views/Signup").catch(e => console.log(e));

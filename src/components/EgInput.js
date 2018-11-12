@@ -175,10 +175,6 @@ class EgInput extends HTMLElement {
     }
   }
 
-  setFormInput(value) {
-    this.className = `form-group ${value}`;
-  }
-
   setFormControl(value) {
     let classname = "";
     this.getAttributeNames().forEach(element => {
@@ -219,7 +215,7 @@ const createInput = (control, type, id = null, col = null, placeholder = null) =
  * @param {Integer} length Length of the string that will validate the input (required). 
  */
 const setValidationLength = (input, length) => {
-  input.validateValue(length)
+  input.validateValue(length,length)
 }
 
 /**
@@ -228,5 +224,5 @@ const setValidationLength = (input, length) => {
  * @param {String} type A string with the type of email that you want to validate (required). 
  */
 const setValidationEmail = (input, type) => {
-  input.validateEmail(type)
+  input.validateEmail(type,type)
 }

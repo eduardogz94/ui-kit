@@ -53,7 +53,7 @@ document.body.appendChild(loginGrid);
 loginRenderCard.addMultipleObjectsToBody(username, password, loginButton);
 loginRenderCard.addToCardFooter(loginRenderCardFooter);
 
-ccc.chargeScript("../src/helpers/validations/loginValidations");
+ccc.chargeScript("../helpers/validations/loginValidations").catch(e => console.log(e));
 
 /**
  * End login template

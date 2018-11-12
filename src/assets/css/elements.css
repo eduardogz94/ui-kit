@@ -194,7 +194,9 @@ select.form-control:not([size]):not([multiple]) {
   font-weight: 700;
 }
 
-/*card*/
+/*----------------------------------------------
+* Cards Elements
+----------------------------------------------*/
 .card {
   -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
@@ -480,7 +482,7 @@ select.form-control:not([size]):not([multiple]) {
   text-align: right;
 }
 .card-sm-5 {
-  /* text-align: center; */
+  text-align: center;
 }
 .card-sm-5 .card-body {
   padding: 20px 20px 5px 20px;
@@ -537,9 +539,10 @@ select.form-control:not([size]):not([multiple]) {
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
-/*end card*/
 
-/* Start Images*/
+/*----------------------------------------------
+* Images Elements
+----------------------------------------------*/
 .img-fluid {
   max-width: 100%;
   height: auto;
@@ -584,4 +587,3 @@ select.form-control:not([size]):not([multiple]) {
 .rounded-0 {
   border-radius: 0 !important;
 }
-/* End Images */

@@ -85,7 +85,7 @@ class EgButton extends HTMLElement {
 }
 
 /**
- * A function that creates a button for a card.
+ * A function that creates a button.
  * @param {String} style A string that sets button style (required).
  * @param {String} text A string that sets innerText of the button (optional but recommended).
  * @param {String} id A string that sets the id of the button (optional but recommended).

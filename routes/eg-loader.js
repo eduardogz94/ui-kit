@@ -7,4 +7,4 @@
 // logger.error("testing logger from loader.js");
 // logger.fatal("testing logger from loader.js");
 
-ccc.chargeScript("../src/helpers/validations/htmlValidations");
+ccc.chargeScript("../helpers/validations/htmlValidations").catch(e => console.log(e));

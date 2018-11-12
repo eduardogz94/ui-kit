@@ -4,9 +4,11 @@
  * A function that return the buttons samples sizing col.
  */
 const returnButtonSizesCol = () => {
-  let sizesTitle = document.createElement("h1");
-  sizesTitle.setAttribute("class", "text-center animated jello text-muted");
-  sizesTitle.innerHTML = "Button Sizes";
+  let sizesTitle = returnTextElement(
+    "h1",
+    "text-center animated jello text-muted",
+    "Button Sizes"
+  );
 
   /** extra-small Buttons */
   let xsButton = createButton("btn-primary btn-xs", "xsmall", "xsButton");

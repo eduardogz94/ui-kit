@@ -7,33 +7,42 @@
 // logger.error("testing logger from loader.js");
 // logger.fatal("testing logger from loader.js");
 
-ccc.chargeScript("../src/helpers/cards/index")
+ccc.chargeScript("../helpers/cards/index").catch(e => console.log(e));
+ccc.chargeScript("../helpers/index").catch(e => console.log(e));
 
 /** Cards tests/js folder wich represents public/js/cards */
-ccc.chargeScript("../tests/js/Cards/InfoCard")
-ccc.chargeScript("../tests/js/Cards/DangerCard")
-ccc.chargeScript("../tests/js/Cards/DefaultCard")
-ccc.chargeScript("../tests/js/Cards/SuccessCard")
-ccc.chargeScript("../tests/js/Cards/PrimaryCard")
-ccc.chargeScript("../tests/js/Cards/WarningCard")
-ccc.chargeScript("../tests/js/Cards/SecondaryCard")
-ccc.chargeScript("../tests/js/Cards/LoginCard")
+ccc.chargeScript("../tests/components/Cards/InfoCard").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Cards/DangerCard").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Cards/DefaultCard").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Cards/SuccessCard").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Cards/PrimaryCard").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Cards/WarningCard").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Cards/SecondaryCard").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Cards/LoginCard").catch(e => console.log(e));
 
-/** Inputs tests/js folder wich represents public/js/inputs */
-ccc.chargeScript("../tests/js/Inputs/BasicInputs")
-ccc.chargeScript("../tests/js/Inputs/ValidationsInputs")
-ccc.chargeScript("../tests/js/Inputs/SizingInputs")
+/** Inputs tests/components folder wich represents public/components/inputs */
+ccc.chargeScript("../tests/components/Inputs/BasicInputs").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Inputs/ValidationsInputs").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Inputs/SizingInputs").catch(e => console.log(e));
 
-/** Buttons tests/js folder wich represents public/js/buttons */
-ccc.chargeScript("../tests/js/Buttons/ColorsButtons")
-ccc.chargeScript("../tests/js/Buttons/OutlineColorsButtons")
-ccc.chargeScript("../tests/js/Buttons/StylesButtons")
-ccc.chargeScript("../tests/js/Buttons/SizesButtons")
+/** Buttons tests/components folder wich represents public/components/buttons */
+ccc.chargeScript("../tests/components/Buttons/ColorsButtons").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Buttons/OutlineColorsButtons").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Buttons/StylesButtons").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Buttons/SizesButtons").catch(e => console.log(e));
+
+/** Images tests/components folder wich represents public/components/buttons */
+ccc.chargeScript("../tests/components/Images/RaisedImage").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Images/CircleImage").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Images/ThumbnailImage").catch(e => console.log(e));
+ccc.chargeScript("../tests/components/Images/RoundedImage").catch(e => console.log(e));
+
 
 /** Elements tests/views folder wich represents views/element */
-ccc.chargeScript("../tests/views/Buttons");
-ccc.chargeScript("../tests/views/Cards");
-ccc.chargeScript("../tests/views/Images");
-ccc.chargeScript("../tests/views/Inputs");
+ccc.chargeScript("../helpers/validations/samplesValidations").catch(e => console.log(e));
 
-ccc.chargeScript("../src/helpers/validations/samplesValidations");
+ccc.chargeScript("../tests/views/Buttons/index").catch(e => console.log(e));
+ccc.chargeScript("../tests/views/Cards/index").catch(e => console.log(e));
+ccc.chargeScript("../tests/views/Images/index").catch(e => console.log(e));
+ccc.chargeScript("../tests/views/Inputs/index").catch(e => console.log(e));
+

@@ -1,9 +1,14 @@
 /** Button Styles */
 
+/**
+ * A function that returns button styles col sample.
+ */
 const returnButtonStylesCol = () => {
-  let stylesTitle = document.createElement("h1");
-  stylesTitle.setAttribute("class", "text-center animated jello text-muted");
-  stylesTitle.innerHTML = "Button Styles";
+  let stylesTitle = returnTextElement(
+    "h1",
+    "text-center animated jello text-muted",
+    "Button Styles"
+  );
 
   /** Default Buttons */
   let defaultButton = createButton("btn-primary", "Default", "defaultButton");
@@ -24,7 +29,6 @@ const returnButtonStylesCol = () => {
 
   /** Icon Buttons */
   let iconButton = createButton("btn-primary btn-round", "Icon", "iconButton");
-  // iconButton.addIcon("fab fa-google")
 
   /** Circle Buttons */
   let circleButton = createButton("btn-circle", "c", "circleButton");

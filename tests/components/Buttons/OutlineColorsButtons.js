@@ -4,9 +4,11 @@
  * A function that returns outline buttons col samples.
  */
 const returnOutlineButtonsCol = () => {
-  let outlineTitle = document.createElement("h1");
-  outlineTitle.setAttribute("class", "text-center animated jello text-muted");
-  outlineTitle.innerHTML = "Outline";
+  let outlineTitle = returnTextElement(
+    "h1",
+    "text-center animated jello text-muted",
+    "Button Outline"
+  );
 
   /** Primary Outline Buttons */
   let outlinePrimaryButton = createButton(

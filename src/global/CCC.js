@@ -21,14 +21,13 @@ class CCC {
   }
 
   async chargeScript(url) {
-    this.addScript(`${url}`).catch(e => console.log(e));
+    await this.addScript(`${url}`);
     await this.registerFile(url + ".js");
   }
 
   async chargeLink(url) {
-    this.addLink(`${url}`)
-      .then(await this.registerFile(url + ".css"))
-      .catch(e => console.log(e));
+    await this.addLink(`${url}`);
+    await this.registerFile(url + ".css");
   }
 
   getComponents() {
@@ -72,5 +71,28 @@ class CCC {
   async startLoggerAndApp(logger, loader) {
     await this.chargeScript(`${logger}`);
     await this.initApp(`${loader}`);
+  }
+
+  async egUIKIT() {
+    ccc.chargeLink("../src/assets/css/elements").catch(e => console.log(e));;
+    ccc.chargeLink("../src/assets/css/grid").catch(e => console.log(e));;
+    ccc.chargeLink("../src/assets/css/responsive").catch(e => console.log(e));;
+    ccc.chargeLink("../src/assets/css/utilities").catch(e => console.log(e));;
+    ccc.chargeLink("../src/assets/css/colors").catch(e => console.log(e));;
+    ccc.chargeLink("../src/assets/css/animate").catch(e => console.log(e));;
+    ccc.chargeLink("../libs/fontawesome/css/fontawesome-all").catch(e => console.log(e));;
+    ccc.chargeLink("../libs/ionicons/css/ionicons").catch(e => console.log(e));;
+
+    ccc.chargeScript("../src/components/Grid/EgGrid").catch(e => console.log(e));;
+    ccc.chargeScript("../src/components/Grid/EgRow").catch(e => console.log(e));;
+    ccc.chargeScript("../src/components/Grid/EgCol").catch(e => console.log(e));;
+
+    ccc.chargeScript("../src/components/EgIcon").catch(e => console.log(e));;
+    ccc.chargeScript("../src/components/EgImage").catch(e => console.log(e));;
+    ccc.chargeScript("../src/components/EgForm").catch(e => console.log(e));;
+    ccc.chargeScript("../src/components/EgButton").catch(e => console.log(e));;
+    ccc.chargeScript("../src/components/EgInput").catch(e => console.log(e));;
+    ccc.chargeScript("../src/components/EgCard").catch(e => console.log(e));;
+    ccc.chargeScript("../src/components/EgAlert").catch(e => console.log(e));;
   }
 }
