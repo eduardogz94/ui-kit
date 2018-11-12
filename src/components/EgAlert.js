@@ -61,7 +61,7 @@ class EgAlert extends HTMLElement {
 
   setAlertCloseButton() {
     let main = this.getAlert();
-    let alert = this.getAlert().querySelector(".alert-body");
+    let alert = main.querySelector(".alert-body");
     let alertButton = document.createElement("button");
     let buttonX = document.createElement("span");
 
