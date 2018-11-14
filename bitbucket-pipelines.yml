@@ -9,7 +9,7 @@ pipelines:
   default:
     - step:
         name: Deploy to stage
-        deployment: stage # can be test, staging or production.
+        deployment: staging # can be test, staging or production.
         script:
           - echo "Deploying to stage environment"
           - npm install
