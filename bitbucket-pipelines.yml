@@ -8,9 +8,9 @@ image: node:8.10.0
 pipelines:
   default:
     - step:
-        name: Deploy to test
-        deployment: test # can be test, staging or production.
+        name: Deploy to stage
+        deployment: stage # can be test, staging or production.
         script:
-          - echo "Deploying to test environment"
+          - echo "Deploying to stage environment"
           - npm install
           - npm run dev
