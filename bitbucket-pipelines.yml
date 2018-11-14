@@ -7,7 +7,7 @@ image: node:8.10.0
 
 pipelines:
   default:
-    - step:
+    step:
       name: Deploy to test
       deployment: test # can be test, staging or production.
       script:
