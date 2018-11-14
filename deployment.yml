@@ -1,6 +1,19 @@
-- step:
-    name: Deploy to test
-    deployment: test # can be test, staging or production.
-    # trigger: manual  # Uncomment to make this a manual deployment.
-    script:
-      - echo "Deploying to test environment"
+# This is a sample build configuration for JavaScript.
+# Check our guides at https://confluence.atlassian.com/x/14UWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: node:8.10.0
+
+pipelines:
+  default:
+    caches:
+      - node
+      - step:
+        name: Deploy to test
+        deployment: test # can be test, staging or production.
+        # trigger: manual  # Uncomment to make this a manual deployment.
+        script:
+          - echo "Deploying to test environment"
+          - npm install
+          - npm run dev
