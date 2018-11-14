@@ -2,6 +2,7 @@ import "babel-polyfill";
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
+import ip from "ip";
 
 const app = express();
 
@@ -28,6 +29,8 @@ app.get("/test", (req, res) => {
   res.redirect("/tests/samples.html");
 });
 
-app.listen(process.env.PORT || 3000, () =>
-  console.log(`App listening on port # ${process.env.PORT || 3000}`)
-);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(
+    `App listening on ip ${ip.address()}:${process.env.PORT || 3000}`
+  );
+});
