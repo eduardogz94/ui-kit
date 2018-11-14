@@ -1,9 +1,9 @@
 /** Default Card */
 
 /**
- * A function that creates danger card object
+ * A function that creates the default card sample.
  */
-const createDefaultCard = () => {
+const createCardDefault = () => {
   let darkCard = new EgCard("card-dark");
   darkCard.id = "dark-card";
   darkCard.body = "This is a body passed as a string in javascript";

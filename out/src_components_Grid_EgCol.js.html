@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSDoc: Source: src/components/Grid/EgCol.js</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h1 class="page-title">Source: src/components/Grid/EgCol.js</h1>
+
+      <section>
+        <article>
+          <pre class="prettyprint source linenums"><code>/**
+ * EgCol Class
+ * @extends {HTMLElement}
+ */
+class EgCol extends HTMLElement {
+  /**
+   * Creates a EgCol element acepting a col and a offset attribute,
+   * @param {String} col Col attribute for the eg-col.
+   * @param {String} offset Offset attribute for the eg-col.
+   */
+  constructor(col, offset) {
+    super();
+    this.col = col;
+    this.offset = offset;
+  }
+
+  /**
+   * A lyfecicle method that calls when the component has finally rendered.
+   * @function
+   * @returns {HTMLElement} Renders a EgCol component.
+   */
+  connectedCallback() {
+    this.setCol();
+    this.defaultProperties();
+    ccc.registerComponent(this, {
+      id: this.id,
+      secret: "Col Parent"
+    });
+  }
+
+  /**
+   * Set the default properties for the EgCol object.
+   * @function
+   * @returns {HTMLElement} Sets the default classname of the EgCol instance.
+   */
+  defaultProperties() {
+    this.style.display = "inline-block";
+    this.style.marginTop = "2.5px";
+
+    let classname = "";
+    this.getAttributeNames().forEach(element => {
+      classname += `${this.getAttribute(`${element}`)} `;
+    });
+    this.className = classname;
+  }
+
+  /**
+   * A function to set EgCol properties as they are received from a js instance.
+   * @function
+   * @returns {defaultProperties()}
+   */
+  setCol() {
+    if (this.id) this.setAttribute("id", this.id);
+    if (this.col) this.setAttribute("col", this.col);
+    if (this.offset) this.setAttribute("offset", this.offset);
+    if (this.bg) this.setAttribute("bg", this.bg);
+  }
+
+  /**
+   * A function to get all the specified objects passed as a string.
+   * @function
+   * @param {Object} obj A string as the objects to look into the EgCol.
+   */
+  getObjects(obj) {
+    return this.querySelectorAll(`${obj}`);
+  }
+
+  /**
+   * A function to add a element to append to the component.
+   * @param {String} element Representing the element to add.
+   */
+  addSingleObject(element) {
+    const object = document.createElement(`${element}`);
+    this.appendChild(object);
+  }
+
+  /**
+   * A function to add multiple objects into the element.
+   * @param  {...any} elements All the elements that will be added into the element.
+   */
+  addMultipleObjects(...elements) {
+    elements.forEach(element => {
+      this.appendChild(element);
+    });
+  }
+
+  /**
+   * A function to create a element multiple times into the element.
+   * @param {String} element Representing the element that will be appened n times(required). 
+   * @param {Int} quantity Representing the quantity of elements that will be appened(required).
+   */
+  createMultipleObjects(element, quantity) {
+    for (let i = 0; i &lt; quantity; i++) {
+      const object = document.createElement(`${element}`);
+      object.id = i;
+      this.appendChild(object);
+    }
+  }
+}
+
+customElements.define("eg-col", EgCol);
+
+/**
+ * A function to appends and create a element into a new col.
+ * @param {EgElement} Element receives a element and appends it (required).
+ * @param {String} col A string for the col attribute (required).
+ * @param {String} offset A string for the offset attribute (optional).
+ */
+const createCol = (element, col, offset = null) => {
+  let newCol = new EgCol(col, offset);
+  newCol.appendChild(element);
+
+  return newCol;
+};
+
+/**
+ * A function to appends a various elements into a new col and creates it.
+ * @param {String} col A string for the col attribute.
+ * @param {EgElements} elements receives various elements and appends them into the new col.
+ */
+const appendsCreateCol = (col, ...elements) => {
+  let newCol = new EgCol(col);
+  elements.forEach(element => {
+    newCol.appendChild(element);
+  });
+
+  return newCol;
+};
+</code></pre>
+        </article>
+      </section>
+    </div>
+
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Classes</h3>
+      <ul>
+        <li><a href="EgButton.html">EgButton</a></li>
+        <li><a href="EgCard.html">EgCard</a></li>
+        <li><a href="EgCol.html">EgCol</a></li>
+        <li><a href="EgImage.html">EgImage</a></li>
+        <li><a href="EgInput.html">EgInput</a></li>
+      </ul>
+      <h3>Global</h3>
+      <ul>
+        <li><a href="global.html#appendsCreateCol">appendsCreateCol</a></li>
+        <li><a href="global.html#createButton">createButton</a></li>
+        <li><a href="global.html#createCard">createCard</a></li>
+        <li><a href="global.html#createCardDanger">createCardDanger</a></li>
+        <li><a href="global.html#createCardDefault">createCardDefault</a></li>
+        <li><a href="global.html#createCardInfo">createCardInfo</a></li>
+        <li><a href="global.html#createCardLogin">createCardLogin</a></li>
+        <li>
+          <a href="global.html#createCardLoginBody">createCardLoginBody</a>
+        </li>
+        <li><a href="global.html#createCardPrimary">createCardPrimary</a></li>
+        <li>
+          <a href="global.html#createCardSecondary">createCardSecondary</a>
+        </li>
+        <li><a href="global.html#createCardSuccess">createCardSuccess</a></li>
+        <li><a href="global.html#createCardText">createCardText</a></li>
+        <li><a href="global.html#createCardWarning">createCardWarning</a></li>
+        <li><a href="global.html#createCol">createCol</a></li>
+        <li><a href="global.html#createInput">createInput</a></li>
+        <li><a href="global.html#createTextElement">createTextElement</a></li>
+        <li>
+          <a href="global.html#returnButtonColorsCol">returnButtonColorsCol</a>
+        </li>
+        <li>
+          <a href="global.html#returnButtonSizesCol">returnButtonSizesCol</a>
+        </li>
+        <li>
+          <a href="global.html#returnButtonsOutlineCol"
+            >returnButtonsOutlineCol</a
+          >
+        </li>
+        <li>
+          <a href="global.html#returnButtonStylesCol">returnButtonStylesCol</a>
+        </li>
+        <li>
+          <a href="global.html#returnImageCircleCol">returnImageCircleCol</a>
+        </li>
+        <li>
+          <a href="global.html#returnImageRaisedCol">returnImageRaisedCol</a>
+        </li>
+        <li>
+          <a href="global.html#returnImageRoundedCol">returnImageRoundedCol</a>
+        </li>
+        <li>
+          <a href="global.html#returnImageThumbnailCol"
+            >returnImageThumbnailCol</a
+          >
+        </li>
+        <li><a href="global.html#setBorder">setBorder</a></li>
+        <li><a href="global.html#setFont">setFont</a></li>
+        <li><a href="global.html#setFontStyle">setFontStyle</a></li>
+        <li><a href="global.html#setValidationEmail">setValidationEmail</a></li>
+        <li>
+          <a href="global.html#setValidationLength">setValidationLength</a>
+        </li>
+        <li><a href="global.html#validateEmail">validateEmail</a></li>
+        <li><a href="global.html#validateValue">validateValue</a></li>
+      </ul>
+    </nav>
+
+    <br class="clear" />
+
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Nov 13
+      2018 03:07:30 GMT-0400 (-04)
+    </footer>
+
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
+</html>

@@ -1,9 +1,9 @@
 /** Info Card */
 
 /**
- * A function that creates info card object
+ * A function that creates the info card sample.
  */
-const createInfoCard = () => {
+const createCardInfo = () => {
   let infoCard = new EgCard("card-info");
   infoCard.id = "info-card";
   infoCard.body =

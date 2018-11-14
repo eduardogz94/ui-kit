@@ -2,6 +2,8 @@
 
 /**
  * A function that return the buttons samples sizing col.
+ * @function
+ * @returns {EgCol} Buttons sizes col sample.
  */
 const returnButtonSizesCol = () => {
   let sizesTitle = returnTextElement(

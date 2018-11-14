@@ -1,10 +1,19 @@
 {
   "source": {
     "include": [
+      "src/index.js",
+      "src/components/EgButton.js",
+      "src/components/EgInput.js",
+      "src/components/EgImage.js",
+      "src/components/EgCard.js",
+      "src/components/EgIcon.js",
+      "src/components/Grid/EgCol.js",
+
       "tests/views/Buttons/ButtonsView.js",
       "tests/views/Cards/CardsView.js",
       "tests/views/Images/ImagesView.js",
       "tests/views/Inputs/InputsView.js",
+
       "tests/components/Buttons/ColorsButtons.js",
       "tests/components/Buttons/OutlineColorsButtons.js",
       "tests/components/Buttons/SizesButtons.js",
@@ -17,7 +26,12 @@
       "tests/components/Cards/SuccessCard.js",
       "tests/components/Cards/InfoCard.js",
       "tests/components/Cards/LoginCard.js",
-      "tests/components/Cards/WarningCard.js"
+      "tests/components/Cards/WarningCard.js",
+
+      "tests/components/Images/CircleImage.js",
+      "tests/components/Images/ThumbnailImage.js",
+      "tests/components/Images/RoundedImage.js",
+      "tests/components/Images/RaisedImage.js"
     ],
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"

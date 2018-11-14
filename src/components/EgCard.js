@@ -1,3 +1,7 @@
+/**
+ * EgCard Class
+ * @extends {HTMLElement}
+ */
 class EgCard extends HTMLElement {
   constructor(type) {
     super();
@@ -121,7 +125,6 @@ class EgCard extends HTMLElement {
   }
 }
 
-
 customElements.define("eg-card", EgCard);
 
 /**
@@ -129,15 +132,17 @@ customElements.define("eg-card", EgCard);
  * @param {Sting} style A string that sets the style of the card (required).
  * @param {String} text Text that belongs to the card header title (required).
  */
-const createCard = (style) => {
+const createCard = style => {
   let newCard = new EgCard(style);
   return newCard;
 };
 
 /**
- * A function that creates card title object.
+ * A function that creates card title object (h6).
+ * @function
  * @param {Sting} style A string that sets the style of the text (required).
  * @param {String} text Text that belongs to the card header title (required).
+ * @return {EgCard} return an eg-card with the props passed.
  */
 const createCardText = (style, text) => {
   let cardText = document.createElement("h6");

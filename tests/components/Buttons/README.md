@@ -66,7 +66,7 @@ const returnButtonColorsCol = () => {
 - A function that returns outline buttons col samples.
 
 ```javascript
-const returnOutlineButtonsCol = () => {
+const returnButtonsOutlineCol = () => {
   let outlineTitle = returnTextElement(
     "h1",
     "text-center animated jello text-muted",

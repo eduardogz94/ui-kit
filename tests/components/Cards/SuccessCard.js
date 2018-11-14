@@ -1,11 +1,9 @@
-/**
- * Success Card
- */
+/** Success Card */
 
 /**
- * A function that creates success card object
+ * A function that creates the success card sample.
  */
-const createSuccessCard = () => {
+const createCardSuccess = () => {
   let successCard = new EgCard("card-success");
   successCard.id = "success-card";
 

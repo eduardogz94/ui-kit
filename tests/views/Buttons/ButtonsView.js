@@ -10,7 +10,7 @@ let buttonsTitle = returnTextElement(
 
 let buttonsMainCol = appendsCreateCol("col-12", buttonsTitle);
 
-firstRow.addMultipleObjects(returnButtonColorsCol(), returnOutlineButtonsCol());
+firstRow.addMultipleObjects(returnButtonColorsCol(), returnButtonsOutlineCol());
 
 let secondRow = new EgRow();
 

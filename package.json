@@ -11,7 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "precommit": "pretty-quick --staged",
     "start": "node start.js",
-    "dev": "nodemon start.js"
+    "dev": "nodemon start.js",
+    "docs": "./node_modules/.bin/jsdoc -c doc.json tests/samples.js README.md"
   },
   "repository": {
     "type": "git",

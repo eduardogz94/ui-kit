@@ -1,9 +1,8 @@
 /* </-------------- START CARDS VIEW ----------------/> */
+let mainCol = new EgCol("col-12");
+let cardRow = new EgRow();
 
-const mainCol = new EgCol("col-12");
-const cardRow = new EgRow();
-
-const cardsTitle = returnTextElement(
+let cardsTitle = returnTextElement(
   "h1",
   "animated bounceInRight text-primary text-center",
   "Cards"
@@ -11,15 +10,15 @@ const cardsTitle = returnTextElement(
 
 mainCol.appendChild(cardsTitle);
 
-let primaryCard = createPrimaryCard();
-let dangerCard = createDangerCard();
-let successCard = createSuccessCard();
-let warningCard = createWarningCard();
-let secondaryCard = createSecondaryCard();
-let infoCard = createInfoCard();
-let defaultCard = createDefaultCard();
-let loginCard = createLoginCard();
-let loginCardBody = returnLoginBody();
+let primaryCard = createCardPrimary();
+let dangerCard = createCardDanger();
+let successCard = createCardSuccess();
+let warningCard = createCardWarning();
+let secondaryCard = createCardSecondary();
+let infoCard = createCardInfo();
+let defaultCard = createCardDefault();
+let loginCard = createCardLogin();
+let loginCardBody = createCardLoginBody();
 
 cardRow.addMultipleObjects(
   createCol(defaultCard, "col-3"),

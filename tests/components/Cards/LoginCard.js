@@ -1,9 +1,9 @@
 /* Login Card */
 
 /**
- * A function that creates login card element.
+ * A function that creates the login card sample.
  */
-const createLoginCard = () => {
+const createCardLogin = () => {
   let loginCard = new EgCard("card-primary");
   loginCard.id = "login";
   loginCard.header = "Login Form";
@@ -15,7 +15,7 @@ const createLoginCard = () => {
  * A function that returns login card body sample.
  */
 
-const returnLoginBody = () => {
+const createCardLoginBody = () => {
   let usernameInputCard = createInput(
     "form-control",
     "email",

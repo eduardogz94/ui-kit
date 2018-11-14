@@ -1,3 +1,7 @@
+/**
+ * EgImage Class
+ * @extends {HTMLElement}
+ */
 class EgImage extends HTMLElement {
   constructor(src, alt) {
     super();

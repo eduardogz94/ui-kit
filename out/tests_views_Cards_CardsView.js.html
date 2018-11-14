@@ -26,11 +26,13 @@
           <pre
             class="prettyprint source linenums"
           ><code>/* &lt;/-------------- START CARDS VIEW ----------------/> */
+/**
+ * Card VIews
+ */
+let mainCol = new EgCol("col-12");
+let cardRow = new EgRow();
 
-const mainCol = new EgCol("col-12");
-const cardRow = new EgRow();
-
-const cardsTitle = returnTextElement(
+let cardsTitle = returnTextElement(
   "h1",
   "animated bounceInRight text-primary text-center",
   "Cards"
@@ -38,29 +40,14 @@ const cardsTitle = returnTextElement(
 
 mainCol.appendChild(cardsTitle);
 
-/** Primary Card */
-let primaryCard = createPrimaryCard();
-
-/** Danger Card */
-let dangerCard = createDangerCard();
-
-/** Success Card */
-let successCard = createSuccessCard();
-
-/** Warning Card */
-let warningCard = createWarningCard();
-
-/** Secondary Card*/
-let secondaryCard = createSecondaryCard();
-
-/** Info Card*/
-let infoCard = createInfoCard();
-
-/** Dark Card */
-let defaultCard = createDefaultCard();
-
-/** Login Card */
-let loginCard = createLoginCard();
+let primaryCard = createCardPrimary();
+let dangerCard = createCardDanger();
+let successCard = createCardSuccess();
+let warningCard = createCardWarning();
+let secondaryCard = createCardSecondary();
+let infoCard = createCardInfo();
+let defaultCard = createCardDefault();
+let loginCard = createCardLogin();
 let loginCardBody = returnLoginBody();
 
 cardRow.addMultipleObjects(
@@ -161,18 +148,23 @@ infoCard.addToCardHeader(
       <h2><a href="index.html">Home</a></h2>
       <h3>Global</h3>
       <ul>
-        <li><a href="global.html#basicInputsTitle">basicInputsTitle</a></li>
-        <li><a href="global.html#ccc">ccc</a></li>
-        <li><a href="global.html#dangerCard">dangerCard</a></li>
-        <li><a href="global.html#defaultCard">defaultCard</a></li>
-        <li><a href="global.html#imageCircleCol">imageCircleCol</a></li>
-        <li><a href="global.html#imageRaisedCol">imageRaisedCol</a></li>
-        <li><a href="global.html#imageRoundedCol">imageRoundedCol</a></li>
-        <li><a href="global.html#imageThumbnailCol">imageThumbnailCol</a></li>
-        <li><a href="global.html#infoCard">infoCard</a></li>
-        <li><a href="global.html#loginCard">loginCard</a></li>
-        <li><a href="global.html#mainInputCol">mainInputCol</a></li>
-        <li><a href="global.html#primaryCard">primaryCard</a></li>
+        <li><a href="global.html#appendsCreateCol">appendsCreateCol</a></li>
+        <li><a href="global.html#createButton">createButton</a></li>
+        <li><a href="global.html#createCardText">createCardText</a></li>
+        <li><a href="global.html#createCol">createCol</a></li>
+        <li><a href="global.html#createCardDanger">createCardDanger</a></li>
+        <li><a href="global.html#createCardDefault">createCardDefault</a></li>
+        <li><a href="global.html#createCardInfo">createCardInfo</a></li>
+        <li><a href="global.html#createInput">createInput</a></li>
+        <li><a href="global.html#createCardLogin">createCardLogin</a></li>
+        <li><a href="global.html#createCardPrimary">createCardPrimary</a></li>
+        <li>
+          <a href="global.html#createCardSecondary">createCardSecondary</a>
+        </li>
+        <li><a href="global.html#createCardSuccess">createCardSuccess</a></li>
+        <li><a href="global.html#createTextElement">createTextElement</a></li>
+        <li><a href="global.html#createCardWarning">createCardWarning</a></li>
+        <li><a href="global.html#mainCol">mainCol</a></li>
         <li>
           <a href="global.html#returnButtonColorsCol">returnButtonColorsCol</a>
         </li>
@@ -180,19 +172,30 @@ infoCard.addToCardHeader(
           <a href="global.html#returnButtonSizesCol">returnButtonSizesCol</a>
         </li>
         <li>
-          <a href="global.html#returnOutlineButtonsCol"
-            >returnOutlineButtonsCol</a
-          >
+          <a href="global.html#returnButtonStylesCol">returnButtonStylesCol</a>
         </li>
-        <li><a href="global.html#secondaryCard">secondaryCard</a></li>
-        <li><a href="global.html#SizeInputsTitle">SizeInputsTitle</a></li>
-        <li><a href="global.html#successCard">successCard</a></li>
         <li>
-          <a href="global.html#validationsInputsTitle"
-            >validationsInputsTitle</a
+          <a href="global.html#returnImageCircleCol">returnImageCircleCol</a>
+        </li>
+        <li>
+          <a href="global.html#returnImageRaisedCol">returnImageRaisedCol</a>
+        </li>
+        <li>
+          <a href="global.html#returnImageRoundedCol">returnImageRoundedCol</a>
+        </li>
+        <li>
+          <a href="global.html#returnImageThumbnailCol"
+            >returnImageThumbnailCol</a
           >
         </li>
-        <li><a href="global.html#warningCard">warningCard</a></li>
+        <li><a href="global.html#returnLoginBody">returnLoginBody</a></li>
+        <li>
+          <a href="global.html#returnButtonsOutlineCol"
+            >returnButtonsOutlineCol</a
+          >
+        </li>
+        <li><a href="global.html#validateEmail">validateEmail</a></li>
+        <li><a href="global.html#validateValue">validateValue</a></li>
       </ul>
     </nav>
 
@@ -201,7 +204,7 @@ infoCard.addToCardHeader(
     <footer>
       Documentation generated by
       <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Nov 12
-      2018 19:27:11 GMT-0400 (-04)
+      2018 20:47:04 GMT-0400 (-04)
     </footer>
 
     <script>

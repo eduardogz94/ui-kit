@@ -3,10 +3,10 @@
 This works as functions to create and returns the cards that will be used on
 the renders samples (tests/views folder)
 
-* A function that creates danger card object
+- A function that creates danger card object
 
 ```javascript
-const createDangerCard = () => {
+const createCardDanger = () => {
   let dangerCard = new EgCard("card-danger");
   dangerCard.id = "danger-card";
   dangerCard.footer = "Javascript card footer";
@@ -15,10 +15,10 @@ const createDangerCard = () => {
 };
 ```
 
-* A function that creates a default card object
+- A function that creates a default card object
 
 ```javascript
-const createDefaultCard = () => {
+const createCardDefault = () => {
   let darkCard = new EgCard("card-dark");
   darkCard.id = "dark-card";
   darkCard.body = "This is a body passed as a string in javascript";
@@ -29,10 +29,10 @@ const createDefaultCard = () => {
 };
 ```
 
-* A function that creates an info card object
+- A function that creates an info card object
 
 ```javascript
-const createInfoCard = () => {
+const createCardInfo = () => {
   let infoCard = new EgCard("card-info");
   infoCard.id = "info-card";
   infoCard.body =
@@ -43,10 +43,10 @@ const createInfoCard = () => {
 };
 ```
 
-* A function that creates a login card object
+- A function that creates a login card object
 
 ```javascript
-const createLoginCard = () => {
+const createCardLogin = () => {
   let loginCard = new EgCard("card-primary");
   loginCard.id = "login";
   loginCard.header = "Login Form";
@@ -55,10 +55,10 @@ const createLoginCard = () => {
 };
 ```
 
-* A function that creates a primary card object
+- A function that creates a primary card object
 
 ```javascript
-const createPrimaryCard = () => {
+const createCardPrimary = () => {
   let primaryCard = new EgCard("card-primary");
   primaryCard.id = "primary-card";
   primaryCard.body = "This is a body passed as a string in javascript";
@@ -68,10 +68,10 @@ const createPrimaryCard = () => {
 };
 ```
 
-* A function that creates a secondary card object
+- A function that creates a secondary card object
 
 ```javascript
-const createSecondaryCard = () => {
+const createCardSecondary = () => {
   let secondaryCard = new EgCard("card-secondary");
   secondaryCard.id = "secondary-card";
   secondaryCard.body = `This is a body passed as a string in javascript with a info button appened from the body <br><br>`;
@@ -81,10 +81,10 @@ const createSecondaryCard = () => {
 };
 ```
 
-* A function that creates a succes card object
+- A function that creates a succes card object
 
 ```javascript
-const createSuccessCard = () => {
+const createCardSuccess = () => {
   let successCard = new EgCard("card-success");
   successCard.id = "success-card";
 
@@ -92,10 +92,10 @@ const createSuccessCard = () => {
 };
 ```
 
-* A function that creates a warning card object
+- A function that creates a warning card object
 
 ```javascript
-const createWarningCard = () => {
+const createCardWarning = () => {
   let warningCard = new EgCard("card-warning");
   warningCard.id = "warning-card";
   warningCard.body = "This is a body passed as a string in javascript";

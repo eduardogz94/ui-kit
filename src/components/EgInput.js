@@ -1,3 +1,7 @@
+/**
+ * EgInput Class
+ * @extends {HTMLElement}
+ */
 class EgInput extends HTMLElement {
   constructor(control, type) {
     super();
@@ -74,10 +78,10 @@ class EgInput extends HTMLElement {
     let data = {
       value: response.value,
       type: typeof response.value,
-      id: id,
+      id: id
     };
 
-    response.value !== "" ? data.filled = true : data.filled = false;
+    response.value !== "" ? (data.filled = true) : (data.filled = false);
 
     return data;
   }
@@ -88,12 +92,12 @@ class EgInput extends HTMLElement {
 
   setInput() {
     if (this.id) this.getInput().setAttribute("id", `${this.id}-input`);
-    if (this.type) this.getInput().setAttribute("type", this.type); 
+    if (this.type) this.getInput().setAttribute("type", this.type);
     if (this.control) this.setAttribute("control", this.control);
     if (this.col) this.setAttribute("col", this.col);
     if (this.offset) this.setAttribute("offset", this.offset);
     if (this.css) this.setAttribute("css", this.css);
-    
+
     if (this.getAttribute("type"))
       this.getInput().setAttribute("type", this.getAttribute("type"));
 
@@ -200,7 +204,13 @@ customElements.define("eg-input", EgInput);
  * @param {String} col Col attribute for the input (optional).
  * @param {String} placeholder Placeholder attribute for the input (optional)
  */
-const createInput = (control, type, id = null, col = null, placeholder = null) => {
+const createInput = (
+  control,
+  type,
+  id = null,
+  col = null,
+  placeholder = null
+) => {
   let newInput = new EgInput(control, type);
   if (id) newInput.id = id;
   if (col) newInput.col = col;
@@ -211,18 +221,18 @@ const createInput = (control, type, id = null, col = null, placeholder = null) =
 
 /**
  * A function that sets the validation length of a desired Input.
- * @param {EgInput} input The input that desires to set a validation length (required). 
- * @param {Integer} length Length of the string that will validate the input (required). 
+ * @param {EgInput} input The input that desires to set a validation length (required).
+ * @param {Integer} length Length of the string that will validate the input (required).
  */
 const setValidationLength = (input, length) => {
-  input.validateValue(length,length)
-}
+  input.validateValue(length, length);
+};
 
 /**
  * A function that sets the validation email of a desired input.
  * @param {EgInput} input The input that desires to validate email (required).
- * @param {String} type A string with the type of email that you want to validate (required). 
+ * @param {String} type A string with the type of email that you want to validate (required).
  */
 const setValidationEmail = (input, type) => {
-  input.validateEmail(type,type)
-}
+  input.validateEmail(type, type);
+};

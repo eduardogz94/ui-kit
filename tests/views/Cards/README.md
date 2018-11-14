@@ -14,29 +14,29 @@ let cardsTitle = returnTextElement(
 let mainCol = appendsCreateCol("col-12", cardsTitle);
 
 /** Primary Card */
-let primaryCard = createPrimaryCard();
+let primaryCard = createCardPrimary();
 
 /** Danger Card */
-let dangerCard = createDangerCard();
+let dangerCard = createCardDanger();
 
 /** Success Card */
-let successCard = createSuccessCard();
+let successCard = createCardSuccess();
 
 /** Warning Card */
-let warningCard = createWarningCard();
+let warningCard = createCardWarning();
 
 /** Secondary Card*/
-let secondaryCard = createSecondaryCard();
+let secondaryCard = createCardSecondary();
 
 /** Info Card*/
-let infoCard = createInfoCard();
+let infoCard = createCardInfo();
 
 /** Dark Card */
-let defaultCard = createDefaultCard();
+let defaultCard = createCardDefault();
 
 /** Login Card */
 
-let loginCard = createLoginCard();
+let loginCard = createCardLogin();
 let loginCardBody = returnLoginBody();
 
 cardRow.addMultipleObjects(

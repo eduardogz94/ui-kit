@@ -2,6 +2,8 @@
 
 /**
  * A function that returns button colors col samples.
+ * @function
+ * @returns {EgCol} Buttons colors col sample.
  */
 const returnButtonColorsCol = () => {
   let colorsTitle = returnTextElement(

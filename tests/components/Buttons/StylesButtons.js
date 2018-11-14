@@ -2,6 +2,8 @@
 
 /**
  * A function that returns button styles col sample.
+ * @function
+ * @returns {EgCol} Buttons styles col sample.
  */
 const returnButtonStylesCol = () => {
   let stylesTitle = returnTextElement(

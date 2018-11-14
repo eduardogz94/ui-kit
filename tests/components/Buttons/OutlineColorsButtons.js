@@ -2,8 +2,10 @@
 
 /**
  * A function that returns outline buttons col samples.
+ * @function
+ * @returns {EgCol} Buttons outline colors col sample.
  */
-const returnOutlineButtonsCol = () => {
+const returnButtonsOutlineCol = () => {
   let outlineTitle = returnTextElement(
     "h1",
     "text-center animated jello text-muted",
