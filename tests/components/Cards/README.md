@@ -3,6 +3,8 @@
 This works as functions to create and returns the cards that will be used on
 the renders samples (tests/views folder)
 
+![picture](../../../src/assets/images/cards.png)
+
 - A function that creates danger card object
 
 ```javascript

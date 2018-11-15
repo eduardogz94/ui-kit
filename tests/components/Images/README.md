@@ -3,11 +3,13 @@
 This works as functions to create and returns the images that will be used on
 the renders samples (tests/views folder)
 
-* A function that return image circle col sample.
+![picture](../../../src/assets/images/images.png)
+
+- A function that return image circle col sample.
 
 ```javascript
 const returnImageCircleCol = () => {
-  let circleTitle = returnTextElement(
+  let circleTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Circle"
@@ -25,11 +27,11 @@ const returnImageCircleCol = () => {
 };
 ```
 
-* A function that returns image raised col sample.
+- A function that returns image raised col sample.
 
 ```javascript
 const returnImageRaisedCol = () => {
-  let raisedTitle = returnTextElement(
+  let raisedTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Raised"
@@ -48,11 +50,11 @@ const returnImageRaisedCol = () => {
 };
 ```
 
-* A function that returns image rounded col sample.
+- A function that returns image rounded col sample.
 
 ```javascript
 const returnImageRoundedCol = () => {
-  let roundedTitle = returnTextElement(
+  let roundedTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Rounded"
@@ -70,11 +72,11 @@ const returnImageRoundedCol = () => {
 };
 ```
 
-* A function that returns image thumbnail col sample.
+- A function that returns image thumbnail col sample.
 
 ```javascript
 const returnImageThumbnailCol = () => {
-  let thumbnailTitle = returnTextElement(
+  let thumbnailTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Thumbnail"

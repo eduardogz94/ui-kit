@@ -2,7 +2,7 @@
 let mainCol = new EgCol("col-12");
 let cardRow = new EgRow();
 
-let cardsTitle = returnTextElement(
+let cardsTitle = createTextElement(
   "h1",
   "animated bounceInRight text-primary text-center",
   "Cards"
@@ -10,17 +10,18 @@ let cardsTitle = returnTextElement(
 
 mainCol.appendChild(cardsTitle);
 
-let primaryCard = createCardPrimary();
-let dangerCard = createCardDanger();
-let successCard = createCardSuccess();
-let warningCard = createCardWarning();
-let secondaryCard = createCardSecondary();
-let infoCard = createCardInfo();
-let defaultCard = createCardDefault();
-let loginCard = createCardLogin();
+let primaryCard = sampleCardPrimary();
+let dangerCard = sampleCardDanger();
+let successCard = sampleCardSuccess();
+let warningCard = sampleCardWarning();
+let secondaryCard = sampleCardSecondary();
+let infoCard = sampleCardInfo();
+let defaultCard = sampleCardDefault();
+let loginCard = sampleCardLogin();
 let loginCardBody = createCardLoginBody();
 
-cardRow.addMultipleObjects(
+addMultipleElements(
+  cardRow,
   createCol(defaultCard, "col-3"),
   createCol(warningCard, "col-3"),
   createCol(primaryCard, "col-3"),

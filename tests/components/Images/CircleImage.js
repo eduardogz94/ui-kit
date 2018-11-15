@@ -2,9 +2,11 @@
 
 /**
  * A function that return image circle col sample.
+ * @function
+ * @returns {EgImage} With all the props inside function.
  */
-const returnImageCircleCol = () => {
-  let circleTitle = returnTextElement(
+const sampleImageCircle = () => {
+  let circleTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Circle"

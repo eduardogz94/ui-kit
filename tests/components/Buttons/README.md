@@ -3,13 +3,15 @@
 This works as functions to create and returns the buttons that will be used on
 the renders samples (tests/views folder)
 
+![picture](../../../src/assets/images/buttons.png)
+
 #Button Colors
 
 - A function that returns button colors col samples.
 
 ```javascript
 const returnButtonColorsCol = () => {
-  let colorsTitle = returnTextElement(
+  let colorsTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Button Colors"
@@ -67,7 +69,7 @@ const returnButtonColorsCol = () => {
 
 ```javascript
 const returnButtonsOutlineCol = () => {
-  let outlineTitle = returnTextElement(
+  let outlineTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Button Outline"
@@ -152,7 +154,7 @@ const returnButtonsOutlineCol = () => {
 
 ```javascript
 const returnButtonSizesCol = () => {
-  let sizesTitle = returnTextElement(
+  let sizesTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Button Sizes"
@@ -193,7 +195,7 @@ const returnButtonSizesCol = () => {
 
 ```javascript
 const returnButtonStylesCol = () => {
-  let stylesTitle = returnTextElement(
+  let stylesTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Button Styles"

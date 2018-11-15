@@ -54,7 +54,7 @@ class EgCol extends HTMLElement {
   }
 
   /**
-   * Set the default properties for the EgCol object.
+   * Set the default properties for the EgCol element.
    * @function
    * @returns {HTMLElement} Sets the default classname of the EgCol instance.
    */
@@ -79,79 +79,11 @@ class EgCol extends HTMLElement {
     if (this.col) this.setAttribute("col", this.col);
     if (this.offset) this.setAttribute("offset", this.offset);
     if (this.bg) this.setAttribute("bg", this.bg);
-  }
-
-  /**
-   * A function to get all the specified objects passed as a string.
-   * @function
-   * @param {Object} obj A string as the objects to look into the EgCol.
-   */
-  getObjects(obj) {
-    return this.querySelectorAll(`${obj}`);
-  }
-
-  /**
-   * A function to add a element to append to the component.
-   * @param {String} element Representing the element to add.
-   */
-  addSingleObject(element) {
-    const object = document.createElement(`${element}`);
-    this.appendChild(object);
-  }
-
-  /**
-   * A function to add multiple objects into the element.
-   * @param  {...any} elements All the elements that will be added into the element.
-   */
-  addMultipleObjects(...elements) {
-    elements.forEach(element => {
-      this.appendChild(element);
-    });
-  }
-
-  /**
-   * A function to create a element multiple times into the element.
-   * @param {String} element Representing the element that will be appened n times(required). 
-   * @param {Int} quantity Representing the quantity of elements that will be appened(required).
-   */
-  createMultipleObjects(element, quantity) {
-    for (let i = 0; i &lt; quantity; i++) {
-      const object = document.createElement(`${element}`);
-      object.id = i;
-      this.appendChild(object);
-    }
+    if (this.css) this.setAttribute("css", this.css);
   }
 }
 
-customElements.define("eg-col", EgCol);
-
-/**
- * A function to appends and create a element into a new col.
- * @param {EgElement} Element receives a element and appends it (required).
- * @param {String} col A string for the col attribute (required).
- * @param {String} offset A string for the offset attribute (optional).
- */
-const createCol = (element, col, offset = null) => {
-  let newCol = new EgCol(col, offset);
-  newCol.appendChild(element);
-
-  return newCol;
-};
-
-/**
- * A function to appends a various elements into a new col and creates it.
- * @param {String} col A string for the col attribute.
- * @param {EgElements} elements receives various elements and appends them into the new col.
- */
-const appendsCreateCol = (col, ...elements) => {
-  let newCol = new EgCol(col);
-  elements.forEach(element => {
-    newCol.appendChild(element);
-  });
-
-  return newCol;
-};
-</code></pre>
+customElements.define("eg-col", EgCol);</code></pre>
         </article>
       </section>
     </div>
@@ -168,61 +100,59 @@ const appendsCreateCol = (col, ...elements) => {
       </ul>
       <h3>Global</h3>
       <ul>
+        <li><a href="global.html#addElement">addElement</a></li>
+        <li>
+          <a href="global.html#addMultipleElements">addMultipleElements</a>
+        </li>
         <li><a href="global.html#appendsCreateCol">appendsCreateCol</a></li>
         <li><a href="global.html#createButton">createButton</a></li>
-        <li><a href="global.html#createCard">createCard</a></li>
-        <li><a href="global.html#createCardDanger">createCardDanger</a></li>
-        <li><a href="global.html#createCardDefault">createCardDefault</a></li>
-        <li><a href="global.html#createCardInfo">createCardInfo</a></li>
-        <li><a href="global.html#createCardLogin">createCardLogin</a></li>
         <li>
           <a href="global.html#createCardLoginBody">createCardLoginBody</a>
         </li>
-        <li><a href="global.html#createCardPrimary">createCardPrimary</a></li>
-        <li>
-          <a href="global.html#createCardSecondary">createCardSecondary</a>
-        </li>
-        <li><a href="global.html#createCardSuccess">createCardSuccess</a></li>
         <li><a href="global.html#createCardText">createCardText</a></li>
-        <li><a href="global.html#createCardWarning">createCardWarning</a></li>
         <li><a href="global.html#createCol">createCol</a></li>
         <li><a href="global.html#createInput">createInput</a></li>
+        <li>
+          <a href="global.html#createMultipleElements"
+            >createMultipleElements</a
+          >
+        </li>
         <li><a href="global.html#createTextElement">createTextElement</a></li>
+        <li><a href="global.html#getElementObjects">getElementObjects</a></li>
+        <li><a href="global.html#sampleButtonColors">sampleButtonColors</a></li>
         <li>
-          <a href="global.html#returnButtonColorsCol">returnButtonColorsCol</a>
+          <a href="global.html#sampleButtonOutline">sampleButtonOutline</a>
         </li>
+        <li><a href="global.html#sampleButtonSizes">sampleButtonSizes</a></li>
+        <li><a href="global.html#sampleButtonStyles">sampleButtonStyles</a></li>
+        <li><a href="global.html#sampleCardDanger">sampleCardDanger</a></li>
+        <li><a href="global.html#sampleCardDefault">sampleCardDefault</a></li>
+        <li><a href="global.html#sampleCardInfo">sampleCardInfo</a></li>
+        <li><a href="global.html#sampleCardLogin">sampleCardLogin</a></li>
+        <li><a href="global.html#sampleCardPrimary">sampleCardPrimary</a></li>
         <li>
-          <a href="global.html#returnButtonSizesCol">returnButtonSizesCol</a>
+          <a href="global.html#sampleCardSecondary">sampleCardSecondary</a>
         </li>
+        <li><a href="global.html#sampleCardSuccess">sampleCardSuccess</a></li>
+        <li><a href="global.html#sampleCardWarning">sampleCardWarning</a></li>
+        <li><a href="global.html#sampleImageCircle">sampleImageCircle</a></li>
+        <li><a href="global.html#sampleImageRaised">sampleImageRaised</a></li>
+        <li><a href="global.html#sampleImageRounded">sampleImageRounded</a></li>
         <li>
-          <a href="global.html#returnButtonsOutlineCol"
-            >returnButtonsOutlineCol</a
-          >
+          <a href="global.html#sampleImageThumbnail">sampleImageThumbnail</a>
         </li>
+        <li><a href="global.html#sampleInputDanger">sampleInputDanger</a></li>
+        <li><a href="global.html#sampleInputDefault">sampleInputDefault</a></li>
+        <li><a href="global.html#sampleInputEmail">sampleInputEmail</a></li>
+        <li><a href="global.html#sampleInputLarge">sampleInputLarge</a></li>
         <li>
-          <a href="global.html#returnButtonStylesCol">returnButtonStylesCol</a>
+          <a href="global.html#sampleInputPassword">sampleInputPassword</a>
         </li>
-        <li>
-          <a href="global.html#returnImageCircleCol">returnImageCircleCol</a>
-        </li>
-        <li>
-          <a href="global.html#returnImageRaisedCol">returnImageRaisedCol</a>
-        </li>
-        <li>
-          <a href="global.html#returnImageRoundedCol">returnImageRoundedCol</a>
-        </li>
-        <li>
-          <a href="global.html#returnImageThumbnailCol"
-            >returnImageThumbnailCol</a
-          >
-        </li>
-        <li><a href="global.html#setBorder">setBorder</a></li>
-        <li><a href="global.html#setFont">setFont</a></li>
-        <li><a href="global.html#setFontStyle">setFontStyle</a></li>
-        <li><a href="global.html#setValidationEmail">setValidationEmail</a></li>
-        <li>
-          <a href="global.html#setValidationLength">setValidationLength</a>
-        </li>
+        <li><a href="global.html#sampleInputSuccess">sampleInputSuccess</a></li>
+        <li><a href="global.html#sampleInputText">sampleInputText</a></li>
+        <li><a href="global.html#sampleInputWarning">sampleInputWarning</a></li>
+        <li><a href="global.html#sampleInputXsmall">sampleInputXsmall</a></li>
+        <li><a href="global.html#setElementProps">setElementProps</a></li>
         <li><a href="global.html#validateEmail">validateEmail</a></li>
         <li><a href="global.html#validateValue">validateValue</a></li>
       </ul>
@@ -232,8 +162,8 @@ const appendsCreateCol = (col, ...elements) => {
 
     <footer>
       Documentation generated by
-      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Nov 13
-      2018 03:07:30 GMT-0400 (-04)
+      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 14
+      2018 20:31:32 GMT-0400 (-04)
     </footer>
 
     <script>

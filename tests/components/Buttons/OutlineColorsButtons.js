@@ -5,8 +5,8 @@
  * @function
  * @returns {EgCol} Buttons outline colors col sample.
  */
-const returnButtonsOutlineCol = () => {
-  let outlineTitle = returnTextElement(
+const sampleButtonOutline = () => {
+  let outlineTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Button Outline"

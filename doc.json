@@ -31,7 +31,11 @@
       "tests/components/Images/CircleImage.js",
       "tests/components/Images/ThumbnailImage.js",
       "tests/components/Images/RoundedImage.js",
-      "tests/components/Images/RaisedImage.js"
+      "tests/components/Images/RaisedImage.js",
+
+      "tests/components/Inputs/BasicInputs.js",
+      "tests/components/Inputs/ValidationsInputs.js",
+      "tests/components/Inputs/SizingInputs.js"
     ],
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"

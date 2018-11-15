@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>JSDoc: Source: tests/components/Images/RoundedImage.js</title>
+    <title>JSDoc: Source: tests/components/Inputs/SizingInputs.js</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -20,34 +20,62 @@
   <body>
     <div id="main">
       <h1 class="page-title">
-        Source: tests/components/Images/RoundedImage.js
+        Source: tests/components/Inputs/SizingInputs.js
       </h1>
 
       <section>
         <article>
-          <pre class="prettyprint source linenums"><code>/** Image Rounded */
+          <pre class="prettyprint source linenums"><code>/** Sizing Inputs*/
 
-/**
- * A function that returns image rounded col sample.
+/** Creates the input for xsmall input sample. 
  * @function
- * @returns {EgImage} With all the props inside function.
+ * @returns {EgInput} EgInput With all the props inside function. 
+*/
+const sampleInputXsmall = () => {
+  let xsmallInput = createInput(
+    "form-control form-control-sm",
+    "text",
+    "xsmall",
+    "col-10",
+    "xsmall Javascript Input"
+  );
+  xsmallInput.css = "mb-4";
+
+  return xsmallInput;
+};
+
+/** Creates the input for default input sample. 
+ * @function
+ * @returns {EgInput} EgInput With all the props inside function.
  */
-const sampleImageRounded = () => {
-  let roundedTitle = createTextElement(
-    "h1",
-    "text-center animated jello text-muted",
-    "Rounded"
+const sampleInputDefault = () => {
+  let defaultInput = createInput(
+    "form-control",
+    "text",
+    "default",
+    "col-10",
+    "Default Javascript Input"
   );
+  defaultInput.css = "mb-4";
 
-  let imageRounded = new EgImage(
-    "../src/assets/images/logo.jpeg",
-    "imageRounded"
+  return defaultInput;
+};
+
+/** Creates the input for large input sample. 
+ * @function
+ * @returns {EgInput} EgInput With all the props inside function.
+ */
+const sampleInputLarge = () => {
+  let largeInput = createInput(
+    "form-control form-control-lg",
+    "text",
+    "large",
+    "col-10",
+    "Large Javascript Input"
   );
-  imageRounded.id = "imageRounded";
-  imageRounded.type = "mx-auto d-block rounded img-fluid";
+  largeInput.css = "mb-4";
 
-  let imageRoundedCol = appendsCreateCol("col-3", roundedTitle, imageRounded);
-  return imageRoundedCol;
+  return largeInput;
 };
 </code></pre>
         </article>

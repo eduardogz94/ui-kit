@@ -1,7 +1,11 @@
 /* Basic Inputs */
 
-/** Creates the input for email input sample. */
-const createEmailInput = () => {
+/**
+ * Creates the input for email input sample.
+ * @function
+ * @returns {EgInput} With all the props inside function.
+ */
+const sampleInputEmail = () => {
   let emailInput = createInput(
     "form-control",
     "email",
@@ -14,8 +18,12 @@ const createEmailInput = () => {
   return emailInput;
 };
 
-/** Creates the input for text input sample. */
-const createTextInputCol = () => {
+/**
+ * Creates the input for text input sample.
+ * @function
+ * @returns {EgInput} With all the props inside function.
+ */
+const sampleInputText = () => {
   let textInput = createInput(
     "form-control",
     "text",
@@ -28,8 +36,12 @@ const createTextInputCol = () => {
   return textInput;
 };
 
-/** Creates the input for password input sample. */
-const createPasswordInput = () => {
+/**
+ * Creates the input for password input sample.
+ * @function
+ * @returns {EgInput} With all the props inside function.
+ */
+const sampleInputPassword = () => {
   let passwordInput = createInput(
     "form-control",
     "password",

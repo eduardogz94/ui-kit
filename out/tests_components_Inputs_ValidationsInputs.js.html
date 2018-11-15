@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>JSDoc: Source: tests/components/Images/RoundedImage.js</title>
+    <title>JSDoc: Source: tests/components/Inputs/ValidationsInputs.js</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -20,34 +20,67 @@
   <body>
     <div id="main">
       <h1 class="page-title">
-        Source: tests/components/Images/RoundedImage.js
+        Source: tests/components/Inputs/ValidationsInputs.js
       </h1>
 
       <section>
         <article>
-          <pre class="prettyprint source linenums"><code>/** Image Rounded */
+          <pre
+            class="prettyprint source linenums"
+          ><code>/** Validations Inputs */
 
 /**
- * A function that returns image rounded col sample.
+ *  Creates the input for success input sample.
  * @function
- * @returns {EgImage} With all the props inside function.
+ * @returns {EgInput} EgInput With all the props inside function.
  */
-const sampleImageRounded = () => {
-  let roundedTitle = createTextElement(
-    "h1",
-    "text-center animated jello text-muted",
-    "Rounded"
+const sampleInputSuccess = () => {
+  let successInput = createInput(
+    "form-control form-control-success",
+    "email",
+    "successInput",
+    "col-10",
+    "Email Javascript Input"
   );
+  successInput.css = "mb-4";
 
-  let imageRounded = new EgImage(
-    "../src/assets/images/logo.jpeg",
-    "imageRounded"
+  return successInput;
+};
+
+/** 
+ * Creates the input for warning input sample. 
+ * @function
+ * @returns {EgInput} EgInput With all the props inside function.
+ */
+const sampleInputWarning = () => {
+  let warningInput = createInput(
+    "form-control form-control-warning",
+    "text",
+    "warningInput",
+    "col-10",
+    "Warning Javascript Input"
   );
-  imageRounded.id = "imageRounded";
-  imageRounded.type = "mx-auto d-block rounded img-fluid";
+  warningInput.css = "mb-4";
 
-  let imageRoundedCol = appendsCreateCol("col-3", roundedTitle, imageRounded);
-  return imageRoundedCol;
+  return warningInput;
+};
+
+/** 
+ * Creates the input for danger input sample. 
+ * @function
+ * @returns {EgInput} EgInput With all the props inside function.
+ */
+const sampleInputDanger = () => {
+  let dangerInput = createInput(
+    "form-control form-control-danger",
+    "password",
+    "dangerInput",
+    "col-10",
+    "Danger Javascript Input"
+  );
+  dangerInput.css = "mb-4";
+
+  return dangerInput;
 };
 </code></pre>
         </article>

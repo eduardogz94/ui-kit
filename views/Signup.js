@@ -6,7 +6,7 @@ const signupCol = new EgCol("col-12");
 const signupCardCol = createCol(signupCard, "col-4", "offset-4");
 
 /** Template Title */
-const signupTitle = returnTextElement(
+const signupTitle = createTextElement(
   "h1",
   "animated bounceInRight text-danger text-center",
   "Signup Form"

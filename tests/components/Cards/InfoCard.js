@@ -2,8 +2,10 @@
 
 /**
  * A function that creates the info card sample.
+ * @function
+ * @returns {EgCard} With all the props inside function.
  */
-const createCardInfo = () => {
+const sampleCardInfo = () => {
   let infoCard = new EgCard("card-info");
   infoCard.id = "info-card";
   infoCard.body =

@@ -29,16 +29,85 @@
 
           <h3 class="subsection-title">Methods</h3>
 
-          <h4 class="name" id="appendsCreateCol">
-            <span class="type-signature"></span>appendsCreateCol<span
+          <h4 class="name" id="addElement">
+            <span class="type-signature"></span>addElement<span
               class="signature"
-              >(col, &hellip;elements)</span
-            ><span class="type-signature"></span>
+              >(HTMLElement, element)</span
+            ><span class="type-signature"> &rarr; {EgElement}</span>
           </h4>
 
           <div class="description">
-            A function to appends a various elements into a new col and creates
-            it.
+            A function to add a element to append to the component.
+          </div>
+
+          <h5>Parameters:</h5>
+
+          <table class="params">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Type</th>
+
+                <th class="last">Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="name"><code>HTMLElement</code></td>
+
+                <td class="type">
+                  <span class="param-type">HTMLElement</span>
+                </td>
+
+                <td class="description last">
+                  Representing the parent element(required).
+                </td>
+              </tr>
+
+              <tr>
+                <td class="name"><code>element</code></td>
+
+                <td class="type"><span class="param-type">String</span></td>
+
+                <td class="description last">
+                  Representing the element to add(required).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="src_index.js.html">src/index.js</a>,
+                  <a href="src_index.js.html#line146">line 146</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With a new child element.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd><span class="param-type">EgElement</span></dd>
+          </dl>
+
+          <h4 class="name" id="addMultipleElements">
+            <span class="type-signature"></span>addMultipleElements<span
+              class="signature"
+              >(HTMLElement, &hellip;elements)</span
+            ><span class="type-signature"> &rarr; {EgElement}</span>
+          </h4>
+
+          <div class="description">
+            A function to add multiple elements into the parent element.
           </div>
 
           <h5>Parameters:</h5>
@@ -58,26 +127,29 @@
 
             <tbody>
               <tr>
-                <td class="name"><code>col</code></td>
+                <td class="name"><code>HTMLElement</code></td>
 
-                <td class="type"><span class="param-type">String</span></td>
+                <td class="type">
+                  <span class="param-type">HTMLElement</span>
+                </td>
 
                 <td class="attributes"></td>
 
                 <td class="description last">
-                  A string for the col attribute.
+                  Representing the parent element(required).
                 </td>
               </tr>
 
               <tr>
                 <td class="name"><code>elements</code></td>
 
-                <td class="type"><span class="param-type">EgElements</span></td>
+                <td class="type"><span class="param-type">any</span></td>
 
                 <td class="attributes">&lt;repeatable><br /></td>
 
                 <td class="description last">
-                  receives various elements and appends them into the new col.
+                  All the elements that will be added into the parent
+                  component(required 1).
                 </td>
               </tr>
             </tbody>
@@ -88,15 +160,20 @@
             <dd class="tag-source">
               <ul class="dummy">
                 <li>
-                  <a href="src_components_Grid_EgCol.js.html"
-                    >src/components/Grid/EgCol.js</a
-                  >,
-                  <a href="src_components_Grid_EgCol.js.html#line121"
-                    >line 121</a
-                  >
+                  <a href="src_index.js.html">src/index.js</a>,
+                  <a href="src_index.js.html#line158">line 158</a>
                 </li>
               </ul>
             </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the new childs elements.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd><span class="param-type">EgElement</span></dd>
           </dl>
 
           <h4 class="name" id="appendsCreateCol">
@@ -192,7 +269,7 @@
           </h4>
 
           <div class="description">
-            A function that creates a eg-button with style and text.
+            A function that creates a EgButton with style and text.
           </div>
 
           <h5>Parameters:</h5>
@@ -298,264 +375,6 @@
             </dd>
           </dl>
 
-          <h4 class="name" id="createButton">
-            <span class="type-signature"></span>createButton<span
-              class="signature"
-              >(style, text, id, col)</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">A function that creates a button.</div>
-
-          <h5>Parameters:</h5>
-
-          <table class="params">
-            <thead>
-              <tr>
-                <th>Name</th>
-
-                <th>Type</th>
-
-                <th>Default</th>
-
-                <th class="last">Description</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="name"><code>style</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="default"></td>
-
-                <td class="description last">
-                  that sets button style (required).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>text</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="default">Button</td>
-
-                <td class="description last">
-                  that sets innerText of the button (optional but recommended).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>id</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="default">null</td>
-
-                <td class="description last">
-                  that sets the id of the button (optional but recommended).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>col</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="default">null</td>
-
-                <td class="description last">
-                  that sets the col of the button (optional).
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="src_components_EgButton.js.html"
-                    >src/components/EgButton.js</a
-                  >,
-                  <a href="src_components_EgButton.js.html#line150">line 150</a>
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="createCard">
-            <span class="type-signature"></span>createCard<span
-              class="signature"
-              >(style, text)</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">
-            A function that creates card title object.
-          </div>
-
-          <h5>Parameters:</h5>
-
-          <table class="params">
-            <thead>
-              <tr>
-                <th>Name</th>
-
-                <th>Type</th>
-
-                <th class="last">Description</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="name"><code>style</code></td>
-
-                <td class="type"><span class="param-type">Sting</span></td>
-
-                <td class="description last">
-                  A string that sets the style of the card (required).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>text</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last">
-                  Text that belongs to the card header title (required).
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="src_components_EgCard.js.html"
-                    >src/components/EgCard.js</a
-                  >,
-                  <a href="src_components_EgCard.js.html#line136">line 136</a>
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="createCardDanger">
-            <span class="type-signature"></span>createCardDanger<span
-              class="signature"
-              >()</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">
-            A function that creates the danger card sample.
-          </div>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="tests_components_Cards_DangerCard.js.html"
-                    >tests/components/Cards/DangerCard.js</a
-                  >,
-                  <a href="tests_components_Cards_DangerCard.js.html#line6"
-                    >line 6</a
-                  >
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="createCardDefault">
-            <span class="type-signature"></span>createCardDefault<span
-              class="signature"
-              >()</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">
-            A function that creates the default card sample.
-          </div>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="tests_components_Cards_DefaultCard.js.html"
-                    >tests/components/Cards/DefaultCard.js</a
-                  >,
-                  <a href="tests_components_Cards_DefaultCard.js.html#line6"
-                    >line 6</a
-                  >
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="createCardInfo">
-            <span class="type-signature"></span>createCardInfo<span
-              class="signature"
-              >()</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">
-            A function that creates the info card sample.
-          </div>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="tests_components_Cards_InfoCard.js.html"
-                    >tests/components/Cards/InfoCard.js</a
-                  >,
-                  <a href="tests_components_Cards_InfoCard.js.html#line6"
-                    >line 6</a
-                  >
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="createCardLogin">
-            <span class="type-signature"></span>createCardLogin<span
-              class="signature"
-              >()</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">
-            A function that creates the login card sample.
-          </div>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="tests_components_Cards_LoginCard.js.html"
-                    >tests/components/Cards/LoginCard.js</a
-                  >,
-                  <a href="tests_components_Cards_LoginCard.js.html#line6"
-                    >line 6</a
-                  >
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
           <h4 class="name" id="createCardLoginBody">
             <span class="type-signature"></span>createCardLoginBody<span
               class="signature"
@@ -575,89 +394,8 @@
                   <a href="tests_components_Cards_LoginCard.js.html"
                     >tests/components/Cards/LoginCard.js</a
                   >,
-                  <a href="tests_components_Cards_LoginCard.js.html#line18"
-                    >line 18</a
-                  >
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="createCardPrimary">
-            <span class="type-signature"></span>createCardPrimary<span
-              class="signature"
-              >()</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">
-            A function that creates the primary card sample.
-          </div>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="tests_components_Cards_PrimaryCard.js.html"
-                    >tests/components/Cards/PrimaryCard.js</a
-                  >,
-                  <a href="tests_components_Cards_PrimaryCard.js.html#line6"
-                    >line 6</a
-                  >
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="createCardSecondary">
-            <span class="type-signature"></span>createCardSecondary<span
-              class="signature"
-              >()</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">
-            A function that creates a secondary card sample.
-          </div>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="tests_components_Cards_SecondaryCard.js.html"
-                    >tests/components/Cards/SecondaryCard.js</a
-                  >,
-                  <a href="tests_components_Cards_SecondaryCard.js.html#line6"
-                    >line 6</a
-                  >
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="createCardSuccess">
-            <span class="type-signature"></span>createCardSuccess<span
-              class="signature"
-              >()</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">
-            A function that creates the success card sample.
-          </div>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="tests_components_Cards_SuccessCard.js.html"
-                    >tests/components/Cards/SuccessCard.js</a
-                  >,
-                  <a href="tests_components_Cards_SuccessCard.js.html#line6"
-                    >line 6</a
+                  <a href="tests_components_Cards_LoginCard.js.html#line20"
+                    >line 20</a
                   >
                 </li>
               </ul>
@@ -674,81 +412,7 @@
           </h4>
 
           <div class="description">
-            A function that creates card title object (h6).
-          </div>
-
-          <h5>Parameters:</h5>
-
-          <table class="params">
-            <thead>
-              <tr>
-                <th>Name</th>
-
-                <th>Type</th>
-
-                <th class="last">Description</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="name"><code>style</code></td>
-
-                <td class="type"><span class="param-type">Sting</span></td>
-
-                <td class="description last">
-                  A string that sets the style of the text (required).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>text</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last">
-                  Text that belongs to the card header title (required).
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="src_components_EgCard.js.html"
-                    >src/components/EgCard.js</a
-                  >,
-                  <a href="src_components_EgCard.js.html#line148">line 148</a>
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
-          <h5>Returns:</h5>
-
-          <div class="param-desc">return an eg-card with the props passed.</div>
-
-          <dl>
-            <dt>Type</dt>
-            <dd>
-              <span class="param-type"><a href="EgCard.html">EgCard</a></span>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="createCardText">
-            <span class="type-signature"></span>createCardText<span
-              class="signature"
-              >(style, text)</span
-            ><span class="type-signature">
-              &rarr; {<a href="EgCard.html">EgCard</a>}</span
-            >
-          </h4>
-
-          <div class="description">
-            A function that creates eg-card title object (h6).
+            A function that creates EgCard title object (h6).
           </div>
 
           <h5>Parameters:</h5>
@@ -807,33 +471,6 @@
             <dt>Type</dt>
             <dd>
               <span class="param-type"><a href="EgCard.html">EgCard</a></span>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="createCardWarning">
-            <span class="type-signature"></span>createCardWarning<span
-              class="signature"
-              >()</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">
-            A function that creates the warning card sample.
-          </div>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="tests_components_Cards_WarningCard.js.html"
-                    >tests/components/Cards/WarningCard.js</a
-                  >,
-                  <a href="tests_components_Cards_WarningCard.js.html#line6"
-                    >line 6</a
-                  >
-                </li>
-              </ul>
             </dd>
           </dl>
 
@@ -924,78 +561,6 @@
             <dt>Type</dt>
             <dd>
               <span class="param-type"><a href="EgCol.html">EgCol</a></span>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="createCol">
-            <span class="type-signature"></span>createCol<span class="signature"
-              >(Element, col, offset)</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">
-            A function to appends and create a element into a new col.
-          </div>
-
-          <h5>Parameters:</h5>
-
-          <table class="params">
-            <thead>
-              <tr>
-                <th>Name</th>
-
-                <th>Type</th>
-
-                <th class="last">Description</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="name"><code>Element</code></td>
-
-                <td class="type"><span class="param-type">EgElement</span></td>
-
-                <td class="description last">
-                  receives a element and appends it (required).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>col</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last">
-                  A string for the col attribute (required).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>offset</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last">
-                  A string for the offset attribute (optional).
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="src_components_Grid_EgCol.js.html"
-                    >src/components/Grid/EgCol.js</a
-                  >,
-                  <a href="src_components_Grid_EgCol.js.html#line109"
-                    >line 109</a
-                  >
-                </li>
-              </ul>
             </dd>
           </dl>
 
@@ -1128,14 +693,17 @@
             </dd>
           </dl>
 
-          <h4 class="name" id="createInput">
-            <span class="type-signature"></span>createInput<span
+          <h4 class="name" id="createMultipleElements">
+            <span class="type-signature"></span>createMultipleElements<span
               class="signature"
-              >(control, type, id, col, placeholder)</span
-            ><span class="type-signature"></span>
+              >(HTMLElement, element, quantity)</span
+            ><span class="type-signature"> &rarr; {HTMLElement}</span>
           </h4>
 
-          <div class="description">A function that generates a new EgInput</div>
+          <div class="description">
+            A function to create a element multiple times and append it into the
+            parent element.
+          </div>
 
           <h5>Parameters:</h5>
 
@@ -1146,68 +714,42 @@
 
                 <th>Type</th>
 
-                <th>Default</th>
-
                 <th class="last">Description</th>
               </tr>
             </thead>
 
             <tbody>
               <tr>
-                <td class="name"><code>control</code></td>
+                <td class="name"><code>HTMLElement</code></td>
 
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="default"></td>
+                <td class="type">
+                  <span class="param-type">HTMLElement</span>
+                </td>
 
                 <td class="description last">
-                  Contorl attribute for input (required).
+                  Representing the parent element(required).
                 </td>
               </tr>
 
               <tr>
-                <td class="name"><code>type</code></td>
+                <td class="name"><code>element</code></td>
 
                 <td class="type"><span class="param-type">String</span></td>
-
-                <td class="default"></td>
-
-                <td class="description last">Type of input (required).</td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>id</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="default">null</td>
 
                 <td class="description last">
-                  Id of input (optional but recomended).
+                  Representing the element that will be appened n
+                  times(required).
                 </td>
               </tr>
 
               <tr>
-                <td class="name"><code>col</code></td>
+                <td class="name"><code>quantity</code></td>
 
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="default">null</td>
+                <td class="type"><span class="param-type">Int</span></td>
 
                 <td class="description last">
-                  Col attribute for the input (optional).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>placeholder</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="default">null</td>
-
-                <td class="description last">
-                  Placeholder attribute for the input (optional)
+                  Representing the quantity of elements that will be
+                  appened(required).
                 </td>
               </tr>
             </tbody>
@@ -1218,13 +760,20 @@
             <dd class="tag-source">
               <ul class="dummy">
                 <li>
-                  <a href="src_components_EgInput.js.html"
-                    >src/components/EgInput.js</a
-                  >,
-                  <a href="src_components_EgInput.js.html#line207">line 207</a>
+                  <a href="src_index.js.html">src/index.js</a>,
+                  <a href="src_index.js.html#line172">line 172</a>
                 </li>
               </ul>
             </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the new elements appened.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd><span class="param-type">HTMLElement</span></dd>
           </dl>
 
           <h4 class="name" id="createTextElement">
@@ -1302,15 +851,82 @@
 
           <h5>Returns:</h5>
 
-          <div class="param-desc">Text element with the props passed.</div>
+          <div class="param-desc">New text element with the props passed.</div>
 
           <dl>
             <dt>Type</dt>
             <dd><span class="param-type">HTMLElement</span></dd>
           </dl>
 
-          <h4 class="name" id="returnButtonColorsCol">
-            <span class="type-signature"></span>returnButtonColorsCol<span
+          <h4 class="name" id="getElementObjects">
+            <span class="type-signature"></span>getElementObjects<span
+              class="signature"
+              >(HTMLElement, obj)</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            A function to get all the specified elements passed as a string of a
+            element.
+          </div>
+
+          <h5>Parameters:</h5>
+
+          <table class="params">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Type</th>
+
+                <th class="last">Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="name"><code>HTMLElement</code></td>
+
+                <td class="type">
+                  <span class="param-type">HTMLElement</span>
+                </td>
+
+                <td class="description last">
+                  Representing the parent element(required).
+                </td>
+              </tr>
+
+              <tr>
+                <td class="name"><code>obj</code></td>
+
+                <td class="type"><span class="param-type">Object</span></td>
+
+                <td class="description last">
+                  A string as the elements to look into the parent
+                  element(required).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="src_index.js.html">src/index.js</a>,
+                  <a href="src_index.js.html#line135">line 135</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">all the elements of the component.</div>
+
+          <h4 class="name" id="sampleButtonColors">
+            <span class="type-signature"></span>sampleButtonColors<span
               class="signature"
               >()</span
             ><span class="type-signature">
@@ -1349,48 +965,8 @@
             </dd>
           </dl>
 
-          <h4 class="name" id="returnButtonSizesCol">
-            <span class="type-signature"></span>returnButtonSizesCol<span
-              class="signature"
-              >()</span
-            ><span class="type-signature">
-              &rarr; {<a href="EgCol.html">EgCol</a>}</span
-            >
-          </h4>
-
-          <div class="description">
-            A function that return the buttons samples sizing col.
-          </div>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="tests_components_Buttons_SizesButtons.js.html"
-                    >tests/components/Buttons/SizesButtons.js</a
-                  >,
-                  <a href="tests_components_Buttons_SizesButtons.js.html#line8"
-                    >line 8</a
-                  >
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
-          <h5>Returns:</h5>
-
-          <div class="param-desc">Buttons sizes col sample.</div>
-
-          <dl>
-            <dt>Type</dt>
-            <dd>
-              <span class="param-type"><a href="EgCol.html">EgCol</a></span>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="returnButtonsOutlineCol">
-            <span class="type-signature"></span>returnButtonsOutlineCol<span
+          <h4 class="name" id="sampleButtonOutline">
+            <span class="type-signature"></span>sampleButtonOutline<span
               class="signature"
               >()</span
             ><span class="type-signature">
@@ -1431,8 +1007,48 @@
             </dd>
           </dl>
 
-          <h4 class="name" id="returnButtonStylesCol">
-            <span class="type-signature"></span>returnButtonStylesCol<span
+          <h4 class="name" id="sampleButtonSizes">
+            <span class="type-signature"></span>sampleButtonSizes<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgCol.html">EgCol</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            A function that return the buttons samples sizing col.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Buttons_SizesButtons.js.html"
+                    >tests/components/Buttons/SizesButtons.js</a
+                  >,
+                  <a href="tests_components_Buttons_SizesButtons.js.html#line8"
+                    >line 8</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">Buttons sizes col sample.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgCol.html">EgCol</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleButtonStyles">
+            <span class="type-signature"></span>sampleButtonStyles<span
               class="signature"
               >()</span
             ><span class="type-signature">
@@ -1471,11 +1087,333 @@
             </dd>
           </dl>
 
-          <h4 class="name" id="returnImageCircleCol">
-            <span class="type-signature"></span>returnImageCircleCol<span
+          <h4 class="name" id="sampleCardDanger">
+            <span class="type-signature"></span>sampleCardDanger<span
               class="signature"
               >()</span
-            ><span class="type-signature"></span>
+            ><span class="type-signature">
+              &rarr; {<a href="EgCard.html">EgCard</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            A function that creates the danger card sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Cards_DangerCard.js.html"
+                    >tests/components/Cards/DangerCard.js</a
+                  >,
+                  <a href="tests_components_Cards_DangerCard.js.html#line8"
+                    >line 8</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgCard.html">EgCard</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleCardDefault">
+            <span class="type-signature"></span>sampleCardDefault<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgCard.html">EgCard</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            A function that creates the default card sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Cards_DefaultCard.js.html"
+                    >tests/components/Cards/DefaultCard.js</a
+                  >,
+                  <a href="tests_components_Cards_DefaultCard.js.html#line8"
+                    >line 8</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgCard.html">EgCard</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleCardInfo">
+            <span class="type-signature"></span>sampleCardInfo<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgCard.html">EgCard</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            A function that creates the info card sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Cards_InfoCard.js.html"
+                    >tests/components/Cards/InfoCard.js</a
+                  >,
+                  <a href="tests_components_Cards_InfoCard.js.html#line8"
+                    >line 8</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgCard.html">EgCard</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleCardLogin">
+            <span class="type-signature"></span>sampleCardLogin<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgCard.html">EgCard</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            A function that creates the login card sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Cards_LoginCard.js.html"
+                    >tests/components/Cards/LoginCard.js</a
+                  >,
+                  <a href="tests_components_Cards_LoginCard.js.html#line8"
+                    >line 8</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgCard.html">EgCard</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleCardPrimary">
+            <span class="type-signature"></span>sampleCardPrimary<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgCard.html">EgCard</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            A function that creates the primary card sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Cards_PrimaryCard.js.html"
+                    >tests/components/Cards/PrimaryCard.js</a
+                  >,
+                  <a href="tests_components_Cards_PrimaryCard.js.html#line8"
+                    >line 8</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgCard.html">EgCard</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleCardSecondary">
+            <span class="type-signature"></span>sampleCardSecondary<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgCard.html">EgCard</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            A function that creates a secondary card sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Cards_SecondaryCard.js.html"
+                    >tests/components/Cards/SecondaryCard.js</a
+                  >,
+                  <a href="tests_components_Cards_SecondaryCard.js.html#line8"
+                    >line 8</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgCard.html">EgCard</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleCardSuccess">
+            <span class="type-signature"></span>sampleCardSuccess<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgCard.html">EgCard</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            A function that creates the success card sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Cards_SuccessCard.js.html"
+                    >tests/components/Cards/SuccessCard.js</a
+                  >,
+                  <a href="tests_components_Cards_SuccessCard.js.html#line8"
+                    >line 8</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgCard.html">EgCard</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleCardWarning">
+            <span class="type-signature"></span>sampleCardWarning<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgCard.html">EgCard</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            A function that creates the warning card sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Cards_WarningCard.js.html"
+                    >tests/components/Cards/WarningCard.js</a
+                  >,
+                  <a href="tests_components_Cards_WarningCard.js.html#line8"
+                    >line 8</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgCard.html">EgCard</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleImageCircle">
+            <span class="type-signature"></span>sampleImageCircle<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgImage.html">EgImage</a>}</span
+            >
           </h4>
 
           <div class="description">
@@ -1490,19 +1428,32 @@
                   <a href="tests_components_Images_CircleImage.js.html"
                     >tests/components/Images/CircleImage.js</a
                   >,
-                  <a href="tests_components_Images_CircleImage.js.html#line6"
-                    >line 6</a
+                  <a href="tests_components_Images_CircleImage.js.html#line8"
+                    >line 8</a
                   >
                 </li>
               </ul>
             </dd>
           </dl>
 
-          <h4 class="name" id="returnImageRaisedCol">
-            <span class="type-signature"></span>returnImageRaisedCol<span
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgImage.html">EgImage</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleImageRaised">
+            <span class="type-signature"></span>sampleImageRaised<span
               class="signature"
               >()</span
-            ><span class="type-signature"></span>
+            ><span class="type-signature">
+              &rarr; {<a href="EgImage.html">EgImage</a>}</span
+            >
           </h4>
 
           <div class="description">
@@ -1517,19 +1468,32 @@
                   <a href="tests_components_Images_RaisedImage.js.html"
                     >tests/components/Images/RaisedImage.js</a
                   >,
-                  <a href="tests_components_Images_RaisedImage.js.html#line6"
-                    >line 6</a
+                  <a href="tests_components_Images_RaisedImage.js.html#line8"
+                    >line 8</a
                   >
                 </li>
               </ul>
             </dd>
           </dl>
 
-          <h4 class="name" id="returnImageRoundedCol">
-            <span class="type-signature"></span>returnImageRoundedCol<span
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgImage.html">EgImage</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleImageRounded">
+            <span class="type-signature"></span>sampleImageRounded<span
               class="signature"
               >()</span
-            ><span class="type-signature"></span>
+            ><span class="type-signature">
+              &rarr; {<a href="EgImage.html">EgImage</a>}</span
+            >
           </h4>
 
           <div class="description">
@@ -1544,19 +1508,32 @@
                   <a href="tests_components_Images_RoundedImage.js.html"
                     >tests/components/Images/RoundedImage.js</a
                   >,
-                  <a href="tests_components_Images_RoundedImage.js.html#line6"
-                    >line 6</a
+                  <a href="tests_components_Images_RoundedImage.js.html#line8"
+                    >line 8</a
                   >
                 </li>
               </ul>
             </dd>
           </dl>
 
-          <h4 class="name" id="returnImageThumbnailCol">
-            <span class="type-signature"></span>returnImageThumbnailCol<span
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgImage.html">EgImage</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleImageThumbnail">
+            <span class="type-signature"></span>sampleImageThumbnail<span
               class="signature"
               >()</span
-            ><span class="type-signature"></span>
+            ><span class="type-signature">
+              &rarr; {<a href="EgImage.html">EgImage</a>}</span
+            >
           </h4>
 
           <div class="description">
@@ -1571,212 +1548,409 @@
                   <a href="tests_components_Images_ThumbnailImage.js.html"
                     >tests/components/Images/ThumbnailImage.js</a
                   >,
-                  <a href="tests_components_Images_ThumbnailImage.js.html#line6"
-                    >line 6</a
+                  <a href="tests_components_Images_ThumbnailImage.js.html#line8"
+                    >line 8</a
                   >
                 </li>
               </ul>
             </dd>
           </dl>
 
-          <h4 class="name" id="setBorder">
-            <span class="type-signature"></span>setBorder<span class="signature"
-              >(color, val, radius)</span
-            ><span class="type-signature"></span>
-          </h4>
+          <h5>Returns:</h5>
 
-          <div class="description">
-            A function to set Border css of the component.
-          </div>
+          <div class="param-desc">With all the props inside function.</div>
 
-          <h5>Parameters:</h5>
-
-          <table class="params">
-            <thead>
-              <tr>
-                <th>Name</th>
-
-                <th>Type</th>
-
-                <th class="last">Description</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="name"><code>color</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last">
-                  as the color to the component border(required).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>val</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last">
-                  as the value of the component border(required).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>radius</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last">
-                  as the radius of the component border(required).
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="src_index.js.html">src/index.js</a>,
-                  <a href="src_index.js.html#line134">line 134</a>
-                </li>
-              </ul>
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgImage.html">EgImage</a></span>
             </dd>
           </dl>
 
-          <h4 class="name" id="setFont">
-            <span class="type-signature"></span>setFont<span class="signature"
-              >(val, size, color)</span
-            ><span class="type-signature"></span>
-          </h4>
-
-          <div class="description">
-            A function that sets the font css of the component.
-          </div>
-
-          <h5>Parameters:</h5>
-
-          <table class="params">
-            <thead>
-              <tr>
-                <th>Name</th>
-
-                <th>Type</th>
-
-                <th class="last">Description</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="name"><code>val</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last"></td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>size</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last"></td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>color</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last"></td>
-              </tr>
-            </tbody>
-          </table>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="src_index.js.html">src/index.js</a>,
-                  <a href="src_index.js.html#line147">line 147</a>
-                </li>
-              </ul>
-            </dd>
-          </dl>
-
-          <h4 class="name" id="setFontStyle">
-            <span class="type-signature"></span>setFontStyle<span
+          <h4 class="name" id="sampleInputDanger">
+            <span class="type-signature"></span>sampleInputDanger<span
               class="signature"
-              >(size, weight)</span
-            ><span class="type-signature"></span>
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgInput.html">EgInput</a>}</span
+            >
           </h4>
 
           <div class="description">
-            A function to set Font Style css of the component.
+            Creates the input for danger input sample.
           </div>
-
-          <h5>Parameters:</h5>
-
-          <table class="params">
-            <thead>
-              <tr>
-                <th>Name</th>
-
-                <th>Type</th>
-
-                <th class="last">Description</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="name"><code>size</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last">
-                  as the font size for the component(required).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>weight</code></td>
-
-                <td class="type"><span class="param-type">String</span></td>
-
-                <td class="description last">
-                  as the font weight for the component(required).
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
           <dl class="details">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source">
               <ul class="dummy">
                 <li>
-                  <a href="src_index.js.html">src/index.js</a>,
-                  <a href="src_index.js.html#line158">line 158</a>
+                  <a href="tests_components_Inputs_ValidationsInputs.js.html"
+                    >tests/components/Inputs/ValidationsInputs.js</a
+                  >,
+                  <a
+                    href="tests_components_Inputs_ValidationsInputs.js.html#line44"
+                    >line 44</a
+                  >
                 </li>
               </ul>
             </dd>
           </dl>
 
-          <h4 class="name" id="setValidationEmail">
-            <span class="type-signature"></span>setValidationEmail<span
+          <h5>Returns:</h5>
+
+          <div class="param-desc">
+            EgInput With all the props inside function.
+          </div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgInput.html">EgInput</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleInputDefault">
+            <span class="type-signature"></span>sampleInputDefault<span
               class="signature"
-              >(input, type)</span
-            ><span class="type-signature"></span>
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgInput.html">EgInput</a>}</span
+            >
           </h4>
 
           <div class="description">
-            A function that sets the validation email of a desired input.
+            Creates the input for default input sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Inputs_SizingInputs.js.html"
+                    >tests/components/Inputs/SizingInputs.js</a
+                  >,
+                  <a href="tests_components_Inputs_SizingInputs.js.html#line24"
+                    >line 24</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">
+            EgInput With all the props inside function.
+          </div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgInput.html">EgInput</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleInputEmail">
+            <span class="type-signature"></span>sampleInputEmail<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgInput.html">EgInput</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            Creates the input for email input sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Inputs_BasicInputs.js.html"
+                    >tests/components/Inputs/BasicInputs.js</a
+                  >,
+                  <a href="tests_components_Inputs_BasicInputs.js.html#line8"
+                    >line 8</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgInput.html">EgInput</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleInputLarge">
+            <span class="type-signature"></span>sampleInputLarge<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgInput.html">EgInput</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            Creates the input for large input sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Inputs_SizingInputs.js.html"
+                    >tests/components/Inputs/SizingInputs.js</a
+                  >,
+                  <a href="tests_components_Inputs_SizingInputs.js.html#line41"
+                    >line 41</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">
+            EgInput With all the props inside function.
+          </div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgInput.html">EgInput</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleInputPassword">
+            <span class="type-signature"></span>sampleInputPassword<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgInput.html">EgInput</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            Creates the input for password input sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Inputs_BasicInputs.js.html"
+                    >tests/components/Inputs/BasicInputs.js</a
+                  >,
+                  <a href="tests_components_Inputs_BasicInputs.js.html#line44"
+                    >line 44</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgInput.html">EgInput</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleInputSuccess">
+            <span class="type-signature"></span>sampleInputSuccess<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgInput.html">EgInput</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            Creates the input for success input sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Inputs_ValidationsInputs.js.html"
+                    >tests/components/Inputs/ValidationsInputs.js</a
+                  >,
+                  <a
+                    href="tests_components_Inputs_ValidationsInputs.js.html#line8"
+                    >line 8</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">
+            EgInput With all the props inside function.
+          </div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgInput.html">EgInput</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleInputText">
+            <span class="type-signature"></span>sampleInputText<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgInput.html">EgInput</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            Creates the input for text input sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Inputs_BasicInputs.js.html"
+                    >tests/components/Inputs/BasicInputs.js</a
+                  >,
+                  <a href="tests_components_Inputs_BasicInputs.js.html#line26"
+                    >line 26</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">With all the props inside function.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgInput.html">EgInput</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleInputWarning">
+            <span class="type-signature"></span>sampleInputWarning<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgInput.html">EgInput</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            Creates the input for warning input sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Inputs_ValidationsInputs.js.html"
+                    >tests/components/Inputs/ValidationsInputs.js</a
+                  >,
+                  <a
+                    href="tests_components_Inputs_ValidationsInputs.js.html#line26"
+                    >line 26</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">
+            EgInput With all the props inside function.
+          </div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgInput.html">EgInput</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="sampleInputXsmall">
+            <span class="type-signature"></span>sampleInputXsmall<span
+              class="signature"
+              >()</span
+            ><span class="type-signature">
+              &rarr; {<a href="EgInput.html">EgInput</a>}</span
+            >
+          </h4>
+
+          <div class="description">
+            Creates the input for xsmall input sample.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="tests_components_Inputs_SizingInputs.js.html"
+                    >tests/components/Inputs/SizingInputs.js</a
+                  >,
+                  <a href="tests_components_Inputs_SizingInputs.js.html#line7"
+                    >line 7</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">
+            EgInput With all the props inside function.
+          </div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type"><a href="EgInput.html">EgInput</a></span>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="setElementProps">
+            <span class="type-signature"></span>setElementProps<span
+              class="signature"
+              >(HTMLElement, props, keys)</span
+            ><span class="type-signature"> &rarr; {HTMLElement}</span>
+          </h4>
+
+          <div class="description">
+            A function to set component Properties in a par key-value.
           </div>
 
           <h5>Parameters:</h5>
@@ -1794,27 +1968,34 @@
 
             <tbody>
               <tr>
-                <td class="name"><code>input</code></td>
+                <td class="name"><code>HTMLElement</code></td>
 
                 <td class="type">
-                  <span class="param-type"
-                    ><a href="EgInput.html">EgInput</a></span
-                  >
+                  <span class="param-type">HTMLElement</span>
                 </td>
 
                 <td class="description last">
-                  The input that desires to validate email (required).
+                  Representing the parent element(required).
                 </td>
               </tr>
 
               <tr>
-                <td class="name"><code>type</code></td>
+                <td class="name"><code>props</code></td>
 
                 <td class="type"><span class="param-type">String</span></td>
 
                 <td class="description last">
-                  A string with the type of email that you want to validate
-                  (required).
+                  Properties received as a string in a array(required).
+                </td>
+              </tr>
+
+              <tr>
+                <td class="name"><code>keys</code></td>
+
+                <td class="type"><span class="param-type">String</span></td>
+
+                <td class="description last">
+                  Kets received as a string in a array(required).
                 </td>
               </tr>
             </tbody>
@@ -1825,78 +2006,20 @@
             <dd class="tag-source">
               <ul class="dummy">
                 <li>
-                  <a href="src_components_EgInput.js.html"
-                    >src/components/EgInput.js</a
-                  >,
-                  <a href="src_components_EgInput.js.html#line230">line 230</a>
+                  <a href="src_index.js.html">src/index.js</a>,
+                  <a href="src_index.js.html#line188">line 188</a>
                 </li>
               </ul>
             </dd>
           </dl>
 
-          <h4 class="name" id="setValidationLength">
-            <span class="type-signature"></span>setValidationLength<span
-              class="signature"
-              >(input, length)</span
-            ><span class="type-signature"></span>
-          </h4>
+          <h5>Returns:</h5>
 
-          <div class="description">
-            A function that sets the validation length of a desired Input.
-          </div>
+          <div class="param-desc">With all the new props.</div>
 
-          <h5>Parameters:</h5>
-
-          <table class="params">
-            <thead>
-              <tr>
-                <th>Name</th>
-
-                <th>Type</th>
-
-                <th class="last">Description</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="name"><code>input</code></td>
-
-                <td class="type">
-                  <span class="param-type"
-                    ><a href="EgInput.html">EgInput</a></span
-                  >
-                </td>
-
-                <td class="description last">
-                  The input that desires to set a validation length (required).
-                </td>
-              </tr>
-
-              <tr>
-                <td class="name"><code>length</code></td>
-
-                <td class="type"><span class="param-type">Integer</span></td>
-
-                <td class="description last">
-                  Length of the string that will validate the input (required).
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <dl class="details">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source">
-              <ul class="dummy">
-                <li>
-                  <a href="src_components_EgInput.js.html"
-                    >src/components/EgInput.js</a
-                  >,
-                  <a href="src_components_EgInput.js.html#line221">line 221</a>
-                </li>
-              </ul>
-            </dd>
+          <dl>
+            <dt>Type</dt>
+            <dd><span class="param-type">HTMLElement</span></dd>
           </dl>
 
           <h4 class="name" id="validateEmail">
@@ -2063,61 +2186,59 @@
       </ul>
       <h3>Global</h3>
       <ul>
+        <li><a href="global.html#addElement">addElement</a></li>
+        <li>
+          <a href="global.html#addMultipleElements">addMultipleElements</a>
+        </li>
         <li><a href="global.html#appendsCreateCol">appendsCreateCol</a></li>
         <li><a href="global.html#createButton">createButton</a></li>
-        <li><a href="global.html#createCard">createCard</a></li>
-        <li><a href="global.html#createCardDanger">createCardDanger</a></li>
-        <li><a href="global.html#createCardDefault">createCardDefault</a></li>
-        <li><a href="global.html#createCardInfo">createCardInfo</a></li>
-        <li><a href="global.html#createCardLogin">createCardLogin</a></li>
         <li>
           <a href="global.html#createCardLoginBody">createCardLoginBody</a>
         </li>
-        <li><a href="global.html#createCardPrimary">createCardPrimary</a></li>
-        <li>
-          <a href="global.html#createCardSecondary">createCardSecondary</a>
-        </li>
-        <li><a href="global.html#createCardSuccess">createCardSuccess</a></li>
         <li><a href="global.html#createCardText">createCardText</a></li>
-        <li><a href="global.html#createCardWarning">createCardWarning</a></li>
         <li><a href="global.html#createCol">createCol</a></li>
         <li><a href="global.html#createInput">createInput</a></li>
+        <li>
+          <a href="global.html#createMultipleElements"
+            >createMultipleElements</a
+          >
+        </li>
         <li><a href="global.html#createTextElement">createTextElement</a></li>
+        <li><a href="global.html#getElementObjects">getElementObjects</a></li>
+        <li><a href="global.html#sampleButtonColors">sampleButtonColors</a></li>
         <li>
-          <a href="global.html#returnButtonColorsCol">returnButtonColorsCol</a>
+          <a href="global.html#sampleButtonOutline">sampleButtonOutline</a>
         </li>
+        <li><a href="global.html#sampleButtonSizes">sampleButtonSizes</a></li>
+        <li><a href="global.html#sampleButtonStyles">sampleButtonStyles</a></li>
+        <li><a href="global.html#sampleCardDanger">sampleCardDanger</a></li>
+        <li><a href="global.html#sampleCardDefault">sampleCardDefault</a></li>
+        <li><a href="global.html#sampleCardInfo">sampleCardInfo</a></li>
+        <li><a href="global.html#sampleCardLogin">sampleCardLogin</a></li>
+        <li><a href="global.html#sampleCardPrimary">sampleCardPrimary</a></li>
         <li>
-          <a href="global.html#returnButtonSizesCol">returnButtonSizesCol</a>
+          <a href="global.html#sampleCardSecondary">sampleCardSecondary</a>
         </li>
+        <li><a href="global.html#sampleCardSuccess">sampleCardSuccess</a></li>
+        <li><a href="global.html#sampleCardWarning">sampleCardWarning</a></li>
+        <li><a href="global.html#sampleImageCircle">sampleImageCircle</a></li>
+        <li><a href="global.html#sampleImageRaised">sampleImageRaised</a></li>
+        <li><a href="global.html#sampleImageRounded">sampleImageRounded</a></li>
         <li>
-          <a href="global.html#returnButtonsOutlineCol"
-            >returnButtonsOutlineCol</a
-          >
+          <a href="global.html#sampleImageThumbnail">sampleImageThumbnail</a>
         </li>
+        <li><a href="global.html#sampleInputDanger">sampleInputDanger</a></li>
+        <li><a href="global.html#sampleInputDefault">sampleInputDefault</a></li>
+        <li><a href="global.html#sampleInputEmail">sampleInputEmail</a></li>
+        <li><a href="global.html#sampleInputLarge">sampleInputLarge</a></li>
         <li>
-          <a href="global.html#returnButtonStylesCol">returnButtonStylesCol</a>
+          <a href="global.html#sampleInputPassword">sampleInputPassword</a>
         </li>
-        <li>
-          <a href="global.html#returnImageCircleCol">returnImageCircleCol</a>
-        </li>
-        <li>
-          <a href="global.html#returnImageRaisedCol">returnImageRaisedCol</a>
-        </li>
-        <li>
-          <a href="global.html#returnImageRoundedCol">returnImageRoundedCol</a>
-        </li>
-        <li>
-          <a href="global.html#returnImageThumbnailCol"
-            >returnImageThumbnailCol</a
-          >
-        </li>
-        <li><a href="global.html#setBorder">setBorder</a></li>
-        <li><a href="global.html#setFont">setFont</a></li>
-        <li><a href="global.html#setFontStyle">setFontStyle</a></li>
-        <li><a href="global.html#setValidationEmail">setValidationEmail</a></li>
-        <li>
-          <a href="global.html#setValidationLength">setValidationLength</a>
-        </li>
+        <li><a href="global.html#sampleInputSuccess">sampleInputSuccess</a></li>
+        <li><a href="global.html#sampleInputText">sampleInputText</a></li>
+        <li><a href="global.html#sampleInputWarning">sampleInputWarning</a></li>
+        <li><a href="global.html#sampleInputXsmall">sampleInputXsmall</a></li>
+        <li><a href="global.html#setElementProps">setElementProps</a></li>
         <li><a href="global.html#validateEmail">validateEmail</a></li>
         <li><a href="global.html#validateValue">validateValue</a></li>
       </ul>
@@ -2127,8 +2248,8 @@
 
     <footer>
       Documentation generated by
-      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Nov 13
-      2018 03:07:30 GMT-0400 (-04)
+      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 14
+      2018 20:31:32 GMT-0400 (-04)
     </footer>
 
     <script>

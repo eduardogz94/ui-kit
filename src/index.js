@@ -46,7 +46,7 @@ const createInput = (
 };
 
 /**
- * A function that creates eg-card title object (h6).
+ * A function that creates EgCard title object (h6).
  * @function
  * @param {Sting} style A string that sets the style of the text (required).
  * @param {String} text Text that belongs to the card header title (required).
@@ -61,7 +61,7 @@ const createCardText = (style, text) => {
 };
 
 /**
- * A function that creates a eg-button with style and text.
+ * A function that creates a EgButton with style and text.
  * @function
  * @param {String} style A string that sets button style (required).
  * @param {String} [text] A string that sets innerText of the button (optional but recommended).
@@ -115,7 +115,7 @@ const appendsCreateCol = (col, ...elements) => {
  * @param {String} element A string typed as the html element that you want to create(required).
  * @param {String} css A string typed as the css class that you want to set to the object (required).
  * @param {String} text A string typed as the text you want to set to the element (required).
- * @return {HTMLElement} Text element with the props passed.
+ * @return {HTMLElement} New text element with the props passed.
  */
 const createTextElement = (element, css, text) => {
   let newElement = document.createElement(element);
@@ -126,36 +126,71 @@ const createTextElement = (element, css, text) => {
 };
 
 /**
- * A function to set Border css of the component.
- * @param {String} color as the color to the component border(required).
- * @param {String} val as the value of the component border(required).
- * @param {String} radius as the radius of the component border(required).
- */
-const setBorder = (color, val, radius) => {
-  this.getButton().style.borderColor = color;
-  this.getButton().style.border = val;
-  this.getButton().style.borderRadius = radius;
-};
-
-/**
- * A function that sets the font css of the component.
+ * A function to get all the specified elements passed as a string of a element.
  * @function
- * @param {String} val
- * @param {String} size
- * @param {String} color
+ * @param {HTMLElement} HTMLElement Representing the parent element(required).
+ * @param {Object} obj A string as the elements to look into the parent element(required).
+ * @returns {} all the elements of the component.
  */
-const setFont = (val, size, color) => {
-  this.getButton().style.fontFamily = val;
-  this.getButton().style.fontSize = size;
-  this.getButton().style.color = color;
+const getElementObjects = (parent, obj) => {
+  return parent.querySelectorAll(`${obj}`);
 };
 
 /**
- * A function to set Font Style css of the component.
- * @param {String} size as the font size for the component(required).
- * @param {String} weight as the font weight for the component(required).
+ * A function to add a element to append to the component.
+ * @function
+ * @param {HTMLElement} HTMLElement Representing the parent element(required).
+ * @param {String} element Representing the element to add(required).
+ * @returns {EgElement} With a new child element.
  */
-const setFontStyle = (s, w) => {
-  this.getButton().style.fontStyle = s;
-  this.getButton().style.fontWeight = w;
+const addElement = (parent, element) => {
+  const object = document.createElement(`${element}`);
+  parent.appendChild(object);
+};
+
+/**
+ * A function to add multiple elements into the parent element.
+ * @function
+ * @param {HTMLElement} HTMLElement Representing the parent element(required).
+ * @param  {...any} elements All the elements that will be added into the parent component(required 1).
+ * @returns {EgElement} With all the new childs elements.
+ */
+const addMultipleElements = (parent, ...elements) => {
+  elements.forEach(element => {
+    parent.appendChild(element);
+  });
+};
+
+/**
+ * A function to create a element multiple times and append it into the parent element.
+ * @function
+ * @param {HTMLElement} HTMLElement Representing the parent element(required).
+ * @param {String} element Representing the element that will be appened n times(required).
+ * @param {Int} quantity Representing the quantity of elements that will be appened(required).
+ * @returns {HTMLElement} With all the new elements appened.
+ */
+const createMultipleElements = (parent, element, quantity) => {
+  for (let i = 0; i < quantity; i++) {
+    const object = document.createElement(`${element}`);
+    object.id = i;
+    parent.appendChild(object);
+  }
+};
+
+/**
+ * A function to set component Properties in a par key-value.
+ * @function
+ * @param {HTMLElement} HTMLElement Representing the parent element(required).
+ * @param {String} props Properties received as a string in a array(required).
+ * @param {String} keys Kets received as a string in a array(required).
+ * @returns {HTMLElement} With all the new props.
+ */
+const setElementProps = (element, props, keys) => {
+  if (props.lenght === keys.lenght) {
+    for (let index in props) {
+      element.setAttribute(props[index], keys[index]);
+    }
+  } else {
+    console.error("both arrays must be same lenght");
+  }
 };

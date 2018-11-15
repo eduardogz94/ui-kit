@@ -91,10 +91,6 @@ class EgForm extends HTMLElement {
     return data;
   }
 
-  getObjects(obj) {
-    return this.querySelectorAll(`${obj}`);
-  }
-
   setForm() {
     if (this.id) this.setAttribute("id", this.id);
     if (this.type) this.setAttribute("type", this.type);
@@ -104,25 +100,6 @@ class EgForm extends HTMLElement {
     if (this.offset) this.setAttribute("offset", this.offset);
     if (this.placeholder) this.setAttribute("placeholder", this.placeholder);
     if (this.css) this.setAttribute("css", this.css);
-  }
-
-  addSingleObject(element) {
-    const object = document.createElement(`${element}`);
-    this.appendChild(object);
-  }
-
-  addMultipleObjects(...elements) {
-    elements.forEach(element => {
-      this.appendChild(element);
-    });
-  }
-
-  createMultipleObjects(element, quantity) {
-    for (let i = 0; i < quantity; i++) {
-      const object = document.createElement(`${element}`);
-      object.id = i;
-      this.appendChild(object);
-    }
   }
 }
 

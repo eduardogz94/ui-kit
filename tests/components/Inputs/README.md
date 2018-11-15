@@ -3,8 +3,11 @@
 This works as functions to create and returns the inputs that will be used on
 the renders samples (tests/views folder)
 
+![picture](../../../src/assets/images/inputs.png)
+
 #Basic inputs
-* Creates the input for email input sample.
+
+- Creates the input for email input sample.
 
 ```javascript
 const createEmailInput = () => {
@@ -21,7 +24,7 @@ const createEmailInput = () => {
 };
 ```
 
-* Creates the input for text input sample.
+- Creates the input for text input sample.
 
 ```javascript
 const createTextInputCol = () => {
@@ -38,7 +41,7 @@ const createTextInputCol = () => {
 };
 ```
 
-* Creates the input for password input sample.
+- Creates the input for password input sample.
 
 ```javascript
 const createPasswordInput = () => {
@@ -57,7 +60,7 @@ const createPasswordInput = () => {
 
 #Sizing Inputs
 
-* Creates the input for xsmall input sample.
+- Creates the input for xsmall input sample.
 
 ```javascript
 const xSmallInput = () => {
@@ -74,7 +77,7 @@ const xSmallInput = () => {
 };
 ```
 
-* Creates the input for default input sample.
+- Creates the input for default input sample.
 
 ```javascript
 const defaultInput = () => {
@@ -91,7 +94,7 @@ const defaultInput = () => {
 };
 ```
 
-* Creates the input for large input sample.
+- Creates the input for large input sample.
 
 ```javascript
 const largeInput = () => {
@@ -110,7 +113,7 @@ const largeInput = () => {
 
 #Validation Inputs
 
-* Creates the input for success input sample.
+- Creates the input for success input sample.
 
 ```javascript
 const createSuccessInput = () => {
@@ -127,7 +130,7 @@ const createSuccessInput = () => {
 };
 ```
 
-* Creates the input for warning input sample.
+- Creates the input for warning input sample.
 
 ```javascript
 const createWarningInput = () => {
@@ -144,7 +147,7 @@ const createWarningInput = () => {
 };
 ```
 
-* Creates the input for danger input sample.
+- Creates the input for danger input sample.
 
 ```javascript
 const createDangerInput = () => {

@@ -2,9 +2,11 @@
 
 /**
  * A function that returns image rounded col sample.
+ * @function
+ * @returns {EgImage} With all the props inside function.
  */
-const returnImageRoundedCol = () => {
-  let roundedTitle = returnTextElement(
+const sampleImageRounded = () => {
+  let roundedTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Rounded"

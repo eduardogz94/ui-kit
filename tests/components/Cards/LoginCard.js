@@ -2,8 +2,10 @@
 
 /**
  * A function that creates the login card sample.
+ * @function
+ * @returns {EgCard} With all the props inside function.
  */
-const createCardLogin = () => {
+const sampleCardLogin = () => {
   let loginCard = new EgCard("card-primary");
   loginCard.id = "login";
   loginCard.header = "Login Form";

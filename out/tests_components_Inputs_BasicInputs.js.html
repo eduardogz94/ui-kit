@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>JSDoc: Source: tests/components/Images/RoundedImage.js</title>
+    <title>JSDoc: Source: tests/components/Inputs/BasicInputs.js</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -19,35 +19,64 @@
 
   <body>
     <div id="main">
-      <h1 class="page-title">
-        Source: tests/components/Images/RoundedImage.js
-      </h1>
+      <h1 class="page-title">Source: tests/components/Inputs/BasicInputs.js</h1>
 
       <section>
         <article>
-          <pre class="prettyprint source linenums"><code>/** Image Rounded */
+          <pre class="prettyprint source linenums"><code>/* Basic Inputs */
 
 /**
- * A function that returns image rounded col sample.
+ * Creates the input for email input sample.
  * @function
- * @returns {EgImage} With all the props inside function.
+ * @returns {EgInput} With all the props inside function.
  */
-const sampleImageRounded = () => {
-  let roundedTitle = createTextElement(
-    "h1",
-    "text-center animated jello text-muted",
-    "Rounded"
+const sampleInputEmail = () => {
+  let emailInput = createInput(
+    "form-control",
+    "email",
+    "email",
+    "col-10",
+    "Email Javascript Input"
   );
+  emailInput.css = "mb-4";
 
-  let imageRounded = new EgImage(
-    "../src/assets/images/logo.jpeg",
-    "imageRounded"
+  return emailInput;
+};
+
+/**
+ * Creates the input for text input sample.
+ * @function
+ * @returns {EgInput} With all the props inside function.
+ */
+const sampleInputText = () => {
+  let textInput = createInput(
+    "form-control",
+    "text",
+    "text",
+    "col-10",
+    "Text Javascript Input"
   );
-  imageRounded.id = "imageRounded";
-  imageRounded.type = "mx-auto d-block rounded img-fluid";
+  textInput.css = "mb-4";
 
-  let imageRoundedCol = appendsCreateCol("col-3", roundedTitle, imageRounded);
-  return imageRoundedCol;
+  return textInput;
+};
+
+/**
+ * Creates the input for password input sample.
+ * @function
+ * @returns {EgInput} With all the props inside function.
+ */
+const sampleInputPassword = () => {
+  let passwordInput = createInput(
+    "form-control",
+    "password",
+    "password",
+    "col-10",
+    "Password Javascript Input"
+  );
+  passwordInput.css = "mb-4";
+
+  return passwordInput;
 };
 </code></pre>
         </article>

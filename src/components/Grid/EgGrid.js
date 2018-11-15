@@ -5,6 +5,7 @@ class EgGrid extends HTMLElement {
 
   connectedCallback() {
     this.setAttribute("class", "container-fluid");
+    this.setGrid();
     this.defaultProperties();
     ccc.registerComponent(this, {
       id: this.id,
@@ -20,27 +21,17 @@ class EgGrid extends HTMLElement {
     this.className = classname;
   }
 
-  getObjects(obj) {
-    return this.querySelectorAll(`${obj}`);
-  }
-
-  addSingleObject(element) {
-    const object = document.createElement(`${element}`);
-    this.appendChild(object);
-  }
-
-  addMultipleObjects(...elements) {
-    elements.forEach(element => {
-      this.appendChild(element);
-    });
-  }
-
-  createMultipleObjects(element, quantity) {
-    for (let i = 0; i < quantity; i++) {
-      const object = document.createElement(`${element}`);
-      object.id = i;
-      this.appendChild(object);
-    }
+  /**
+   * A function to set EgGrid properties as they are received from a js instance.
+   * @function
+   * @returns {defaultProperties()}
+   */
+  setGrid() {
+    if (this.id) this.setAttribute("id", this.id);
+    if (this.col) this.setAttribute("col", this.col);
+    if (this.offset) this.setAttribute("offset", this.offset);
+    if (this.bg) this.setAttribute("bg", this.bg);
+    if (this.css) this.setAttribute("css", this.css);
   }
 }
 

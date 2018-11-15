@@ -19,7 +19,7 @@ class EgAlert extends HTMLElement {
     });
   }
 
-  getAlert() {
+  get getAlert() {
     return this.querySelector("div");
   }
 

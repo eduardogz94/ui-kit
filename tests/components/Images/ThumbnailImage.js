@@ -2,9 +2,11 @@
 
 /**
  * A function that returns image thumbnail col sample.
+ * @function
+ * @returns {EgImage} With all the props inside function.
  */
-const returnImageThumbnailCol = () => {
-  let thumbnailTitle = returnTextElement(
+const sampleImageThumbnail = () => {
+  let thumbnailTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Thumbnail"

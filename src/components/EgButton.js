@@ -51,21 +51,6 @@ class EgButton extends HTMLElement {
   }
 
   /**
-   * A function to set component Properties in a par key-value.
-   * @param {String} props Properties received as a string in a array(required).
-   * @param {String} keys Kets received as a string in a array(required).
-   */
-  setObjectProperties(props, keys) {
-    if (props.lenght === keys.lenght) {
-      for (let index in props) {
-        this.setAttribute(props[index], keys[index]);
-      }
-    } else {
-      console.error("both arrays must be same lenght");
-    }
-  }
-
-  /**
    * A function to set Border css of the component.
    * @param {String} color  as the color to the component border(required).
    * @param {String} val  as the value of the component border(required).
@@ -120,7 +105,7 @@ class EgButton extends HTMLElement {
   }
 
   /**
-   * A function to get the button inside the component.
+   * A function to get the button inside the EgButton tag.
    * @function
    * @returns {Button}
    */
@@ -129,7 +114,7 @@ class EgButton extends HTMLElement {
   }
 
   /**
-   * A function to add an icon to the button.
+   * A function to add an icon to the EgButton.
    * @param {String} icon  as the class for the icon(required).
    * @returns {EgButtonIcon}
    */
@@ -139,21 +124,5 @@ class EgButton extends HTMLElement {
     this.getButton().appendChild(egIcon);
   }
 }
-
-/**
- * A function that creates a button.
- * @param {String} style  that sets button style (required).
- * @param {String} text  that sets innerText of the button (optional but recommended).
- * @param {String} id  that sets the id of the button (optional but recommended).
- * @param {String} col  that sets the col of the button (optional).
- */
-const createButton = (style, text = "Button", id = null, col = null) => {
-  let newButton = new EgButton(style);
-  if (col) newButton.col = col;
-  if (text) newButton.innerText = text;
-  if (id) newButton.id = id;
-
-  return newButton;
-};
 
 customElements.define("eg-button", EgButton);

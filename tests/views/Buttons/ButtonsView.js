@@ -2,7 +2,7 @@
 
 let firstRow = new EgRow();
 
-let buttonsTitle = returnTextElement(
+let buttonsTitle = createTextElement(
   "h1",
   "animated bounceInRight text-primary text-center",
   "Buttons"
@@ -10,13 +10,13 @@ let buttonsTitle = returnTextElement(
 
 let buttonsMainCol = appendsCreateCol("col-12", buttonsTitle);
 
-firstRow.addMultipleObjects(returnButtonColorsCol(), returnButtonsOutlineCol());
+addMultipleElements(firstRow, sampleButtonColors(), sampleButtonOutline());
 
 let secondRow = new EgRow();
 
-secondRow.addMultipleObjects(returnButtonStylesCol(), returnButtonSizesCol());
+addMultipleElements(secondRow, sampleButtonStyles(), sampleButtonSizes());
 
-buttonsMainCol.addMultipleObjects(firstRow, secondRow);
+addMultipleElements(buttonsMainCol, firstRow, secondRow);
 document.body.appendChild(buttonsMainCol);
 
 /* </-------------- END BUTTONS SAMPLES ----------------/> */

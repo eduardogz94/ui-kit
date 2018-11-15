@@ -5,7 +5,7 @@ Here is where you use the functions created on the test/components folder (the c
 /* </-------------- START CARDS SAMPLES ----------------/> */
 let cardRow = new EgRow();
 
-let cardsTitle = returnTextElement(
+let cardsTitle = createTextElement(
   "h1",
   "animated bounceInRight text-primary text-center",
   "cards"

@@ -2,22 +2,24 @@
 
 /**
  * A function that returns image raised col sample.
+ * @function
+ * @returns {EgImage} With all the props inside function.
  */
-const returnImageRaisedCol = () => {
-  const raisedTitle = returnTextElement(
+const sampleImageRaised = () => {
+  let raisedTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Raised"
   );
 
-  const imageRaised = new EgImage(
+  let imageRaised = new EgImage(
     "../src/assets/images/logo.jpeg",
     "imageRaised"
   );
   imageRaised.id = "imageRaised";
   imageRaised.type = "mx-auto d-block rounded-circle img-raised img-fluid";
 
-  const imageRaisedCol = appendsCreateCol("col-3", raisedTitle, imageRaised);
+  let imageRaisedCol = appendsCreateCol("col-3", raisedTitle, imageRaised);
 
   return imageRaisedCol;
 };

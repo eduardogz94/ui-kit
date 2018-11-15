@@ -6,7 +6,7 @@ Here is where you use the functions created on the test/components folder (the c
 
 let firstRow = new EgRow();
 
-let buttonsTitle = returnTextElement(
+let buttonsTitle = createTextElement(
   "h1",
   "animated bounceInRight text-primary text-center",
   "Buttons"

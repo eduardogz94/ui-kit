@@ -1,7 +1,10 @@
 /** Sizing Inputs*/
 
-/** Creates the input for xsmall input sample. */
-const xSmallInput = () => {
+/** Creates the input for xsmall input sample.
+ * @function
+ * @returns {EgInput} EgInput With all the props inside function.
+ */
+const sampleInputXsmall = () => {
   let xsmallInput = createInput(
     "form-control form-control-sm",
     "text",
@@ -14,8 +17,11 @@ const xSmallInput = () => {
   return xsmallInput;
 };
 
-/** Creates the input for default input sample. */
-const defaultInput = () => {
+/** Creates the input for default input sample.
+ * @function
+ * @returns {EgInput} EgInput With all the props inside function.
+ */
+const sampleInputDefault = () => {
   let defaultInput = createInput(
     "form-control",
     "text",
@@ -28,8 +34,11 @@ const defaultInput = () => {
   return defaultInput;
 };
 
-/** Creates the input for large input sample. */
-const largeInput = () => {
+/** Creates the input for large input sample.
+ * @function
+ * @returns {EgInput} EgInput With all the props inside function.
+ */
+const sampleInputLarge = () => {
   let largeInput = createInput(
     "form-control form-control-lg",
     "text",

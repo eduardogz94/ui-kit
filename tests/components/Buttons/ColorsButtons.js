@@ -5,8 +5,8 @@
  * @function
  * @returns {EgCol} Buttons colors col sample.
  */
-const returnButtonColorsCol = () => {
-  let colorsTitle = returnTextElement(
+const sampleButtonColors = () => {
+  let colorsTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Button Colors"

@@ -2,7 +2,7 @@
 
 let imagesRow = new EgRow();
 
-let imagesTitle = returnTextElement(
+let imagesTitle = createTextElement(
   "h1",
   "animated bounceInRight text-primary text-center",
   "Images"
@@ -11,12 +11,13 @@ let imagesTitle = returnTextElement(
 let imagesMainCol = appendsCreateCol("col-12", imagesTitle);
 imagesMainCol.bg = "bg-alt";
 
-let imageRoundedCol = returnImageRoundedCol();
-let imageCircleCol = returnImageCircleCol();
-let imageThumbnailCol = returnImageThumbnailCol();
-let imageRaisedCol = returnImageRaisedCol();
+let imageRoundedCol = sampleImageRounded();
+let imageCircleCol = sampleImageCircle();
+let imageThumbnailCol = sampleImageThumbnail();
+let imageRaisedCol = sampleImageRaised();
 
-imagesRow.addMultipleObjects(
+addMultipleElements(
+  imagesRow,
   imageRoundedCol,
   imageCircleCol,
   imageThumbnailCol,

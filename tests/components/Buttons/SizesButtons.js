@@ -5,8 +5,8 @@
  * @function
  * @returns {EgCol} Buttons sizes col sample.
  */
-const returnButtonSizesCol = () => {
-  let sizesTitle = returnTextElement(
+const sampleButtonSizes = () => {
+  let sizesTitle = createTextElement(
     "h1",
     "text-center animated jello text-muted",
     "Button Sizes"

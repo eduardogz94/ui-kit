@@ -1,83 +1,83 @@
 /* </-------------- START INPUTS SAMPLES ----------------/> */
 
-let inputTitle = returnTextElement(
+let inputTitle = createTextElement(
   "h1",
   "animated bounceInRight text-primary text-center",
   "Form Inputs"
 );
 
-let basicInputsTitle = returnTextElement("h2", "text-muted", "Basic Inputs");
+let basicInputsTitle = createTextElement("h2", "text-muted", "Basic Inputs");
 
-let emailTitle = returnTextElement("h5", "text-muted text-primary", "Email");
+let emailTitle = createTextElement("h5", "text-muted text-primary", "Email");
 
-let passwordTitle = returnTextElement(
+let passwordTitle = createTextElement(
   "h5",
   "text-muted text-primary",
   "Password"
 );
-let textTitle = returnTextElement("h5", "text-muted text-primary", "Text");
+let textTitle = createTextElement("h5", "text-muted text-primary", "Text");
 
 let firstInputsCol = appendsCreateCol(
   "col-4",
   basicInputsTitle,
   emailTitle,
-  createEmailInput(),
+  sampleInputEmail(),
   textTitle,
-  createTextInputCol(),
+  sampleInputText(),
   passwordTitle,
-  createPasswordInput()
+  sampleInputPassword()
 );
 
-let validationsInputsTitle = returnTextElement(
+let validationsInputsTitle = createTextElement(
   "h2",
   "text-muted",
   "Validations Inputs"
 );
 
-let successTitle = returnTextElement(
+let successTitle = createTextElement(
   "h5",
   "text-muted text-success",
   "Success"
 );
-let warningTitle = returnTextElement(
+let warningTitle = createTextElement(
   "h5",
   "text-muted text-warning",
   "Warning"
 );
-let dangerTitle = returnTextElement("h5", "text-muted text-danger", "Danger");
+let dangerTitle = createTextElement("h5", "text-muted text-danger", "Danger");
 
 let secondInputCol = appendsCreateCol(
   "col-4",
   validationsInputsTitle,
   successTitle,
-  createSuccessInput(),
+  sampleInputSuccess(),
   warningTitle,
-  createWarningInput(),
+  sampleInputWarning(),
   dangerTitle,
-  createDangerInput()
+  sampleInputDanger()
 );
 
-let SizeInputsTitle = returnTextElement("h2", "text-muted", "Size Inputs");
+let SizeInputsTitle = createTextElement("h2", "text-muted", "Size Inputs");
 
-let xsmallTitle = returnTextElement("h5", "text-muted text-primary", "xsmall");
+let xsmallTitle = createTextElement("h5", "text-muted text-primary", "xsmall");
 
-let defaultTitle = returnTextElement(
+let defaultTitle = createTextElement(
   "h5",
   "text-muted text-primary",
   "default"
 );
 
-let largeTitle = returnTextElement("h5", "text-muted text-primary", "large");
+let largeTitle = createTextElement("h5", "text-muted text-primary", "large");
 
 let thirdInputCol = appendsCreateCol(
   "col-4",
   SizeInputsTitle,
   xsmallTitle,
-  xSmallInput(),
+  sampleInputXsmall(),
   defaultTitle,
-  defaultInput(),
+  sampleInputDefault(),
   largeTitle,
-  largeInput()
+  sampleInputLarge()
 );
 
 let mainInputCol = appendsCreateCol(
