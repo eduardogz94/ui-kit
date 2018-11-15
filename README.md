@@ -45,12 +45,12 @@ git clone https://eduardogz94@bitbucket.org/eduardogz94/egui-kit.git
 ```
 
 #Samples
-![picture](src/assets/images/inputs.png)
-![picture](src/assets/images/buttons.png)
-![picture](src/assets/images/cards.png)
-![picture](src/assets/images/typography.png)
-![picture](src/assets/images/icons.png)
-![picture](src/assets/images/alerts.png)
+![picture](https://bitbucket.org/eduardogz94/egui-kit/src/master/src/assets/images/inputs.png)
+![picture](https://bitbucket.org/eduardogz94/egui-kit/src/master/src/assets/images/buttons.png)
+![picture](https://bitbucket.org/eduardogz94/egui-kit/src/master/src/assets/images/cards.png)
+![picture](https://bitbucket.org/eduardogz94/egui-kit/src/master/src/assets/images/typography.png)
+![picture](https://bitbucket.org/eduardogz94/egui-kit/src/master/src/assets/images/icons.png)
+![picture](https://bitbucket.org/eduardogz94/egui-kit/src/master/src/assets/images/alerts.png)
 
 # Documentation
 
