@@ -12,7 +12,7 @@
     "precommit": "pretty-quick --staged",
     "start": "node start.js",
     "dev": "nodemon start.js",
-    "docs": "./node_modules/.bin/jsdoc -c doc.json tests/samples.js README.md"
+    "docs": "./node_modules/.bin/jsdoc -c doc.json tests/samples.js JSDOC.md"
   },
   "repository": {
     "type": "git",
