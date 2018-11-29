@@ -1,7 +1,11 @@
 {
   "source": {
     "include": [
-      "src/index.js",
+      "src/js/sivaFunctions.js",
+      "src/js/regexp.js",
+      "src/js/bindingFunctions.js",
+      "src/observer/index.js",
+
       "src/components/EgButton.js",
       "src/components/EgInput.js",
       "src/components/EgImage.js",
@@ -9,33 +13,32 @@
       "src/components/EgIcon.js",
       "src/components/Grid/EgCol.js",
 
-      "tests/views/Buttons/ButtonsView.js",
-      "tests/views/Cards/CardsView.js",
-      "tests/views/Images/ImagesView.js",
-      "tests/views/Inputs/InputsView.js",
+      "tests/Buttons/Render.js",
+      "tests/Buttons/ColorsButtons.js",
+      "tests/Buttons/OutlineColorsButtons.js",
+      "tests/Buttons/SizesButtons.js",
+      "tests/Buttons/StylesButtons.js",
 
-      "tests/components/Buttons/ColorsButtons.js",
-      "tests/components/Buttons/OutlineColorsButtons.js",
-      "tests/components/Buttons/SizesButtons.js",
-      "tests/components/Buttons/StylesButtons.js",
+      "tests/Cards/Render.js",
+      "tests/Cards/DangerCard.js",
+      "tests/Cards/DefaultCard.js",
+      "tests/Cards/PrimaryCard.js",
+      "tests/Cards/SecondaryCard.js",
+      "tests/Cards/SuccessCard.js",
+      "tests/Cards/InfoCard.js",
+      "tests/Cards/LoginCard.js",
+      "tests/Cards/WarningCard.js",
 
-      "tests/components/Cards/DangerCard.js",
-      "tests/components/Cards/DefaultCard.js",
-      "tests/components/Cards/PrimaryCard.js",
-      "tests/components/Cards/SecondaryCard.js",
-      "tests/components/Cards/SuccessCard.js",
-      "tests/components/Cards/InfoCard.js",
-      "tests/components/Cards/LoginCard.js",
-      "tests/components/Cards/WarningCard.js",
+      "tests/Images/Render.js",
+      "tests/Images/CircleImage.js",
+      "tests/Images/ThumbnailImage.js",
+      "tests/Images/RoundedImage.js",
+      "tests/Images/RaisedImage.js",
 
-      "tests/components/Images/CircleImage.js",
-      "tests/components/Images/ThumbnailImage.js",
-      "tests/components/Images/RoundedImage.js",
-      "tests/components/Images/RaisedImage.js",
-
-      "tests/components/Inputs/BasicInputs.js",
-      "tests/components/Inputs/ValidationsInputs.js",
-      "tests/components/Inputs/SizingInputs.js"
+      "tests/Inputs/Render.js",
+      "tests/Inputs/BasicInputs.js",
+      "tests/Inputs/ValidationsInputs.js",
+      "tests/Inputs/SizingInputs.js"
     ],
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"

@@ -23,77 +23,174 @@
 
       <section>
         <article>
-          <pre class="prettyprint source linenums"><code>/**
+          <pre class="prettyprint source linenums"><code>import {
+  getElementObjects,
+  createAndAppendElement,
+  appendMultipleElements,
+  createMultipleElements,
+  safeSet,
+  safeChildSet,
+  safeMultipleSet,
+  setBorder,
+  setFont,
+  setFontStyle,
+  setBackground,
+  setDimensions,
+  setPosition,
+  onClear
+} from "../js/bindingFunctions.js";
+
+import { caps, lowerCaps, integer, floatTest } from "../js/regexp.js";
+
+import {
+  observerCallback,
+  initIntersectionObserver,
+  disconnectObserver
+} from "../observer/index.js";
+
+/**
  * EgInput Class
  * @extends {HTMLElement}
  */
-class EgInput extends HTMLElement {
+export default class EgInput extends HTMLElement {
+  /**
+   * Constructor for EgInput.
+   * @constructor
+   * @param {String} control Class for the form-control style.
+   * @param {String} type Type of the input.
+   * @protected
+   */
   constructor(control, type) {
     super();
     this.control = control;
     this.type = type;
+
+    // Bind the observer so it can access the element with `this`.
+    this.observerCallback = observerCallback.bind(this);
+    this.disconnectObserver = disconnectObserver.bind(this);
+    this.initIntersectionObserver = initIntersectionObserver.bind(this);
+
+    // Bind the multiple Siva-functions.
+    this.getElementObjects = getElementObjects.bind(this);
+    this.createAndAppendElement = createAndAppendElement.bind(this);
+    this.appendMultipleElements = appendMultipleElements.bind(this);
+    this.createElements = createMultipleElements.bind(this);
+
+    // Bind the component attributes functions.
+    this.safeSet = safeSet.bind(this);
+    this.safeChildSet = safeChildSet.bind(this);
+    this.safeMultipleSet = safeMultipleSet.bind(this);
+
+    // Bind the multiple Siva components style functions.
+    this.setBorder = setBorder.bind(this);
+    this.setFont = setFont.bind(this);
+    this.setFontStyle = setFontStyle.bind(this);
+    this.setBackground = setBackground.bind(this);
+    this.setDimensions = setDimensions.bind(this);
+    this.setPosition = setPosition.bind(this);
+
+    // // Bind the value functions.
+    this.onClear = onClear.bind(this);
+
+    // // Bind regexp functions.
+    this.caps = caps.bind(this);
+    this.lowerCaps = lowerCaps.bind(this);
+    this.integer = integer.bind(this);
+    this.floatTest = floatTest.bind(this);
   }
 
+  /** A function to return the html template of the component.
+   * @protected
+   * @template
+   */
+  template() {
+    return `&lt;input/>`;
+  }
+
+  /**
+   * A lifecycle method that calls when the component has finally rendered.
+   * @protected
+   */
   connectedCallback() {
-    this.innerHTML = `&lt;input/>`;
-    this.setInput();
+    this.innerHTML = this.template();
+    this.setComponent();
     this.defaultProperties();
 
     ccc.registerComponent(this, {
       id: this.id,
       secret: "Input Parent"
     });
+
+    // If IntersectionObserver is available, initialize it.
+    // otherwise, simply load the image.
+    if ("IntersectionObserver" in window) this.initIntersectionObserver();
+    else this.intersecting = true;
   }
 
+  /**
+   * A lifecycle method that calls when the component has unmounted.
+   * @protected
+   */
+  disconnectedCallback() {
+    this.disconnectObserver();
+  }
+
+  /**
+   * A function to get the input inside the EgInput tag.
+   * @protected
+   */
+  getComponent() {
+    return this.querySelector("input");
+  }
+
+  /**
+   * A function to set the component properties/attributes.
+   * @protected
+   */
+  setComponent() {
+    // Properties
+    if (this.id) this.safeSet("id", this.id);
+    if (this.type) this.safeSet("type", this.type);
+    if (this.placeholder) this.safeSet("placeholder", this.placeholder);
+
+    // Attributes
+    if (this.control) this.safeSet("control", this.control);
+    if (this.col) this.safeSet("col", this.col);
+    if (this.offset) this.safeSet("offset", this.offset);
+    if (this.css) this.safeSet("css", this.css);
+  }
+
+  /**
+   * Set the default properties/attributes for the component.
+   * @protected
+   */
   defaultProperties() {
     let classname = "";
     this.getAttributeNames().forEach(element => {
-      if (element === "id") return null;
-      if (element === "placeholder") return null;
-      if (element === "type") return null;
+      if (element === "id")
+        return this.safeChildSet(
+          element,
+          `${this.getAttribute(`${element}`)}-input`
+        );
+
+      if (element === "placeholder")
+        return this.safeChildSet(element, `${this.getAttribute(`${element}`)}`);
+
+      if (element === "type")
+        return this.safeChildSet(element, `${this.getAttribute(`${element}`)}`);
+
       classname += `${this.getAttribute(`${element}`)} `;
     });
-    this.getInput().className = classname;
+    this.getComponent().className = classname;
     this.className = "form-group";
   }
 
-  setObjectProperties(props, keys) {
-    if (props.lenght === keys.lenght) {
-      for (let index in props) {
-        this.getInput().setAttribute(props[index], keys[index]);
-      }
-    } else {
-      console.error("both arrays must be same lenght");
-    }
-  }
-
-  setBorder(color, value, radius) {
-    this.getInput().style.borderColor = color;
-    this.getInput().style.border = value;
-    this.getInput().style.borderRadius = radius;
-  }
-
-  setFont(value, size, color) {
-    this.getInput().style.fontFamily = value;
-    this.getInput().style.fontSize = size;
-    this.getInput().style.color = color;
-  }
-
-  setFontStyle(s, w) {
-    this.getInput().style.fontStyle = s;
-    this.getInput().style.fontWeight = w;
-  }
-
-  setBackground(color, img) {
-    this.getInput().style.background = color;
-    img = "none"
-      ? (img = "")
-      : (this.getInput().style.backgroundImage =
-          "url(" + this.pathImg + img + ")");
-  }
-
+  /**
+   * A function to receive the specified input data.
+   * @protected
+   */
   getInputValue() {
-    let response = this.getInput();
+    let response = this.getComponent();
     let id = "";
 
     response.id || response.id == undefined
@@ -111,99 +208,38 @@ class EgInput extends HTMLElement {
     return data;
   }
 
-  getInput() {
-    return this.querySelector("input");
-  }
-
-  setInput() {
-    if (this.id) this.getInput().setAttribute("id", `${this.id}-input`);
-    if (this.type) this.getInput().setAttribute("type", this.type);
-    if (this.control) this.setAttribute("control", this.control);
-    if (this.col) this.setAttribute("col", this.col);
-    if (this.offset) this.setAttribute("offset", this.offset);
-    if (this.css) this.setAttribute("css", this.css);
-
-    if (this.getAttribute("type"))
-      this.getInput().setAttribute("type", this.getAttribute("type"));
-
-    if (this.placeholder)
-      this.getInput().setAttribute("placeholder", this.placeholder);
-
-    if (this.getAttribute("placeholder"))
-      this.getInput().setAttribute(
-        "placeholder",
-        this.getAttribute("placeholder")
-      );
-  }
-
-  setInputAttribute(key, value) {
-    this.getInput().setAttribute(key, value);
-  }
-
-  onClear() {
-    this.getInput().value = "";
-  }
-
-  setPos(x, y) {
-    this.getInput().style.top = x + "%";
-    this.getInput().style.left = y + "%";
-    this.getInput().style.position = "relative";
-  }
-
-  setDimensions(width, height) {
-    this.getInput().style.width = width + "%";
-    this.getInput().style.height = height + "%";
-  }
-
-  caps() {
-    alert(/[A-Z]/.test(this.getInput().value) ? true : false);
-  }
-
-  integer() {
-    alert(/[^0-9]/.test(this.getInput().value) ? true : false);
-  }
-
-  floatTest() {
-    alert(/[0-9]/.test(this.getInput().value) ? true : false);
-  }
-
-  lowerCaps() {
-    alert(/[a-z]/.test(this.getInput().value) ? true : false);
-  }
-
+  /**
+   * A function to validate a input length.
+   * @protected
+   */
   validateValue(length) {
     let input = this.getInputValue();
-    if (input.value.length &lt;= length - 1) {
+    if (input.value.length &lt;= length - 1)
       this.setFormControl("form-control-warning");
-    } else {
-      this.setFormControl("form-control-success");
-    }
+    else if (input.value.length &lt;= 0)
+      this.setFormControl("form-control-danger");
+    else this.setFormControl("form-control-success");
   }
 
+  /**
+   * A function to validate a input email value.
+   * @param {String} [emailType] A string as the type to validate.
+   * @protected
+   */
   validateEmail(emailType) {
-    if (this.getInput().getAttribute("type") === "email") {
+    if (this.getComponent().getAttribute("type") === "email") {
       let input = this.getInputValue();
-      if (input.value.search(emailType) === -1) {
+      if (input.value.search(emailType) === -1)
         this.setFormControl("form-control-danger");
-      } else {
-        this.setFormControl("form-control-success");
-      }
+      else this.setFormControl("form-control-success");
     }
   }
 
-  validatePassword(length) {
-    if (this.getInput().getAttribute("type") === "password") {
-      let input = this.getInputValue();
-      if (input.value.length === 0) {
-        this.setFormControl("form-control-danger");
-      } else if (input.value.length &lt;= length - 1) {
-        this.setFormControl("form-control-warning");
-      } else {
-        this.setFormControl("form-control-success");
-      }
-    }
-  }
-
+  /**
+   * A function to set the form-control attribute of the input.
+   * @param {String} [value] A string as the form-control attribute value.
+   * @protected
+   */
   setFormControl(value) {
     let classname = "";
     this.getAttributeNames().forEach(element => {
@@ -215,11 +251,18 @@ class EgInput extends HTMLElement {
       classname += `${this.getAttribute(`${element}`)} `;
     });
 
-    this.getInput().className = `${classname} form-control ${value}`;
+    this.getComponent().className = `${classname} form-control ${value}`;
   }
 }
 
-customElements.define("eg-input", EgInput);
+// You must change this 2 consts after generated.
+let tagName = "eg-input";
+let registerDOM = () => customElements.define(tagName, EgInput);
+
+//Async loading.
+window.WebComponents
+  ? window.WebComponents.waitFor(registerDOM)
+  : registerDOM();
 </code></pre>
         </article>
       </section>
@@ -229,19 +272,23 @@ customElements.define("eg-input", EgInput);
       <h2><a href="index.html">Home</a></h2>
       <h3>Classes</h3>
       <ul>
-        <li><a href="EgButton.html">EgButton</a></li>
-        <li><a href="EgCard.html">EgCard</a></li>
-        <li><a href="EgCol.html">EgCol</a></li>
-        <li><a href="EgImage.html">EgImage</a></li>
-        <li><a href="EgInput.html">EgInput</a></li>
+        <li><a href="module.exports.html">exports</a></li>
       </ul>
       <h3>Global</h3>
       <ul>
-        <li><a href="global.html#addElement">addElement</a></li>
+        <li><a href="global.html#addIcon">addIcon</a></li>
         <li>
-          <a href="global.html#addMultipleElements">addMultipleElements</a>
+          <a href="global.html#appendMultipleElements"
+            >appendMultipleElements</a
+          >
         </li>
         <li><a href="global.html#appendsCreateCol">appendsCreateCol</a></li>
+        <li><a href="global.html#connectedCallback">connectedCallback</a></li>
+        <li>
+          <a href="global.html#createAndAppendElement"
+            >createAndAppendElement</a
+          >
+        </li>
         <li><a href="global.html#createButton">createButton</a></li>
         <li>
           <a href="global.html#createCardLoginBody">createCardLoginBody</a>
@@ -255,7 +302,26 @@ customElements.define("eg-input", EgInput);
           >
         </li>
         <li><a href="global.html#createTextElement">createTextElement</a></li>
+        <li><a href="global.html#createView">createView</a></li>
+        <li><a href="global.html#defaultProperties">defaultProperties</a></li>
+        <li>
+          <a href="global.html#disconnectedCallback">disconnectedCallback</a>
+        </li>
+        <li><a href="global.html#disconnectObserver">disconnectObserver</a></li>
+        <li><a href="global.html#emailValidator">emailValidator</a></li>
+        <li><a href="global.html#getComponent">getComponent</a></li>
         <li><a href="global.html#getElementObjects">getElementObjects</a></li>
+        <li><a href="global.html#getInputValue">getInputValue</a></li>
+        <li>
+          <a href="global.html#initIntersectionObserver"
+            >initIntersectionObserver</a
+          >
+        </li>
+        <li><a href="global.html#lengthValidator">lengthValidator</a></li>
+        <li><a href="global.html#observerCallback">observerCallback</a></li>
+        <li><a href="global.html#safeChildSet">safeChildSet</a></li>
+        <li><a href="global.html#safeMultipleSet">safeMultipleSet</a></li>
+        <li><a href="global.html#safeSet">safeSet</a></li>
         <li><a href="global.html#sampleButtonColors">sampleButtonColors</a></li>
         <li>
           <a href="global.html#sampleButtonOutline">sampleButtonOutline</a>
@@ -289,7 +355,12 @@ customElements.define("eg-input", EgInput);
         <li><a href="global.html#sampleInputText">sampleInputText</a></li>
         <li><a href="global.html#sampleInputWarning">sampleInputWarning</a></li>
         <li><a href="global.html#sampleInputXsmall">sampleInputXsmall</a></li>
-        <li><a href="global.html#setElementProps">setElementProps</a></li>
+        <li><a href="global.html#setBorder">setBorder</a></li>
+        <li><a href="global.html#setComponent">setComponent</a></li>
+        <li><a href="global.html#setFont">setFont</a></li>
+        <li><a href="global.html#setFontStyle">setFontStyle</a></li>
+        <li><a href="global.html#setFormControl">setFormControl</a></li>
+        <li><a href="global.html#template">template</a></li>
         <li><a href="global.html#validateEmail">validateEmail</a></li>
         <li><a href="global.html#validateValue">validateValue</a></li>
       </ul>
@@ -299,8 +370,8 @@ customElements.define("eg-input", EgInput);
 
     <footer>
       Documentation generated by
-      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 14
-      2018 20:43:15 GMT-0400 (-04)
+      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 29
+      2018 01:39:03 GMT-0400 (-04)
     </footer>
 
     <script>

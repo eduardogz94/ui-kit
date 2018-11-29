@@ -1,45 +1,143 @@
+import {
+  getElementObjects,
+  createAndAppendElement,
+  appendMultipleElements,
+  createMultipleElements,
+  safeSet,
+  safeChildSet,
+  safeMultipleSet,
+  setBorder,
+  setFont,
+  setFontStyle,
+  setBackground,
+  setDimensions,
+  setPosition
+} from "../js/bindingFunctions.js";
+
+import {
+  observerCallback,
+  initIntersectionObserver,
+  disconnectObserver
+} from "../observer/index.js";
+
 /**
  * EgButton Class
  * @extends {HTMLElement}
  */
-class EgButton extends HTMLElement {
+export default class EgButton extends HTMLElement {
   /**
-   * Creates a EgButton.
+   * Constructor for EgButton.
+   * @constructor
    * @param {String} btn Class for the eg-button.
+   * @protected
    */
   constructor(btn) {
     super();
     this.btn = btn;
+
+    // Bind the observer so it can access the element with `this`.
+    this.observerCallback = observerCallback.bind(this);
+    this.disconnectObserver = disconnectObserver.bind(this);
+    this.initIntersectionObserver = initIntersectionObserver.bind(this);
+
+    // Bind the multiple Siva-functions.
+    this.getElementObjects = getElementObjects.bind(this);
+    this.createAndAppendElement = createAndAppendElement.bind(this);
+    this.appendMultipleElements = appendMultipleElements.bind(this);
+    this.createElements = createMultipleElements.bind(this);
+
+    // Bind the component attributes functions.
+    this.safeSet = safeSet.bind(this);
+    this.safeChildSet = safeChildSet.bind(this);
+    this.safeMultipleSet = safeMultipleSet.bind(this);
+
+    // Bind the multiple Siva-components-style-functions.
+    this.setBorder = setBorder.bind(this);
+    this.setFont = setFont.bind(this);
+    this.setFontStyle = setFontStyle.bind(this);
+    this.setBackground = setBackground.bind(this);
+    this.setDimensions = setDimensions.bind(this);
+    this.setPosition = setPosition.bind(this);
+  }
+
+  /** A function to return the html template of the component.
+   * @protected
+   * @template
+   */
+  template() {
+    return `<button>${this.innerText}</button>`;
   }
 
   /**
    * A lyfecicle method that calls when the component has finally rendered.
-   * @function
-   * @returns {HTMLElement} Renders a EgButton component.
+   * @protected
    */
   connectedCallback() {
-    this.innerHTML = `<button>${this.innerText}</button>`;
-    this.setButton();
+    this.innerHTML = this.template();
+    this.setComponent();
     this.defaultProperties();
 
     ccc.registerComponent(this, {
       id: this.id,
       secret: "Button Parent"
     });
+
+    // If IntersectionObserver is available, initialize it.
+    // otherwise, simply load the image.
+    if ("IntersectionObserver" in window) this.initIntersectionObserver();
+    else this.intersecting = true;
+  }
+
+  /**
+   * A lifecycle method that calls when the component has unmounted.
+   * @protected
+   */
+  disconnectedCallback() {
+    this.disconnectObserver();
+  }
+
+  /**
+   * A function to get the button inside the EgButton tag.
+   */
+  getComponent() {
+    return this.querySelector("button");
+  }
+
+  /**
+   * A function to set the Button properties as they are received from a js instance.
+   * @protected
+   */
+  setComponent() {
+    // Properties
+    if (this.id) this.safeSet("id", this.id);
+    if (this.type) this.safeSet("type", this.type);
+    if (this.innerText) this.safeSet("innerText", this.innerText);
+
+    // Attributes
+    if (this.btn) this.safeSet("btn", this.btn);
+    if (this.col) this.safeSet("col", this.col);
+    if (this.offset) this.safeSet("class", this.offset);
+    if (this.css) this.safeSet("css", this.css);
   }
 
   /**
    * Set the default properties for the EgButton object.
-   * @function
-   * @returns {HTMLElement} Sets the default classname of the EgButton instance.
+   * @protected
    */
   defaultProperties() {
     let classname = "";
     this.getAttributeNames().forEach(element => {
-      if (element === "id") return null;
-      if (element === "innertext") return null;
-      if (element === "type") return null;
-      if (element === "onclick") return null;
+      if (element === "id")
+        return this.safeChildSet(
+          element,
+          `${this.getAttribute(`${element}`)}-button`
+        );
+      if (element === "innertext")
+        return this.safeChildSet(element, `${this.getAttribute(`${element}`)}`);
+      if (element === "type")
+        return this.safeChildSet(element, `${this.getAttribute(`${element}`)}`);
+      if (element === "onclick")
+        return this.safeChildSet(element, `${this.getAttribute(`${element}`)}`);
       if (element === "icon")
         return this.addIcon(this.getAttribute(`${element}`));
       if (element === "btn")
@@ -47,82 +145,25 @@ class EgButton extends HTMLElement {
 
       classname += `${this.getAttribute(`${element}`)} `;
     });
-    this.getButton().className = classname;
-  }
-
-  /**
-   * A function to set Border css of the component.
-   * @param {String} color  as the color to the component border(required).
-   * @param {String} val  as the value of the component border(required).
-   * @param {String} radius  as the radius of the component border(required).
-   */
-  setBorder(color, val, radius) {
-    this.getButton().style.borderColor = color;
-    this.getButton().style.border = val;
-    this.getButton().style.borderRadius = radius;
-  }
-
-  /**
-   * A function that sets the font css of the component.
-   * @function
-   * @param {String} val
-   * @param {String} size
-   * @param {String} color
-   */
-  setFont(val, size, color) {
-    this.getButton().style.fontFamily = val;
-    this.getButton().style.fontSize = size;
-    this.getButton().style.color = color;
-  }
-
-  /**
-   * A function to set Font Style css of the component.
-   * @param {String} s  as the font size for the component(required).
-   * @param {String} w  as the font weight for the component(required).
-   */
-  setFontStyle(s, w) {
-    this.getButton().style.fontStyle = s;
-    this.getButton().style.fontWeight = w;
-  }
-
-  /**
-   * A function to set Button properties as they are received from a js instance.
-   * @function
-   * @returns {defaultProperties()}
-   */
-  setButton() {
-    if (this.id) this.getButton().setAttribute("id", `${this.id}-button`);
-    if (this.type) this.getButton().setAttribute("type", this.type);
-
-    if (this.getAttribute("type"))
-      this.getButton().setAttribute("type", this.getAttribute("type"));
-
-    if (this.innerText) this.setAttribute("innerText", this.innerText);
-    if (this.btn) this.setAttribute("btn", this.btn);
-    if (this.col) this.setAttribute("col", this.col);
-    if (this.offset) this.setAttribute("class", this.offset);
-    if (this.css) this.setAttribute("css", this.css);
-  }
-
-  /**
-   * A function to get the button inside the EgButton tag.
-   * @function
-   * @returns {Button}
-   */
-  getButton() {
-    return this.querySelector("button");
+    this.getComponent().className = classname;
   }
 
   /**
    * A function to add an icon to the EgButton.
    * @param {String} icon  as the class for the icon(required).
-   * @returns {EgButtonIcon}
    */
   addIcon(icon) {
     let egIcon = new EgIcon(icon);
-    egIcon.setAttribute("css", "ml-1");
-    this.getButton().appendChild(egIcon);
+    egIcon.safeSet("css", "ml-1");
+    this.getComponent().appendChild(egIcon);
   }
 }
 
-customElements.define("eg-button", EgButton);
+// You must change this 3 consts after generated.
+let tagName = "eg-button";
+let registerDOM = () => customElements.define(tagName, EgButton);
+
+//Async loading.
+window.WebComponents
+  ? window.WebComponents.waitFor(registerDOM)
+  : registerDOM();

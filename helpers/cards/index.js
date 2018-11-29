@@ -1,7 +1,8 @@
-/**
- * A function that creates 2 inputs object.
+import { createInput } from "../../src/js/sivaFunctions.js";
+
+/** A function that creates 2 inputs object.
  */
-const createCardsInputs = () => {
+export const createCardsInputs = () => {
   let inputCard1 = createInput(
     "form-control",
     "email",

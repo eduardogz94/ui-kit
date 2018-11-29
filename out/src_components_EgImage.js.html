@@ -23,20 +23,84 @@
 
       <section>
         <article>
-          <pre class="prettyprint source linenums"><code>/**
+          <pre class="prettyprint source linenums"><code>import {
+  getElementObjects,
+  createAndAppendElement,
+  appendMultipleElements,
+  createMultipleElements,
+  safeSet,
+  safeChildSet,
+  safeMultipleSet,
+  setBorder,
+  setFont,
+  setFontStyle,
+  setBackground,
+  setDimensions,
+  setPosition
+} from "../js/bindingFunctions.js";
+
+import {
+  observerCallback,
+  initIntersectionObserver,
+  disconnectObserver
+} from "../observer/index.js";
+
+/**
  * EgImage Class
  * @extends {HTMLElement}
  */
-class EgImage extends HTMLElement {
+export default class EgImage extends HTMLElement {
+  /**
+   * Constructor for EgImage.
+   * @constructor
+   * @param {String} src String for the src of the image.
+   * @param {String} alt String for the alt of the image.
+   */
   constructor(src, alt) {
     super();
     this.src = src;
     this.alt = alt;
+
+    // Bind the observer so it can access the element with this.
+    this.observerCallback = observerCallback.bind(this);
+    this.disconnectObserver = disconnectObserver.bind(this);
+    this.initIntersectionObserver = initIntersectionObserver.bind(this);
+
+    // Bind the multiple Siva-functions.
+    this.getElementObjects = getElementObjects.bind(this);
+    this.createAndAppendElement = createAndAppendElement.bind(this);
+    this.appendMultipleElements = appendMultipleElements.bind(this);
+    this.createElements = createMultipleElements.bind(this);
+
+    // Bind the component attributes functions.
+    this.safeSet = safeSet.bind(this);
+    this.safeChildSet = safeChildSet.bind(this);
+    this.safeMultipleSet = safeMultipleSet.bind(this);
+
+    // Bind the multiple Siva-components-style-functions.
+    this.setBorder = setBorder.bind(this);
+    this.setFont = setFont.bind(this);
+    this.setFontStyle = setFontStyle.bind(this);
+    this.setBackground = setBackground.bind(this);
+    this.setDimensions = setDimensions.bind(this);
+    this.setPosition = setPosition.bind(this);
   }
 
+  /** A function to return the html template of the component.
+   * @protected
+   * @template
+   */
+  template() {
+    return `&lt;image/>`;
+  }
+
+  /**
+   * A lifecycle method that calls when the component has finally rendered.
+   * @protected
+   */
   connectedCallback() {
-    this.innerHTML = `&lt;img>&lt;/img>`;
-    this.setImage();
+    this.innerHTML = this.template();
+    this.setComponent();
     this.defaultProperties();
     ccc.registerComponent(this, {
       id: this.id,
@@ -44,10 +108,43 @@ class EgImage extends HTMLElement {
     });
   }
 
-  getImage() {
+  /**
+   * A lifecycle method that calls when the component has unmounted.
+   * @protected
+   */
+  disconnectedCallback() {
+    this.disconnectObserver();
+  }
+
+  /**
+   * A function to get the image inside the EgImage tag.
+   * @protected
+   */
+  getComponent() {
     return this.querySelector("img");
   }
 
+  /**
+   * A function to set the component properties/attributes.
+   * @protected
+   */
+  setComponent() {
+    // Properties
+    if (this.id) this.getComponent().setAttribute("id", `${this.id}-image`);
+    if (this.type) this.setAttribute("type", this.type);
+    if (this.alt) this.setAttribute("alt", this.alt);
+    if (this.src) this.setAttribute("src", this.src);
+
+    //Attributes
+    if (this.col) this.setAttribute("col", this.col);
+    if (this.offset) this.setAttribute("offset", this.offset);
+    if (this.css) this.setAttribute("css", this.css);
+  }
+
+  /**
+   * Set the default properties/attributes for the component.
+   * @protected
+   */
   defaultProperties() {
     let classname = "";
     this.getAttributeNames().forEach(element => {
@@ -58,31 +155,28 @@ class EgImage extends HTMLElement {
       if (element === "id") return null;
       classname += `${this.getAttribute(`${element}`)}`;
     });
-    this.getImage().className = classname;
-  }
-
-  setImage() {
-    if (this.id) this.getImage().setAttribute("id", `${this.id}-image`);
-    if (this.type) this.setAttribute("type", this.type);
-    if (this.alt) this.setAttribute("alt", this.alt);
-    if (this.src) this.setAttribute("src", this.src);
-    if (this.col) this.setAttribute("col", this.col);
-    if (this.offset) this.setAttribute("offset", this.offset);
-    if (this.css) this.setAttribute("css", this.css);
+    this.getComponent().className = classname;
   }
 
   setImageSource(src) {
-    let image = this.getImage();
+    let image = this.getComponent();
     image.src = src;
   }
 
   setImageAlt(alt) {
-    let image = this.getImage();
+    let image = this.getComponent();
     image.alt = alt;
   }
 }
 
-customElements.define("eg-img", EgImage);
+// You must change this 3 consts after generated.
+let tagName = "eg-img";
+let registerDOM = () => customElements.define(tagName, EgImage);
+
+//Async loading.
+window.WebComponents
+  ? window.WebComponents.waitFor(registerDOM)
+  : registerDOM();
 </code></pre>
         </article>
       </section>
@@ -92,19 +186,23 @@ customElements.define("eg-img", EgImage);
       <h2><a href="index.html">Home</a></h2>
       <h3>Classes</h3>
       <ul>
-        <li><a href="EgButton.html">EgButton</a></li>
-        <li><a href="EgCard.html">EgCard</a></li>
-        <li><a href="EgCol.html">EgCol</a></li>
-        <li><a href="EgImage.html">EgImage</a></li>
-        <li><a href="EgInput.html">EgInput</a></li>
+        <li><a href="module.exports.html">exports</a></li>
       </ul>
       <h3>Global</h3>
       <ul>
-        <li><a href="global.html#addElement">addElement</a></li>
+        <li><a href="global.html#addIcon">addIcon</a></li>
         <li>
-          <a href="global.html#addMultipleElements">addMultipleElements</a>
+          <a href="global.html#appendMultipleElements"
+            >appendMultipleElements</a
+          >
         </li>
         <li><a href="global.html#appendsCreateCol">appendsCreateCol</a></li>
+        <li><a href="global.html#connectedCallback">connectedCallback</a></li>
+        <li>
+          <a href="global.html#createAndAppendElement"
+            >createAndAppendElement</a
+          >
+        </li>
         <li><a href="global.html#createButton">createButton</a></li>
         <li>
           <a href="global.html#createCardLoginBody">createCardLoginBody</a>
@@ -118,7 +216,26 @@ customElements.define("eg-img", EgImage);
           >
         </li>
         <li><a href="global.html#createTextElement">createTextElement</a></li>
+        <li><a href="global.html#createView">createView</a></li>
+        <li><a href="global.html#defaultProperties">defaultProperties</a></li>
+        <li>
+          <a href="global.html#disconnectedCallback">disconnectedCallback</a>
+        </li>
+        <li><a href="global.html#disconnectObserver">disconnectObserver</a></li>
+        <li><a href="global.html#emailValidator">emailValidator</a></li>
+        <li><a href="global.html#getComponent">getComponent</a></li>
         <li><a href="global.html#getElementObjects">getElementObjects</a></li>
+        <li><a href="global.html#getInputValue">getInputValue</a></li>
+        <li>
+          <a href="global.html#initIntersectionObserver"
+            >initIntersectionObserver</a
+          >
+        </li>
+        <li><a href="global.html#lengthValidator">lengthValidator</a></li>
+        <li><a href="global.html#observerCallback">observerCallback</a></li>
+        <li><a href="global.html#safeChildSet">safeChildSet</a></li>
+        <li><a href="global.html#safeMultipleSet">safeMultipleSet</a></li>
+        <li><a href="global.html#safeSet">safeSet</a></li>
         <li><a href="global.html#sampleButtonColors">sampleButtonColors</a></li>
         <li>
           <a href="global.html#sampleButtonOutline">sampleButtonOutline</a>
@@ -152,7 +269,12 @@ customElements.define("eg-img", EgImage);
         <li><a href="global.html#sampleInputText">sampleInputText</a></li>
         <li><a href="global.html#sampleInputWarning">sampleInputWarning</a></li>
         <li><a href="global.html#sampleInputXsmall">sampleInputXsmall</a></li>
-        <li><a href="global.html#setElementProps">setElementProps</a></li>
+        <li><a href="global.html#setBorder">setBorder</a></li>
+        <li><a href="global.html#setComponent">setComponent</a></li>
+        <li><a href="global.html#setFont">setFont</a></li>
+        <li><a href="global.html#setFontStyle">setFontStyle</a></li>
+        <li><a href="global.html#setFormControl">setFormControl</a></li>
+        <li><a href="global.html#template">template</a></li>
         <li><a href="global.html#validateEmail">validateEmail</a></li>
         <li><a href="global.html#validateValue">validateValue</a></li>
       </ul>
@@ -162,8 +284,8 @@ customElements.define("eg-img", EgImage);
 
     <footer>
       Documentation generated by
-      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 14
-      2018 20:43:15 GMT-0400 (-04)
+      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 29
+      2018 01:39:03 GMT-0400 (-04)
     </footer>
 
     <script>

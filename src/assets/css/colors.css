@@ -7,10 +7,7 @@ Success: #3ebb3c / rgb(0,200,83)
 warning: #fbd82b / rgb(255,145,0)
 danger:  #dc2649 / rgb(255,23,68)
 */
-* {
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-tap-highlight-color: transparent;
-}
+
 .wrapper {
   background-color: #cbcbcb;
 }
@@ -607,7 +604,7 @@ a:focus {
 .progress.progress-warning .progress-bar {
   background-color: #fbd82b;
 }
-.progress.progress-danger {
+. progress.progress-danger {
   background: rgba(255, 23, 68, 0.2);
 }
 .progress.progress-danger .progress-bar {

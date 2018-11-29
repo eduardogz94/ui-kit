@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSDoc: Source: tests/Inputs/SizingInputs.js</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h1 class="page-title">Source: tests/Inputs/SizingInputs.js</h1>
+
+      <section>
+        <article>
+          <pre
+            class="prettyprint source linenums"
+          ><code>import { createInput } from "../../src/js/sivaFunctions.js";
+
+/** Creates the input for xsmall input sample.
+ * @function
+ * @returns {EgInput} EgInput With all the props inside function.
+ */
+export const sampleInputXsmall = () => {
+  let xsmallInput = createInput(
+    "form-control form-control-sm",
+    "text",
+    "xsmall",
+    "col-10",
+    "xsmall Javascript Input"
+  );
+  xsmallInput.css = "mb-2";
+
+  return xsmallInput;
+};
+
+/** Creates the input for default input sample.
+ * @function
+ * @returns {EgInput} EgInput With all the props inside function.
+ */
+export const sampleInputDefault = () => {
+  let defaultInput = createInput(
+    "form-control",
+    "text",
+    "default",
+    "col-10",
+    "Default Javascript Input"
+  );
+  defaultInput.css = "mb-2";
+
+  return defaultInput;
+};
+
+/** Creates the input for large input sample.
+ * @function
+ * @returns {EgInput} EgInput With all the props inside function.
+ */
+export const sampleInputLarge = () => {
+  let largeInput = createInput(
+    "form-control form-control-lg",
+    "text",
+    "large",
+    "col-10",
+    "Large Javascript Input"
+  );
+  largeInput.css = "mb-2";
+
+  return largeInput;
+};
+</code></pre>
+        </article>
+      </section>
+    </div>
+
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Classes</h3>
+      <ul>
+        <li><a href="module.exports.html">exports</a></li>
+      </ul>
+      <h3>Global</h3>
+      <ul>
+        <li><a href="global.html#addIcon">addIcon</a></li>
+        <li>
+          <a href="global.html#appendMultipleElements"
+            >appendMultipleElements</a
+          >
+        </li>
+        <li><a href="global.html#appendsCreateCol">appendsCreateCol</a></li>
+        <li><a href="global.html#connectedCallback">connectedCallback</a></li>
+        <li>
+          <a href="global.html#createAndAppendElement"
+            >createAndAppendElement</a
+          >
+        </li>
+        <li><a href="global.html#createButton">createButton</a></li>
+        <li>
+          <a href="global.html#createCardLoginBody">createCardLoginBody</a>
+        </li>
+        <li><a href="global.html#createCardText">createCardText</a></li>
+        <li><a href="global.html#createCol">createCol</a></li>
+        <li><a href="global.html#createInput">createInput</a></li>
+        <li>
+          <a href="global.html#createMultipleElements"
+            >createMultipleElements</a
+          >
+        </li>
+        <li><a href="global.html#createTextElement">createTextElement</a></li>
+        <li><a href="global.html#createView">createView</a></li>
+        <li><a href="global.html#defaultProperties">defaultProperties</a></li>
+        <li>
+          <a href="global.html#disconnectedCallback">disconnectedCallback</a>
+        </li>
+        <li><a href="global.html#disconnectObserver">disconnectObserver</a></li>
+        <li><a href="global.html#emailValidator">emailValidator</a></li>
+        <li><a href="global.html#getComponent">getComponent</a></li>
+        <li><a href="global.html#getElementObjects">getElementObjects</a></li>
+        <li><a href="global.html#getInputValue">getInputValue</a></li>
+        <li>
+          <a href="global.html#initIntersectionObserver"
+            >initIntersectionObserver</a
+          >
+        </li>
+        <li><a href="global.html#lengthValidator">lengthValidator</a></li>
+        <li><a href="global.html#observerCallback">observerCallback</a></li>
+        <li><a href="global.html#safeChildSet">safeChildSet</a></li>
+        <li><a href="global.html#safeMultipleSet">safeMultipleSet</a></li>
+        <li><a href="global.html#safeSet">safeSet</a></li>
+        <li><a href="global.html#sampleButtonColors">sampleButtonColors</a></li>
+        <li>
+          <a href="global.html#sampleButtonOutline">sampleButtonOutline</a>
+        </li>
+        <li><a href="global.html#sampleButtonSizes">sampleButtonSizes</a></li>
+        <li><a href="global.html#sampleButtonStyles">sampleButtonStyles</a></li>
+        <li><a href="global.html#sampleCardDanger">sampleCardDanger</a></li>
+        <li><a href="global.html#sampleCardDefault">sampleCardDefault</a></li>
+        <li><a href="global.html#sampleCardInfo">sampleCardInfo</a></li>
+        <li><a href="global.html#sampleCardLogin">sampleCardLogin</a></li>
+        <li><a href="global.html#sampleCardPrimary">sampleCardPrimary</a></li>
+        <li>
+          <a href="global.html#sampleCardSecondary">sampleCardSecondary</a>
+        </li>
+        <li><a href="global.html#sampleCardSuccess">sampleCardSuccess</a></li>
+        <li><a href="global.html#sampleCardWarning">sampleCardWarning</a></li>
+        <li><a href="global.html#sampleImageCircle">sampleImageCircle</a></li>
+        <li><a href="global.html#sampleImageRaised">sampleImageRaised</a></li>
+        <li><a href="global.html#sampleImageRounded">sampleImageRounded</a></li>
+        <li>
+          <a href="global.html#sampleImageThumbnail">sampleImageThumbnail</a>
+        </li>
+        <li><a href="global.html#sampleInputDanger">sampleInputDanger</a></li>
+        <li><a href="global.html#sampleInputDefault">sampleInputDefault</a></li>
+        <li><a href="global.html#sampleInputEmail">sampleInputEmail</a></li>
+        <li><a href="global.html#sampleInputLarge">sampleInputLarge</a></li>
+        <li>
+          <a href="global.html#sampleInputPassword">sampleInputPassword</a>
+        </li>
+        <li><a href="global.html#sampleInputSuccess">sampleInputSuccess</a></li>
+        <li><a href="global.html#sampleInputText">sampleInputText</a></li>
+        <li><a href="global.html#sampleInputWarning">sampleInputWarning</a></li>
+        <li><a href="global.html#sampleInputXsmall">sampleInputXsmall</a></li>
+        <li><a href="global.html#setBorder">setBorder</a></li>
+        <li><a href="global.html#setComponent">setComponent</a></li>
+        <li><a href="global.html#setFont">setFont</a></li>
+        <li><a href="global.html#setFontStyle">setFontStyle</a></li>
+        <li><a href="global.html#setFormControl">setFormControl</a></li>
+        <li><a href="global.html#template">template</a></li>
+        <li><a href="global.html#validateEmail">validateEmail</a></li>
+        <li><a href="global.html#validateValue">validateValue</a></li>
+      </ul>
+    </nav>
+
+    <br class="clear" />
+
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 29
+      2018 01:39:03 GMT-0400 (-04)
+    </footer>
+
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
+</html>

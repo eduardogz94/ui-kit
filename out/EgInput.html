@@ -25,7 +25,7 @@
         <header>
           <h2>
             <span class="attribs"><span class="type-signature"></span></span
-            >EgInput<span class="signature">()</span
+            >EgInput<span class="signature">(control, type)</span
             ><span class="type-signature"></span>
           </h2>
 
@@ -39,9 +39,45 @@
             <h4 class="name" id="EgInput">
               <span class="type-signature"></span>new EgInput<span
                 class="signature"
-                >()</span
+                >(control, type)</span
               ><span class="type-signature"></span>
             </h4>
+
+            <div class="description">Creates a EgInput.</div>
+
+            <h5>Parameters:</h5>
+
+            <table class="params">
+              <thead>
+                <tr>
+                  <th>Name</th>
+
+                  <th>Type</th>
+
+                  <th class="last">Description</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="name"><code>control</code></td>
+
+                  <td class="type"><span class="param-type">String</span></td>
+
+                  <td class="description last">
+                    Class for the form-control style.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="name"><code>type</code></td>
+
+                  <td class="type"><span class="param-type">String</span></td>
+
+                  <td class="description last">Type of the input.</td>
+                </tr>
+              </tbody>
+            </table>
 
             <dl class="details">
               <dt class="tag-source">Source:</dt>
@@ -50,7 +86,8 @@
                   <li>
                     <a href="src_components_EgInput.js.html"
                       >src/components/EgInput.js</a
-                    >, <a href="src_components_EgInput.js.html#line5">line 5</a>
+                    >,
+                    <a href="src_components_EgInput.js.html#line16">line 16</a>
                   </li>
                 </ul>
               </dd>
@@ -62,6 +99,128 @@
           <ul>
             <li>HTMLElement</li>
           </ul>
+
+          <h3 class="subsection-title">Methods</h3>
+
+          <h4 class="name" id="connectedCallback">
+            <span class="type-signature">(protected) </span
+            >connectedCallback<span class="signature">()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            A lifecycle method that calls when the component has finally
+            rendered.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="src_components_EgInput.js.html"
+                    >src/components/EgInput.js</a
+                  >, <a href="src_components_EgInput.js.html#line66">line 66</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="defaultProperties">
+            <span class="type-signature">(protected) </span
+            >defaultProperties<span class="signature">()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            Set the default properties/attributes for the component.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="src_components_EgInput.js.html"
+                    >src/components/EgInput.js</a
+                  >,
+                  <a href="src_components_EgInput.js.html#line119">line 119</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="disconnectedCallback">
+            <span class="type-signature">(protected) </span
+            >disconnectedCallback<span class="signature">()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            A lifecycle method that calls when the component has unmounted.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="src_components_EgInput.js.html"
+                    >src/components/EgInput.js</a
+                  >, <a href="src_components_EgInput.js.html#line86">line 86</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="getComponent">
+            <span class="type-signature">(protected) </span>getComponent<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            A function to get the input inside the EgInput tag.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="src_components_EgInput.js.html"
+                    >src/components/EgInput.js</a
+                  >, <a href="src_components_EgInput.js.html#line94">line 94</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h4 class="name" id="setComponent">
+            <span class="type-signature">(protected) </span>setComponent<span
+              class="signature"
+              >()</span
+            ><span class="type-signature"></span>
+          </h4>
+
+          <div class="description">
+            A function to set the component properties/attributes.
+          </div>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="src_components_EgInput.js.html"
+                    >src/components/EgInput.js</a
+                  >,
+                  <a href="src_components_EgInput.js.html#line102">line 102</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
         </article>
       </section>
     </div>
@@ -78,11 +237,17 @@
       </ul>
       <h3>Global</h3>
       <ul>
-        <li><a href="global.html#addElement">addElement</a></li>
         <li>
-          <a href="global.html#addMultipleElements">addMultipleElements</a>
+          <a href="global.html#appendMultipleElements"
+            >appendMultipleElements</a
+          >
         </li>
         <li><a href="global.html#appendsCreateCol">appendsCreateCol</a></li>
+        <li>
+          <a href="global.html#createAndAppendElement"
+            >createAndAppendElement</a
+          >
+        </li>
         <li><a href="global.html#createButton">createButton</a></li>
         <li>
           <a href="global.html#createCardLoginBody">createCardLoginBody</a>
@@ -96,7 +261,19 @@
           >
         </li>
         <li><a href="global.html#createTextElement">createTextElement</a></li>
+        <li><a href="global.html#disconnectObserver">disconnectObserver</a></li>
+        <li><a href="global.html#emailValidator">emailValidator</a></li>
         <li><a href="global.html#getElementObjects">getElementObjects</a></li>
+        <li>
+          <a href="global.html#initIntersectionObserver"
+            >initIntersectionObserver</a
+          >
+        </li>
+        <li><a href="global.html#lengthValidator">lengthValidator</a></li>
+        <li><a href="global.html#observerCallback">observerCallback</a></li>
+        <li><a href="global.html#safeChildSet">safeChildSet</a></li>
+        <li><a href="global.html#safeMultipleSet">safeMultipleSet</a></li>
+        <li><a href="global.html#safeSet">safeSet</a></li>
         <li><a href="global.html#sampleButtonColors">sampleButtonColors</a></li>
         <li>
           <a href="global.html#sampleButtonOutline">sampleButtonOutline</a>
@@ -130,9 +307,9 @@
         <li><a href="global.html#sampleInputText">sampleInputText</a></li>
         <li><a href="global.html#sampleInputWarning">sampleInputWarning</a></li>
         <li><a href="global.html#sampleInputXsmall">sampleInputXsmall</a></li>
-        <li><a href="global.html#setElementProps">setElementProps</a></li>
-        <li><a href="global.html#validateEmail">validateEmail</a></li>
-        <li><a href="global.html#validateValue">validateValue</a></li>
+        <li><a href="global.html#setBorder">setBorder</a></li>
+        <li><a href="global.html#setFont">setFont</a></li>
+        <li><a href="global.html#setFontStyle">setFontStyle</a></li>
       </ul>
     </nav>
 
@@ -140,8 +317,8 @@
 
     <footer>
       Documentation generated by
-      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 14
-      2018 20:43:15 GMT-0400 (-04)
+      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Nov 20
+      2018 05:31:28 GMT-0400 (-04)
     </footer>
 
     <script>

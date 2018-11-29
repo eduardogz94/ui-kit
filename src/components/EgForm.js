@@ -1,12 +1,73 @@
-class EgForm extends HTMLElement {
+import {
+  getElementObjects,
+  createAndAppendElement,
+  appendMultipleElements,
+  createMultipleElements,
+  safeSet,
+  safeChildSet,
+  safeMultipleSet,
+  setBorder,
+  setFont,
+  setFontStyle,
+  setBackground,
+  setDimensions,
+  setPosition,
+  onClear
+} from "../js/bindingFunctions.js";
+
+import { caps, lowerCaps, integer, floatTest } from "../js/regexp.js";
+
+import {
+  observerCallback,
+  initIntersectionObserver,
+  disconnectObserver
+} from "../observer/index.js";
+
+/**
+ * EgForm Class
+ * @extends {HTMLElement}
+ */
+export default class EgForm extends HTMLElement {
+  /**
+   * Constructor for EgForm.
+   * @constructor
+   * @protected
+   */
   constructor() {
     super();
-    this.id = this.id;
+
+    // Bind the observer so it can access the element with this.
+    this.observerCallback = observerCallback.bind(this);
+    this.disconnectObserver = disconnectObserver.bind(this);
+    this.initIntersectionObserver = initIntersectionObserver.bind(this);
+
+    // Bind the multiple Siva-functions.
+    this.getElementObjects = getElementObjects.bind(this);
+    this.createAndAppendElement = createAndAppendElement.bind(this);
+    this.appendMultipleElements = appendMultipleElements.bind(this);
+    this.createElements = createMultipleElements.bind(this);
+
+    // Bind the component attributes functions.
+    this.safeSet = safeSet.bind(this);
+    this.safeChildSet = safeChildSet.bind(this);
+    this.safeMultipleSet = safeMultipleSet.bind(this);
+
+    // Bind the multiple Siva-components-style-functions.
+    this.setBorder = setBorder.bind(this);
+    this.setFont = setFont.bind(this);
+    this.setFontStyle = setFontStyle.bind(this);
+    this.setBackground = setBackground.bind(this);
+    this.setDimensions = setDimensions.bind(this);
+    this.setPosition = setPosition.bind(this);
   }
 
+  /**
+   * A lifecycle method that calls when the component has finally rendered.
+   * @protected
+   */
   connectedCallback() {
-    this.setForm();
-    // this.defaultProperties()
+    this.setComponent();
+    this.defaultProperties();
 
     ccc.registerComponent(this, {
       id: this.id,
@@ -14,6 +75,42 @@ class EgForm extends HTMLElement {
     });
   }
 
+  /**
+   * A lifecycle method that calls when the component has unmounted.
+   * @protected
+   */
+  disconnectedCallback() {
+    this.disconnectObserver();
+  }
+
+  /**
+   * A function to get the form inside the EgForm tag.
+   * @protected
+   */
+  getComponent() {
+    return this;
+  }
+
+  /**
+   * A function to set the component properties/attributes.
+   * @protected
+   */
+  setComponent() {
+    // Properties
+    if (this.id) this.safeSet("id", this.id);
+    if (this.type) this.safeSet("type", this.type);
+    if (this.innerText) this.safeSet("innerText", this.innerText);
+
+    // Attriutes
+    if (this.col) this.safeSet("col", this.col);
+    if (this.offset) this.safeSet("offset", this.offset);
+    if (this.css) this.safeSet("css", this.css);
+  }
+
+  /**
+   * Set the default properties/attributes for the component.
+   * @protected
+   */
   defaultProperties() {
     let classname = "";
     this.getAttributeNames().forEach(element => {
@@ -21,48 +118,6 @@ class EgForm extends HTMLElement {
       classname += `${this.getAttribute(`${element}`)} `;
     });
     this.className = classname;
-  }
-
-  setObjectProperties(props, keys) {
-    if (props.lenght === keys.lenght) {
-      for (let index in props) {
-        this.setAttribute(props[index], keys[index]);
-      }
-    } else {
-      console.error("both arrays must be same lenght");
-    }
-  }
-
-  setBorder(color, val, radius) {
-    this.style.borderColor = color;
-    this.style.border = val;
-    this.style.borderRadius = radius;
-  }
-
-  setFont(val, size, color) {
-    this.style.fontFamily = val;
-    this.style.fontSize = size;
-    this.style.color = color;
-  }
-
-  setFontStyle(s, w) {
-    this.style.fontStyle = s;
-    this.style.fontWeight = w;
-  }
-
-  setBackground(color, img) {
-    this.style.background = color;
-    img = "none"
-      ? (img = "")
-      : (this.style.backgroundImage = "url(" + this.pathImg + img + ")");
-  }
-
-  getButtons() {
-    return this.querySelectorAll("button");
-  }
-
-  getInputs() {
-    return this.querySelectorAll("input");
   }
 
   getInputValues() {
@@ -90,17 +145,13 @@ class EgForm extends HTMLElement {
     });
     return data;
   }
-
-  setForm() {
-    if (this.id) this.setAttribute("id", this.id);
-    if (this.type) this.setAttribute("type", this.type);
-    if (this.innerText) this.setAttribute("innerText", this.innerText);
-    if (this.control) this.setAttribute("control", this.control);
-    if (this.col) this.setAttribute("col", this.col);
-    if (this.offset) this.setAttribute("offset", this.offset);
-    if (this.placeholder) this.setAttribute("placeholder", this.placeholder);
-    if (this.css) this.setAttribute("css", this.css);
-  }
 }
 
-customElements.define("eg-form", EgForm);
+// You must change this 3 consts after generated.
+let tagName = "eg-form";
+let registerDOM = () => customElements.define(tagName, EgForm);
+
+//Async loading.
+window.WebComponents
+  ? window.WebComponents.waitFor(registerDOM)
+  : registerDOM();

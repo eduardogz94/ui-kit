@@ -1,10 +1,47 @@
-// const logger = log4javascript.getDefaultLogger();
+import EgRouter from "../src/other/EgRouter.js";
+import { routingRender, routingAfterDOM } from "../views/Routing.js";
+import { requestRender, requestAfterDOM } from "../views/Request.js";
+import { inputsSampleRender } from "../tests/Inputs/Render.js";
 
-// logger.trace("testing logger from loader.js");
-// logger.debug("testing logger from loader.js");
-// logger.info("testing logger from loader.js");
-// logger.warn("testing logger from loader.js");
-// logger.error("testing logger from loader.js");
-// logger.fatal("testing logger from loader.js");
+export const Routes = [];
 
-ccc.chargeScript("../views/Signup").catch(e => console.log(e));
+export const routingRoute = () => {
+  let routingComponent = routingRender();
+
+  return {
+    name: "Routing",
+    url: "../views/Routing",
+    render: routingComponent,
+    lazyDOM: routingAfterDOM
+  };
+};
+
+export const inputsSampleRoute = () => {
+  let inputSampleComponent = inputsSampleRender();
+
+  return {
+    name: "InputsSample",
+    url: "../tests/Inputs/Render",
+    render: inputSampleComponent
+  };
+};
+
+export const requestRoute = () => {
+  let requestComponent = requestRender();
+
+  return {
+    name: "Request",
+    url: "../views/Request",
+    render: requestComponent,
+    lazyDOM: requestAfterDOM
+  };
+};
+
+Routes.push(routingRoute(), requestRoute());
+
+export const Router = new EgRouter(
+  Routes,
+  document.body.querySelector("#main")
+);
+
+Router.get("Routing");

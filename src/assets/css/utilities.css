@@ -411,42 +411,43 @@
 .icon-sm {
   font-size: 30px;
 }
-.border-none{
+.border-none {
   border: none !important;
   border-color: transparent !important;
 }
-.border-all{
-  border: 1px solid #DEE5E5 !important;
+.border-all {
+  border: 1px solid #dee5e5 !important;
 }
-.border-left{
-  border-left: 1px solid #DEE5E5 !important;
+.border-left {
+  border-left: 1px solid #dee5e5 !important;
 }
-.border-right{
-  border-right: 1px solid #DEE5E5 !important;
+.border-right {
+  border-right: 1px solid #dee5e5 !important;
 }
-.border-top{
-  border-top: 1px solid #DEE5E5 !important;
+.border-top {
+  border-top: 1px solid #dee5e5 !important;
 }
-.border-bottom{
-  border-bottom: 1px solid #DEE5E5 !important;
+.border-bottom {
+  border-bottom: 1px solid #dee5e5 !important;
 }
 
 /*----------------------------------------------
 * Utilities
 ----------------------------------------------*/
-.footer a{
+.footer a {
   color: #292b2c;
   font-weight: 500;
 }
-.footer a:hover{
+.footer a:hover {
   color: #6200ea;
 }
-.colored-section.footer a, .colored-section.footer p a{
+.colored-section.footer a,
+.colored-section.footer p a {
   color: #fff;
   border-bottom: none;
 }
-.colored-section.footer a:hover{
-  color: rgba(255,255,255, 0.8);
+.colored-section.footer a:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 /*Primary: #6200ea / rgb(98,0,234)
 Success: #00c853 / rgb(0,200,83)
@@ -457,21 +458,25 @@ default: #292b2c / rgb(41,43,44)*/
 /*----------------------------------------------
 * Utilities
 ----------------------------------------------*/
-::selection{
+::selection {
   color: #fff;
   background-color: #6200ea;
 }
-::-webkit-input-placeholder  { /* Chrome */
+::-webkit-input-placeholder {
+  /* Chrome */
   color: #999 !important;
 }
-:-ms-input-placeholder { /* IE 10+ */
+:-ms-input-placeholder {
+  /* IE 10+ */
   color: #999 !important;
 }
-::-moz-placeholder{ /* Firefox 19+*/
+::-moz-placeholder {
+  /* Firefox 19+*/
   color: #999 !important;
   opacity: 1;
 }
-:-moz-placeholder { /*Firefox 4 - 18*/
+:-moz-placeholder {
+  /*Firefox 4 - 18*/
   color: #999 !important;
   opacity: 1;
 }

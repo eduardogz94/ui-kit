@@ -1,4 +1,4 @@
-class EgAlert extends HTMLElement {
+export default class EgAlert extends HTMLElement {
   constructor() {
     super();
   }
@@ -19,7 +19,7 @@ class EgAlert extends HTMLElement {
     });
   }
 
-  get getAlert() {
+  getAlert() {
     return this.querySelector("div");
   }
 

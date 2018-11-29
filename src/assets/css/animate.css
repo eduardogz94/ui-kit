@@ -8,12 +8,18 @@
  * Copyright (c) 2018 Daniel Eden
  */
 
+//*Essential to animate an element, makes an animation of one second of duration.
+To animate an element is necessary to put the class "animated" and then the class of one animation
+ (ex: class="animated bounce").*//
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+
+//*Makes an animation infinite.*//
 
 .animated.infinite {
   -webkit-animation-iteration-count: infinite;
@@ -86,6 +92,8 @@
   }
 }
 
+//*The element will do a bounce animation.*//
+
 .bounce {
   -webkit-animation-name: bounce;
   animation-name: bounce;
@@ -118,6 +126,8 @@
     opacity: 0;
   }
 }
+
+//*The element disappears and appears quickly.*//
 
 .flash {
   -webkit-animation-name: flash;
@@ -159,6 +169,8 @@
     transform: scale3d(1, 1, 1);
   }
 }
+
+//*The element increases its size and then it returns to its normal size.*//
 
 .pulse {
   -webkit-animation-name: pulse;
@@ -239,6 +251,9 @@
   }
 }
 
+//*The element decreases its height and increase a bit its width,
+then, with a fluid animation it will return to its normal size.*//
+
 .rubberBand {
   -webkit-animation-name: rubberBand;
   animation-name: rubberBand;
@@ -293,6 +308,8 @@
     transform: translate3d(10px, 0, 0);
   }
 }
+
+//*The element shakes a lot from the left to the right.*//
 
 .shake {
   -webkit-animation-name: shake;
@@ -363,6 +380,8 @@
   }
 }
 
+//*The element shakes a little from the left to the right.*//
+
 .headShake {
   -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
@@ -423,6 +442,8 @@
     transform: rotate3d(0, 0, 1, 0deg);
   }
 }
+
+//*The element swings from the left to the right, like a pendulum.*//
 
 .swing {
   -webkit-transform-origin: top center;
@@ -496,6 +517,8 @@
     transform: scale3d(1, 1, 1);
   }
 }
+
+//*The element increases its size and shakes diagonally, and return to its normal size.*//
 
 .tada {
   -webkit-animation-name: tada;
@@ -577,6 +600,8 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+//*The element wobbles from the left to the right.*//
 
 .wobble {
   -webkit-animation-name: wobble;
@@ -670,6 +695,8 @@
     transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
   }
 }
+
+//*The element shakes diagonally.*//
 
 .jello {
   -webkit-animation-name: jello;
@@ -768,6 +795,8 @@
   }
 }
 
+//*The element suddenly appears and increases its size.*//
+
 .bounceIn {
   -webkit-animation-duration: 0.75s;
   animation-duration: 0.75s;
@@ -851,6 +880,8 @@
   }
 }
 
+//*The element appears from the top.*//
+
 .bounceInDown {
   -webkit-animation-name: bounceInDown;
   animation-name: bounceInDown;
@@ -931,6 +962,8 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+//*The element appears from te left.*//
 
 .bounceInLeft {
   -webkit-animation-name: bounceInLeft;
@@ -1013,6 +1046,8 @@
   }
 }
 
+//*The element appears from the right.*//
+
 .bounceInRight {
   -webkit-animation-name: bounceInRight;
   animation-name: bounceInRight;
@@ -1094,6 +1129,8 @@
   }
 }
 
+//*The element appears from the bottom.*//
+
 .bounceInUp {
   -webkit-animation-name: bounceInUp;
   animation-name: bounceInUp;
@@ -1138,6 +1175,8 @@
     transform: scale3d(0.3, 0.3, 0.3);
   }
 }
+
+//*The element become smaller and disappears.*//
 
 .bounceOut {
   -webkit-animation-duration: 0.75s;
@@ -1186,6 +1225,8 @@
   }
 }
 
+//*The element disappears from the bottom.*//
+
 .bounceOutDown {
   -webkit-animation-name: bounceOutDown;
   animation-name: bounceOutDown;
@@ -1219,6 +1260,8 @@
   }
 }
 
+//*The element disappears from the left.*//
+
 .bounceOutLeft {
   -webkit-animation-name: bounceOutLeft;
   animation-name: bounceOutLeft;
@@ -1251,6 +1294,8 @@
     transform: translate3d(2000px, 0, 0);
   }
 }
+
+//*The element disappears from the right.*//
 
 .bounceOutRight {
   -webkit-animation-name: bounceOutRight;
@@ -1297,6 +1342,8 @@
   }
 }
 
+//*The element disappears from the top.*//
+
 .bounceOutUp {
   -webkit-animation-name: bounceOutUp;
   animation-name: bounceOutUp;
@@ -1321,6 +1368,8 @@
     opacity: 1;
   }
 }
+
+//*The element's opacity goes from 0 to 1.*//
 
 .fadeIn {
   -webkit-animation-name: fadeIn;
@@ -1355,6 +1404,8 @@
   }
 }
 
+//*The element's opacity goes from 0 to 1 and appears from the top.*//
+
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
@@ -1387,6 +1438,8 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+//*The element appears quickly from the top.*//
 
 .fadeInDownBig {
   -webkit-animation-name: fadeInDownBig;
@@ -1421,6 +1474,8 @@
   }
 }
 
+//*The element's opacity goes from 0 to 1 and appears from the left.*//
+
 .fadeInLeft {
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
@@ -1453,6 +1508,8 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+//*The element appears quickly from the left.*//
 
 .fadeInLeftBig {
   -webkit-animation-name: fadeInLeftBig;
@@ -1487,6 +1544,8 @@
   }
 }
 
+//*The element's opacity goes from 0 to 1 and appears from the right.*//
+
 .fadeInRight {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
@@ -1519,6 +1578,8 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+//*The element appears quickly from the right.*//
 
 .fadeInRightBig {
   -webkit-animation-name: fadeInRightBig;
@@ -1553,6 +1614,8 @@
   }
 }
 
+//*The element's opacity goes from 0 to 1 and appears from the bottom.*//
+
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
@@ -1586,6 +1649,8 @@
   }
 }
 
+//*The element appears quickly from the bottom.*//
+
 .fadeInUpBig {
   -webkit-animation-name: fadeInUpBig;
   animation-name: fadeInUpBig;
@@ -1610,6 +1675,8 @@
     opacity: 0;
   }
 }
+
+//*The element's opacity goes from 1 to 0.*//
 
 .fadeOut {
   -webkit-animation-name: fadeOut;
@@ -1640,6 +1707,8 @@
   }
 }
 
+//*The element's opacity goes from 1 to 0 and disappears from the bottom.*//
+
 .fadeOutDown {
   -webkit-animation-name: fadeOutDown;
   animation-name: fadeOutDown;
@@ -1668,6 +1737,8 @@
     transform: translate3d(0, 2000px, 0);
   }
 }
+
+//*The element disappears quickly from the bottom.*//
 
 .fadeOutDownBig {
   -webkit-animation-name: fadeOutDownBig;
@@ -1698,6 +1769,8 @@
   }
 }
 
+//*The element's opacity goes from 1 to 0 and disappears from the left.*//
+
 .fadeOutLeft {
   -webkit-animation-name: fadeOutLeft;
   animation-name: fadeOutLeft;
@@ -1726,6 +1799,8 @@
     transform: translate3d(-2000px, 0, 0);
   }
 }
+
+//*The element disappears quickly from the left.*//
 
 .fadeOutLeftBig {
   -webkit-animation-name: fadeOutLeftBig;
@@ -1756,6 +1831,8 @@
   }
 }
 
+//*The element's opacity goes from 1 to 0 and disappears from the right.*//
+
 .fadeOutRight {
   -webkit-animation-name: fadeOutRight;
   animation-name: fadeOutRight;
@@ -1784,6 +1861,8 @@
     transform: translate3d(2000px, 0, 0);
   }
 }
+
+//*The element disappears quickly from the right.*//
 
 .fadeOutRightBig {
   -webkit-animation-name: fadeOutRightBig;
@@ -1814,6 +1893,8 @@
   }
 }
 
+//*The element's opacity goes from 1 to 0 and disappears from the top.*//
+
 .fadeOutUp {
   -webkit-animation-name: fadeOutUp;
   animation-name: fadeOutUp;
@@ -1842,6 +1923,8 @@
     transform: translate3d(0, -2000px, 0);
   }
 }
+
+//*The element disappears quickly from the top.*//
 
 .fadeOutUpBig {
   -webkit-animation-name: fadeOutUpBig;
@@ -1930,6 +2013,8 @@
   }
 }
 
+//*The element flips horizontally on a 3D animation.*//
+
 .animated.flip {
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
@@ -2002,6 +2087,8 @@
     transform: perspective(400px);
   }
 }
+
+//*The element's opacity goes from 0 to 1 and flips vertically.*//
 
 .flipInX {
   -webkit-backface-visibility: visible !important;
@@ -2076,6 +2163,8 @@
   }
 }
 
+//*The element's opacity goes from 0 to 1 and flips horizontally.*//
+
 .flipInY {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
@@ -2120,6 +2209,8 @@
     opacity: 0;
   }
 }
+
+//*The element flips vertically and its opacity goes from 1 to 0.*//
 
 .flipOutX {
   -webkit-animation-duration: 0.75s;
@@ -2167,6 +2258,8 @@
     opacity: 0;
   }
 }
+
+//*The element flips horizontally and its opacity goes from 1 to 0.*//
 
 .flipOutY {
   -webkit-animation-duration: 0.75s;
@@ -2229,6 +2322,8 @@
   }
 }
 
+//*The element appears from the right with a diagonal movement animation.*//
+
 .lightSpeedIn {
   -webkit-animation-name: lightSpeedIn;
   animation-name: lightSpeedIn;
@@ -2259,6 +2354,8 @@
     opacity: 0;
   }
 }
+
+//*The element disappears from the right with a diagonal movement animation while its opacity goes from 1 to 0.*//
 
 .lightSpeedOut {
   -webkit-animation-name: lightSpeedOut;
@@ -2303,6 +2400,8 @@
   }
 }
 
+//*The element rotates in a 160 angle while its opacity goes from 0 to 1.*//
+
 .rotateIn {
   -webkit-animation-name: rotateIn;
   animation-name: rotateIn;
@@ -2343,6 +2442,8 @@
     opacity: 1;
   }
 }
+
+//*The element appears from the top rotating to the left while its opacity goes from 0 to 1.*//
 
 .rotateInDownLeft {
   -webkit-animation-name: rotateInDownLeft;
@@ -2385,6 +2486,8 @@
   }
 }
 
+//*The element appears from the top rotating to the right while its opacity goes from 0 to 1.*//
+
 .rotateInDownRight {
   -webkit-animation-name: rotateInDownRight;
   animation-name: rotateInDownRight;
@@ -2425,6 +2528,8 @@
     opacity: 1;
   }
 }
+
+//*The element appears from the bottom rotating to the left while its opacity goes from 0 to 1.*//
 
 .rotateInUpLeft {
   -webkit-animation-name: rotateInUpLeft;
@@ -2467,6 +2572,8 @@
   }
 }
 
+//*The element appears from the bottom rotating to the right while its opacity goes from 0 to 1.*//
+
 .rotateInUpRight {
   -webkit-animation-name: rotateInUpRight;
   animation-name: rotateInUpRight;
@@ -2503,6 +2610,8 @@
     opacity: 0;
   }
 }
+
+//*The element rotates in a 360 angle while its opacity goes from 1 to 0.*//
 
 .rotateOut {
   -webkit-animation-name: rotateOut;
@@ -2541,6 +2650,8 @@
   }
 }
 
+//*The element disappears from the bottom rotating to the left while its opacity goes from 1 to 0.*//
+
 .rotateOutDownLeft {
   -webkit-animation-name: rotateOutDownLeft;
   animation-name: rotateOutDownLeft;
@@ -2577,6 +2688,8 @@
     opacity: 0;
   }
 }
+
+//*The element disappears from the bottom rotating to the right while its opacity goes from 1 to 0.*//
 
 .rotateOutDownRight {
   -webkit-animation-name: rotateOutDownRight;
@@ -2615,6 +2728,8 @@
   }
 }
 
+//*The element disappears from the top rotating to the left while its opacity goes from 1 to 0.*//
+
 .rotateOutUpLeft {
   -webkit-animation-name: rotateOutUpLeft;
   animation-name: rotateOutUpLeft;
@@ -2651,6 +2766,8 @@
     opacity: 0;
   }
 }
+
+//*The element disappears from the top rotating to the right while its opacity goes from 1 to 0.*//
 
 .rotateOutUpRight {
   -webkit-animation-name: rotateOutUpRight;
@@ -2729,6 +2846,8 @@
   }
 }
 
+//*The element falls from the top to the left and disappears from the bottom.*//
+
 .hinge {
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
@@ -2788,6 +2907,9 @@
   }
 }
 
+//*The element goes from a small size to its normal size while its opacity goes from 0 to 1,
+with a diagonally movement animation.*//
+
 .jackInTheBox {
   -webkit-animation-name: jackInTheBox;
   animation-name: jackInTheBox;
@@ -2823,6 +2945,8 @@
   }
 }
 
+//*The element appears from the left with a rolling animation while its opacity goes from 0 to 1.*//
+
 .rollIn {
   -webkit-animation-name: rollIn;
   animation-name: rollIn;
@@ -2854,6 +2978,8 @@
   }
 }
 
+//*The element disappears from the right with a rolling animation while its opacity goes from 1 to 0.*//
+
 .rollOut {
   -webkit-animation-name: rollOut;
   animation-name: rollOut;
@@ -2882,6 +3008,9 @@
     opacity: 1;
   }
 }
+
+//*The element goes from a small size to its normal size while its opacity goes from 0 to 1,
+with no additional animations.*//
 
 .zoomIn {
   -webkit-animation-name: zoomIn;
@@ -2924,6 +3053,9 @@
   }
 }
 
+//*The element goes from a small size to its normal size while its opacity goes from 0 to 1,
+with an animation that moves it from the top to its position.*//
+
 .zoomInDown {
   -webkit-animation-name: zoomInDown;
   animation-name: zoomInDown;
@@ -2964,6 +3096,9 @@
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
   }
 }
+
+//*The element goes from a small size to its normal size while its opacity goes from 0 to 1,
+with an animation that moves it from the left to its position.*//
 
 .zoomInLeft {
   -webkit-animation-name: zoomInLeft;
@@ -3006,6 +3141,9 @@
   }
 }
 
+//*The element goes from a small size to its normal size while its opacity goes from 0 to 1,
+with an animation that moves it from the right to its position.*//
+
 .zoomInRight {
   -webkit-animation-name: zoomInRight;
   animation-name: zoomInRight;
@@ -3047,6 +3185,9 @@
   }
 }
 
+//*The element goes from a small size to its normal size while its opacity goes from 0 to 1,
+with an animation that moves it from the bottom to its position.*//
+
 .zoomInUp {
   -webkit-animation-name: zoomInUp;
   animation-name: zoomInUp;
@@ -3083,6 +3224,8 @@
     opacity: 0;
   }
 }
+
+//*The element disappears decreasing its size while its opacity goes from 1 to 0, with no additional animations.*//
 
 .zoomOut {
   -webkit-animation-name: zoomOut;
@@ -3129,6 +3272,9 @@
   }
 }
 
+//*The element disappears decreasing its size while its opacity goes from 1 to 0,
+with an animation that moves it to the bottom.*//
+
 .zoomOutDown {
   -webkit-animation-name: zoomOutDown;
   animation-name: zoomOutDown;
@@ -3166,6 +3312,9 @@
   }
 }
 
+//*The element disappears decreasing its size while its opacity goes from 1 to 0,
+with an animation that moves it to the left.*//
+
 .zoomOutLeft {
   -webkit-animation-name: zoomOutLeft;
   animation-name: zoomOutLeft;
@@ -3202,6 +3351,9 @@
     transform-origin: right center;
   }
 }
+
+//*The element disappears decreasing its size while its opacity goes from 1 to 0,
+with an animation that moves it to the right.*//
 
 .zoomOutRight {
   -webkit-animation-name: zoomOutRight;
@@ -3248,6 +3400,9 @@
   }
 }
 
+//*The element disappears decreasing its size while its opacity goes from 1 to 0,
+with an animation that moves it to the top.*//
+
 .zoomOutUp {
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp;
@@ -3278,6 +3433,8 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+//*The element appears slowly from the top.*//
 
 .slideInDown {
   -webkit-animation-name: slideInDown;
@@ -3310,6 +3467,8 @@
   }
 }
 
+//*The element appears slowly from the left.*//
+
 .slideInLeft {
   -webkit-animation-name: slideInLeft;
   animation-name: slideInLeft;
@@ -3340,6 +3499,8 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+//*The element appears slowly from the right.*//
 
 .slideInRight {
   -webkit-animation-name: slideInRight;
@@ -3372,6 +3533,8 @@
   }
 }
 
+//*The element appears slowly from the bottom.*//
+
 .slideInUp {
   -webkit-animation-name: slideInUp;
   animation-name: slideInUp;
@@ -3402,6 +3565,8 @@
     transform: translate3d(0, 100%, 0);
   }
 }
+
+//*The element moves to the bottom and disappears.*//
 
 .slideOutDown {
   -webkit-animation-name: slideOutDown;
@@ -3434,6 +3599,8 @@
   }
 }
 
+//*The element moves to the left and disappears.*//
+
 .slideOutLeft {
   -webkit-animation-name: slideOutLeft;
   animation-name: slideOutLeft;
@@ -3464,6 +3631,7 @@
     transform: translate3d(100%, 0, 0);
   }
 }
+//*The element moves to the right and disappears.*//
 
 .slideOutRight {
   -webkit-animation-name: slideOutRight;
@@ -3495,6 +3663,8 @@
     transform: translate3d(0, -100%, 0);
   }
 }
+
+//*The element moves to the top and disappears*//
 
 .slideOutUp {
   -webkit-animation-name: slideOutUp;

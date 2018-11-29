@@ -1,10 +1,19 @@
 const ccc = new CCC();
 
-ccc.egUIKIT();
+const supportsCustomElements = "customElements" in window;
 
-ccc
-  .startLoggerAndApp("../libs/log4javascript", "../routes/sample-loader")
-  .catch(e => console.log(e));
+if (supportsCustomElements) {
+  console.log("Browser supports custom elements");
+  // You can safely use the Custom elements API
+  ccc.egUIKIT().catch(e => console.log(e));
+  ccc
+    .startLoggerAndApp("../libs/log4javascript", "../routes/sample-loader")
+    .catch(e => console.log(e));
 
-console.log(ccc.getComponents());
-console.log(ccc.getFiles());
+  console.log(ccc.getComponents());
+  console.log(ccc.getFiles());
+
+  ccc.chargeScript("./requests/tests");
+} else {
+  alert("This browser doesnt support Custom Elements.");
+}
