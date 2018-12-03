@@ -19,11 +19,12 @@ import {
  * @extends {HTMLElement}
  */
 export default class EgIcon extends HTMLElement {
-  /**
-   * Constructor for EgIcon.
+  /** Constructor for EgIcon.
+   * @class
    * @constructor
    * @param {String} control Class for the icon.
    * @param {String} size Size of the icon.
+   * @public
    */
   constructor(icon, size) {
     super();
@@ -56,15 +57,15 @@ export default class EgIcon extends HTMLElement {
   }
 
   /** A function to return the html template of the component.
-   * @protected
    * @template
+   * @protected
    */
   template() {
     return `<i/>`;
   }
 
-  /**
-   * A lifecycle method that calls when the component has finally rendered.
+  /** A lifecycle method that calls when the component has finally rendered.
+   * @function
    * @protected
    */
   connectedCallback() {
@@ -79,24 +80,24 @@ export default class EgIcon extends HTMLElement {
     });
   }
 
-  /**
-   * A lifecycle method that calls when the component has unmounted.
+  /** A lifecycle method that calls when the component has unmounted.
+   * @function
    * @protected
    */
   disconnectedCallback() {
     this.disconnectObserver();
   }
 
-  /**
-   * A function to get the i inside the EgIcon tag.
+  /** A function to get the i inside the EgIcon tag.
+   * @function
    * @protected
    */
   getComponent() {
     return this.querySelector("i");
   }
 
-  /**
-   * A function to set the component properties/attributes.
+  /** A function to set the component properties/attributes.
+   * @function
    * @protected
    */
   setComponent() {
@@ -109,8 +110,8 @@ export default class EgIcon extends HTMLElement {
     if (this.css) this.safeSet("css", this.css);
   }
 
-  /**
-   * Set the default properties/attributes for the component.
+  /** Set the default properties/attributes for the component.
+   * @function
    * @protected
    */
   defaultProperties() {

@@ -11,8 +11,7 @@ import {
   setFontStyle,
   setBackground,
   setDimensions,
-  setPosition,
-  onClear
+  setPosition
 } from "../js/bindingFunctions.js";
 
 import {
@@ -26,11 +25,11 @@ import {
  * @extends {HTMLElement}
  */
 export default class EgCard extends HTMLElement {
-  /**
-   * Constructor for EgCard.
+  /** Constructor for EgCard.
+   * @class
    * @constructor
    * @param {String} type String as the Type of the EgCard.
-   * @protected
+   * @public
    */
   constructor(type) {
     super();
@@ -62,8 +61,8 @@ export default class EgCard extends HTMLElement {
   }
 
   /** A function to return the html template of the component.
-   * @protected
    * @template
+   * @protected
    */
   template() {
     return `<div>
@@ -73,8 +72,8 @@ export default class EgCard extends HTMLElement {
     </div>`;
   }
 
-  /**
-   * A lifecycle method that calls when the component has finally rendered.
+  /** A lifecycle method that calls when the component has finally rendered.
+   * @function
    * @protected
    */
   connectedCallback() {
@@ -95,24 +94,24 @@ export default class EgCard extends HTMLElement {
     else this.intersecting = true;
   }
 
-  /**
-   * A lifecycle method that calls when the component has unmounted.
+  /** A lifecycle method that calls when the component has unmounted.
+   * @function
    * @protected
    */
   disconnectedCallback() {
     this.disconnectObserver();
   }
 
-  /**
-   * A function to get the div inside the EgCard tag.
+  /** A function to get the div inside the EgCard tag.
+   * @function
    * @protected
    */
   getComponent() {
     return this.querySelector("div");
   }
 
-  /**
-   * A function to set the component properties/attributes.
+  /** A function to set the component properties/attributes.
+   * @function
    * @protected
    */
   setComponent() {
@@ -129,8 +128,8 @@ export default class EgCard extends HTMLElement {
     if (this.css) this.safeSet("css", this.css);
   }
 
-  /**
-   * Set the default properties/attributes for the component.
+  /** Set the default properties/attributes for the component.
+   * @function
    * @protected
    */
   defaultProperties() {

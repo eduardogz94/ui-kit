@@ -28,12 +28,12 @@ import {
  * @extends {HTMLElement}
  */
 export default class EgInput extends HTMLElement {
-  /**
-   * Constructor for EgInput.
+  /** Constructor for EgInput.
+   * @class
    * @constructor
    * @param {String} control Class for the form-control style.
    * @param {String} type Type of the input.
-   * @protected
+   * @public
    */
   constructor(control, type) {
     super();
@@ -75,8 +75,8 @@ export default class EgInput extends HTMLElement {
   }
 
   /** A function to return the html template of the component.
-   * @protected
    * @template
+   * @protected
    */
   template() {
     return `<input/>`;
@@ -84,6 +84,7 @@ export default class EgInput extends HTMLElement {
 
   /**
    * A lifecycle method that calls when the component has finally rendered.
+   * @function
    * @protected
    */
   connectedCallback() {
@@ -102,24 +103,24 @@ export default class EgInput extends HTMLElement {
     else this.intersecting = true;
   }
 
-  /**
-   * A lifecycle method that calls when the component has unmounted.
+  /** A lifecycle method that calls when the component has unmounted.
+   * @function
    * @protected
    */
   disconnectedCallback() {
     this.disconnectObserver();
   }
 
-  /**
-   * A function to get the input inside the EgInput tag.
+  /** A function to get the input inside the EgInput tag.
+   * @function
    * @protected
    */
   getComponent() {
     return this.querySelector("input");
   }
 
-  /**
-   * A function to set the component properties/attributes.
+  /** A function to set the component properties/attributes.
+   * @function
    * @protected
    */
   setComponent() {
@@ -135,8 +136,8 @@ export default class EgInput extends HTMLElement {
     if (this.css) this.safeSet("css", this.css);
   }
 
-  /**
-   * Set the default properties/attributes for the component.
+  /** Set the default properties/attributes for the component.
+   * @function
    * @protected
    */
   defaultProperties() {
@@ -160,8 +161,8 @@ export default class EgInput extends HTMLElement {
     this.className = "form-group";
   }
 
-  /**
-   * A function to receive the specified input data.
+  /** A function to receive the specified input data.
+   * @function
    * @protected
    */
   getInputValue() {
@@ -183,8 +184,8 @@ export default class EgInput extends HTMLElement {
     return data;
   }
 
-  /**
-   * A function to validate a input length.
+  /** A function to validate a input length.
+   * @function
    * @protected
    */
   validateValue(length) {
@@ -196,8 +197,8 @@ export default class EgInput extends HTMLElement {
     else this.setFormControl("form-control-success");
   }
 
-  /**
-   * A function to validate a input email value.
+  /** A function to validate a input email value.
+   * @function
    * @param {String} [emailType] A string as the type to validate.
    * @protected
    */
@@ -210,8 +211,8 @@ export default class EgInput extends HTMLElement {
     }
   }
 
-  /**
-   * A function to set the form-control attribute of the input.
+  /** A function to set the form-control attribute of the input.
+   * @function
    * @param {String} [value] A string as the form-control attribute value.
    * @protected
    */

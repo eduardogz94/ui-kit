@@ -3,45 +3,43 @@ import { routingRender, routingAfterDOM } from "../views/Routing.js";
 import { requestRender, requestAfterDOM } from "../views/Request.js";
 import { inputsSampleRender } from "../tests/Inputs/Render.js";
 
-export const Routes = [];
+export const routes = [];
+
+let routingComponent = routingRender();
+let requestComponent = requestRender();
+let inputSampleComponent = inputsSampleRender();
 
 export const routingRoute = () => {
-  let routingComponent = routingRender();
-
   return {
-    name: "Routing",
-    url: "../views/Routing",
-    render: routingComponent,
+    url: "/Routing",
+    script: "../views/Routing",
+    component: routingComponent,
     lazyDOM: routingAfterDOM
   };
 };
 
 export const inputsSampleRoute = () => {
-  let inputSampleComponent = inputsSampleRender();
-
   return {
-    name: "InputsSample",
-    url: "../tests/Inputs/Render",
-    render: inputSampleComponent
+    url: "/InputsSample",
+    script: "../tests/Inputs/Render",
+    component: inputSampleComponent
   };
 };
 
 export const requestRoute = () => {
-  let requestComponent = requestRender();
-
   return {
-    name: "Request",
-    url: "../views/Request",
-    render: requestComponent,
+    url: "/Request",
+    script: "../views/Request",
+    component: requestComponent,
     lazyDOM: requestAfterDOM
   };
 };
 
-Routes.push(routingRoute(), requestRoute());
+routes.push(routingRoute());
 
 export const Router = new EgRouter(
-  Routes,
+  routes,
   document.body.querySelector("#main")
 );
 
-Router.get("Routing");
+Router.navigate("/Routing");

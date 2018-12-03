@@ -2,6 +2,7 @@ class CCC {
   constructor() {
     this.components = [];
     this.files = [];
+    this.responses = [];
   }
 
   registerComponent(component, configs) {
@@ -12,8 +13,8 @@ class CCC {
     });
   }
 
-  async registerFile(file) {
-    await this.files.push({ file });
+  registerFile(file) {
+    this.files.push({ file });
   }
 
   async initApp(url) {
@@ -21,21 +22,13 @@ class CCC {
   }
 
   async chargeScript(url) {
-    try {
-      await this.addScript(`${url}`);
-      await this.registerFile(url + ".js");
-    } catch (error) {
-      console.log(error);
-    }
+    await this.addScript(`${url}`);
+    this.registerFile(url + ".js");
   }
 
   async chargeLink(url) {
-    try {
-      await this.addLink(`${url}`);
-      await this.registerFile(url + ".css");
-    } catch (error) {
-      console.log(error);
-    }
+    await this.addLink(`${url}`);
+    this.registerFile(url + ".css");
   }
 
   getComponents() {
@@ -46,7 +39,11 @@ class CCC {
     return this.files;
   }
 
-  async addScript(url) {
+  getResponses() {
+    return this.responses;
+  }
+
+  addScript(url) {
     return new Promise((resolve, reject) => {
       let script = document.createElement("script");
       script.async = true;
@@ -58,7 +55,7 @@ class CCC {
     });
   }
 
-  async addLink(url) {
+  addLink(url) {
     return new Promise((resolve, reject) => {
       let link = document.createElement("link");
       link.async = true;
@@ -70,33 +67,31 @@ class CCC {
     });
   }
 
-  async sendRequest(options) {
-    await this.chargeScript("Other/EgFetch");
-    let http = new Http();
-    let response = await http.request("POST", "./Siva", options);
+  async sendRequest(endpoint) {
+    let module = await import("../other/EgFetch.js");
+    let request = new module.default();
+    let response = await request.get(endpoint);
+    this.responses.push(response);
     return response;
   }
 
-  async startLoggerAndApp(logger, loader) {
+  async logRoute(logger, router) {
     await this.chargeScript(`${logger}`);
-    await this.initApp(`${loader}`);
+    await this.initApp(`${router}`);
   }
 
   async egUIKIT() {
-    try {
-      // Style links.
-      ccc.chargeLink("../src/assets/css/elements");
-      ccc.chargeLink("../src/assets/css/grid");
-      ccc.chargeLink("../src/assets/css/responsive");
-      ccc.chargeLink("../src/assets/css/utilities");
-      ccc.chargeLink("../src/assets/css/colors");
-      ccc.chargeLink("../src/assets/css/animate");
+    ccc.chargeLink("../src/assets/css/elements");
+    ccc.chargeLink("../src/assets/css/grid");
+    ccc.chargeLink("../src/assets/css/responsive");
+    ccc.chargeLink("../src/assets/css/utilities");
+    ccc.chargeLink("../src/assets/css/colors");
+    ccc.chargeLink("../src/assets/css/animate");
 
-      // Libs used.
-      ccc.chargeLink("../libs/fontawesome/css/fontawesome-all");
-      ccc.chargeLink("../libs/ionicons/css/ionicons");
-    } catch (error) {
-      console.log(error);
-    }
+    // Libs used.
+    ccc.chargeLink("../libs/fontawesome/css/fontawesome-all");
+    ccc.chargeLink("../libs/ionicons/css/ionicons");
+
+    // ccc.chargeScript("../src/other/EgFetch");
   }
 }

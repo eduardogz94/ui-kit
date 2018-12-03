@@ -40,7 +40,7 @@ server.post("/formdata", (req, res) => {
 
 server.get("/request", (req, res) => {
   console.log(req.query);
-  res.send({ status: 200, msg: req.query });
+  res.send({ status: 200, msg: req.query.param });
 });
 
 server.listen(process.env.PORT || 3000, () => {

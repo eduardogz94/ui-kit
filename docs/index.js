@@ -4,9 +4,11 @@
 
 const ccc = new CCC();
 
-ccc.egUIKIT().catch(e => console.log(e));;
+ccc.egUIKIT().catch(e => console.log(e));
 
-ccc.startLoggerAndApp("../libs/log4javascript", "../routes/eg-loader").catch(e => console.log(e));;
+ccc
+  .logRoute("../libs/log4javascript", "../routes/eg-loader")
+  .catch(e => console.log(e));
 
 console.log(ccc.getComponents());
 console.log(ccc.getFiles());

@@ -1,26 +1,26 @@
-/**
- * A function to get all the specified elements passed as a string of a element.
+/**A function to get all the specified elements passed as a string of a element.
+ * @function
  * @param {Object} obj A string as the elements to look into the parent element(required).
- * @protected
+ * @public
  */
 export function getElementObjects(obj) {
   return this.querySelectorAll(`${obj}`);
 }
 
-/**
- * A function to create a element and append it to the component.
+/**A function to create a element and append it to the component.
+ * @function
  * @param {String} element Representing the element to add(required).
- * @protected
+ * @public
  */
 export function createAndAppendElement(element) {
   let object = document.createElement(`${element}`);
   this.appendChild(object);
 }
 
-/**
- * A function to add multiple elements into the parent element.
+/**A function to add multiple elements into the parent element.
+ * @function
  * @param  {...any} elements All the elements that will be added into the parent component(required 1).
- * @protected
+ * @public
  */
 export function appendMultipleElements(...elements) {
   if (this) {
@@ -32,11 +32,11 @@ export function appendMultipleElements(...elements) {
   }
 }
 
-/**
- * A function to create a element multiple times and append it into the parent element.
+/**A function to create a element multiple times and append it into the parent element.
+ * @function
  * @param {String} element Representing the element that will be appened n times(required).
  * @param {Int} quantity Representing the quantity of elements that will be appened(required).
- * @protected
+ * @public
  */
 export function createMultipleElements(element, quantity) {
   for (let i = 0; i < quantity; i++) {
@@ -46,11 +46,11 @@ export function createMultipleElements(element, quantity) {
   }
 }
 
-/**
- * A function to set component Properties in a par key-value.
+/**A function to set component Properties in a par key-value.
+ * @function
  * @param {String} props Properties received as a string in a array(required).
  * @param {String} keys Kets received as a string in a array(required).
- * @protected
+ * @public
  */
 export function safeMultipleSet(props, keys) {
   if (props.lenght === keys.lenght) {
@@ -62,29 +62,29 @@ export function safeMultipleSet(props, keys) {
   }
 }
 
-/**
- * Guards against loops when reflecting observed attributes.
+/**Guards against loops when reflecting observed attributes.
+ * @function
  * @param  {String} name Attribute name
  * @param  {any} value
- * @protected
+ * @public
  */
 export function safeSet(name, value) {
   if (this.getAttribute(name) !== value) this.setAttribute(name, value);
 }
 
-/**
- * Guards against loops when reflecting observed attributes.
+/**Guards against loops when reflecting observed attributes.
+ * @function
  * @param  {String} name Attribute name
  * @param  {any} value
- * @protected
+ * @public
  */
 export function safeChildSet(name, value) {
   if (this.getComponent().getAttribute(name) !== value)
     this.getComponent().setAttribute(name, value);
 }
 
-/**
- * A function to set Border css of the component.
+/**A function to set Border css of the component.
+ * @function
  * @param {String} color  color for the component border(required).
  * @param {String} val  value of the component border(required).
  * @param {String} radius  radius of the component border(required).
@@ -95,12 +95,12 @@ export function setBorder(color, value, radius) {
   this.getComponent().style.borderRadius = radius;
 }
 
-/**
- * A function that sets the font css of the component.
+/**A function that sets the font css of the component.
+ * @function
  * @param {String} val
  * @param {String} size
  * @param {String} color
- * @protected
+ * @public
  */
 export function setFont(value, size, color) {
   this.getComponent().style.fontFamily = value;
@@ -108,20 +108,20 @@ export function setFont(value, size, color) {
   this.getComponent().style.color = color;
 }
 
-/**
- * A function to set Font Style css of the component.
+/**A function to set Font Style css of the component.
+ * @function
  * @param {String} size  as the font size for the component(required).
  * @param {String} weigth  as the font weight for the component(required).
- * @protected
+ * @public
  */
 export function setFontStyle(size, weigth) {
   this.getComponent().style.fontStyle = size;
   this.getComponent().style.fontWeight = weigth;
 }
 
-export function setBackground(color, img) {
+export function setBackground(color, img = "none") {
   this.getComponent().style.background = color;
-  img = "none"
+  img === "none"
     ? (img = "")
     : (this.getComponent().style.backgroundImage =
         "url(" + this.pathImg + img + ")");

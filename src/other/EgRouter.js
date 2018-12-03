@@ -1,34 +1,40 @@
 export default class EgRouter {
-  constructor(routes, parent) {
+  constructor(routes, main) {
     this.routes = routes;
-    this.parent = parent;
+    this.main = main;
     this.history = [];
+
+    this.deleteRoute = this.deleteRoute.bind(this);
   }
 
-  async get(pageName) {
-    this.routes.forEach(element => {
-      if (element.name === pageName) {
-        return this.appendRoute(element);
+  navigate(path) {
+    this.routes.forEach(route => {
+      if (route.url === path) {
+        return this.appendRoute(route);
       }
     });
   }
 
   checkRoutes(route) {
-    let test = 0;
-    this.routes.forEach(element => {
-      element === route ? test++ : test;
+    let count = 0;
+    this.routes.forEach(obj => {
+      obj === route ? count++ : count;
     });
 
-    return test;
+    return count;
+  }
+
+  logRouter() {
+    console.info(this.history, this.routes, this.main);
   }
 
   async add(route) {
     let exist = await this.checkRoutes(route);
     if (exist === 0) {
       this.routes.push(route);
-      ccc.chargeScript(route.url).catch(e => console.log(e));
+      ccc.chargeScript(route.script).catch(e => console.log(e));
     }
-    console.log(this.routes);
+    this.logRouter();
   }
 
   async load(route) {
@@ -37,17 +43,18 @@ export default class EgRouter {
       this.add(route);
       this.appendRoute(route);
     }
+    this.logRouter();
   }
 
-  removeChild(child) {
-    console.log(child);
-    this.parent.removeChild(child.render);
-    console.log(this.history);
+  deleteRoute(obj) {
+    this.routes = this.routes.filter(route => route !== obj);
+    this.main.removeChild(obj.component);
+    this.logRouter();
   }
 
   appendRoute(route) {
     this.history.push(route);
-    this.parent.appendChild(route.render);
+    this.main.appendChild(route.component);
     if (route.lazyDOM) route.lazyDOM();
   }
 }

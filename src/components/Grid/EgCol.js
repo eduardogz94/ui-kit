@@ -25,12 +25,12 @@ import {
  * @extends {HTMLElement}
  */
 export default class EgCol extends HTMLElement {
-  /**
-   * Constructor for EgCol component.
+  /** Constructor for EgCol component.
+   * @class
    * @constructor
    * @param {String} col Col attribute for the eg-col.
    * @param {String} offset Offset attribute for the eg-col.
-   * @protected
+   * @public
    */
   constructor(col, offset) {
     super();
@@ -62,8 +62,8 @@ export default class EgCol extends HTMLElement {
     this.setPosition = setPosition.bind(this);
   }
 
-  /**
-   * A lyfecicle method that calls when the component has finally rendered.
+  /** A lyfecicle method that calls when the component has finally rendered.
+   * @function
    * @protected
    */
   connectedCallback() {
@@ -80,24 +80,24 @@ export default class EgCol extends HTMLElement {
     else this.intersecting = true;
   }
 
-  /**
-   * A lifecycle method that calls when the component has unmounted.
+  /** A lifecycle method that calls when the component has unmounted.
+   * @function
    * @protected
    */
   disconnectedCallback() {
     this.disconnectObserver();
   }
 
-  /**
-   * A function to get the component.
+  /** A function to get the component.
+   * @function
    * @protected
    */
   getComponent() {
     return this;
   }
 
-  /**
-   * A function to set the component properties/attributes.
+  /** A function to set the component properties/attributes.
+   * @function
    * @protected
    */
   setComponent() {
@@ -111,8 +111,8 @@ export default class EgCol extends HTMLElement {
     if (this.bg) this.safeSet("bg", this.bg);
   }
 
-  /**
-   * Set the default properties for the EgCol element.
+  /** Set the default properties for the EgCol element.
+   * @function
    * @protected
    */
   defaultProperties() {

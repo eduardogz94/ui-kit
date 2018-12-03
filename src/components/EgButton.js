@@ -25,8 +25,8 @@ import {
  * @extends {HTMLElement}
  */
 export default class EgButton extends HTMLElement {
-  /**
-   * Constructor for EgButton.
+  /** Constructor for EgButton.
+   * @class
    * @constructor
    * @param {String} btn Class for the eg-button.
    * @protected
@@ -61,15 +61,15 @@ export default class EgButton extends HTMLElement {
   }
 
   /** A function to return the html template of the component.
-   * @protected
    * @template
+   * @protected
    */
   template() {
     return `<button>${this.innerText}</button>`;
   }
 
-  /**
-   * A lyfecicle method that calls when the component has finally rendered.
+  /** A lyfecicle method that calls when the component has finally rendered.
+   * @function
    * @protected
    */
   connectedCallback() {
@@ -88,23 +88,24 @@ export default class EgButton extends HTMLElement {
     else this.intersecting = true;
   }
 
-  /**
-   * A lifecycle method that calls when the component has unmounted.
+  /** A lifecycle method that calls when the component has unmounted.
+   * @function
    * @protected
    */
   disconnectedCallback() {
     this.disconnectObserver();
   }
 
-  /**
-   * A function to get the button inside the EgButton tag.
+  /** A function to get the button inside the EgButton tag.
+   * @function
+   * @protected
    */
   getComponent() {
     return this.querySelector("button");
   }
 
-  /**
-   * A function to set the Button properties as they are received from a js instance.
+  /** A function to set the Button properties as they are received from a js instance.
+   * @function
    * @protected
    */
   setComponent() {
@@ -120,8 +121,8 @@ export default class EgButton extends HTMLElement {
     if (this.css) this.safeSet("css", this.css);
   }
 
-  /**
-   * Set the default properties for the EgButton object.
+  /** Set the default properties for the EgButton object.
+   * @function
    * @protected
    */
   defaultProperties() {
@@ -148,9 +149,10 @@ export default class EgButton extends HTMLElement {
     this.getComponent().className = classname;
   }
 
-  /**
-   * A function to add an icon to the EgButton.
+  /** A function to add an icon to the EgButton.
+   * @function
    * @param {String} icon  as the class for the icon(required).
+   * @protected
    */
   addIcon(icon) {
     let egIcon = new EgIcon(icon);

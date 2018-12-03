@@ -25,10 +25,10 @@ import {
  * @extends {HTMLElement}
  */
 export default class EgGrid extends HTMLElement {
-  /**
-   * Constructor for EgRow component.
+  /** Constructor for EgRow component.
+   * @class
    * @constructor
-   * @protected
+   * @public
    */
   constructor() {
     super();
@@ -57,8 +57,8 @@ export default class EgGrid extends HTMLElement {
     this.setPosition = setPosition.bind(this);
   }
 
-  /**
-   * A lyfecicle method that calls when the component has finally rendered.
+  /** A lyfecicle method that calls when the component has finally rendered.
+   * @function
    * @protected
    */
   connectedCallback() {
@@ -77,24 +77,24 @@ export default class EgGrid extends HTMLElement {
     else this.intersecting = true;
   }
 
-  /**
-   * A lifecycle method that calls when the component has unmounted.
+  /** A lifecycle method that calls when the component has unmounted.
+   * @function
    * @protected
    */
   disconnectedCallback() {
     this.disconnectObserver();
   }
 
-  /**
-   * A function to get the component.
+  /** A function to get the component.
+   * @function
    * @protected
    */
   getComponent() {
     return this;
   }
 
-  /**
-   * A function to set the component properties/attributes.
+  /** A function to set the component properties/attributes.
+   * @function
    * @protected
    */
   setComponent() {
@@ -107,8 +107,8 @@ export default class EgGrid extends HTMLElement {
     if (this.css) this.safeSet("css", this.css);
     if (this.bg) this.safeSet("bg", this.bg);
   }
-  /**
-   * Set the default properties for the EgCol element.
+  /** Set the default properties for the EgCol element.
+   * @function
    * @protected
    */
   defaultProperties() {

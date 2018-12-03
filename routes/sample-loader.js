@@ -13,9 +13,9 @@ export const buttonsRoute = () => {
   let buttonsComponents = buttonsSampleRender();
 
   return {
-    name: "Buttons",
-    url: "../tests/Buttons/Render",
-    render: buttonsComponents
+    url: "/Buttons",
+    script: "../tests/Buttons/Render",
+    component: buttonsComponents
   };
 };
 
@@ -23,9 +23,9 @@ export const inputsRoute = () => {
   let inputsComponents = inputsSampleRender();
 
   return {
-    name: "Inputs",
-    url: "../tests/Inputs/Render",
-    render: inputsComponents
+    url: "/Inputs",
+    script: "../tests/Inputs/Render",
+    component: inputsComponents
   };
 };
 
@@ -33,9 +33,9 @@ export const cardsRoute = () => {
   let cardsComponents = cardsSampleRender();
 
   return {
-    name: "Cards",
-    url: "../tests/Cards/Render",
-    render: cardsComponents,
+    url: "/Cards",
+    script: "../tests/Cards/Render",
+    component: cardsComponents,
     lazyDOM: cardsSampleAfterDOM
   };
 };
@@ -44,9 +44,9 @@ export const imagesRoute = () => {
   let imagesComponents = imagesSampleRender();
 
   return {
-    name: "Images",
-    url: "../tests/Images/Render",
-    render: imagesComponents
+    url: "/Images",
+    script: "../tests/Images/Render",
+    component: imagesComponents
   };
 };
 
@@ -57,7 +57,7 @@ export const Router = new EgRouter(
   document.body.querySelector("#main")
 );
 
-Router.get("Buttons");
-Router.get("Inputs");
-Router.get("Cards");
-Router.get("Images");
+Router.get("/Buttons");
+Router.get("/Inputs");
+Router.get("/Cards");
+Router.get("/Images");

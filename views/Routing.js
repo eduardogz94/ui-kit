@@ -1,5 +1,9 @@
 import EgCard from "../src/components/EgCard.js";
-import { Router, inputsSampleRoute } from "../routes/public-loader.js";
+import {
+  Router,
+  inputsSampleRoute,
+  requestRoute
+} from "../routes/public-loader.js";
 import {
   createTextElement,
   createCol,
@@ -30,33 +34,62 @@ export const routingAfterDOM = async () => {
   let addInputsView = createButton(
     "btn-danger",
     "Add Inputs View",
-    "signup",
+    "addInputs",
     "col-12"
   );
 
-  let deleteInputsView = createButton(
+  let addRequestView = createButton(
+    "btn-danger",
+    "Add Request View",
+    "addRequest",
+    "col-12"
+  );
+
+  let deleteRequest = createButton(
+    "btn-danger",
+    "Delete Requests View",
+    "deleteRequests",
+    "col-12"
+  );
+
+  let deleteInputs = createButton(
     "btn-danger",
     "Delete Inputs View",
-    "signup",
+    "deleteInputs",
     "col-12"
   );
 
-  let routingBody = appendsCreateCol("col-12", addInputsView, deleteInputsView);
+  let routingBody = appendsCreateCol(
+    "col-12",
+    addInputsView,
+    addRequestView,
+    deleteInputs,
+    deleteRequest
+  );
 
   routingCard.addMultipleObjectsToBody(routingBody);
 
-  let sample = inputsSampleRoute();
+  let inputsRoute = inputsSampleRoute();
+  let requestR = requestRoute();
 
-  let testingRouter = () => {
-    Router.load(sample);
-    // Router.removeChild()
+  let addInputs = () => {
+    Router.load(inputsRoute);
   };
 
-  addInputsView.onclick = testingRouter;
-
-  let checkRouter = () => {
-    Router.get("Request");
+  let removeInputs = () => {
+    Router.deleteRoute(inputsRoute);
   };
 
-  deleteInputsView.onclick = checkRouter;
+  let addRequest = () => {
+    Router.load(requestR);
+  };
+
+  let removeRequest = () => {
+    Router.deleteRoute(requestR);
+  };
+
+  addInputsView.onclick = addInputs;
+  addRequestView.onclick = addRequest;
+  deleteInputs.onclick = removeInputs;
+  deleteRequest.onclick = removeRequest;
 };

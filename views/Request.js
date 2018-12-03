@@ -1,4 +1,3 @@
-import EgFetch from "../src/other/EgFetch.js";
 import EgCard from "../src/components/EgCard.js";
 import {
   createTextElement,
@@ -49,15 +48,13 @@ export const requestAfterDOM = async () => {
   let routingBody = appendsCreateCol("col-12", containerCol, buttonsCol);
   requestCard.addMultipleObjectsToBody(routingBody);
 
-  let request = new EgFetch();
-
   let testGet = () => {
     let input = requestInput.getInputValue();
-    request.get(input.value).then(data => {
-      if (data.status === 200)
-        container.innerHTML =
-          "status " + data.status + " param:" + data.msg.param;
+    ccc.sendRequest(input.value).then(data => {
+      console.log(data);
     });
+
+    console.log(ccc.getResponses());
   };
 
   getButton.onclick = testGet;

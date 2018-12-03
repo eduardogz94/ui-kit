@@ -25,11 +25,12 @@ import {
  * @extends {HTMLElement}
  */
 export default class EgImage extends HTMLElement {
-  /**
-   * Constructor for EgImage.
+  /** Constructor for EgImage.
+   * @class
    * @constructor
    * @param {String} src String for the src of the image.
    * @param {String} alt String for the alt of the image.
+   * @public
    */
   constructor(src, alt) {
     super();
@@ -62,15 +63,15 @@ export default class EgImage extends HTMLElement {
   }
 
   /** A function to return the html template of the component.
-   * @protected
    * @template
+   * @protected
    */
   template() {
     return `<image/>`;
   }
 
-  /**
-   * A lifecycle method that calls when the component has finally rendered.
+  /** A lifecycle method that calls when the component has finally rendered.
+   * @function
    * @protected
    */
   connectedCallback() {
@@ -83,24 +84,24 @@ export default class EgImage extends HTMLElement {
     });
   }
 
-  /**
-   * A lifecycle method that calls when the component has unmounted.
+  /** A lifecycle method that calls when the component has unmounted.
+   * @function
    * @protected
    */
   disconnectedCallback() {
     this.disconnectObserver();
   }
 
-  /**
-   * A function to get the image inside the EgImage tag.
+  /** A function to get the image inside the EgImage tag.
+   * @function
    * @protected
    */
   getComponent() {
     return this.querySelector("img");
   }
 
-  /**
-   * A function to set the component properties/attributes.
+  /** A function to set the component properties/attributes.
+   * @function
    * @protected
    */
   setComponent() {
@@ -116,8 +117,8 @@ export default class EgImage extends HTMLElement {
     if (this.css) this.safeSet("css", this.css);
   }
 
-  /**
-   * Set the default properties/attributes for the component.
+  /** Set the default properties/attributes for the component.
+   * @function
    * @protected
    */
   defaultProperties() {

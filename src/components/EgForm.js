@@ -11,11 +11,8 @@ import {
   setFontStyle,
   setBackground,
   setDimensions,
-  setPosition,
-  onClear
+  setPosition
 } from "../js/bindingFunctions.js";
-
-import { caps, lowerCaps, integer, floatTest } from "../js/regexp.js";
 
 import {
   observerCallback,
@@ -28,10 +25,10 @@ import {
  * @extends {HTMLElement}
  */
 export default class EgForm extends HTMLElement {
-  /**
-   * Constructor for EgForm.
+  /** Constructor for EgForm.
+   * @class
    * @constructor
-   * @protected
+   * @public
    */
   constructor() {
     super();
@@ -61,8 +58,7 @@ export default class EgForm extends HTMLElement {
     this.setPosition = setPosition.bind(this);
   }
 
-  /**
-   * A lifecycle method that calls when the component has finally rendered.
+  /** A lifecycle method that calls when the component has finally rendered.
    * @protected
    */
   connectedCallback() {
@@ -75,24 +71,21 @@ export default class EgForm extends HTMLElement {
     });
   }
 
-  /**
-   * A lifecycle method that calls when the component has unmounted.
+  /** A lifecycle method that calls when the component has unmounted.
    * @protected
    */
   disconnectedCallback() {
     this.disconnectObserver();
   }
 
-  /**
-   * A function to get the form inside the EgForm tag.
+  /** A function to get the form inside the EgForm tag.
    * @protected
    */
   getComponent() {
     return this;
   }
 
-  /**
-   * A function to set the component properties/attributes.
+  /** A function to set the component properties/attributes.
    * @protected
    */
   setComponent() {
@@ -107,8 +100,7 @@ export default class EgForm extends HTMLElement {
     if (this.css) this.safeSet("css", this.css);
   }
 
-  /**
-   * Set the default properties/attributes for the component.
+  /** Set the default properties/attributes for the component.
    * @protected
    */
   defaultProperties() {
