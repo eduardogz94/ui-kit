@@ -72,7 +72,7 @@ export const sampleButtonOutline = () => {
   );
 
   let outlineButtonsCol = appendsCreateCol(
-    "col-6",
+    "col-12",
     outlineTitle,
     outlinePrimaryButton,
     outlineSecondaryButton,
@@ -80,7 +80,7 @@ export const sampleButtonOutline = () => {
     outlineDangerButton,
     outlineInfoButton,
     outlineWarningButton,
-    outlineWhiteButton,
+    // outlineWhiteButton,
     outlineDarkButton
   );
 

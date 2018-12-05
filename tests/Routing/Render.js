@@ -26,7 +26,7 @@ export const routingSampleRender = () => {
     "Eg-Router"
   );
 
-  let mainCol = createCol(routingTitle, "col-12");
+  let mainCol = createCol(routingTitle, "col-6");
 
   let routingCol = createCol(routingCard, "col-12");
   mainCol.appendChild(routingCol);
