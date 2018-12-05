@@ -9,7 +9,11 @@ import {
  * @returns {EgCol} Buttons colors col sample.
  */
 export const sampleButtonColors = () => {
-  let colorsTitle = createTextElement("h4", "animated jello text-muted lead", "Button Colors");
+  let colorsTitle = createTextElement(
+    "h4",
+    "animated jello text-muted lead",
+    "Button Colors"
+  );
 
   /** Primary Button Sample */
   let buttonPrimary = createButton("btn-primary", "primary", "buttonPrimary");
@@ -37,11 +41,11 @@ export const sampleButtonColors = () => {
   let buttonDark = createButton("btn-dark", "dark", "buttonDark");
 
   /** White Button Sample */
-  let buttonWhite = createButton("btn-white", "white", "buttonWhite");
+  //let buttonWhite = createButton("btn-white", "white", "buttonWhite");
 
   /** All buttons appened to a col  */
   let buttonsColorsCol = appendsCreateCol(
-    "col-6",
+    "col-12",
     colorsTitle,
     buttonPrimary,
     buttonSecondary,
@@ -49,8 +53,8 @@ export const sampleButtonColors = () => {
     buttonDanger,
     buttonInfo,
     buttonWarning,
-    buttonDark,
-    buttonWhite
+    buttonDark
+    //buttonWhite
   );
 
   return buttonsColorsCol;

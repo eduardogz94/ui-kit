@@ -9,7 +9,11 @@ import {
  * @returns {EgCol} Buttons styles col sample.
  */
 export const sampleButtonStyles = () => {
-  let stylesTitle = createTextElement("h4", "animated jello text-muted lead", "Button Styles");
+  let stylesTitle = createTextElement(
+    "h4",
+    "animated jello text-muted lead",
+    "Button Styles"
+  );
 
   /** Default Button Sample */
   let defaultButton = createButton(
@@ -46,7 +50,7 @@ export const sampleButtonStyles = () => {
   let linkButton = createButton("btn-link btn-sm", "Link", "linkButton");
 
   let buttonStylesCol = appendsCreateCol(
-    "col-6",
+    "col-12",
     stylesTitle,
     defaultButton,
     outlineButton,
