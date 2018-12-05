@@ -74,7 +74,6 @@ export default class EgTable extends HTMLElement {
    */
   connectedCallback() {
     this.innerHTML = this.template();
-    this.getComponent().setAttribute("table", "table");
     this.setComponent();
     this.defaultProperties();
 
@@ -121,7 +120,7 @@ export default class EgTable extends HTMLElement {
    * @protected
    */
   defaultProperties() {
-    let classname = "";
+    let classname = "table ";
 
     this.getAttributeNames().forEach(element => {
       if (element === "id")
@@ -129,9 +128,6 @@ export default class EgTable extends HTMLElement {
           element,
           `${this.getAttribute(`${element}`)}-table`
         );
-
-      if (element === "type")
-        return this.safeChildSet(element, `${this.getAttribute(`${element}`)}`);
 
       classname += `${this.getAttribute(`${element}`)} `;
     });

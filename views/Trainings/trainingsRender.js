@@ -1,16 +1,19 @@
-import {
-  boxappTrainings
-} from "./trainings.js";
+import { boxappTrainings, traningTable } from "./trainings.js";
+import { appendsCreateCol } from "../../src/js/sivaFunctions.js";
 
-let trainingsTable = boxappTrainings();
+let view = boxappTrainings();
 
 export const boxAppTraningsRender = () => {
-  return trainingsTable;
+  let trainingsCol = appendsCreateCol("col-6", view.trainingsTitle);
+  trainingsCol.css = "mt-5 offset-3";
+
+  trainingsCol.appendMultipleElements(traningTable, view.newBookButton);
+  return trainingsCol;
 };
 
 export const boxAppTrainingsAfterDOM = () => {
-    trainingsTable.createHeadings("Firstname", "Lastname", "Email");
-    trainingsTable.createData("John", "Doe", "john@example.com");
-    trainingsTable.createData("hello", "test", "john@example.com");
-    trainingsTable.createData("asd", "dsa", "john@example.com");
-}
+  traningTable.createHeadings("Firstname", "Lastname");
+  traningTable.createData("John", "Doe");
+  traningTable.createData("hello", "test");
+  traningTable.createData("asd", "dsa");
+};

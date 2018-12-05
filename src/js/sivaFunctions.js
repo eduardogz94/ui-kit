@@ -2,6 +2,8 @@ import EgInput from "../components/EgInput.js";
 import EgButton from "../components/EgButton.js";
 import EgCol from "../components/Grid/EgCol.js";
 import EgGrid from "../components/Grid/EgGrid.js";
+import EgIcon from "../components/EgIcon.js";
+import EgAlert from "../components/EgAlert.js";
 
 /** A function that sets to the desired EgInput a length value validation.
  * @function
@@ -72,7 +74,13 @@ export const createCardText = (style, text) => {
  * @public
  * @return EgButton with the props passed.
  */
-export const createButton = (type,text = null, id = null, col = null, offset = null) => {
+export const createButton = (
+  type,
+  text = null,
+  id = null,
+  col = null,
+  offset = null
+) => {
   let newButton = new EgButton(type);
   if (col) newButton.col = col;
   if (text) newButton.innerText = text;
@@ -161,16 +169,15 @@ export const createAlert = (type, text, id = null, close = null) => {
   return newAlert;
 };
 
-
 /** Creates a new icon.
-* @function
-* @param {String} icon Type of icon.
-* @param {String} size Size of the icon.
-* @param {String} [css] Class for the icon
-*/
+ * @function
+ * @param {String} icon Type of icon.
+ * @param {String} size Size of the icon.
+ * @param {String} [css] Class for the icon
+ */
 export const createIcon = (icon, size, css = null) => {
   let newIcon = new EgIcon(icon, size);
   if (css) newIcon.css = css;
 
   return newIcon;
-}
+};
