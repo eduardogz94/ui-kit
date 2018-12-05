@@ -7,9 +7,7 @@ if (supportsCustomElements) {
 
   // You can safely use the Custom elements API
   ccc.egUIKIT().catch(e => console.log(e));
-  ccc
-    .logRoute("../libs/log4javascript", "../routes/public-loader")
-    .catch(e => console.log(e));
+  ccc.chargeScript("../routes/public-loader");
 
   console.log(ccc.getComponents());
   console.log(ccc.getFiles());

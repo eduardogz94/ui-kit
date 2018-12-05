@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
+    <meta charset='utf-8' />
     <title>JSDoc: Source: components/Grid/EgCol.js</title>
 
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
+    <script src='scripts/prettify/prettify.js'></script>
+    <script src='scripts/prettify/lang-css.js'></script>
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src='//html5shiv.googlecode.com/svn/trunk/html5.js'></script>
     <![endif]-->
     <link
-      type="text/css"
-      rel="stylesheet"
-      href="styles/prettify-tomorrow.css"
+      type='text/css'
+      rel='stylesheet'
+      href='styles/prettify-tomorrow.css'
     />
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+    <link type='text/css' rel='stylesheet' href='styles/jsdoc-default.css' />
   </head>
 
   <body>
-    <div id="main">
-      <h1 class="page-title">Source: components/Grid/EgCol.js</h1>
+    <div id='main'>
+      <h1 class='page-title'>Source: components/Grid/EgCol.js</h1>
 
       <section>
         <article>
-          <pre class="prettyprint source linenums"><code>import {
+          <pre class='prettyprint source linenums'><code>import {
   getElementObjects,
   createAndAppendElement,
   appendMultipleElements,
@@ -37,13 +37,13 @@
   setBackground,
   setDimensions,
   setPosition
-} from "../../js/bindingFunctions.js";
+} from '../../js/bindingFunctions.js';
 
 import {
   observerCallback,
   initIntersectionObserver,
   disconnectObserver
-} from "../../observer/index.js";
+} from '../../observer/index.js';
 
 /**
  * EgCol Class
@@ -96,12 +96,12 @@ export default class EgCol extends HTMLElement {
     this.defaultProperties();
     ccc.registerComponent(this, {
       id: this.id,
-      secret: "Col Parent"
+      secret: 'Col Parent'
     });
 
     // If IntersectionObserver is available, initialize it.
     // otherwise, simply load the image.
-    if ("IntersectionObserver" in window) this.initIntersectionObserver();
+    if ('IntersectionObserver' in window) this.initIntersectionObserver();
     else this.intersecting = true;
   }
 
@@ -127,13 +127,13 @@ export default class EgCol extends HTMLElement {
    */
   setComponent() {
     // Properties
-    if (this.id) this.safeSet("id", this.id);
+    if (this.id) this.safeSet('id', this.id);
 
     // Attributes
-    if (this.col) this.safeSet("col", this.col);
-    if (this.offset) this.safeSet("offset", this.offset);
-    if (this.css) this.safeSet("css", this.css);
-    if (this.bg) this.safeSet("bg", this.bg);
+    if (this.col) this.safeSet('col', this.col);
+    if (this.offset) this.safeSet('offset', this.offset);
+    if (this.css) this.safeSet('css', this.css);
+    if (this.bg) this.safeSet('bg', this.bg);
   }
 
   /**
@@ -141,12 +141,12 @@ export default class EgCol extends HTMLElement {
    * @protected
    */
   defaultProperties() {
-    this.style.display = "inline-block";
-    this.style.marginTop = "1px";
+    this.style.display = 'inline-block';
+    this.style.marginTop = '1px';
 
-    let classname = "";
+    let classname = '';
     this.getAttributeNames().forEach(element => {
-      if (element === "id") return null;
+      if (element === 'id') return null;
       classname += `${this.getAttribute(`${element}`)} `;
     });
     this.className = classname;
@@ -154,7 +154,7 @@ export default class EgCol extends HTMLElement {
 }
 
 // You must change this 3 consts after generated.
-let tagName = "eg-col";
+let tagName = 'eg-col';
 let registerDOM = () => customElements.define(tagName, EgCol);
 
 //Async loading.
@@ -167,69 +167,69 @@ window.WebComponents
     </div>
 
     <nav>
-      <h2><a href="index.html">Home</a></h2>
+      <h2><a href='index.html'>Home</a></h2>
       <h3>Classes</h3>
       <ul>
-        <li><a href="module.exports.html">exports</a></li>
+        <li><a href='module.exports.html'>exports</a></li>
       </ul>
       <h3>Global</h3>
       <ul>
-        <li><a href="global.html#addIcon">addIcon</a></li>
+        <li><a href='global.html#addIcon'>addIcon</a></li>
         <li>
-          <a href="global.html#appendMultipleElements"
+          <a href='global.html#appendMultipleElements'
             >appendMultipleElements</a
           >
         </li>
-        <li><a href="global.html#connectedCallback">connectedCallback</a></li>
+        <li><a href='global.html#connectedCallback'>connectedCallback</a></li>
         <li>
-          <a href="global.html#createAndAppendElement"
+          <a href='global.html#createAndAppendElement'
             >createAndAppendElement</a
           >
         </li>
         <li>
-          <a href="global.html#createMultipleElements"
+          <a href='global.html#createMultipleElements'
             >createMultipleElements</a
           >
         </li>
-        <li><a href="global.html#defaultProperties">defaultProperties</a></li>
+        <li><a href='global.html#defaultProperties'>defaultProperties</a></li>
         <li>
-          <a href="global.html#disconnectedCallback">disconnectedCallback</a>
+          <a href='global.html#disconnectedCallback'>disconnectedCallback</a>
         </li>
-        <li><a href="global.html#disconnectObserver">disconnectObserver</a></li>
-        <li><a href="global.html#getComponent">getComponent</a></li>
-        <li><a href="global.html#getElementObjects">getElementObjects</a></li>
-        <li><a href="global.html#getInputValue">getInputValue</a></li>
+        <li><a href='global.html#disconnectObserver'>disconnectObserver</a></li>
+        <li><a href='global.html#getComponent'>getComponent</a></li>
+        <li><a href='global.html#getElementObjects'>getElementObjects</a></li>
+        <li><a href='global.html#getInputValue'>getInputValue</a></li>
         <li>
-          <a href="global.html#initIntersectionObserver"
+          <a href='global.html#initIntersectionObserver'
             >initIntersectionObserver</a
           >
         </li>
-        <li><a href="global.html#observerCallback">observerCallback</a></li>
-        <li><a href="global.html#safeChildSet">safeChildSet</a></li>
-        <li><a href="global.html#safeMultipleSet">safeMultipleSet</a></li>
-        <li><a href="global.html#safeSet">safeSet</a></li>
-        <li><a href="global.html#setBorder">setBorder</a></li>
-        <li><a href="global.html#setComponent">setComponent</a></li>
-        <li><a href="global.html#setFont">setFont</a></li>
-        <li><a href="global.html#setFontStyle">setFontStyle</a></li>
-        <li><a href="global.html#setFormControl">setFormControl</a></li>
-        <li><a href="global.html#template">template</a></li>
-        <li><a href="global.html#validateEmail">validateEmail</a></li>
-        <li><a href="global.html#validateValue">validateValue</a></li>
+        <li><a href='global.html#observerCallback'>observerCallback</a></li>
+        <li><a href='global.html#safeChildSet'>safeChildSet</a></li>
+        <li><a href='global.html#safeMultipleSet'>safeMultipleSet</a></li>
+        <li><a href='global.html#safeSet'>safeSet</a></li>
+        <li><a href='global.html#setBorder'>setBorder</a></li>
+        <li><a href='global.html#setComponent'>setComponent</a></li>
+        <li><a href='global.html#setFont'>setFont</a></li>
+        <li><a href='global.html#setFontStyle'>setFontStyle</a></li>
+        <li><a href='global.html#setFormControl'>setFormControl</a></li>
+        <li><a href='global.html#template'>template</a></li>
+        <li><a href='global.html#validateEmail'>validateEmail</a></li>
+        <li><a href='global.html#validateValue'>validateValue</a></li>
       </ul>
     </nav>
 
-    <br class="clear" />
+    <br class='clear' />
 
     <footer>
       Documentation generated by
-      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 29
+      <a href='https://github.com/jsdoc3/jsdoc'>JSDoc 3.5.5</a> on Thu Nov 29
       2018 01:38:19 GMT-0400 (-04)
     </footer>
 
     <script>
       prettyPrint();
     </script>
-    <script src="scripts/linenumber.js"></script>
+    <script src='scripts/linenumber.js'></script>
   </body>
 </html>

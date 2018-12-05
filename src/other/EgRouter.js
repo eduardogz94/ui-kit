@@ -1,4 +1,15 @@
+/**
+ * EgRouter Class
+ * @extends {HTMLElement}
+ */
 export default class EgRouter {
+  /** Constructor for EgButton.
+   * @class
+   * @constructor
+   * @param {Array} Routes An array with all the routes inside.
+   * @param {HTMLElement} MainElement A html element with the id of main (SPA struct)
+   * @protected
+   */
   constructor(routes, main) {
     this.routes = routes;
     this.main = main;
@@ -25,7 +36,7 @@ export default class EgRouter {
   }
 
   logRouter() {
-    console.info(this.history, this.routes, this.main);
+    console.log(this.history, this.routes, this.main);
   }
 
   async add(route) {
@@ -34,7 +45,6 @@ export default class EgRouter {
       this.routes.push(route);
       ccc.chargeScript(route.script).catch(e => console.log(e));
     }
-    this.logRouter();
   }
 
   async load(route) {
@@ -56,5 +66,16 @@ export default class EgRouter {
     this.history.push(route);
     this.main.appendChild(route.component);
     if (route.lazyDOM) route.lazyDOM();
+    this.logRouter();
+  }
+
+  restartSPA() {
+    let { main, routes } = this;
+
+    main.childNodes.forEach(node => {
+      if (node.localName === "eg-header") return null;
+      this.routes = routes.filter(route => route.url === "/Header");
+      main.removeChild(node);
+    });
   }
 }

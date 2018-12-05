@@ -14,13 +14,13 @@ import {
   setDimensions,
   setPosition,
   onClear
-} from "../js/bindingFunctions.js";
+} from '../js/bindingFunctions.js';
 
 import {
   observerCallback,
   initIntersectionObserver,
   disconnectObserver
-} from "../observer/index.js";
+} from '../observer/index.js';
 
 /**
  * EgComponent Class
@@ -82,7 +82,7 @@ export default class EgComponent extends HTMLElement {
 
     ccc.registerComponent(this, {
       id: this.id,
-      secret: "Component Parent"
+      secret: 'Component Parent'
     });
   }
 
@@ -99,7 +99,7 @@ export default class EgComponent extends HTMLElement {
    * @protected
    */
   getComponent() {
-    return this.querySelector("YOU WRITE IN EHRE TOO");
+    return this.querySelector('YOU WRITE IN EHRE TOO');
   }
 
   /**
@@ -108,15 +108,15 @@ export default class EgComponent extends HTMLElement {
    */
   setComponent() {
     // Properties
-    if (this.id) this.safeSet("id", this.id);
-    if (this.type) this.safeSet("type", this.type);
-    if (this.placeholder) this.safeSet("placeholder", this.placeholder);
+    if (this.id) this.safeSet('id', this.id);
+    if (this.type) this.safeSet('type', this.type);
+    if (this.placeholder) this.safeSet('placeholder', this.placeholder);
 
     // Attributes
-    if (this.control) this.safeSet("control", this.control);
-    if (this.col) this.safeSet("col", this.col);
-    if (this.offset) this.safeSet("offset", this.offset);
-    if (this.css) this.safeSet("css", this.css);
+    if (this.control) this.safeSet('control', this.control);
+    if (this.col) this.safeSet('col', this.col);
+    if (this.offset) this.safeSet('offset', this.offset);
+    if (this.css) this.safeSet('css', this.css);
   }
 
   /**
@@ -124,10 +124,10 @@ export default class EgComponent extends HTMLElement {
    * @protected
    */
   defaultProperties() {
-    let classname = "";
+    let classname = '';
 
     this.getAttributeNames().forEach(element => {
-      if (element === "id")
+      if (element === 'id')
         return this.safeChildSet(
           element,
           '{this.getAttribute('{element}')}-component'
@@ -141,7 +141,7 @@ export default class EgComponent extends HTMLElement {
 }
 
 // You must change this 2 consts after generated.
-let tagName = "eg-component";
+let tagName = 'eg-component';
 let registerDOM = () => customElements.define(tagName, EgComponent);
 
 //Async loading.

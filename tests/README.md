@@ -60,8 +60,8 @@ const createInput = (
  * @param {String} text Text that belongs to the card header title (required).
  */
 const createCardText = (style, text) => {
-  let cardText = document.createElement("h6");
-  cardText.setAttribute("class", style);
+  let cardText = document.createElement('h6');
+  cardText.setAttribute('class', style);
   cardText.innerHTML = text;
 
   return cardText;
@@ -130,7 +130,7 @@ const appendsCreateCol = (col, ...elements) => {
  */
 const createTextElement = (element, css, text) => {
   let newElement = document.createElement(element);
-  newElement.setAttribute("class", css);
+  newElement.setAttribute('class', css);
   newElement.innerHTML = text;
 
   return newElement;

@@ -41,18 +41,6 @@ body {
   background-color: #f6f6f6;
 }
 
-h1 {
-  font-family: "blanchcaps_inline", sans-serif;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "haymakerregular", sans-serif;
-}
-
 h1,
 h2,
 h3,
@@ -65,10 +53,12 @@ h6,
 .h4,
 .h5,
 .h6 {
+  font-family: "Catamaran";
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
   color: inherit;
+  margin-top: 0;
 }
 
 h1,
@@ -107,31 +97,32 @@ hr {
   overflow: visible;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-family: "Catamaran";
 }
 
 a {
-  color: #007bff;
-  text-decoration: none;
+  color: white;
+  text-decoration: none !important;
   background-color: transparent;
-  -webkit-text-decoration-skip: objects;
+  font-family: "Catamaran";
+}
+
+a:hover,
+a:focus {
+  color: #343a40;
+  outline: 0;
 }
 
 a:hover {
-  color: #0056b3;
-  text-decoration: underline;
+  color: #343a40;
+}
+
+ul {
+  list-style: none;
+  font-family: "Catamaran";
 }
 
 /*----------------------------------------------
@@ -187,6 +178,118 @@ select.form-control:not([size]):not([multiple]) {
   min-height: 32px;
   font-weight: 700;
 }
+/*----------------------------------------------
+* Navigation
+----------------------------------------------*/
+.navbar {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  padding: .5rem 1rem;
+}
+.navbar-brand {
+  margin-top: 0px !important;
+  padding-bottom: 0px;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+.nav-brand-logo {
+  width: 60px;
+}
+.icon-togger {
+  width: 24px;
+  color: #fff !important;
+}
+.navbar-nav .nav-item .nav-link {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.navbar-nav .nav-link em,
+.navbar-nav .nav-link i {
+  font-size: 18px;
+}
+.navbar.navbar-transparent {
+  background-color: transparent !important;
+  box-shadow: none;
+  color: black !important;
+  padding-bottom: 0;
+  padding-top: 25px;
+}
+@media (max-width: 992px) {
+  .navbar.navbar-transparent {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    padding-top: 10px;
+    border-radius: 0;
+  }
+}
+.dropdown-menu .dropdown-item {
+  padding: 6px 1.5rem;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 25px;
+}
+/*.dropdown:hover .dropdown-menu, .btn-group:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}*/
+.navbar-toggler {
+  font-size: 2rem;
+  line-height: 1;
+  border: none;
+  border-radius: 0;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.navbar-collapse {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  width: 100%;
+}
+
+.navbar-toggleable .navbar-nav {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
+.dropdown-toggle::after {
+  vertical-align: top;
+  content: "\f3d0";
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  font-family: "Ionicons";
+  font-size: 17px;
+  margin-top: -4px;
+}
+.navbar-nav .dropdown .dropdown-toggle:after {
+  margin-top: 0px;
+}
+.btn-group .dropdown-toggle:after {
+  font-size: 17px;
+}
+.btn + .dropdown-toggle-split {
+  padding-right: 1.5rem;
+}
 
 /*----------------------------------------------
 * Cards Elements
@@ -201,7 +304,7 @@ select.form-control:not([size]):not([multiple]) {
   margin-bottom: 30px;
 }
 .card-progress:after {
-  \content: " ";
+  content: " ";
   position: absolute;
   top: 0;
   left: 0;
@@ -259,6 +362,7 @@ select.form-control:not([size]):not([multiple]) {
   background-color: #fbfbfb;
 }
 .card .card-header {
+  margin-top: 0 !important;
   border-bottom-color: #f9f9f9;
   line-height: 30px;
   -ms-flex-item-align: center;
@@ -580,4 +684,303 @@ select.form-control:not([size]):not([multiple]) {
 
 .rounded-0 {
   border-radius: 0 !important;
+}
+
+/*----------------------------------------------
+* Table Elements
+----------------------------------------------*/
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+.table .table {
+  background-color: #fff;
+}
+
+.table-sm th,
+.table-sm td {
+  padding: 0.3rem;
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+  border-bottom-width: 2px;
+}
+
+.table-borderless th,
+.table-borderless td,
+.table-borderless thead th,
+.table-borderless tbody + tbody {
+  border: 0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+  background-color: #b8daff;
+}
+
+.table-hover .table-primary:hover {
+  background-color: #9fcdff;
+}
+
+.table-hover .table-primary:hover > td,
+.table-hover .table-primary:hover > th {
+  background-color: #9fcdff;
+}
+
+.table-secondary,
+.table-secondary > th,
+.table-secondary > td {
+  background-color: #d6d8db;
+}
+
+.table-hover .table-secondary:hover {
+  background-color: #c8cbcf;
+}
+
+.table-hover .table-secondary:hover > td,
+.table-hover .table-secondary:hover > th {
+  background-color: #c8cbcf;
+}
+
+.table-success,
+.table-success > th,
+.table-success > td {
+  background-color: #c3e6cb;
+}
+
+.table-hover .table-success:hover {
+  background-color: #b1dfbb;
+}
+
+.table-hover .table-success:hover > td,
+.table-hover .table-success:hover > th {
+  background-color: #b1dfbb;
+}
+
+.table-info,
+.table-info > th,
+.table-info > td {
+  background-color: #bee5eb;
+}
+
+.table-hover .table-info:hover {
+  background-color: #abdde5;
+}
+
+.table-hover .table-info:hover > td,
+.table-hover .table-info:hover > th {
+  background-color: #abdde5;
+}
+
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+  background-color: #ffeeba;
+}
+
+.table-hover .table-warning:hover {
+  background-color: #ffe8a1;
+}
+
+.table-hover .table-warning:hover > td,
+.table-hover .table-warning:hover > th {
+  background-color: #ffe8a1;
+}
+
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+  background-color: #f5c6cb;
+}
+
+.table-hover .table-danger:hover {
+  background-color: #f1b0b7;
+}
+
+.table-hover .table-danger:hover > td,
+.table-hover .table-danger:hover > th {
+  background-color: #f1b0b7;
+}
+
+.table-light,
+.table-light > th,
+.table-light > td {
+  background-color: #fdfdfe;
+}
+
+.table-hover .table-light:hover {
+  background-color: #ececf6;
+}
+
+.table-hover .table-light:hover > td,
+.table-hover .table-light:hover > th {
+  background-color: #ececf6;
+}
+
+.table-dark,
+.table-dark > th,
+.table-dark > td {
+  background-color: #c6c8ca;
+}
+
+.table-hover .table-dark:hover {
+  background-color: #b9bbbe;
+}
+
+.table-hover .table-dark:hover > td,
+.table-hover .table-dark:hover > th {
+  background-color: #b9bbbe;
+}
+
+.table-active,
+.table-active > th,
+.table-active > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-hover .table-active:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-hover .table-active:hover > td,
+.table-hover .table-active:hover > th {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table .thead-dark th {
+  color: #fff;
+  background-color: #212529;
+  border-color: #32383e;
+}
+
+.table .thead-light th {
+  color: #495057;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.table-dark {
+  color: #fff;
+  background-color: #212529;
+}
+
+.table-dark th,
+.table-dark td,
+.table-dark thead th {
+  border-color: #32383e;
+}
+
+.table-dark.table-bordered {
+  border: 0;
+}
+
+.table-dark.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-dark.table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+@media (max-width: 575.98px) {
+  .table-responsive-sm {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .table-responsive-sm > .table-bordered {
+    border: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .table-responsive-md {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .table-responsive-md > .table-bordered {
+    border: 0;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .table-responsive-lg {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .table-responsive-lg > .table-bordered {
+    border: 0;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .table-responsive-xl {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .table-responsive-xl > .table-bordered {
+    border: 0;
+  }
+}
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.table-responsive > .table-bordered {
+  border: 0;
 }

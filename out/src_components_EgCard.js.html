@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<head>
+    <meta charset="utf-8">
     <title>JSDoc: Source: src/components/EgCard.js</title>
 
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="styles/prettify-tomorrow.css"
-    />
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
-  </head>
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
 
-  <body>
-    <div id="main">
-      <h1 class="page-title">Source: src/components/EgCard.js</h1>
+<body>
 
-      <section>
+<div id="main">
+
+    <h1 class="page-title">Source: src/components/EgCard.js</h1>
+
+    
+
+
+
+    
+    <section>
         <article>
-          <pre class="prettyprint source linenums"><code>import {
+            <pre class="prettyprint source linenums"><code>import {
   getElementObjects,
   createAndAppendElement,
   appendMultipleElements,
@@ -36,8 +39,7 @@
   setFontStyle,
   setBackground,
   setDimensions,
-  setPosition,
-  onClear
+  setPosition
 } from "../js/bindingFunctions.js";
 
 import {
@@ -51,11 +53,11 @@ import {
  * @extends {HTMLElement}
  */
 export default class EgCard extends HTMLElement {
-  /**
-   * Constructor for EgCard.
+  /** Constructor for EgCard.
+   * @class
    * @constructor
    * @param {String} type String as the Type of the EgCard.
-   * @protected
+   * @public
    */
   constructor(type) {
     super();
@@ -87,8 +89,8 @@ export default class EgCard extends HTMLElement {
   }
 
   /** A function to return the html template of the component.
-   * @protected
    * @template
+   * @protected
    */
   template() {
     return `&lt;div>
@@ -98,8 +100,8 @@ export default class EgCard extends HTMLElement {
     &lt;/div>`;
   }
 
-  /**
-   * A lifecycle method that calls when the component has finally rendered.
+  /** A lifecycle method that calls when the component has finally rendered.
+   * @function
    * @protected
    */
   connectedCallback() {
@@ -120,24 +122,24 @@ export default class EgCard extends HTMLElement {
     else this.intersecting = true;
   }
 
-  /**
-   * A lifecycle method that calls when the component has unmounted.
+  /** A lifecycle method that calls when the component has unmounted.
+   * @function
    * @protected
    */
   disconnectedCallback() {
     this.disconnectObserver();
   }
 
-  /**
-   * A function to get the div inside the EgCard tag.
+  /** A function to get the div inside the EgCard tag.
+   * @function
    * @protected
    */
   getComponent() {
     return this.querySelector("div");
   }
 
-  /**
-   * A function to set the component properties/attributes.
+  /** A function to set the component properties/attributes.
+   * @function
    * @protected
    */
   setComponent() {
@@ -154,8 +156,8 @@ export default class EgCard extends HTMLElement {
     if (this.css) this.safeSet("css", this.css);
   }
 
-  /**
-   * Set the default properties/attributes for the component.
+  /** Set the default properties/attributes for the component.
+   * @function
    * @protected
    */
   defaultProperties() {
@@ -238,118 +240,24 @@ window.WebComponents
   : registerDOM();
 </code></pre>
         </article>
-      </section>
-    </div>
+    </section>
 
-    <nav>
-      <h2><a href="index.html">Home</a></h2>
-      <h3>Classes</h3>
-      <ul>
-        <li><a href="module.exports.html">exports</a></li>
-      </ul>
-      <h3>Global</h3>
-      <ul>
-        <li><a href="global.html#addIcon">addIcon</a></li>
-        <li>
-          <a href="global.html#appendMultipleElements"
-            >appendMultipleElements</a
-          >
-        </li>
-        <li><a href="global.html#appendsCreateCol">appendsCreateCol</a></li>
-        <li><a href="global.html#connectedCallback">connectedCallback</a></li>
-        <li>
-          <a href="global.html#createAndAppendElement"
-            >createAndAppendElement</a
-          >
-        </li>
-        <li><a href="global.html#createButton">createButton</a></li>
-        <li>
-          <a href="global.html#createCardLoginBody">createCardLoginBody</a>
-        </li>
-        <li><a href="global.html#createCardText">createCardText</a></li>
-        <li><a href="global.html#createCol">createCol</a></li>
-        <li><a href="global.html#createInput">createInput</a></li>
-        <li>
-          <a href="global.html#createMultipleElements"
-            >createMultipleElements</a
-          >
-        </li>
-        <li><a href="global.html#createTextElement">createTextElement</a></li>
-        <li><a href="global.html#createView">createView</a></li>
-        <li><a href="global.html#defaultProperties">defaultProperties</a></li>
-        <li>
-          <a href="global.html#disconnectedCallback">disconnectedCallback</a>
-        </li>
-        <li><a href="global.html#disconnectObserver">disconnectObserver</a></li>
-        <li><a href="global.html#emailValidator">emailValidator</a></li>
-        <li><a href="global.html#getComponent">getComponent</a></li>
-        <li><a href="global.html#getElementObjects">getElementObjects</a></li>
-        <li><a href="global.html#getInputValue">getInputValue</a></li>
-        <li>
-          <a href="global.html#initIntersectionObserver"
-            >initIntersectionObserver</a
-          >
-        </li>
-        <li><a href="global.html#lengthValidator">lengthValidator</a></li>
-        <li><a href="global.html#observerCallback">observerCallback</a></li>
-        <li><a href="global.html#safeChildSet">safeChildSet</a></li>
-        <li><a href="global.html#safeMultipleSet">safeMultipleSet</a></li>
-        <li><a href="global.html#safeSet">safeSet</a></li>
-        <li><a href="global.html#sampleButtonColors">sampleButtonColors</a></li>
-        <li>
-          <a href="global.html#sampleButtonOutline">sampleButtonOutline</a>
-        </li>
-        <li><a href="global.html#sampleButtonSizes">sampleButtonSizes</a></li>
-        <li><a href="global.html#sampleButtonStyles">sampleButtonStyles</a></li>
-        <li><a href="global.html#sampleCardDanger">sampleCardDanger</a></li>
-        <li><a href="global.html#sampleCardDefault">sampleCardDefault</a></li>
-        <li><a href="global.html#sampleCardInfo">sampleCardInfo</a></li>
-        <li><a href="global.html#sampleCardLogin">sampleCardLogin</a></li>
-        <li><a href="global.html#sampleCardPrimary">sampleCardPrimary</a></li>
-        <li>
-          <a href="global.html#sampleCardSecondary">sampleCardSecondary</a>
-        </li>
-        <li><a href="global.html#sampleCardSuccess">sampleCardSuccess</a></li>
-        <li><a href="global.html#sampleCardWarning">sampleCardWarning</a></li>
-        <li><a href="global.html#sampleImageCircle">sampleImageCircle</a></li>
-        <li><a href="global.html#sampleImageRaised">sampleImageRaised</a></li>
-        <li><a href="global.html#sampleImageRounded">sampleImageRounded</a></li>
-        <li>
-          <a href="global.html#sampleImageThumbnail">sampleImageThumbnail</a>
-        </li>
-        <li><a href="global.html#sampleInputDanger">sampleInputDanger</a></li>
-        <li><a href="global.html#sampleInputDefault">sampleInputDefault</a></li>
-        <li><a href="global.html#sampleInputEmail">sampleInputEmail</a></li>
-        <li><a href="global.html#sampleInputLarge">sampleInputLarge</a></li>
-        <li>
-          <a href="global.html#sampleInputPassword">sampleInputPassword</a>
-        </li>
-        <li><a href="global.html#sampleInputSuccess">sampleInputSuccess</a></li>
-        <li><a href="global.html#sampleInputText">sampleInputText</a></li>
-        <li><a href="global.html#sampleInputWarning">sampleInputWarning</a></li>
-        <li><a href="global.html#sampleInputXsmall">sampleInputXsmall</a></li>
-        <li><a href="global.html#setBorder">setBorder</a></li>
-        <li><a href="global.html#setComponent">setComponent</a></li>
-        <li><a href="global.html#setFont">setFont</a></li>
-        <li><a href="global.html#setFontStyle">setFontStyle</a></li>
-        <li><a href="global.html#setFormControl">setFormControl</a></li>
-        <li><a href="global.html#template">template</a></li>
-        <li><a href="global.html#validateEmail">validateEmail</a></li>
-        <li><a href="global.html#validateValue">validateValue</a></li>
-      </ul>
-    </nav>
 
-    <br class="clear" />
 
-    <footer>
-      Documentation generated by
-      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 29
-      2018 01:39:03 GMT-0400 (-04)
-    </footer>
 
-    <script>
-      prettyPrint();
-    </script>
-    <script src="scripts/linenumber.js"></script>
-  </body>
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addIcon">addIcon</a></li><li><a href="global.html#appendMultipleElements">appendMultipleElements</a></li><li><a href="global.html#appendsCreateCol">appendsCreateCol</a></li><li><a href="global.html#connectedCallback">connectedCallback</a></li><li><a href="global.html#createAndAppendElement">createAndAppendElement</a></li><li><a href="global.html#createButton">createButton</a></li><li><a href="global.html#createCardLoginBody">createCardLoginBody</a></li><li><a href="global.html#createCardText">createCardText</a></li><li><a href="global.html#createCol">createCol</a></li><li><a href="global.html#createInput">createInput</a></li><li><a href="global.html#createMultipleElements">createMultipleElements</a></li><li><a href="global.html#createTextElement">createTextElement</a></li><li><a href="global.html#createView">createView</a></li><li><a href="global.html#defaultProperties">defaultProperties</a></li><li><a href="global.html#disconnectedCallback">disconnectedCallback</a></li><li><a href="global.html#disconnectObserver">disconnectObserver</a></li><li><a href="global.html#emailValidator">emailValidator</a></li><li><a href="global.html#getComponent">getComponent</a></li><li><a href="global.html#getElementObjects">getElementObjects</a></li><li><a href="global.html#getInputValue">getInputValue</a></li><li><a href="global.html#initIntersectionObserver">initIntersectionObserver</a></li><li><a href="global.html#lengthValidator">lengthValidator</a></li><li><a href="global.html#observerCallback">observerCallback</a></li><li><a href="global.html#safeChildSet">safeChildSet</a></li><li><a href="global.html#safeMultipleSet">safeMultipleSet</a></li><li><a href="global.html#safeSet">safeSet</a></li><li><a href="global.html#sampleButtonColors">sampleButtonColors</a></li><li><a href="global.html#sampleButtonOutline">sampleButtonOutline</a></li><li><a href="global.html#sampleButtonSizes">sampleButtonSizes</a></li><li><a href="global.html#sampleButtonStyles">sampleButtonStyles</a></li><li><a href="global.html#sampleCardDanger">sampleCardDanger</a></li><li><a href="global.html#sampleCardDefault">sampleCardDefault</a></li><li><a href="global.html#sampleCardInfo">sampleCardInfo</a></li><li><a href="global.html#sampleCardLogin">sampleCardLogin</a></li><li><a href="global.html#sampleCardPrimary">sampleCardPrimary</a></li><li><a href="global.html#sampleCardSecondary">sampleCardSecondary</a></li><li><a href="global.html#sampleCardSuccess">sampleCardSuccess</a></li><li><a href="global.html#sampleCardWarning">sampleCardWarning</a></li><li><a href="global.html#sampleImageCircle">sampleImageCircle</a></li><li><a href="global.html#sampleImageRaised">sampleImageRaised</a></li><li><a href="global.html#sampleImageRounded">sampleImageRounded</a></li><li><a href="global.html#sampleImageThumbnail">sampleImageThumbnail</a></li><li><a href="global.html#sampleInputDanger">sampleInputDanger</a></li><li><a href="global.html#sampleInputDefault">sampleInputDefault</a></li><li><a href="global.html#sampleInputEmail">sampleInputEmail</a></li><li><a href="global.html#sampleInputLarge">sampleInputLarge</a></li><li><a href="global.html#sampleInputPassword">sampleInputPassword</a></li><li><a href="global.html#sampleInputSuccess">sampleInputSuccess</a></li><li><a href="global.html#sampleInputText">sampleInputText</a></li><li><a href="global.html#sampleInputWarning">sampleInputWarning</a></li><li><a href="global.html#sampleInputXsmall">sampleInputXsmall</a></li><li><a href="global.html#setBorder">setBorder</a></li><li><a href="global.html#setComponent">setComponent</a></li><li><a href="global.html#setFont">setFont</a></li><li><a href="global.html#setFontStyle">setFontStyle</a></li><li><a href="global.html#setFormControl">setFormControl</a></li><li><a href="global.html#template">template</a></li><li><a href="global.html#validateEmail">validateEmail</a></li><li><a href="global.html#validateValue">validateValue</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Dec 02 2018 21:54:41 GMT-0400 (-04)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
 </html>

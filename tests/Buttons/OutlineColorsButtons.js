@@ -11,7 +11,7 @@ import {
 export const sampleButtonOutline = () => {
   let outlineTitle = createTextElement(
     "h4",
-    "animated jello",
+    "animated jello text-muted lead",
     "Button Outline"
   );
 

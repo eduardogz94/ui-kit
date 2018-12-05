@@ -29,7 +29,7 @@ export default class EgButton extends HTMLElement {
    * @class
    * @constructor
    * @param {String} btn Class for the eg-button.
-   * @protected
+   * @public
    */
   constructor(btn) {
     super();
@@ -151,7 +151,7 @@ export default class EgButton extends HTMLElement {
 
   /** A function to add an icon to the EgButton.
    * @function
-   * @param {String} icon  as the class for the icon(required).
+   * @param {String} icon as the class for the icon(required).
    * @protected
    */
   addIcon(icon) {

@@ -9,7 +9,7 @@ import {
  * @returns {EgCol} Buttons sizes col sample.
  */
 export const sampleButtonSizes = () => {
-  let sizesTitle = createTextElement("h4", "animated jello", "Button Sizes");
+  let sizesTitle = createTextElement("h4", "animated jello text-muted lead", "Button Sizes");
 
   /** extra-small Button Sample */
   let xsButton = createButton("btn-primary btn-xs", "xsmall", "xsButton");

@@ -4,12 +4,12 @@ import {
   createButton
 } from "../../src/js/sivaFunctions.js";
 
-/**A function that return the buttons samples colors col, usefull for routing, rendering, etc.
+/** A function that return the buttons samples colors col, usefull for routing, rendering, etc.
  * @function
  * @returns {EgCol} Buttons colors col sample.
  */
 export const sampleButtonColors = () => {
-  let colorsTitle = createTextElement("h4", "animated jello", "Button Colors");
+  let colorsTitle = createTextElement("h4", "animated jello text-muted lead", "Button Colors");
 
   /** Primary Button Sample */
   let buttonPrimary = createButton("btn-primary", "primary", "buttonPrimary");

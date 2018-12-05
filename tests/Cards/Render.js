@@ -31,7 +31,7 @@ let loginCardBody = createCardLoginBody();
 export const cardsSampleRender = () => {
   let cardsTitle = createTextElement(
     "h1",
-    "animated bounceInRight text-primary text-center",
+    "animated bounceInRight text-primary text-center blanch",
     "Cards"
   );
 

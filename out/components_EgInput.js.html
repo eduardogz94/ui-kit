@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
+    <meta charset='utf-8' />
     <title>JSDoc: Source: components/EgInput.js</title>
 
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
+    <script src='scripts/prettify/prettify.js'></script>
+    <script src='scripts/prettify/lang-css.js'></script>
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src='//html5shiv.googlecode.com/svn/trunk/html5.js'></script>
     <![endif]-->
     <link
-      type="text/css"
-      rel="stylesheet"
-      href="styles/prettify-tomorrow.css"
+      type='text/css'
+      rel='stylesheet'
+      href='styles/prettify-tomorrow.css'
     />
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+    <link type='text/css' rel='stylesheet' href='styles/jsdoc-default.css' />
   </head>
 
   <body>
-    <div id="main">
-      <h1 class="page-title">Source: components/EgInput.js</h1>
+    <div id='main'>
+      <h1 class='page-title'>Source: components/EgInput.js</h1>
 
       <section>
         <article>
-          <pre class="prettyprint source linenums"><code>import {
+          <pre class='prettyprint source linenums'><code>import {
   getElementObjects,
   createAndAppendElement,
   appendMultipleElements,
@@ -38,15 +38,15 @@
   setDimensions,
   setPosition,
   onClear
-} from "../js/bindingFunctions.js";
+} from '../js/bindingFunctions.js';
 
-import { caps, lowerCaps, integer, floatTest } from "../js/regexp.js";
+import { caps, lowerCaps, integer, floatTest } from '../js/regexp.js';
 
 import {
   observerCallback,
   initIntersectionObserver,
   disconnectObserver
-} from "../observer/index.js";
+} from '../observer/index.js';
 
 /**
  * EgInput Class
@@ -118,12 +118,12 @@ export default class EgInput extends HTMLElement {
 
     ccc.registerComponent(this, {
       id: this.id,
-      secret: "Input Parent"
+      secret: 'Input Parent'
     });
 
     // If IntersectionObserver is available, initialize it.
     // otherwise, simply load the image.
-    if ("IntersectionObserver" in window) this.initIntersectionObserver();
+    if ('IntersectionObserver' in window) this.initIntersectionObserver();
     else this.intersecting = true;
   }
 
@@ -140,7 +140,7 @@ export default class EgInput extends HTMLElement {
    * @protected
    */
   getComponent() {
-    return this.querySelector("input");
+    return this.querySelector('input');
   }
 
   /**
@@ -149,15 +149,15 @@ export default class EgInput extends HTMLElement {
    */
   setComponent() {
     // Properties
-    if (this.id) this.safeSet("id", this.id);
-    if (this.type) this.safeSet("type", this.type);
-    if (this.placeholder) this.safeSet("placeholder", this.placeholder);
+    if (this.id) this.safeSet('id', this.id);
+    if (this.type) this.safeSet('type', this.type);
+    if (this.placeholder) this.safeSet('placeholder', this.placeholder);
 
     // Attributes
-    if (this.control) this.safeSet("control", this.control);
-    if (this.col) this.safeSet("col", this.col);
-    if (this.offset) this.safeSet("offset", this.offset);
-    if (this.css) this.safeSet("css", this.css);
+    if (this.control) this.safeSet('control', this.control);
+    if (this.col) this.safeSet('col', this.col);
+    if (this.offset) this.safeSet('offset', this.offset);
+    if (this.css) this.safeSet('css', this.css);
   }
 
   /**
@@ -165,24 +165,24 @@ export default class EgInput extends HTMLElement {
    * @protected
    */
   defaultProperties() {
-    let classname = "";
+    let classname = '';
     this.getAttributeNames().forEach(element => {
-      if (element === "id")
+      if (element === 'id')
         return this.safeChildSet(
           element,
           `${this.getAttribute(`${element}`)}-input`
         );
 
-      if (element === "placeholder")
+      if (element === 'placeholder')
         return this.safeChildSet(element, `${this.getAttribute(`${element}`)}`);
 
-      if (element === "type")
+      if (element === 'type')
         return this.safeChildSet(element, `${this.getAttribute(`${element}`)}`);
 
       classname += `${this.getAttribute(`${element}`)} `;
     });
     this.getComponent().className = classname;
-    this.className = "form-group";
+    this.className = 'form-group';
   }
 
   /**
@@ -191,11 +191,11 @@ export default class EgInput extends HTMLElement {
    */
   getInputValue() {
     let response = this.getComponent();
-    let id = "";
+    let id = '';
 
     response.id || response.id == undefined
       ? (id = response.id)
-      : (id = "no id input");
+      : (id = 'no id input');
 
     let data = {
       value: response.value,
@@ -203,7 +203,7 @@ export default class EgInput extends HTMLElement {
       id: id
     };
 
-    response.value !== "" ? (data.filled = true) : (data.filled = false);
+    response.value !== '' ? (data.filled = true) : (data.filled = false);
 
     return data;
   }
@@ -215,10 +215,10 @@ export default class EgInput extends HTMLElement {
   validateValue(length) {
     let input = this.getInputValue();
     if (input.value.length &lt;= length - 1)
-      this.setFormControl("form-control-warning");
+      this.setFormControl('form-control-warning');
     else if (input.value.length &lt;= 0)
-      this.setFormControl("form-control-danger");
-    else this.setFormControl("form-control-success");
+      this.setFormControl('form-control-danger');
+    else this.setFormControl('form-control-success');
   }
 
   /**
@@ -227,11 +227,11 @@ export default class EgInput extends HTMLElement {
    * @protected
    */
   validateEmail(emailType) {
-    if (this.getComponent().getAttribute("type") === "email") {
+    if (this.getComponent().getAttribute('type') === 'email') {
       let input = this.getInputValue();
       if (input.value.search(emailType) === -1)
-        this.setFormControl("form-control-danger");
-      else this.setFormControl("form-control-success");
+        this.setFormControl('form-control-danger');
+      else this.setFormControl('form-control-success');
     }
   }
 
@@ -241,13 +241,13 @@ export default class EgInput extends HTMLElement {
    * @protected
    */
   setFormControl(value) {
-    let classname = "";
+    let classname = '';
     this.getAttributeNames().forEach(element => {
-      if (element === "id") return null;
-      if (element === "class") return null;
-      if (element === "control") return null;
-      if (element === "placeholder") return null;
-      if (element === "type") return null;
+      if (element === 'id') return null;
+      if (element === 'class') return null;
+      if (element === 'control') return null;
+      if (element === 'placeholder') return null;
+      if (element === 'type') return null;
       classname += `${this.getAttribute(`${element}`)} `;
     });
 
@@ -256,7 +256,7 @@ export default class EgInput extends HTMLElement {
 }
 
 // You must change this 2 consts after generated.
-let tagName = "eg-input";
+let tagName = 'eg-input';
 let registerDOM = () => customElements.define(tagName, EgInput);
 
 //Async loading.
@@ -269,69 +269,69 @@ window.WebComponents
     </div>
 
     <nav>
-      <h2><a href="index.html">Home</a></h2>
+      <h2><a href='index.html'>Home</a></h2>
       <h3>Classes</h3>
       <ul>
-        <li><a href="module.exports.html">exports</a></li>
+        <li><a href='module.exports.html'>exports</a></li>
       </ul>
       <h3>Global</h3>
       <ul>
-        <li><a href="global.html#addIcon">addIcon</a></li>
+        <li><a href='global.html#addIcon'>addIcon</a></li>
         <li>
-          <a href="global.html#appendMultipleElements"
+          <a href='global.html#appendMultipleElements'
             >appendMultipleElements</a
           >
         </li>
-        <li><a href="global.html#connectedCallback">connectedCallback</a></li>
+        <li><a href='global.html#connectedCallback'>connectedCallback</a></li>
         <li>
-          <a href="global.html#createAndAppendElement"
+          <a href='global.html#createAndAppendElement'
             >createAndAppendElement</a
           >
         </li>
         <li>
-          <a href="global.html#createMultipleElements"
+          <a href='global.html#createMultipleElements'
             >createMultipleElements</a
           >
         </li>
-        <li><a href="global.html#defaultProperties">defaultProperties</a></li>
+        <li><a href='global.html#defaultProperties'>defaultProperties</a></li>
         <li>
-          <a href="global.html#disconnectedCallback">disconnectedCallback</a>
+          <a href='global.html#disconnectedCallback'>disconnectedCallback</a>
         </li>
-        <li><a href="global.html#disconnectObserver">disconnectObserver</a></li>
-        <li><a href="global.html#getComponent">getComponent</a></li>
-        <li><a href="global.html#getElementObjects">getElementObjects</a></li>
-        <li><a href="global.html#getInputValue">getInputValue</a></li>
+        <li><a href='global.html#disconnectObserver'>disconnectObserver</a></li>
+        <li><a href='global.html#getComponent'>getComponent</a></li>
+        <li><a href='global.html#getElementObjects'>getElementObjects</a></li>
+        <li><a href='global.html#getInputValue'>getInputValue</a></li>
         <li>
-          <a href="global.html#initIntersectionObserver"
+          <a href='global.html#initIntersectionObserver'
             >initIntersectionObserver</a
           >
         </li>
-        <li><a href="global.html#observerCallback">observerCallback</a></li>
-        <li><a href="global.html#safeChildSet">safeChildSet</a></li>
-        <li><a href="global.html#safeMultipleSet">safeMultipleSet</a></li>
-        <li><a href="global.html#safeSet">safeSet</a></li>
-        <li><a href="global.html#setBorder">setBorder</a></li>
-        <li><a href="global.html#setComponent">setComponent</a></li>
-        <li><a href="global.html#setFont">setFont</a></li>
-        <li><a href="global.html#setFontStyle">setFontStyle</a></li>
-        <li><a href="global.html#setFormControl">setFormControl</a></li>
-        <li><a href="global.html#template">template</a></li>
-        <li><a href="global.html#validateEmail">validateEmail</a></li>
-        <li><a href="global.html#validateValue">validateValue</a></li>
+        <li><a href='global.html#observerCallback'>observerCallback</a></li>
+        <li><a href='global.html#safeChildSet'>safeChildSet</a></li>
+        <li><a href='global.html#safeMultipleSet'>safeMultipleSet</a></li>
+        <li><a href='global.html#safeSet'>safeSet</a></li>
+        <li><a href='global.html#setBorder'>setBorder</a></li>
+        <li><a href='global.html#setComponent'>setComponent</a></li>
+        <li><a href='global.html#setFont'>setFont</a></li>
+        <li><a href='global.html#setFontStyle'>setFontStyle</a></li>
+        <li><a href='global.html#setFormControl'>setFormControl</a></li>
+        <li><a href='global.html#template'>template</a></li>
+        <li><a href='global.html#validateEmail'>validateEmail</a></li>
+        <li><a href='global.html#validateValue'>validateValue</a></li>
       </ul>
     </nav>
 
-    <br class="clear" />
+    <br class='clear' />
 
     <footer>
       Documentation generated by
-      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 29
+      <a href='https://github.com/jsdoc3/jsdoc'>JSDoc 3.5.5</a> on Thu Nov 29
       2018 01:38:19 GMT-0400 (-04)
     </footer>
 
     <script>
       prettyPrint();
     </script>
-    <script src="scripts/linenumber.js"></script>
+    <script src='scripts/linenumber.js'></script>
   </body>
 </html>

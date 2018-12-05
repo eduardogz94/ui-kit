@@ -19,7 +19,7 @@ export const imagesSampleRender = () => {
 
   let imagesTitle = createTextElement(
     "h1",
-    "animated bounceInRight text-primary text-center",
+    "animated bounceInRight text-primary text-center blanch",
     "Images"
   );
 

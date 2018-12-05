@@ -36,13 +36,17 @@ let inputLarge = sampleInputLarge();
 export const inputsSampleRender = () => {
   let inputTitle = createTextElement(
     "h1",
-    "animated bounceInRight text-primary text-center",
+    "animated bounceInRight text-primary text-center blanch",
     "Form Inputs"
   );
 
-  let basicInputsTitle = createTextElement("h4", "text-muted", "Basic Inputs");
-  let emailTitle = createTextElement("h5", "text-muted text-primary", "Email");
+  let basicInputsTitle = createTextElement(
+    "h4",
+    "text-muted lead ",
+    "Basic Inputs"
+  );
 
+  let emailTitle = createTextElement("h5", "text-muted text-primary", "Email");
   let passwordTitle = createTextElement(
     "h5",
     "text-muted text-primary",
@@ -52,7 +56,7 @@ export const inputsSampleRender = () => {
 
   let validationsInputsTitle = createTextElement(
     "h4",
-    "text-muted",
+    "text-muted lead",
     "Validations Inputs"
   );
 
@@ -61,28 +65,29 @@ export const inputsSampleRender = () => {
     "text-muted text-success",
     "Success"
   );
-
   let warningTitle = createTextElement(
     "h5",
     "text-muted text-warning",
     "Warning"
   );
-
   let dangerTitle = createTextElement("h5", "text-muted text-danger", "Danger");
-  let SizeInputsTitle = createTextElement("h4", "text-muted", "Size Inputs");
+
+  let SizeInputsTitle = createTextElement(
+    "h4",
+    "text-muted lead",
+    "Size Inputs"
+  );
 
   let xsmallTitle = createTextElement(
     "h5",
     "text-muted text-primary",
     "xsmall"
   );
-
   let defaultTitle = createTextElement(
     "h5",
     "text-muted text-primary",
     "default"
   );
-
   let largeTitle = createTextElement("h5", "text-muted text-primary", "large");
 
   let firstInputsCol = appendsCreateCol(

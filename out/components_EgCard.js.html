@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
+    <meta charset='utf-8' />
     <title>JSDoc: Source: components/EgCard.js</title>
 
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
+    <script src='scripts/prettify/prettify.js'></script>
+    <script src='scripts/prettify/lang-css.js'></script>
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src='//html5shiv.googlecode.com/svn/trunk/html5.js'></script>
     <![endif]-->
     <link
-      type="text/css"
-      rel="stylesheet"
-      href="styles/prettify-tomorrow.css"
+      type='text/css'
+      rel='stylesheet'
+      href='styles/prettify-tomorrow.css'
     />
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+    <link type='text/css' rel='stylesheet' href='styles/jsdoc-default.css' />
   </head>
 
   <body>
-    <div id="main">
-      <h1 class="page-title">Source: components/EgCard.js</h1>
+    <div id='main'>
+      <h1 class='page-title'>Source: components/EgCard.js</h1>
 
       <section>
         <article>
-          <pre class="prettyprint source linenums"><code>import {
+          <pre class='prettyprint source linenums'><code>import {
   getElementObjects,
   createAndAppendElement,
   appendMultipleElements,
@@ -38,13 +38,13 @@
   setDimensions,
   setPosition,
   onClear
-} from "../js/bindingFunctions.js";
+} from '../js/bindingFunctions.js';
 
 import {
   observerCallback,
   initIntersectionObserver,
   disconnectObserver
-} from "../observer/index.js";
+} from '../observer/index.js';
 
 /**
  * EgCard Class
@@ -92,9 +92,9 @@ export default class EgCard extends HTMLElement {
    */
   template() {
     return `&lt;div>
-      &lt;div class="card-header">&lt;/div>
-      &lt;div class="card-body">&lt;/div>
-      &lt;div class="card-footer">&lt;/div>
+      &lt;div class='card-header'>&lt;/div>
+      &lt;div class='card-body'>&lt;/div>
+      &lt;div class='card-footer'>&lt;/div>
     &lt;/div>`;
   }
 
@@ -103,7 +103,7 @@ export default class EgCard extends HTMLElement {
    * @protected
    */
   connectedCallback() {
-    this.setAttribute("card", "card");
+    this.setAttribute('card', 'card');
     this.innerHTML = this.template();
 
     this.setComponent();
@@ -111,12 +111,12 @@ export default class EgCard extends HTMLElement {
 
     ccc.registerComponent(this, {
       id: this.id,
-      secret: "Card Parent"
+      secret: 'Card Parent'
     });
 
     // If IntersectionObserver is available, initialize it.
     // otherwise, simply load the image.
-    if ("IntersectionObserver" in window) this.initIntersectionObserver();
+    if ('IntersectionObserver' in window) this.initIntersectionObserver();
     else this.intersecting = true;
   }
 
@@ -133,7 +133,7 @@ export default class EgCard extends HTMLElement {
    * @protected
    */
   getComponent() {
-    return this.querySelector("div");
+    return this.querySelector('div');
   }
 
   /**
@@ -142,16 +142,16 @@ export default class EgCard extends HTMLElement {
    */
   setComponent() {
     // Properties
-    if (this.id) this.safeSet("id", this.card);
-    if (this.type) this.safeSet("type", this.type);
+    if (this.id) this.safeSet('id', this.card);
+    if (this.type) this.safeSet('type', this.type);
 
     // Attributes
-    if (this.footer) this.safeSet("footer", this.footer);
-    if (this.body) this.safeSet("body", this.body);
-    if (this.header) this.safeSet("header", this.header);
-    if (this.col) this.safeSet("col", this.col);
-    if (this.offset) this.safeSet("offset", this.offset);
-    if (this.css) this.safeSet("css", this.css);
+    if (this.footer) this.safeSet('footer', this.footer);
+    if (this.body) this.safeSet('body', this.body);
+    if (this.header) this.safeSet('header', this.header);
+    if (this.col) this.safeSet('col', this.col);
+    if (this.offset) this.safeSet('offset', this.offset);
+    if (this.css) this.safeSet('css', this.css);
   }
 
   /**
@@ -159,18 +159,18 @@ export default class EgCard extends HTMLElement {
    * @protected
    */
   defaultProperties() {
-    let classname = "";
+    let classname = '';
     this.getAttributeNames().forEach(element => {
-      if (element === "id")
+      if (element === 'id')
         return this.safeChildSet(
           element,
           `${this.getAttribute(`${element}`)}-card`
         );
-      if (element === "header")
+      if (element === 'header')
         return this.setCardTitle(this.getAttribute(`${element}`));
-      if (element === "body")
+      if (element === 'body')
         return this.setCardBody(this.getAttribute(`${element}`));
-      if (element === "footer")
+      if (element === 'footer')
         return this.setCardFooter(this.getAttribute(`${element}`));
       classname += `${this.getAttribute(`${element}`)} `;
     });
@@ -178,58 +178,58 @@ export default class EgCard extends HTMLElement {
   }
 
   setCardBody(text) {
-    let body = this.getComponent().querySelector(".card-body");
-    let msg = document.createElement("h6");
+    let body = this.getComponent().querySelector('.card-body');
+    let msg = document.createElement('h6');
     msg.innerHTML = text;
     body.appendChild(msg);
   }
 
   addToCardBody(element) {
-    let body = this.getComponent().querySelector(".card-body");
+    let body = this.getComponent().querySelector('.card-body');
     body.appendChild(element);
   }
 
   addMultipleObjectsToBody(...elements) {
-    let body = this.getComponent().querySelector(".card-body");
+    let body = this.getComponent().querySelector('.card-body');
     elements.forEach(element => {
       body.appendChild(element);
     });
   }
 
   setCardFooter(text) {
-    let footer = this.getComponent().querySelector(".card-footer");
-    let msg = document.createElement("h6");
+    let footer = this.getComponent().querySelector('.card-footer');
+    let msg = document.createElement('h6');
     msg.innerText = text;
     footer.appendChild(msg);
   }
 
   addToCardFooter(element) {
-    let footer = this.getComponent().querySelector(".card-footer");
+    let footer = this.getComponent().querySelector('.card-footer');
     footer.appendChild(element);
   }
 
   addMultipleObjectsToFooter(...elements) {
-    let footer = this.getComponent().querySelector(".card-footer");
+    let footer = this.getComponent().querySelector('.card-footer');
     elements.forEach(element => {
       footer.appendChild(element);
     });
   }
 
   setCardTitle(text) {
-    let header = this.getComponent().querySelector(".card-header");
-    let msg = document.createElement("h6");
+    let header = this.getComponent().querySelector('.card-header');
+    let msg = document.createElement('h6');
     msg.innerText = text;
     header.appendChild(msg);
   }
 
   addToCardHeader(element) {
-    let header = this.getComponent().querySelector(".card-header");
+    let header = this.getComponent().querySelector('.card-header');
     header.appendChild(element);
   }
 }
 
 // You must change this 3 consts after generated.
-let tagName = "eg-card";
+let tagName = 'eg-card';
 let registerDOM = () => customElements.define(tagName, EgCard);
 
 //Async loading.
@@ -242,69 +242,69 @@ window.WebComponents
     </div>
 
     <nav>
-      <h2><a href="index.html">Home</a></h2>
+      <h2><a href='index.html'>Home</a></h2>
       <h3>Classes</h3>
       <ul>
-        <li><a href="module.exports.html">exports</a></li>
+        <li><a href='module.exports.html'>exports</a></li>
       </ul>
       <h3>Global</h3>
       <ul>
-        <li><a href="global.html#addIcon">addIcon</a></li>
+        <li><a href='global.html#addIcon'>addIcon</a></li>
         <li>
-          <a href="global.html#appendMultipleElements"
+          <a href='global.html#appendMultipleElements'
             >appendMultipleElements</a
           >
         </li>
-        <li><a href="global.html#connectedCallback">connectedCallback</a></li>
+        <li><a href='global.html#connectedCallback'>connectedCallback</a></li>
         <li>
-          <a href="global.html#createAndAppendElement"
+          <a href='global.html#createAndAppendElement'
             >createAndAppendElement</a
           >
         </li>
         <li>
-          <a href="global.html#createMultipleElements"
+          <a href='global.html#createMultipleElements'
             >createMultipleElements</a
           >
         </li>
-        <li><a href="global.html#defaultProperties">defaultProperties</a></li>
+        <li><a href='global.html#defaultProperties'>defaultProperties</a></li>
         <li>
-          <a href="global.html#disconnectedCallback">disconnectedCallback</a>
+          <a href='global.html#disconnectedCallback'>disconnectedCallback</a>
         </li>
-        <li><a href="global.html#disconnectObserver">disconnectObserver</a></li>
-        <li><a href="global.html#getComponent">getComponent</a></li>
-        <li><a href="global.html#getElementObjects">getElementObjects</a></li>
-        <li><a href="global.html#getInputValue">getInputValue</a></li>
+        <li><a href='global.html#disconnectObserver'>disconnectObserver</a></li>
+        <li><a href='global.html#getComponent'>getComponent</a></li>
+        <li><a href='global.html#getElementObjects'>getElementObjects</a></li>
+        <li><a href='global.html#getInputValue'>getInputValue</a></li>
         <li>
-          <a href="global.html#initIntersectionObserver"
+          <a href='global.html#initIntersectionObserver'
             >initIntersectionObserver</a
           >
         </li>
-        <li><a href="global.html#observerCallback">observerCallback</a></li>
-        <li><a href="global.html#safeChildSet">safeChildSet</a></li>
-        <li><a href="global.html#safeMultipleSet">safeMultipleSet</a></li>
-        <li><a href="global.html#safeSet">safeSet</a></li>
-        <li><a href="global.html#setBorder">setBorder</a></li>
-        <li><a href="global.html#setComponent">setComponent</a></li>
-        <li><a href="global.html#setFont">setFont</a></li>
-        <li><a href="global.html#setFontStyle">setFontStyle</a></li>
-        <li><a href="global.html#setFormControl">setFormControl</a></li>
-        <li><a href="global.html#template">template</a></li>
-        <li><a href="global.html#validateEmail">validateEmail</a></li>
-        <li><a href="global.html#validateValue">validateValue</a></li>
+        <li><a href='global.html#observerCallback'>observerCallback</a></li>
+        <li><a href='global.html#safeChildSet'>safeChildSet</a></li>
+        <li><a href='global.html#safeMultipleSet'>safeMultipleSet</a></li>
+        <li><a href='global.html#safeSet'>safeSet</a></li>
+        <li><a href='global.html#setBorder'>setBorder</a></li>
+        <li><a href='global.html#setComponent'>setComponent</a></li>
+        <li><a href='global.html#setFont'>setFont</a></li>
+        <li><a href='global.html#setFontStyle'>setFontStyle</a></li>
+        <li><a href='global.html#setFormControl'>setFormControl</a></li>
+        <li><a href='global.html#template'>template</a></li>
+        <li><a href='global.html#validateEmail'>validateEmail</a></li>
+        <li><a href='global.html#validateValue'>validateValue</a></li>
       </ul>
     </nav>
 
-    <br class="clear" />
+    <br class='clear' />
 
     <footer>
       Documentation generated by
-      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 29
+      <a href='https://github.com/jsdoc3/jsdoc'>JSDoc 3.5.5</a> on Thu Nov 29
       2018 01:38:19 GMT-0400 (-04)
     </footer>
 
     <script>
       prettyPrint();
     </script>
-    <script src="scripts/linenumber.js"></script>
+    <script src='scripts/linenumber.js'></script>
   </body>
 </html>

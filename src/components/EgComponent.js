@@ -11,11 +11,8 @@ import {
   setFontStyle,
   setBackground,
   setDimensions,
-  setPosition,
-  onClear
+  setPosition
 } from "../js/bindingFunctions.js";
-
-import { caps, lowerCaps, integer, floatTest } from "../js/regexp.js";
 
 import {
   observerCallback,
@@ -28,10 +25,10 @@ import {
  * @extends {HTMLElement}
  */
 export default class EgComponent extends HTMLElement {
-  /**
-   * Creates a EgComponent.
+  /** Creates a EgComponent.
+   * @class
    * @constructor
-   * @protected
+   * @public
    */
   constructor() {
     super();
@@ -71,15 +68,15 @@ export default class EgComponent extends HTMLElement {
   }
 
   /** A function to return the html template of the component.
-   * @protected
    * @template
+   * @protected
    */
   template() {
     return "WRITE SOMETHING HERE";
   }
 
-  /**
-   * A lyfecicle method that calls when the component has finally rendered.
+  /** A lyfecicle method that calls when the component has finally rendered.
+   * @function
    * @protected
    */
   connectedCallback() {
@@ -93,24 +90,24 @@ export default class EgComponent extends HTMLElement {
     });
   }
 
-  /**
-   * A lifecycle method that calls when the component has unmounted.
+  /** A lifecycle method that calls when the component has unmounted.
+   * @function
    * @protected
    */
   disconnectedCallback() {
     this.disconnectObserver();
   }
 
-  /**
-   * A function to get the component inside the EgComponent tag.
+  /** A function to get the component inside the EgComponent tag.
+   * @function
    * @protected
    */
   getComponent() {
     return this.querySelector("YOU WRITE IN EHRE TOO");
   }
 
-  /**
-   * A function to set the Component properties as they are received from a js instance.
+  /** A function to set the Component properties as they are received from a js instance.
+   * @function
    * @protected
    */
   setComponent() {
@@ -126,8 +123,8 @@ export default class EgComponent extends HTMLElement {
     if (this.css) this.safeSet("css", this.css);
   }
 
-  /**
-   * Set the default properties for the EgComponent object.
+  /** Set the default properties for the EgComponent object.
+   * @function
    * @protected
    */
   defaultProperties() {

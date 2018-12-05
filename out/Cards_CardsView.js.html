@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
+    <meta charset='utf-8' />
     <title>JSDoc: Source: Cards/CardsView.js</title>
 
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
+    <script src='scripts/prettify/prettify.js'></script>
+    <script src='scripts/prettify/lang-css.js'></script>
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src='//html5shiv.googlecode.com/svn/trunk/html5.js'></script>
     <![endif]-->
     <link
-      type="text/css"
-      rel="stylesheet"
-      href="styles/prettify-tomorrow.css"
+      type='text/css'
+      rel='stylesheet'
+      href='styles/prettify-tomorrow.css'
     />
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+    <link type='text/css' rel='stylesheet' href='styles/jsdoc-default.css' />
   </head>
 
   <body>
-    <div id="main">
-      <h1 class="page-title">Source: Cards/CardsView.js</h1>
+    <div id='main'>
+      <h1 class='page-title'>Source: Cards/CardsView.js</h1>
 
       <section>
         <article>
           <pre
-            class="prettyprint source linenums"
+            class='prettyprint source linenums'
           ><code>/* &lt;/-------------- START CARDS VIEW ----------------/> */
 
-const mainCol = new EgCol("col-12");
+const mainCol = new EgCol('col-12');
 const cardRow = new EgRow();
 
 const cardsTitle = createTextElement(
-  "h1",
-  "animated bounceInRight text-primary text-center",
-  "Cards"
+  'h1',
+  'animated bounceInRight text-primary text-center',
+  'Cards'
 );
 
 mainCol.appendChild(cardsTitle);
@@ -64,14 +64,14 @@ let loginCard = createCardLogin();
 let loginCardBody = returnLoginBody();
 
 cardRow.addMultipleObjects(
-  createCol(defaultCard, "col-3"),
-  createCol(warningCard, "col-3"),
-  createCol(primaryCard, "col-3"),
-  createCol(successCard, "col-3"),
-  createCol(dangerCard, "col-3"),
-  createCol(secondaryCard, "col-3"),
-  createCol(infoCard, "col-3"),
-  createCol(loginCard, "col-3")
+  createCol(defaultCard, 'col-3'),
+  createCol(warningCard, 'col-3'),
+  createCol(primaryCard, 'col-3'),
+  createCol(successCard, 'col-3'),
+  createCol(dangerCard, 'col-3'),
+  createCol(secondaryCard, 'col-3'),
+  createCol(infoCard, 'col-3'),
+  createCol(loginCard, 'col-3')
 );
 
 mainCol.appendChild(cardRow);
@@ -99,56 +99,56 @@ loginCardBody.loginButtonCard.onclick = function(ev) {
 
 loginCard.addToCardFooter(
   createCardText(
-    "animated jello text-primary",
-    "Forgot your password? Click here!"
+    'animated jello text-primary',
+    'Forgot your password? Click here!'
   )
 );
 
 primaryCard.addToCardHeader(
-  createCardText("animated jello text-primary", "Primary Title")
+  createCardText('animated jello text-primary', 'Primary Title')
 );
 
 secondaryCard.addToCardHeader(
-  createCardText("animated jello text-secondary", "Secondary Title")
+  createCardText('animated jello text-secondary', 'Secondary Title')
 );
 
 successCard.addToCardHeader(
-  createCardText("animated jello text-success", "Success Title")
+  createCardText('animated jello text-success', 'Success Title')
 );
 successCard.addToCardFooter(
   createCardText(
-    "animated jello text-success",
-    "Footer from javascript with different color"
+    'animated jello text-success',
+    'Footer from javascript with different color'
   )
 );
 successCard.addToCardBody(
   createCardText(
-    "animated jello text-success",
-    "This is a object for the card body passed in javascript functions"
+    'animated jello text-success',
+    'This is a object for the card body passed in javascript functions'
   )
 );
 
 warningCard.addToCardHeader(
-  createCardText("animated jello text-warning", "Warning Title")
+  createCardText('animated jello text-warning', 'Warning Title')
 );
 warningCard.addToCardFooter(
   createCardText(
-    "animated jello text-warning",
-    "Footer from javascript with different color"
+    'animated jello text-warning',
+    'Footer from javascript with different color'
   )
 );
 
 dangerCard.addToCardHeader(
-  createCardText("animated jello text-danger", "Danger Title")
+  createCardText('animated jello text-danger', 'Danger Title')
 );
 dangerCard.addMultipleObjectsToBody(
   createCardsInputs().inputCard1,
   createCardsInputs().inputCard2
 );
 
-infoCard.addToCardBody(createButton("btn-info", "Info Card Button", "col-12"));
+infoCard.addToCardBody(createButton('btn-info', 'Info Card Button', 'col-12'));
 infoCard.addToCardHeader(
-  createCardText("animated jello text-info", "Info Title")
+  createCardText('animated jello text-info', 'Info Title')
 );
 
 /* &lt;/----------------- END CARDS VIEW --------------------/> */
@@ -158,43 +158,43 @@ infoCard.addToCardHeader(
     </div>
 
     <nav>
-      <h2><a href="index.html">Home</a></h2>
+      <h2><a href='index.html'>Home</a></h2>
       <h3>Global</h3>
       <ul>
-        <li><a href="global.html#basicInputsTitle">basicInputsTitle</a></li>
-        <li><a href="global.html#dangerCard">dangerCard</a></li>
-        <li><a href="global.html#defaultCard">defaultCard</a></li>
-        <li><a href="global.html#imageCircleCol">imageCircleCol</a></li>
-        <li><a href="global.html#imageRaisedCol">imageRaisedCol</a></li>
-        <li><a href="global.html#imageRoundedCol">imageRoundedCol</a></li>
-        <li><a href="global.html#imageThumbnailCol">imageThumbnailCol</a></li>
-        <li><a href="global.html#infoCard">infoCard</a></li>
-        <li><a href="global.html#loginCard">loginCard</a></li>
-        <li><a href="global.html#mainInputCol">mainInputCol</a></li>
-        <li><a href="global.html#primaryCard">primaryCard</a></li>
-        <li><a href="global.html#secondaryCard">secondaryCard</a></li>
-        <li><a href="global.html#SizeInputsTitle">SizeInputsTitle</a></li>
-        <li><a href="global.html#successCard">successCard</a></li>
+        <li><a href='global.html#basicInputsTitle'>basicInputsTitle</a></li>
+        <li><a href='global.html#dangerCard'>dangerCard</a></li>
+        <li><a href='global.html#defaultCard'>defaultCard</a></li>
+        <li><a href='global.html#imageCircleCol'>imageCircleCol</a></li>
+        <li><a href='global.html#imageRaisedCol'>imageRaisedCol</a></li>
+        <li><a href='global.html#imageRoundedCol'>imageRoundedCol</a></li>
+        <li><a href='global.html#imageThumbnailCol'>imageThumbnailCol</a></li>
+        <li><a href='global.html#infoCard'>infoCard</a></li>
+        <li><a href='global.html#loginCard'>loginCard</a></li>
+        <li><a href='global.html#mainInputCol'>mainInputCol</a></li>
+        <li><a href='global.html#primaryCard'>primaryCard</a></li>
+        <li><a href='global.html#secondaryCard'>secondaryCard</a></li>
+        <li><a href='global.html#SizeInputsTitle'>SizeInputsTitle</a></li>
+        <li><a href='global.html#successCard'>successCard</a></li>
         <li>
-          <a href="global.html#validationsInputsTitle"
+          <a href='global.html#validationsInputsTitle'
             >validationsInputsTitle</a
           >
         </li>
-        <li><a href="global.html#warningCard">warningCard</a></li>
+        <li><a href='global.html#warningCard'>warningCard</a></li>
       </ul>
     </nav>
 
-    <br class="clear" />
+    <br class='clear' />
 
     <footer>
       Documentation generated by
-      <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Nov 12
+      <a href='https://github.com/jsdoc3/jsdoc'>JSDoc 3.5.5</a> on Mon Nov 12
       2018 19:23:10 GMT-0400 (-04)
     </footer>
 
     <script>
       prettyPrint();
     </script>
-    <script src="scripts/linenumber.js"></script>
+    <script src='scripts/linenumber.js'></script>
   </body>
 </html>

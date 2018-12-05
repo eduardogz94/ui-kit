@@ -11,7 +11,7 @@ import {
 export const sampleImageRaised = () => {
   let raisedTitle = createTextElement(
     "h4",
-    "text-center animated jello text-muted",
+    "text-center animated jello text-muted lead",
     "Raised"
   );
 

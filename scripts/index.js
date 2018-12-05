@@ -4,7 +4,7 @@ function toPascalCase(str) {
     .map(function(word) {
       return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
     })
-    .join("");
+    .join('');
 }
 
 module.exports = { toPascalCase };

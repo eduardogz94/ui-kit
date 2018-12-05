@@ -1,24 +1,24 @@
-import EgCard from "../src/components/EgCard.js";
+import EgCard from "../../src/components/EgCard.js";
 import {
   createTextElement,
   createCol,
   createButton,
   appendsCreateCol,
   createInput
-} from "../src/js/sivaFunctions.js";
+} from "../../src/js/sivaFunctions.js";
 
 let requestCard = new EgCard("card-info");
 requestCard.header = "Request Details";
 requestCard.footer = "Documentation instead?";
 
-export const requestRender = () => {
+export const requestSampleRender = () => {
   let requestTitle = createTextElement(
     "h1",
-    "animated fadeIn text-info text-center",
+    "animated fadeIn text-info text-center blanch",
     "Eg-Request"
   );
 
-  let mainCol = createCol(requestTitle, "col-6");
+  let mainCol = createCol(requestTitle, "col-12");
 
   let requestCol = createCol(requestCard, "col-12");
   mainCol.appendChild(requestCol);

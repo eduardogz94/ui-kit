@@ -458,10 +458,6 @@ default: #292b2c / rgb(41,43,44)*/
 /*----------------------------------------------
 * Utilities
 ----------------------------------------------*/
-::selection {
-  color: #fff;
-  background-color: #6200ea;
-}
 ::-webkit-input-placeholder {
   /* Chrome */
   color: #999 !important;
@@ -479,4 +475,12 @@ default: #292b2c / rgb(41,43,44)*/
   /*Firefox 4 - 18*/
   color: #999 !important;
   opacity: 1;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
 }

@@ -190,11 +190,16 @@ export default class EgInput extends HTMLElement {
    */
   validateValue(length) {
     let input = this.getInputValue();
-    if (input.value.length <= length - 1)
+    if (input.value.length <= length - 1) {
       this.setFormControl("form-control-warning");
-    else if (input.value.length <= 0)
+      return false;
+    } else if (input.value.length <= 0) {
       this.setFormControl("form-control-danger");
-    else this.setFormControl("form-control-success");
+      return false;
+    } else {
+      this.setFormControl("form-control-success");
+      return true;
+    }
   }
 
   /** A function to validate a input email value.
@@ -205,9 +210,13 @@ export default class EgInput extends HTMLElement {
   validateEmail(emailType) {
     if (this.getComponent().getAttribute("type") === "email") {
       let input = this.getInputValue();
-      if (input.value.search(emailType) === -1)
+      if (input.value.search(emailType) === -1) {
         this.setFormControl("form-control-danger");
-      else this.setFormControl("form-control-success");
+        return false;
+      } else {
+        this.setFormControl("form-control-success");
+        return true;
+      }
     }
   }
 

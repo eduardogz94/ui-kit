@@ -22,7 +22,7 @@ const appUse = (a, b) => (b ? server.use(a, b) : server.use(a));
 toUse.forEach(object => appUse(object));
 
 server.get("/", (req, res) => {
-  res.redirect("/docs/egUI-KIT.html");
+  res.redirect("/public/index.html");
 });
 
 server.get("/samples", (req, res) => {
