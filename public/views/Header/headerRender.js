@@ -25,6 +25,7 @@ export const boxappHeaderAfterDOM = () => {
 
   home.onclick = function() {
     Router.restartSPA();
+    Router.navigate("/Home");
   };
 
   signup.onclick = function() {

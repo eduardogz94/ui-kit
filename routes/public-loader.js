@@ -1,6 +1,7 @@
 import EgRouter from "../src/other/EgRouter.js";
 
 import { boxAppTraningsRender } from "../public/views/Trainings/trainingsRender.js";
+import { boxappHome } from "../public/views/Home/home.js";
 
 import {
   boxappHeaderRender,
@@ -46,6 +47,15 @@ export const loginRoute = () => {
   };
 };
 
+export const homeRoute = () => {
+  let homeComponent = boxappHome();
+  return {
+    url: "/Home",
+    script: "../public/views/Home/home",
+    component: homeComponent
+  };
+};
+
 export const signupRoute = () => {
   let signupComponent = boxappSignupRender();
   return {
@@ -57,7 +67,7 @@ export const signupRoute = () => {
 };
 
 export const routes = [];
-routes.push(headerRoute());
+routes.push(headerRoute(), homeRoute());
 
 export const Router = new EgRouter(
   routes,
@@ -65,6 +75,7 @@ export const Router = new EgRouter(
 );
 
 Router.navigate("/Header");
+Router.navigate("/Home");
 
 export let session = {
   logged: false

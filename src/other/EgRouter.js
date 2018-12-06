@@ -19,6 +19,7 @@ export default class EgRouter {
   }
 
   navigate(path) {
+    console.log(path);
     this.routes.forEach(route => {
       if (route.url === path) {
         return this.appendRoute(route);
@@ -36,7 +37,12 @@ export default class EgRouter {
   }
 
   logRouter() {
-    console.log(this.history, this.routes, this.main);
+    let router = {
+      history: this.history,
+      routes: this.routes,
+      mainComponent: this.main
+    };
+    console.log(router);
   }
 
   async add(route) {

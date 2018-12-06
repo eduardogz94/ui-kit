@@ -1,5 +1,5 @@
-import { allTrainings, searchUsers } from "./trainings.js";
-import { training1, training2 } from "../../helpers/mockupData.js";
+import { allTrainings } from "./trainings.js";
+import { training1 } from "../../helpers/mockupData.js";
 import { getUsers } from "../../requests/trainings.js";
 
 import {

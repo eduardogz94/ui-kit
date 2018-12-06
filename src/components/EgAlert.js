@@ -25,13 +25,16 @@ import {
  * @extends {HTMLElement}
  */
 export default class EgAlert extends HTMLElement {
-  /** Constructor for EgInput.
+  /** Constructor for EgAlert.
    * @class
    * @constructor
    * @public
    */
-  constructor() {
+  constructor(type, text) {
     super();
+
+    this.type = type;
+    this.text = text;
 
     // Bind the observer so it can access the element with `this`.
     this.observerCallback = observerCallback.bind(this);
