@@ -1,5 +1,5 @@
-import EgCard from "../../src/components/EgCard.js";
-import { createInput, createButton } from "../../src/js/sivaFunctions.js";
+import EgCard from "../../../src/components/EgCard.js";
+import { createInput, createButton } from "../../../src/js/sivaFunctions.js";
 
 export const boxappLogin = () => {
   let loginCard = new EgCard("card-primary");
@@ -8,7 +8,6 @@ export const boxappLogin = () => {
 
   return loginCard;
 };
-
 
 export const boxappLoginBody = () => {
   let usernameInput = createInput(
@@ -33,6 +32,17 @@ export const boxappLoginBody = () => {
   passwordInput.offset = "offset-2";
   passwordInput.css = "mt-2";
 
+  let confirmPassword = createInput(
+    "form-control",
+    "password",
+    "confirm-login",
+    "col-8",
+    "Confirm Password Input"
+  );
+
+  confirmPassword.offset = "offset-2";
+  confirmPassword.css = "mt-2";
+
   let loginButton = createButton(
     "btn-primary",
     "Login Now",
@@ -45,6 +55,7 @@ export const boxappLoginBody = () => {
   let loginBody = {
     usernameInput,
     passwordInput,
+    confirmPassword,
     loginButton
   };
 

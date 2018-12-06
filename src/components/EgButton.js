@@ -117,7 +117,7 @@ export default class EgButton extends HTMLElement {
     // Attributes
     if (this.btn) this.safeSet("btn", this.btn);
     if (this.col) this.safeSet("col", this.col);
-    if (this.offset) this.safeSet("class", this.offset);
+    if (this.offset) this.safeSet("offset", this.offset);
     if (this.css) this.safeSet("css", this.css);
   }
 

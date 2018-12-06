@@ -1,12 +1,16 @@
 import { boxappHeader } from "./header.js";
-import { Router, signupRoute, loginRoute } from "../../routes/public-loader.js";
+import {
+  Router,
+  signupRoute,
+  loginRoute
+} from "../../../routes/public-loader.js";
+1;
 
 export const boxappHeaderRender = boxappHeader();
 
 export const boxappHeaderAfterDOM = () => {
   let signupR = signupRoute();
   let loginR = loginRoute();
-  console.log(loginR);
 
   let home = document.createElement("a");
   home.innerHTML = "Home";

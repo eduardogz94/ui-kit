@@ -1,4 +1,4 @@
-import EgHeader from "../../src/components/Layout/EgHeader.js";
+import EgHeader from "../../../src/components/Layout/EgHeader.js";
 
 export const boxappHeader = () => {
   let header = new EgHeader();

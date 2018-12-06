@@ -30,8 +30,10 @@ export default class EgTable extends HTMLElement {
    * @constructor
    * @public
    */
-  constructor() {
+  constructor(type) {
     super();
+
+    this.type = type;
 
     this.body = this.createBody();
     this.head = this.createHead();
@@ -81,6 +83,11 @@ export default class EgTable extends HTMLElement {
       id: this.id,
       secret: "Table Parent"
     });
+
+    // If IntersectionObserver is available, initialize it.
+    // otherwise, simply load the image.
+    if ("IntersectionObserver" in window) this.initIntersectionObserver();
+    else this.intersecting = true;
   }
 
   /** A lifecycle method that calls when the component has unmounted.
@@ -156,7 +163,8 @@ export default class EgTable extends HTMLElement {
 
     objs.forEach(td => {
       let tData = document.createElement("td");
-      tData.innerHTML = td;
+      if (typeof td === "object") tData.appendChild(td);
+      else tData.innerHTML = td;
       tRow.appendChild(tData);
     });
 

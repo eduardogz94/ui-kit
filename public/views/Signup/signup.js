@@ -1,5 +1,5 @@
-import EgCard from "../../src/components/EgCard.js";
-import { createInput, createButton } from "../../src/js/sivaFunctions.js";
+import EgCard from "../../../src/components/EgCard.js";
+import { createInput, createButton } from "../../../src/js/sivaFunctions.js";
 
 export const boxappSignup = () => {
   let signupCard = new EgCard("card-primary");
@@ -38,7 +38,7 @@ export const boxappSignupBody = () => {
     "loginButton",
     "col-8"
   );
-  
+
   signupButton.css = "mt-2";
   signupButton.offset = "offset-2";
 

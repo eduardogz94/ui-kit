@@ -1,60 +1,56 @@
 import EgRouter from "../src/other/EgRouter.js";
 
-import {
-  boxAppTraningsRender,
-  boxAppTrainingsAfterDOM
-} from "../views/Trainings/trainingsRender.js";
+import { boxAppTraningsRender } from "../public/views/Trainings/trainingsRender.js";
 
 import {
   boxappHeaderRender,
   boxappHeaderAfterDOM
-} from "../views/Header/headerRender.js";
+} from "../public/views/Header/headerRender.js";
 
 import {
   boxappSignupRender,
   boxappSignupAfterDOM
-} from "../views/Signup/signupRender.js";
+} from "../public/views/Signup/signupRender.js";
 
 import {
   boxappLoginRender,
   boxappLoginAfterDOM
-} from "../views/Login/loginRender.js";
-
-let signupComponent = boxappSignupRender();
-let loginComponent = boxappLoginRender();
-let trainingsComponent = boxAppTraningsRender();
+} from "../public/views/Login/loginRender.js";
 
 export const trainingsRoute = () => {
+  let trainingsComponent = boxAppTraningsRender();
   return {
-    url: "/Trainigns",
-    script: "../views/Trainings/trainingsRender",
-    component: trainingsComponent,
-    lazyDOM: boxAppTrainingsAfterDOM
+    url: "/Trainings",
+    script: "../public/views/Trainings/trainingsRender",
+    component: trainingsComponent.trainings,
+    lazyDOM: trainingsComponent.AfterDOM
   };
 };
 
 export const headerRoute = () => {
   return {
     url: "/Header",
-    script: "../views/Header/headerRender",
+    script: "../public/views/Header/headerRender",
     component: boxappHeaderRender,
     lazyDOM: boxappHeaderAfterDOM
   };
 };
 
 export const loginRoute = () => {
+  let loginComponent = boxappLoginRender();
   return {
     url: "/Login",
-    script: "../views/Login/loginRender",
+    script: "../public/views/Login/loginRender",
     component: loginComponent,
     lazyDOM: boxappLoginAfterDOM
   };
 };
 
 export const signupRoute = () => {
+  let signupComponent = boxappSignupRender();
   return {
     url: "/Signup",
-    script: "../views/Signup/signupRender",
+    script: "../public/views/Signup/signupRender",
     component: signupComponent,
     lazyDOM: boxappSignupAfterDOM
   };

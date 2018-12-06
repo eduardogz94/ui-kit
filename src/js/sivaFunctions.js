@@ -4,6 +4,7 @@ import EgCol from "../components/Grid/EgCol.js";
 import EgGrid from "../components/Grid/EgGrid.js";
 import EgIcon from "../components/EgIcon.js";
 import EgAlert from "../components/EgAlert.js";
+import EgTable from "../components/EgTable.js";
 
 /** A function that sets to the desired EgInput a length value validation.
  * @function
@@ -159,7 +160,7 @@ export const createTextElement = (element, css, text) => {
  * @param {String} [id] ID of the alert.
  * @param {String} [close] Closes the alert.
  * @public
- * @return {EgAlert} with all the props passed.
+ * @return {EgAlert} with all the new props.
  */
 export const createAlert = (type, text, id = null, close = null) => {
   let newAlert = new EgAlert(type, text);
@@ -174,10 +175,27 @@ export const createAlert = (type, text, id = null, close = null) => {
  * @param {String} icon Type of icon.
  * @param {String} size Size of the icon.
  * @param {String} [css] Class for the icon
+ * @public
+ * @return {EgIcon} with all the new props.
  */
 export const createIcon = (icon, size, css = null) => {
   let newIcon = new EgIcon(icon, size);
   if (css) newIcon.css = css;
 
   return newIcon;
+};
+
+/** Creates a new icon.
+ * @function
+ * @param {String} title String for the title
+ * @param {String} css Class for the icon
+ * @param {String} [id] ID of the table.
+ * @public
+ * @return {EgTable} with all the new props.
+ */
+export const createTable = (css, id = null) => {
+  let traningTable = new EgTable(css);
+  if (id) traningTable.id = null;
+
+  return traningTable;
 };

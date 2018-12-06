@@ -6,7 +6,7 @@ import {
   appendsCreateCol,
   lengthValidator,
   createCol
-} from "../../src/js/sivaFunctions.js";
+} from "../../../src/js/sivaFunctions.js";
 
 let boxappSign = boxappSignup();
 let signupBody = boxappSignupBody();
@@ -14,12 +14,12 @@ let signupBody = boxappSignupBody();
 export const boxappSignupRender = () => {
   let signupTitle = createTextElement(
     "h1",
-    "animated bounceInRight text-primary blanch offset-3 mt-5",
+    "animated bounceInRight text-primary blanch offset-3 mt-4",
     "Signup now!"
   );
 
   let mainCol = appendsCreateCol("col-8", signupTitle);
-  mainCol.css = "offset-3";
+  mainCol.css = "offset-3 mt-5";
 
   mainCol.appendMultipleElements(createCol(boxappSign, "col-8"));
 

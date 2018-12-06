@@ -67,10 +67,11 @@ class CCC {
     });
   }
 
-  async sendRequest(endpoint) {
+  // Ponlo directo en el post, el endpoint
+  async sendRequest(endpoint, options) {
     let module = await import("../other/EgFetch.js");
     let request = new module.default();
-    let response = await request.get(endpoint);
+    let response = await request.post(endpoint, options, "application/json");
     this.responses.push(response);
     return response;
   }
@@ -85,7 +86,6 @@ class CCC {
     ccc.chargeLink("../src/assets/css/grid");
     ccc.chargeLink("../src/assets/css/responsive");
     ccc.chargeLink("../src/assets/css/utilities");
-    ccc.chargeLink("../src/assets/css/colors");
     ccc.chargeLink("../src/assets/css/animate");
 
     // Libs used.
