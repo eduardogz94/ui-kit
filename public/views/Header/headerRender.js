@@ -4,7 +4,6 @@ import {
   signupRoute,
   loginRoute
 } from "../../../routes/public-loader.js";
-1;
 
 export const boxappHeaderRender = boxappHeader();
 
@@ -24,17 +23,17 @@ export const boxappHeaderAfterDOM = () => {
   boxappHeaderRender.createCollapse(home, signup, login);
 
   home.onclick = function() {
-    Router.restartSPA();
+    Router.resetView();
     Router.navigate("/Home");
   };
 
   signup.onclick = function() {
-    Router.restartSPA();
+    Router.resetView();
     Router.load(signupR);
   };
 
   login.onclick = function() {
-    Router.restartSPA();
+    Router.resetView();
     Router.load(loginR);
   };
 };

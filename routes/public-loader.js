@@ -1,4 +1,5 @@
 import EgRouter from "../src/other/EgRouter.js";
+import EgContext from "../src/other/EgContext.js";
 
 import { boxAppTraningsRender } from "../public/views/Trainings/trainingsRender.js";
 import { boxappHome } from "../public/views/Home/home.js";
@@ -17,6 +18,8 @@ import {
   boxappLoginRender,
   boxappLoginAfterDOM
 } from "../public/views/Login/loginRender.js";
+
+export const routes = [];
 
 export const trainingsRoute = () => {
   let trainingsComponent = boxAppTraningsRender();
@@ -66,7 +69,6 @@ export const signupRoute = () => {
   };
 };
 
-export const routes = [];
 routes.push(headerRoute(), homeRoute());
 
 export const Router = new EgRouter(
@@ -74,26 +76,6 @@ export const Router = new EgRouter(
   document.body.querySelector("#main")
 );
 
+// Since they are already loaded in the instance, we can navigate throught them
 Router.navigate("/Header");
 Router.navigate("/Home");
-
-export let session = {
-  logged: false
-};
-
-export const logUser = obj => {
-  session = {
-    logged: true,
-    data: obj
-  };
-
-  return session;
-};
-
-export const deleteSession = () => {
-  session = {
-    logged: false
-  };
-
-  return session.logged;
-};

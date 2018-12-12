@@ -6,7 +6,7 @@ export const boxappUsersTrainingRender = id => {
   let usersTable = searchUsers("All users");
 
   let users = appendsCreateCol("col-8", usersTable.trainingsTitle);
-  users.css = "mt-5 offset-2";
+  usersTable.css = "mt-5 offset-2";
 
   users.appendMultipleElements(usersTable.traningTable);
 
@@ -14,8 +14,8 @@ export const boxappUsersTrainingRender = id => {
     usersTable.traningTable.createHeadings("Name");
 
     getUsers(id).then(all => {
-      all.forEach(data => {
-        usersTable.traningTable.createData(data);
+      all.forEach(user => {
+        usersTable.traningTable.createData(user);
       });
     });
   }

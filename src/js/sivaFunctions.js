@@ -122,11 +122,11 @@ export const appendsCreateCol = (col, ...elements) => {
   return newCol;
 };
 
-/** A function to appends some elements into a new grid and creates it.
+/** A function to appends some elements into a new grid and appends it to the body.
  * @function
- * @param {EgElements} elements Receives various elements and appends them into the new grid (required).
+ * @param {HTMLElements} elements Receives various elements and appends them into the new grid (required).
  * @public
- * @return EgGrid with the all the elements passed.
+ * @return {EgGrid} with the all the elements passed.
  */
 export const createView = (...elements) => {
   let container = new EgGrid();
@@ -143,7 +143,7 @@ export const createView = (...elements) => {
  * @param {String} css A string typed as the css class that you want to set to the object (required).
  * @param {String} text A string typed as the text you want to set to the element (required).
  * @public
- * @return HTMLElement New text element with the props passed.
+ * @return {HTMLTextElement} New text element with the props passed.
  */
 export const createTextElement = (element, css, text) => {
   let newElement = document.createElement(element);
@@ -185,10 +185,9 @@ export const createIcon = (icon, size, css = null) => {
   return newIcon;
 };
 
-/** Creates a new icon.
+/** Creates a new table.
  * @function
- * @param {String} title String for the title
- * @param {String} css Class for the icon
+ * @param {String} css Class for the table
  * @param {String} [id] ID of the table.
  * @public
  * @return {EgTable} with all the new props.

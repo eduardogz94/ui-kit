@@ -1,13 +1,13 @@
 import { allTrainings } from "./trainings.js";
 import { training1 } from "../../helpers/mockupData.js";
 import { getUsers } from "../../requests/trainings.js";
+import { boxappUsersTrainingRender } from "./usersTrainingRender.js";
+import { Router } from "../../../routes/public-loader.js";
 
 import {
   appendsCreateCol,
   createButton
 } from "../../../src/js/sivaFunctions.js";
-import { boxappUsersTrainingRender } from "./usersTrainingRender.js";
-import { Router } from "../../../routes/public-loader.js";
 
 export const boxAppTraningsRender = () => {
   let view = allTrainings("Trainings Available!");
@@ -51,7 +51,7 @@ export const boxAppTraningsRender = () => {
           lazyDOM: usersTrainingComponent.AfterDOM
         };
 
-        Router.restartSPA();
+        Router.resetView();
         Router.load(usersTrainingRoute);
       };
 

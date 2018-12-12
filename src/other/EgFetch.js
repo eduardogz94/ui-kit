@@ -37,13 +37,12 @@ export default class EgFetch {
 
   fetchData(endpoint, fetchOptions = null) {
     return new Promise((resolve, reject) => {
-      console.log(fetchOptions);
-
       fetch(endpoint, fetchOptions)
         .then(response => response.json())
         .then(response => resolve(response))
         .catch(err => {
           reject(err);
+          console.log("There was an error on request => " + err);
         });
     });
   }
@@ -51,17 +50,17 @@ export default class EgFetch {
   withBody(method, body, headers) {
     let options = {};
 
-    options["method"] = method;
-    options["credentials"] = this.getCredentials();
+    options.method = method;
+    options.credentials = this.getCredentials();
 
     if (headers === null) {
       this.setBody(body);
-      options["body"] = this.getBody();
+      options.body = this.getBody();
     } else {
       this.setHeaders({ "Content-Type": headers });
       this.setBody(JSON.stringify(body));
-      options["headers"] = this.getHeaders();
-      options["body"] = this.getBody();
+      options.headers = this.getHeaders();
+      options.body = this.getBody();
     }
     return options;
   }

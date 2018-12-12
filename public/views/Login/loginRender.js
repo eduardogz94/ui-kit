@@ -1,12 +1,12 @@
 import { boxappLogin, boxappLoginBody } from "./login.js";
 import { boxappHeaderRender } from "../Header/headerRender.js";
+import { Router, trainingsRoute } from "../../../routes/public-loader.js";
+
 import {
-  Router,
   session,
   logUser,
-  deleteSession,
-  trainingsRoute
-} from "../../../routes/public-loader.js";
+  deleteSession
+} from "../../../container/publicSession.js";
 
 import {
   createCardText,
@@ -47,23 +47,21 @@ export const boxappLoginAfterDOM = () => {
     let passInput = loginBody.passwordInput;
     let confirmPassword = loginBody.confirmPassword;
 
-    let userVal = lengthValidator(userInput, 6);
-    let passVal = lengthValidator(passInput, 6);
+    let userValidator = lengthValidator(userInput, 6);
+    let passValidator = lengthValidator(passInput, 6);
 
     let userValue = userInput.getInputValue().value;
     let passValue = passInput.getInputValue().value;
     let confirmValue = confirmPassword.getInputValue().value;
 
-    // Aqui va el request
     if (
-      userVal &&
+      userValidator &&
       userValue === "eduardo" &&
-      passVal &&
+      passValidator &&
       passValue === confirmValue
     ) {
-      logUser({
-        user: "eduardo"
-      });
+      // Aqui va el request
+      logUser("eduardo");
 
       if (session.logged) {
         let loggedTabs = boxappHeaderRender
@@ -79,7 +77,7 @@ export const boxappLoginAfterDOM = () => {
         logout.innerHTML = `Logout`;
 
         profile.onclick = function(ev) {
-          Router.restartSPA();
+          Router.resetView();
           let trainingR2 = trainingsRoute();
           Router.load(trainingR2);
         };
@@ -87,7 +85,7 @@ export const boxappLoginAfterDOM = () => {
         boxappHeaderRender.addExistingTab(loggedTabs[0]);
         boxappHeaderRender.addNewTab(profile);
         boxappHeaderRender.addNewTab(logout);
-        Router.restartSPA();
+        Router.resetView();
 
         let trainingR = trainingsRoute();
         Router.load(trainingR);
