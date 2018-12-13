@@ -1,12 +1,8 @@
 import { boxappLogin, boxappLoginBody } from "./login.js";
 import { boxappHeaderRender } from "../Header/headerRender.js";
+import { boxappProfileTab, boxappLogoutTab } from "../Header/header.js";
 import { Router, trainingsRoute } from "../../../routes/public-loader.js";
-
-import {
-  session,
-  logUser,
-  deleteSession
-} from "../../../container/publicSession.js";
+import { session, logUser } from "../../../container/publicSession.js";
 
 import {
   createCardText,
@@ -63,34 +59,22 @@ export const boxappLoginAfterDOM = () => {
       // Aqui va el request
       logUser("eduardo");
 
-      if (session.logged) {
+      if (session.getContext().logged) {
         let loggedTabs = boxappHeaderRender
           .getTabs()
           .filter(tab => tab.innerText === "HOME");
 
         boxappHeaderRender.resetTabs();
-
-        let profile = document.createElement("a");
-        profile.innerHTML = `All Trainings`;
-
-        let logout = document.createElement("a");
-        logout.innerHTML = `Logout`;
-
-        profile.onclick = function(ev) {
-          Router.resetView();
-          let trainingR2 = trainingsRoute();
-          Router.load(trainingR2);
-        };
-
         boxappHeaderRender.addExistingTab(loggedTabs[0]);
-        boxappHeaderRender.addNewTab(profile);
-        boxappHeaderRender.addNewTab(logout);
-        Router.resetView();
+        boxappHeaderRender.addNewTab(boxappProfileTab());
+        boxappHeaderRender.addNewTab(boxappLogoutTab());
 
         let trainingR = trainingsRoute();
-        Router.load(trainingR);
 
-        logout.onclick = deleteSession;
+        Router.resetView();
+        Router.load(trainingR);
+      } else {
+        console.log("Youre already logged in.");
       }
     }
   };

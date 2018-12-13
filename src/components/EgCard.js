@@ -77,7 +77,6 @@ export default class EgCard extends HTMLElement {
    * @protected
    */
   connectedCallback() {
-    this.setAttribute("card", "card");
     this.innerHTML = this.template();
 
     this.setComponent();
@@ -116,7 +115,7 @@ export default class EgCard extends HTMLElement {
    */
   setComponent() {
     // Properties
-    if (this.id) this.safeSet("id", this.card);
+    if (this.id) this.safeSet("id", this.id);
     if (this.type) this.safeSet("type", this.type);
 
     // Attributes
@@ -133,8 +132,9 @@ export default class EgCard extends HTMLElement {
    * @protected
    */
   defaultProperties() {
-    let classname = "";
+    let classname = "card ";
     this.getAttributeNames().forEach(element => {
+      console.log(element === "id");
       if (element === "id")
         return this.safeChildSet(
           element,

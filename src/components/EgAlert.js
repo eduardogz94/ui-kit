@@ -112,6 +112,7 @@ export default class EgAlert extends HTMLElement {
   setComponent() {
     if (this.id) this.getComponent().setAttribute("id", `${this.id}-alert`);
     if (this.type) this.setAttribute("type", this.type);
+
     if (this.col) this.setAttribute("col", this.col);
     if (this.offset) this.setAttribute("offset", this.offset);
     if (this.css) this.setAttribute("css", this.css);

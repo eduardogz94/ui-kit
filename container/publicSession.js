@@ -1,3 +1,5 @@
+import EgContext from "../src/other/EgContext.js";
+
 export const session = new EgContext({ logged: false });
 
 export const logUser = obj => {

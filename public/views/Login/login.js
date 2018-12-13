@@ -19,7 +19,7 @@ export const boxappLoginBody = () => {
   );
 
   usernameInput.offset = "offset-2";
-  usernameInput.css = "mb-2";
+  usernameInput.css = "mb-2 animated bounceIn";
 
   let passwordInput = createInput(
     "form-control",
@@ -30,7 +30,7 @@ export const boxappLoginBody = () => {
   );
 
   passwordInput.offset = "offset-2";
-  passwordInput.css = "mt-2";
+  passwordInput.css = "mt-2 animated bounceIn";
 
   let confirmPassword = createInput(
     "form-control",
@@ -41,7 +41,7 @@ export const boxappLoginBody = () => {
   );
 
   confirmPassword.offset = "offset-2";
-  confirmPassword.css = "mt-2";
+  confirmPassword.css = "mt-2 animated bounceIn";
 
   let loginButton = createButton(
     "btn-primary",
@@ -49,7 +49,7 @@ export const boxappLoginBody = () => {
     "loginButton",
     "col-8"
   );
-  loginButton.css = "mt-2";
+  loginButton.css = "mt-2 animated bounceIn";
   loginButton.offset = "offset-2";
 
   let loginBody = {

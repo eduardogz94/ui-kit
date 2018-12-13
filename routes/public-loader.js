@@ -1,6 +1,4 @@
 import EgRouter from "../src/other/EgRouter.js";
-import EgContext from "../src/other/EgContext.js";
-
 import { boxAppTraningsRender } from "../public/views/Trainings/trainingsRender.js";
 import { boxappHome } from "../public/views/Home/home.js";
 
