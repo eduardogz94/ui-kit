@@ -1,5 +1,4 @@
 const ccc = new CCC();
-
 const supportsCustomElements = "customElements" in window;
 
 if (supportsCustomElements) {

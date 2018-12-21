@@ -1,6 +1,6 @@
 export default class EgFetch {
   constructor() {
-    this.credentials = "same-origin";
+    this.credentials = "include";
   }
 
   setCredentials(credentials) {
@@ -68,7 +68,7 @@ export default class EgFetch {
   async get(endpoint, body = {}) {
     try {
       let data = await this.fetchData(endpoint);
-
+      console.log(data);
       return data;
     } catch (error) {
       throw new Error(error);

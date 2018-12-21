@@ -3,6 +3,7 @@ import { boxappHeaderRender } from "../Header/headerRender.js";
 import { boxappProfileTab, boxappLogoutTab } from "../Header/header.js";
 import { Router, trainingsRoute } from "../../../routes/public-loader.js";
 import { session, logUser } from "../../../container/publicSession.js";
+import { loginRequest } from "../../requests/login.js";
 
 import {
   createCardText,
@@ -38,7 +39,7 @@ export const boxappLoginAfterDOM = () => {
     loginBody.loginButton
   );
 
-  loginBody.loginButton.onclick = function(ev) {
+  loginBody.loginButton.onclick = async function(ev) {
     let userInput = loginBody.usernameInput;
     let passInput = loginBody.passwordInput;
     let confirmPassword = loginBody.confirmPassword;
@@ -50,14 +51,12 @@ export const boxappLoginAfterDOM = () => {
     let passValue = passInput.getInputValue().value;
     let confirmValue = confirmPassword.getInputValue().value;
 
-    if (
-      userValidator &&
-      userValue === "eduardo" &&
-      passValidator &&
-      passValue === confirmValue
-    ) {
-      // Aqui va el request
-      logUser("eduardo");
+    if (userValidator && passValidator && passValue === confirmValue) {
+      const response = await loginRequest([userValue, passValue]);
+      console.log(response);
+      if (response.status === 200) {
+        logUser(userValue);
+      }
 
       if (session.getContext().logged) {
         let loggedTabs = boxappHeaderRender

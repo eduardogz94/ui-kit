@@ -1,5 +1,6 @@
 import { searchUsers } from "./trainings.js";
 import { getUsers } from "../../requests/trainings.js";
+import { stringToArray } from "../../helpers/parser.js";
 import { appendsCreateCol } from "../../../src/js/sivaFunctions.js";
 
 export const boxappUsersTrainingRender = id => {
@@ -10,13 +11,13 @@ export const boxappUsersTrainingRender = id => {
 
   users.appendMultipleElements(usersTable.traningTable);
 
-  function AfterDOM() {
+  async function AfterDOM() {
     usersTable.traningTable.createHeadings("Name");
 
-    getUsers(id).then(all => {
-      all.forEach(user => {
-        usersTable.traningTable.createData(user);
-      });
+    const all = await getUsers(id);
+    const list = stringToArray(all.data);
+    list.forEach(user => {
+      usersTable.traningTable.createData(user);
     });
   }
 

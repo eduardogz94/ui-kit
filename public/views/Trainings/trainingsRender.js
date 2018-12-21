@@ -1,6 +1,6 @@
 import { allTrainings } from "./trainings.js";
-import { training1 } from "../../helpers/mockupData.js";
-import { getUsers } from "../../requests/trainings.js";
+import { stringToArrayJson } from "../../helpers/parser.js";
+import { getUsers, getTrainings } from "../../requests/trainings.js";
 import { boxappUsersTrainingRender } from "./usersTrainingRender.js";
 import { Router } from "../../../routes/public-loader.js";
 
@@ -8,6 +8,7 @@ import {
   appendsCreateCol,
   createButton
 } from "../../../src/js/sivaFunctions.js";
+import { newBooking } from "../../requests/bookings.js";
 
 export const boxAppTraningsRender = () => {
   let view = allTrainings("Trainings Available!");
@@ -16,7 +17,7 @@ export const boxAppTraningsRender = () => {
 
   trainings.appendMultipleElements(view.traningTable);
 
-  const AfterDOM = () => {
+  const AfterDOM = async () => {
     view.traningTable.createHeadings(
       "Id",
       "Users Allowed",
@@ -25,8 +26,9 @@ export const boxAppTraningsRender = () => {
       "Users Reserved"
     );
 
-    //Aqui va el request
-    training1.forEach((data, id) => {
+    const train = await getTrainings();
+    const list = stringToArrayJson(train.data);
+    list.forEach(training => {
       let newBookingButton = createButton(
         "btn-primary btn-sm",
         "New Booking",
@@ -39,13 +41,20 @@ export const boxAppTraningsRender = () => {
         "booking"
       );
 
-      getUsersButton.onclick = function(ev) {
-        getUsers(id + 1);
+      newBookingButton.onclick = async function(ev) {
+        const create = await newBooking(training.id);
+        if (create.status === 200) {
+          alert("You have booked!");
+        }
+      };
 
-        let usersTrainingComponent = boxappUsersTrainingRender(id + 1);
+      getUsersButton.onclick = function(ev) {
+        getUsers(training.id);
+
+        let usersTrainingComponent = boxappUsersTrainingRender(training.id);
 
         let usersTrainingRoute = {
-          url: `/Trainings/User/${id + 1}`,
+          url: `/Trainings/User/${training.id}`,
           script: "../public/views/Trainings/usersTrainingRender",
           component: usersTrainingComponent.users,
           lazyDOM: usersTrainingComponent.AfterDOM
@@ -56,9 +65,9 @@ export const boxAppTraningsRender = () => {
       };
 
       view.traningTable.createData(
-        id + 1,
-        data.quantity,
-        data.hour,
+        training.id,
+        training.quantity,
+        training.hour,
         newBookingButton,
         getUsersButton
       );

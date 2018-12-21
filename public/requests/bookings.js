@@ -1,12 +1,13 @@
-export const newBooking = async (user, id) => {
+import { session } from "../../container/publicSession.js";
+
+export const newBooking = async id => {
   const body = {
-    objName: "siva.business.Booking",
-    metName: "checkBooked",
-    params: [user, id],
-    typeParams: ["string", "string"]
+    objName: "siva.proxy.Booking",
+    metName: "create",
+    params: [id, session.context.user],
+    typeParams: ["Integer", "string"]
   };
 
-  const data = await ccc.sendRequest(body);
-  console.log(data);
+  const data = await ccc.sendRequest("http://localhost:2000/Siva", body);
   return data;
 };
