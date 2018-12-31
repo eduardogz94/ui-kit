@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>JSDoc: Source: js/bindingFunctions.js</title>
+    <title>JSDoc: Source: core/bindingFunctions.js</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -19,7 +19,7 @@
 
   <body>
     <div id="main">
-      <h1 class="page-title">Source: js/bindingFunctions.js</h1>
+      <h1 class="page-title">Source: core/bindingFunctions.js</h1>
 
       <section>
         <article>
@@ -28,7 +28,7 @@
  * @param {Object} obj A string as the elements to look into the parent element(required).
  * @protected
  */
-export function getElementObjects(obj) {
+export function getObjects(obj) {
   return this.querySelectorAll(`${obj}`);
 }
 
@@ -37,7 +37,7 @@ export function getElementObjects(obj) {
  * @param {String} element Representing the element to add(required).
  * @protected
  */
-export function createAndAppendElement(element) {
+export function createElement(element) {
   let object = document.createElement(`${element}`);
   this.appendChild(object);
 }
@@ -47,7 +47,7 @@ export function createAndAppendElement(element) {
  * @param  {...any} elements All the elements that will be added into the parent component(required 1).
  * @protected
  */
-export function appendMultipleElements(...elements) {
+export function appendElements(...elements) {
   if (this) {
     elements.forEach(element => {
       this.appendChild(element);
@@ -63,7 +63,7 @@ export function appendMultipleElements(...elements) {
  * @param {Int} quantity Representing the quantity of elements that will be appened(required).
  * @protected
  */
-export function createMultipleElements(element, quantity) {
+export function createElements(element, quantity) {
   for (let i = 0; i &lt; quantity; i++) {
     let object = document.createElement(`${element}`);
     object.id = i;
@@ -181,28 +181,28 @@ export function setDimensions(width, height) {
       <ul>
         <li><a href="global.html#addIcon">addIcon</a></li>
         <li>
-          <a href="global.html#appendMultipleElements"
-            >appendMultipleElements</a
+          <a href="global.html#appendElements"
+            >appendElements</a
           >
         </li>
         <li><a href="global.html#connectedCallback">connectedCallback</a></li>
         <li>
-          <a href="global.html#createAndAppendElement"
-            >createAndAppendElement</a
+          <a href="global.html#createElement"
+            >createElement</a
           >
         </li>
         <li>
-          <a href="global.html#createMultipleElements"
-            >createMultipleElements</a
+          <a href="global.html#createElements"
+            >createElements</a
           >
         </li>
         <li><a href="global.html#defaultProperties">defaultProperties</a></li>
         <li>
-          <a href="global.html#disconnectedCallback">disconnectedCallback</a>
+          <a href="global.html#disconnectedCallback() {     this.remove();">disconnectedCallback() {     this.remove();</a>
         </li>
         <li><a href="global.html#disconnectObserver">disconnectObserver</a></li>
         <li><a href="global.html#getComponent">getComponent</a></li>
-        <li><a href="global.html#getElementObjects">getElementObjects</a></li>
+        <li><a href="global.html#getObjects">getObjects</a></li>
         <li><a href="global.html#getInputValue">getInputValue</a></li>
         <li>
           <a href="global.html#initIntersectionObserver"

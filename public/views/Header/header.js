@@ -1,13 +1,7 @@
 import EgHeader from "../../../src/components/Layout/EgHeader.js";
-import { boxappHeaderRender } from "../Header/headerRender.js";
-import { deleteSession, session } from "../../../container/publicSession.js";
-import {
-  Router,
-  signupRoute,
-  loginRoute,
-  trainingsRoute,
-  homeRoute
-} from "../../../routes/public-loader.js";
+import { boxappHeaderComponent } from "../Header/headerRender.js";
+import { deleteSession, session } from "../../../container/session.js";
+import { Router, trainingsRoute } from "../../../routes/index.js";
 
 export const boxappHeader = () => {
   let header = new EgHeader();
@@ -30,29 +24,25 @@ export const boxappHomeTab = () => {
 };
 
 export const boxappLoginTab = () => {
-  let loginR = loginRoute();
-
   let login = document.createElement("a");
   login.innerHTML = "Login";
   login.className = "bounceIn";
 
   login.onclick = function() {
     Router.resetView();
-    Router.load(loginR);
+    Router.navigate("/Login");
   };
 
   return login;
 };
 
 export const boxappSignupTab = () => {
-  let signupR = signupRoute();
-
   let signup = document.createElement("a");
   signup.innerHTML = "Signup";
 
   signup.onclick = function() {
     Router.resetView();
-    Router.load(signupR);
+    Router.navigate("/Signup");
   };
 
   return signup;
@@ -65,19 +55,17 @@ export const boxappLogoutTab = () => {
     if (session.getContext().logged) {
       deleteSession();
 
-      let loggedTabs = boxappHeaderRender
+      let loggedTabs = boxappHeaderComponent
         .getTabs()
         .filter(tab => tab.innerText === "HOME");
 
-      boxappHeaderRender.resetTabs();
-      boxappHeaderRender.addExistingTab(loggedTabs[0]);
-      boxappHeaderRender.addNewTab(boxappSignupTab());
-      boxappHeaderRender.addNewTab(boxappLoginTab());
-
-      let homeView = homeRoute();
+      boxappHeaderComponent.resetTabs();
+      boxappHeaderComponent.addExistingTab(loggedTabs[0]);
+      boxappHeaderComponent.addNewTab(boxappSignupTab());
+      boxappHeaderComponent.addNewTab(boxappLoginTab());
 
       Router.resetView();
-      Router.load(homeView);
+      Router.navigate("/Home");
     } else {
       console.log("Youre not logged in.");
     }
@@ -87,14 +75,13 @@ export const boxappLogoutTab = () => {
 };
 
 export const boxappProfileTab = () => {
+  let trainingR = trainingsRoute();
   let profile = document.createElement("a");
   profile.innerHTML = `All Trainings`;
 
   profile.onclick = function(ev) {
-    let trainingR2 = trainingsRoute();
-
     Router.resetView();
-    Router.load(trainingR2);
+    Router.navigate("/Trainings");
   };
 
   return profile;

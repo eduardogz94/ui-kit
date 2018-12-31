@@ -1,7 +1,7 @@
 import EgCard from "../../../src/components/EgCard.js";
-import { createInput, createButton } from "../../../src/js/sivaFunctions.js";
+import { createInput, createButton } from "../../../src/core/sivaFunctions.js";
 
-export const boxappSignup = () => {
+export const boxappSignupCard = () => {
   let signupCard = new EgCard("card-primary");
   signupCard.id = "signup";
   signupCard.header = "Signup into boxapp now!";

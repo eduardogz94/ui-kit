@@ -1,8 +1,8 @@
 import {
-  getElementObjects,
-  createAndAppendElement,
-  appendMultipleElements,
-  createMultipleElements,
+  getObjects,
+  createElement,
+  appendElements,
+  createElements,
   safeSet,
   safeChildSet,
   safeMultipleSet,
@@ -12,13 +12,16 @@ import {
   setBackground,
   setDimensions,
   setPosition
-} from '../../js/bindingFunctions.js';
+} from '../../core/bindingFunctions.js';
 
 import {
   observerCallback,
   initIntersectionObserver,
   disconnectObserver
 } from '../../observer/index.js';
+import {
+  shadowCtx
+} from '../../core/shadowDOM.js';
 
 /**
  * EgHeader Class
@@ -31,19 +34,27 @@ export default class EgHeader extends HTMLElement {
    * @public
    */
   constructor() {
+
     super();
     this.tabs = [];
+    this.template = document.createElement('nav');
 
+    // Binds the shadowCtx function for the component.
+    this.shadowCtx = shadowCtx.bind(this)
+
+    // Attach the shadowRoot to the component.
+    this.shadowCtx()
+    
     // Bind the observer so it can access the element with `this`.
     this.observerCallback = observerCallback.bind(this);
     this.disconnectObserver = disconnectObserver.bind(this);
     this.initIntersectionObserver = initIntersectionObserver.bind(this);
 
     // Bind the multiple Siva-functions.
-    this.getElementObjects = getElementObjects.bind(this);
-    this.createAndAppendElement = createAndAppendElement.bind(this);
-    this.appendMultipleElements = appendMultipleElements.bind(this);
-    this.createElements = createMultipleElements.bind(this);
+    this.getObjects = getObjects.bind(this);
+    this.createElement = createElement.bind(this);
+    this.appendElements = appendElements.bind(this);
+    this.createElements = createElements.bind(this);
 
     // Bind the component attributes functions.
     this.safeSet = safeSet.bind(this);
@@ -64,7 +75,8 @@ export default class EgHeader extends HTMLElement {
    * @protected
    */
   connectedCallback() {
-    this.innerHTML = '<nav/>';
+    this.innerHTML = this.shadowRoot.firstChild;
+    console.log(this.shadowRoot.firstChild);
 
     this.setComponent();
     this.defaultProperties();
@@ -73,6 +85,17 @@ export default class EgHeader extends HTMLElement {
       id: this.id,
       secret: 'Header Parent'
     });
+
+    // If IntersectionObserver is available, initialize it.
+    // otherwise, simply load the image.
+    //if ("IntersectionObserver" in window) this.initIntersectionObserver();
+    //else this.intersecting = true;
+
+  }
+
+  attributeChangedCallback(name, oldval, newval) {
+    console.log(`the ${name} attribute has changed from ${oldval} to ${newval}!!`);
+    // do something every time the attribute changes
   }
 
   /** A lifecycle method that calls when the component has unmounted.
@@ -80,7 +103,8 @@ export default class EgHeader extends HTMLElement {
    * @protected
    */
   disconnectedCallback() {
-    this.disconnectObserver();
+    this.remove();
+    //this.disconnectObserver();
   }
 
   /** A function to get the component inside the EgHeader tag.
@@ -88,7 +112,7 @@ export default class EgHeader extends HTMLElement {
    * @protected
    */
   getComponent() {
-    return this.querySelector('nav');
+    return this.shadowRoot.firstChild;
   }
 
   /** A function to set the Component properties as they are received from a js instance.
@@ -197,6 +221,6 @@ let tagName = 'eg-header';
 let registerDOM = () => customElements.define(tagName, EgHeader);
 
 //Async loading.
-window.WebComponents
-  ? window.WebComponents.waitFor(registerDOM)
-  : registerDOM();
+window.WebComponents ?
+  window.WebComponents.waitFor(registerDOM) :
+  registerDOM();

@@ -1,31 +1,32 @@
 import EgRouter from "../src/other/EgRouter.js";
-import { boxAppTraningsRender } from "../public/views/Trainings/trainingsRender.js";
-import { boxappHome } from "../public/views/Home/home.js";
-
 import {
-  boxappHeaderRender,
-  boxappHeaderAfterDOM
-} from "../public/views/Header/headerRender.js";
-
+  boxappTrainingsComponent
+} from "../public/views/Trainings/trainingsRender.js";
 import {
-  boxappSignupRender,
-  boxappSignupAfterDOM
+  boxappHome
+} from "../public/views/Home/home.js";
+import {
+  boxappSignupComponent
 } from "../public/views/Signup/signupRender.js";
+import {
+  boxappLoginComponent
+} from "../public/views/Login/loginRender.js";
 
 import {
-  boxappLoginRender,
-  boxappLoginAfterDOM
-} from "../public/views/Login/loginRender.js";
+  boxappHeaderComponent,
+  boxappHeaderRender
+} from "../public/views/Header/headerRender.js";
 
 export const routes = [];
 
+
 export const trainingsRoute = () => {
-  let trainingsComponent = boxAppTraningsRender();
+  let trainingsView = boxappTrainingsComponent();
   return {
     url: "/Trainings",
     script: "../public/views/Trainings/trainingsRender",
-    component: trainingsComponent.trainings,
-    lazyDOM: trainingsComponent.AfterDOM
+    component: trainingsView.component,
+    render: trainingsView.render
   };
 };
 
@@ -33,41 +34,41 @@ export const headerRoute = () => {
   return {
     url: "/Header",
     script: "../public/views/Header/headerRender",
-    component: boxappHeaderRender,
-    lazyDOM: boxappHeaderAfterDOM
+    component: boxappHeaderComponent,
+    render: boxappHeaderRender
   };
-};
+}
 
 export const loginRoute = () => {
-  let loginComponent = boxappLoginRender();
+  let loginView = boxappLoginComponent();
   return {
     url: "/Login",
     script: "../public/views/Login/loginRender",
-    component: loginComponent,
-    lazyDOM: boxappLoginAfterDOM
+    component: loginView.component,
+    render: loginView.render
   };
-};
+}
 
 export const homeRoute = () => {
-  let homeComponent = boxappHome();
+  let homeView = boxappHome();
   return {
     url: "/Home",
     script: "../public/views/Home/home",
-    component: homeComponent
+    component: homeView
   };
-};
+}
 
 export const signupRoute = () => {
-  let signupComponent = boxappSignupRender();
+  let signupView = boxappSignupComponent();
   return {
     url: "/Signup",
     script: "../public/views/Signup/signupRender",
-    component: signupComponent,
-    lazyDOM: boxappSignupAfterDOM
+    component: signupView.component,
+    render: signupView.render
   };
-};
+}
 
-routes.push(headerRoute(), homeRoute());
+routes.push(headerRoute()/*, homeRoute(), loginRoute(), signupRoute(), trainingsRoute()*/);
 
 export const Router = new EgRouter(
   routes,
@@ -76,4 +77,4 @@ export const Router = new EgRouter(
 
 // Since they are already loaded in the instance, we can navigate throught them
 Router.navigate("/Header");
-Router.navigate("/Home");
+// Router.navigate("/Home");

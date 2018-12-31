@@ -14,7 +14,9 @@ class CCC {
   }
 
   registerFile(file) {
-    this.files.push({ file });
+    this.files.push({
+      file
+    });
   }
 
   async initApp(url) {
@@ -69,29 +71,39 @@ class CCC {
 
   // Ponlo directo en el post, el endpoint
   async sendRequest(endpoint, options) {
-    let module = await import("../other/EgFetch.js");
-    let request = new module.default();
-    let response = await request.post(endpoint, options, "application/json");
-    this.responses.push(response);
-    return response;
+    try {
+      let module = await import("../other/EgFetch.js");
+      let request = new module.default();
+      let response = await request.post(endpoint, options, "application/json");
+      this.responses.push(response);
+      return response;
+    } catch (error) {
+      throw new Error(JSON.stringify(error));
+    }
   }
 
   async logRoute(logger, router) {
-    await this.chargeScript(`${logger}`);
-    await this.initApp(`${router}`);
+    try {
+      await this.chargeScript(`${logger}`);
+      await this.initApp(`${router}`);
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 
   async egUIKIT() {
-    ccc.chargeLink("../src/assets/css/elements");
-    ccc.chargeLink("../src/assets/css/grid");
-    ccc.chargeLink("../src/assets/css/responsive");
-    ccc.chargeLink("../src/assets/css/utilities");
-    ccc.chargeLink("../src/assets/css/animate");
+    try {
+      ccc.chargeLink("../src/assets/css/elements");
+      ccc.chargeLink("../src/assets/css/grid");
+      ccc.chargeLink("../src/assets/css/responsive");
+      ccc.chargeLink("../src/assets/css/utilities");
+      ccc.chargeLink("../src/assets/css/animate");
 
-    // Libs used.
-    ccc.chargeLink("../libs/fontawesome/css/fontawesome-all");
-    ccc.chargeLink("../libs/ionicons/css/ionicons");
-
-    // ccc.chargeScript("../src/other/EgFetch");
+      // Libs used.
+      ccc.chargeLink("../libs/fontawesome/css/fontawesome-all");
+      ccc.chargeLink("../libs/ionicons/css/ionicons");
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 }

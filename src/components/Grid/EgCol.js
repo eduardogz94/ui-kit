@@ -1,8 +1,8 @@
 import {
-  getElementObjects,
-  createAndAppendElement,
-  appendMultipleElements,
-  createMultipleElements,
+  getObjects,
+  createElement,
+  appendElements,
+  createElements,
   safeSet,
   safeChildSet,
   safeMultipleSet,
@@ -12,7 +12,7 @@ import {
   setBackground,
   setDimensions,
   setPosition
-} from "../../js/bindingFunctions.js";
+} from "../../core/bindingFunctions.js";
 
 import {
   observerCallback,
@@ -43,10 +43,10 @@ export default class EgCol extends HTMLElement {
     this.initIntersectionObserver = initIntersectionObserver.bind(this);
 
     // Bind the multiple Siva-functions.
-    this.getElementObjects = getElementObjects.bind(this);
-    this.createAndAppendElement = createAndAppendElement.bind(this);
-    this.appendMultipleElements = appendMultipleElements.bind(this);
-    this.createElements = createMultipleElements.bind(this);
+    this.getObjects = getObjects.bind(this);
+    this.createElement = createElement.bind(this);
+    this.appendElements = appendElements.bind(this);
+    this.createElements = createElements.bind(this);
 
     // Bind the component attributes functions.
     this.safeSet = safeSet.bind(this);
@@ -76,16 +76,17 @@ export default class EgCol extends HTMLElement {
 
     // If IntersectionObserver is available, initialize it.
     // otherwise, simply load the image.
-    if ("IntersectionObserver" in window) this.initIntersectionObserver();
-    else this.intersecting = true;
+    //if ("IntersectionObserver" in window) this.initIntersectionObserver();
+    //else this.intersecting = true;
   }
 
   /** A lifecycle method that calls when the component has unmounted.
    * @function
    * @protected
    */
-  disconnectedCallback() {
-    this.disconnectObserver();
+  disconnectedCallback() {     
+    this.remove();
+    //this.disconnectObserver();
   }
 
   /** A function to get the component.
@@ -133,6 +134,6 @@ let tagName = "eg-col";
 let registerDOM = () => customElements.define(tagName, EgCol);
 
 //Async loading.
-window.WebComponents
-  ? window.WebComponents.waitFor(registerDOM)
-  : registerDOM();
+window.WebComponents ?
+  window.WebComponents.waitFor(registerDOM) :
+  registerDOM();

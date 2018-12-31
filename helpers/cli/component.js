@@ -1,9 +1,9 @@
 var component = `
 import {
-  getElementObjects,
-  createAndAppendElement,
-  appendMultipleElements,
-  createMultipleElements,
+  getObjects,
+  createElement,
+  appendElements,
+  createElements,
   safeSet,
   safeChildSet,
   safeMultipleSet,
@@ -14,7 +14,7 @@ import {
   setDimensions,
   setPosition,
   onClear
-} from '../js/bindingFunctions.js';
+} from '../core/bindingFunctions.js';
 
 import {
   observerCallback,
@@ -41,10 +41,10 @@ export default class EgComponent extends HTMLElement {
     this.initIntersectionObserver = initIntersectionObserver.bind(this);
 
     // Bind the multiple Siva-functions.
-    this.getElementObjects = getElementObjects.bind(this);
-    this.createAndAppendElement = createAndAppendElement.bind(this);
-    this.appendMultipleElements = appendMultipleElements.bind(this);
-    this.createElements = createMultipleElements.bind(this);
+    this.getObjects = getObjects.bind(this);
+    this.createElement = createElement.bind(this);
+    this.appendElements = appendElements.bind(this);
+    this.createElements = createElements.bind(this);
 
     // Bind the component attributes functions.
     this.safeSet = safeSet.bind(this);
@@ -90,8 +90,8 @@ export default class EgComponent extends HTMLElement {
    * A lifecycle method that calls when the component has unmounted.
    * @protected
    */
-  disconnectedCallback() {
-    this.disconnectObserver();
+  disconnectedCallback() {     this.remove();() {
+    //this.disconnectObserver();
   }
 
   /**

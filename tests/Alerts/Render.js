@@ -26,7 +26,7 @@ export const alertsSampleRender = () => {
   let alertsMainCol = appendsCreateCol("col-6", alertsText);
   alertsMainCol.css = "offset-3";
 
-  alertsMainCol.appendMultipleElements(
+  alertsMainCol.appendElements(
     primaryAlert,
     altAlert,
     dangerAlert,

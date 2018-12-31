@@ -1,22 +1,24 @@
-import { allTrainings } from "./trainings.js";
+import { boxappTrainingsTable } from "./trainings.js";
 import { training1 } from "../../helpers/mockupData.js";
 import { getUsers } from "../../requests/trainings.js";
-import { boxappUsersTrainingRender } from "./usersTrainingRender.js";
-import { Router } from "../../../routes/public-loader.js";
+import { boxappUsersTableComponent } from "./usersTrainingRender.js";
+import { Router } from "../../../routes/index.js";
 
 import {
   appendsCreateCol,
   createButton
-} from "../../../src/js/sivaFunctions.js";
+} from "../../../src/core/sivaFunctions.js";
 
-export const boxAppTraningsRender = () => {
-  let view = allTrainings("Trainings Available!");
-  let trainings = appendsCreateCol("col-8", view.trainingsTitle);
-  trainings.css = "mt-5 offset-2";
 
-  trainings.appendMultipleElements(view.traningTable);
+export const boxappTrainingsComponent = () => {
 
-  const AfterDOM = () => {
+  let view = boxappTrainingsTable("Trainings Available!");
+  let component = appendsCreateCol("col-8", view.trainingsTitle);
+  component.css = "mt-5 offset-2";
+
+  component.appendElements(view.traningTable);
+
+  let render = () => {
     view.traningTable.createHeadings(
       "Id",
       "Users Allowed",
@@ -42,13 +44,13 @@ export const boxAppTraningsRender = () => {
       getUsersButton.onclick = function(ev) {
         getUsers(id + 1);
 
-        let usersTrainingComponent = boxappUsersTrainingRender(id + 1);
+        let usersTrainingComponent = boxappUsersTableComponent(id + 1);
 
         let usersTrainingRoute = {
-          url: `/Trainings/User/${id + 1}`,
+          url: `/Trainings/AllUsers/${id + 1}`,
           script: "../public/views/Trainings/usersTrainingRender",
-          component: usersTrainingComponent.users,
-          lazyDOM: usersTrainingComponent.AfterDOM
+          component: usersTrainingComponent.usersComponent,
+          lazyDOM: usersTrainingComponent.render
         };
 
         Router.resetView();
@@ -65,5 +67,5 @@ export const boxAppTraningsRender = () => {
     });
   };
 
-  return { trainings, AfterDOM };
+  return { component, render };
 };

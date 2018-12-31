@@ -26,7 +26,7 @@ export const buttonsSampleRender = () => {
 
   let br1 = document.createElement('br');
   let br2 = document.createElement('br');
-  buttonsMainCol.appendMultipleElements(
+  buttonsMainCol.appendElements(
     br1,br2,
     buttonsTitle,
     buttonColors,

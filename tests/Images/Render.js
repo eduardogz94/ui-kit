@@ -26,7 +26,7 @@ export const imagesSampleRender = () => {
   let imagesMainCol = appendsCreateCol("col-12", imagesTitle);
   imagesMainCol.bg = "bg-alt";
 
-  imagesRow.appendMultipleElements(
+  imagesRow.appendElements(
     imageRounded,
     imageCircle,
     imageThumbnail,

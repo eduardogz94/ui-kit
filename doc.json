@@ -2,8 +2,8 @@
   "source": {
     "include": [
       "src/js/sivaFunctions.js",
-      "src/js/regexp.js",
-      "src/js/bindingFunctions.js",
+      "src/core/regexp.js",
+      "src/core/bindingFunctions.js",
       "src/observer/index.js",
 
       "src/components/EgButton.js",

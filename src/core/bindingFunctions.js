@@ -4,7 +4,7 @@
  * @param {Object} obj A string as the elements to look into the parent element(required).
  * @public
  */
-export function getElementObjects(obj) {
+export function getObjects(obj) {
   return this.querySelectorAll(`${obj}`);
 }
 
@@ -14,7 +14,7 @@ export function getElementObjects(obj) {
  * @param {String} element Representing the element to add(required).
  * @public
  */
-export function createAndAppendElement(element) {
+export function createElement(element) {
   let object = document.createElement(`${element}`);
   console.log(object);
   this.appendChild(object);
@@ -26,7 +26,7 @@ export function createAndAppendElement(element) {
  * @param  {...any} elements All the elements that will be added into the parent component(required 1).
  * @public
  */
-export function appendMultipleElements(...elements) {
+export function appendElements(...elements) {
   if (this) {
     elements.forEach(element => {
       this.appendChild(element);
@@ -43,7 +43,7 @@ export function appendMultipleElements(...elements) {
  * @param {Int} quantity Representing the quantity of elements that will be appened(required).
  * @public
  */
-export function createMultipleElements(element, quantity) {
+export function createElements(element, quantity) {
   for (let i = 0; i < quantity; i++) {
     let object = document.createElement(`${element}`);
     object.id = i;
@@ -55,7 +55,7 @@ export function createMultipleElements(element, quantity) {
  * A function to set component Properties in a par key-value.
  * @function
  * @param {String} props Properties received as a string in a array(required).
- * @param {String} keys Kets received as a string in a array(required).
+ * @param {String} keys Keys received as a string in a array(required).
  * @public
  */
 export function safeMultipleSet(props, keys) {
@@ -80,7 +80,7 @@ export function safeSet(name, value) {
 }
 
 /**
- * Guards against loops when reflecting observed attributes.
+ * Guards against child loops when reflecting observed attributes.
  * @function
  * @param  {String} name Attribute name
  * @param  {any} value

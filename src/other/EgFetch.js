@@ -42,7 +42,7 @@ export default class EgFetch {
         .then(response => resolve(response))
         .catch(err => {
           reject(err);
-          console.log("There was an error on request => " + err);
+          throw new Error(err);
         });
     });
   }
@@ -57,7 +57,9 @@ export default class EgFetch {
       this.setBody(body);
       options.body = this.getBody();
     } else {
-      this.setHeaders({ "Content-Type": headers });
+      this.setHeaders({
+        "Content-Type": headers
+      });
       this.setBody(JSON.stringify(body));
       options.headers = this.getHeaders();
       options.body = this.getBody();

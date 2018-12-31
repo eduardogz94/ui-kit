@@ -1,8 +1,8 @@
-import { boxappLogin, boxappLoginBody } from "./login.js";
-import { boxappHeaderRender } from "../Header/headerRender.js";
+import { boxappLoginCard, boxappLoginBody } from "./login.js";
+import { boxappHeaderComponent } from "../Header/headerRender.js";
 import { boxappProfileTab, boxappLogoutTab } from "../Header/header.js";
-import { Router, trainingsRoute } from "../../../routes/public-loader.js";
-import { session, logUser } from "../../../container/publicSession.js";
+import { Router } from "../../../routes/index.js";
+import { session, logUser } from "../../../container/session.js";
 
 import {
   createCardText,
@@ -10,76 +10,72 @@ import {
   appendsCreateCol,
   lengthValidator,
   createCol
-} from "../../../src/js/sivaFunctions.js";
+} from "../../../src/core/sivaFunctions.js";
 
-let boxappLog = boxappLogin();
-let loginBody = boxappLoginBody();
 
-export const boxappLoginRender = () => {
+export const boxappLoginComponent = () => {
+  let loginCard = boxappLoginCard();
+  let loginBody = boxappLoginBody();
+  
   let loginTitle = createTextElement(
     "h1",
     "animated bounceInRight text-primary blanch offset-3 mt-4",
     "Login!"
   );
 
-  let mainCol = appendsCreateCol("col-8", loginTitle);
-  mainCol.css = "offset-3 mt-5";
+  let component = appendsCreateCol("col-8", loginTitle);
+  component.css = "offset-3 mt-5";
 
-  mainCol.appendMultipleElements(createCol(boxappLog, "col-8"));
+  component.appendElements(createCol(loginCard, "col-8"));
 
-  return mainCol;
-};
+  let render = () => {
+    loginCard.addMultipleObjectsToBody(
+      loginBody.usernameInput,
+      loginBody.passwordInput,
+      loginBody.confirmPassword,
+      loginBody.loginButton
+    );
 
-export const boxappLoginAfterDOM = () => {
-  boxappLog.addMultipleObjectsToBody(
-    loginBody.usernameInput,
-    loginBody.passwordInput,
-    loginBody.confirmPassword,
-    loginBody.loginButton
-  );
+    loginBody.loginButton.onclick = function(ev) {
+      let userInput = loginBody.usernameInput;
+      let passInput = loginBody.passwordInput;
+      let confirmPassword = loginBody.confirmPassword;
 
-  loginBody.loginButton.onclick = function(ev) {
-    let userInput = loginBody.usernameInput;
-    let passInput = loginBody.passwordInput;
-    let confirmPassword = loginBody.confirmPassword;
+      let userValidator = lengthValidator(userInput, 6);
+      let passValidator = lengthValidator(passInput, 6);
 
-    let userValidator = lengthValidator(userInput, 6);
-    let passValidator = lengthValidator(passInput, 6);
+      let userValue = userInput.getInputValue().value;
+      let passValue = passInput.getInputValue().value;
+      let confirmValue = confirmPassword.getInputValue().value;
 
-    let userValue = userInput.getInputValue().value;
-    let passValue = passInput.getInputValue().value;
-    let confirmValue = confirmPassword.getInputValue().value;
+      if ( userValidator && userValue === "eduardo" && passValidator && passValue === confirmValue) {
+        // Aqui va el request
+        logUser("eduardo");
 
-    if (
-      userValidator &&
-      userValue === "eduardo" &&
-      passValidator &&
-      passValue === confirmValue
-    ) {
-      // Aqui va el request
-      logUser("eduardo");
+        if (session.getContext().logged) {
+          let loggedTabs = boxappHeaderComponent.getTabs()
+            .filter(tab => tab.innerText === "HOME");
 
-      if (session.getContext().logged) {
-        let loggedTabs = boxappHeaderRender
-          .getTabs()
-          .filter(tab => tab.innerText === "HOME");
+          boxappHeaderComponent.resetTabs();
+          boxappHeaderComponent.addExistingTab(loggedTabs[0]);
+          boxappHeaderComponent.addNewTab(boxappProfileTab());
+          boxappHeaderComponent.addNewTab(boxappLogoutTab());
 
-        boxappHeaderRender.resetTabs();
-        boxappHeaderRender.addExistingTab(loggedTabs[0]);
-        boxappHeaderRender.addNewTab(boxappProfileTab());
-        boxappHeaderRender.addNewTab(boxappLogoutTab());
-
-        let trainingR = trainingsRoute();
-
-        Router.resetView();
-        Router.load(trainingR);
-      } else {
-        console.log("Youre already logged in.");
+          Router.resetView();
+          Router.navigate("/Trainings");
+        } else {
+          console.log("Youre already logged in.");
+        }
       }
-    }
+    };
+
+    loginCard.addToCardFooter(
+      createCardText(
+        "animated jello text-primary",
+        "Signup instead? Click Here!"
+      )
+    );
   };
 
-  boxappLog.addToCardFooter(
-    createCardText("animated jello text-primary", "Signup instead? Click Here!")
-  );
+  return { component, render };
 };

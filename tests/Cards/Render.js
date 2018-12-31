@@ -39,7 +39,7 @@ export const cardsSampleRender = () => {
   let mainCol = appendsCreateCol("col-8", cardsTitle, cardRow);
   mainCol.css = "offset-2";
 
-  cardRow.appendMultipleElements(
+  cardRow.appendElements(
     createCol(defaultCard, "col-3"),
     createCol(warningCard, "col-3"),
     createCol(primaryCard, "col-3"),

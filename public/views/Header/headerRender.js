@@ -5,10 +5,10 @@ import {
   boxappLoginTab
 } from "./header.js";
 
-export const boxappHeaderRender = boxappHeader();
+export const boxappHeaderComponent = boxappHeader();
 
-export const boxappHeaderAfterDOM = () => {
-  boxappHeaderRender.createCollapse(
+export const boxappHeaderRender = () => {
+  boxappHeaderComponent.createCollapse(
     boxappHomeTab(),
     boxappSignupTab(),
     boxappLoginTab()

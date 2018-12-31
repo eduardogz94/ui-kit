@@ -1,8 +1,8 @@
 import {
-  getElementObjects,
-  createAndAppendElement,
-  appendMultipleElements,
-  createMultipleElements,
+  getObjects,
+  createElement,
+  appendElements,
+  createElements,
   safeSet,
   safeChildSet,
   safeMultipleSet,
@@ -12,7 +12,7 @@ import {
   setBackground,
   setDimensions,
   setPosition
-} from "../js/bindingFunctions.js";
+} from "../core/bindingFunctions.js";
 
 import {
   observerCallback,
@@ -42,10 +42,10 @@ export default class EgAlert extends HTMLElement {
     this.initIntersectionObserver = initIntersectionObserver.bind(this);
 
     // Bind the multiple Siva-functions.
-    this.getElementObjects = getElementObjects.bind(this);
-    this.createAndAppendElement = createAndAppendElement.bind(this);
-    this.appendMultipleElements = appendMultipleElements.bind(this);
-    this.createElements = createMultipleElements.bind(this);
+    this.getObjects = getObjects.bind(this);
+    this.createElement = createElement.bind(this);
+    this.appendElements = appendElements.bind(this);
+    this.createElements = createElements.bind(this);
 
     // Bind the component attributes functions.
     this.safeSet = safeSet.bind(this);
@@ -79,7 +79,7 @@ export default class EgAlert extends HTMLElement {
    * @protected
    */
   connectedCallback() {
-    this.setAttribute("role", "alert");
+    this.safeSet("role", "alert");
     this.innerHTML = this.template();
     this.setComponent();
     this.defaultProperties();
@@ -87,14 +87,20 @@ export default class EgAlert extends HTMLElement {
       id: this.id,
       secret: "Alert Parent"
     });
+
+        // If IntersectionObserver is available, initialize it.
+    // otherwise, simply load the image.
+    //if ("IntersectionObserver" in window) this.initIntersectionObserver();
+    //else this.intersecting = true;
   }
 
   /** A lifecycle method that calls when the component has unmounted.
    * @function
    * @protected
    */
-  disconnectedCallback() {
-    this.disconnectObserver();
+  disconnectedCallback() {     
+    this.remove();
+    //this.disconnectObserver();
   }
 
   /** A function to get the div inside the EgAlert tag.
@@ -111,14 +117,14 @@ export default class EgAlert extends HTMLElement {
    */
   setComponent() {
     if (this.id) this.getComponent().setAttribute("id", `${this.id}-alert`);
-    if (this.type) this.setAttribute("type", this.type);
+    if (this.type) this.safeSet("type", this.type);
 
-    if (this.col) this.setAttribute("col", this.col);
-    if (this.offset) this.setAttribute("offset", this.offset);
-    if (this.css) this.setAttribute("css", this.css);
-    if (this.title) this.setAttribute("title", this.title);
-    if (this.close) this.setAttribute("close", this.close);
-    if (this.text) this.setAttribute("text", this.text);
+    if (this.col) this.safeSet("col", this.col);
+    if (this.offset) this.safeSet("offset", this.offset);
+    if (this.css) this.safeSet("css", this.css);
+    if (this.title) this.safeSet("title", this.title);
+    if (this.close) this.safeSet("close", this.close);
+    if (this.text) this.safeSet("text", this.text);
   }
 
   /** Set the default properties/attributes for the component.

@@ -1,9 +1,9 @@
 import {
   createTextElement,
   createTable
-} from "../../../src/js/sivaFunctions.js";
+} from "../../../src/core/sivaFunctions.js";
 
-export const allTrainings = title => {
+export const boxappTrainingsTable = title => {
   let traningTable = createTable("table-hover table-striped", "trainings");
 
   let trainingsTitle = createTextElement(
@@ -15,7 +15,7 @@ export const allTrainings = title => {
   return { traningTable, trainingsTitle };
 };
 
-export const searchUsers = title => {
+export const boxappUsersTable = title => {
   let traningTable = createTable("table-hover table-striped", "users");
 
   let trainingsTitle = createTextElement(

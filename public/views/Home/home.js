@@ -1,7 +1,7 @@
 import {
   createTextElement,
   appendsCreateCol
-} from "../../../src/js/sivaFunctions.js";
+} from "../../../src/core/sivaFunctions.js";
 
 export const boxappHome = () => {
   let homeTitle = createTextElement(

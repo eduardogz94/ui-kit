@@ -157,7 +157,7 @@ const createTextElement = (element, css, text) => {
  * @param {Object} obj A string as the elements to look into the parent element(required).
  * @returns {} all the elements of the component.
  */
-const getElementObjects = (parent, obj) => {
+const getObjects = (parent, obj) => {
   return parent.querySelectorAll(`${obj}`);
 };
 
@@ -194,7 +194,7 @@ const addMultipleElements = (parent, ...elements) => {
  * @param {Int} quantity Representing the quantity of elements that will be appened(required).
  * @returns {HTMLElement} With all the new elements appened.
  */
-const createMultipleElements = (parent, element, quantity) => {
+const createElements = (parent, element, quantity) => {
   for (let i = 0; i &lt; quantity; i++) {
     const object = document.createElement(`${element}`);
     object.id = i;
@@ -249,12 +249,12 @@ const setElementProps = (element, props, keys) => {
         <li><a href="global.html#createCol">createCol</a></li>
         <li><a href="global.html#createInput">createInput</a></li>
         <li>
-          <a href="global.html#createMultipleElements"
-            >createMultipleElements</a
+          <a href="global.html#createElements"
+            >createElements</a
           >
         </li>
         <li><a href="global.html#createTextElement">createTextElement</a></li>
-        <li><a href="global.html#getElementObjects">getElementObjects</a></li>
+        <li><a href="global.html#getObjects">getObjects</a></li>
         <li><a href="global.html#sampleButtonColors">sampleButtonColors</a></li>
         <li>
           <a href="global.html#sampleButtonOutline">sampleButtonOutline</a>

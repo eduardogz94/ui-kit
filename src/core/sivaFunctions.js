@@ -36,13 +36,7 @@ export const emailValidator = (input, type) => {
  * @public
  * @return EgInput with the props passed.
  */
-export const createInput = (
-  control,
-  type,
-  id = null,
-  col = null,
-  ph = null
-) => {
+export const createInput = (control,type, id = null, col = null, ph = null) => {
   let newInput = new EgInput(control, type);
   if (id) newInput.id = id;
   if (col) newInput.col = col;
@@ -75,13 +69,7 @@ export const createCardText = (style, text) => {
  * @public
  * @return EgButton with the props passed.
  */
-export const createButton = (
-  type,
-  text = null,
-  id = null,
-  col = null,
-  offset = null
-) => {
+export const createButton = (type, text = null, id = null, col = null, offset = null) => {
   let newButton = new EgButton(type);
   if (col) newButton.col = col;
   if (text) newButton.innerText = text;
@@ -194,7 +182,7 @@ export const createIcon = (icon, size, css = null) => {
  */
 export const createTable = (css, id = null) => {
   let traningTable = new EgTable(css);
-  if (id) traningTable.id = null;
+  if (id) traningTable.id = id;
 
   return traningTable;
 };
